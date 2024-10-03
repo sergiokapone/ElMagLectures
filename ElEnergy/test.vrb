@@ -1,0 +1,4 @@
+\frametitle{Густини електричного заряду}\framesubtitle {}
+
+\input{tikz/dielectricInCapacitor.tikz}
+
