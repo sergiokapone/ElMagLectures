@@ -6,6 +6,7 @@
 \documentclass{beamer}
 \usetheme{Electromagnetism}
 \usepackage{Electromagnetism}
+\usetikzlibrary{spy}
 \hypersetup{
   colorlinks=true,
   linkcolor=cyan,  % Цвет для внутренних ссылок
@@ -23,6 +24,7 @@
 \date{}
 %============================================================================
 \graphicspath{{pictures/}}
+
 \begin{document}
 
 
@@ -101,11 +103,61 @@
 		\begin{equation*}
 			d\vect{F} = \frac1c \left[ \vect{j}dV \times \Bfield\right],
 		\end{equation*}
-		де $\vect{j} dV$ --- називається об'ємним \alert{елементом струму}, а добуток $Id\vect{\ell}$ --- лінійним елементом струму.
+		де $\vect{j} dV$ --- називається об'ємним \alert{елементом струму}.
 	\end{block}
 \end{frame}
 % ===========================================================================
 
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Елемент струму}{}
+	\begin{columns}
+		\begin{column}{0.3\linewidth}\centering
+			\begin{tikzpicture}[>=latex,
+					spy using outlines={circle, magnification=3, size=3.2cm, connect spies}
+				]
+				\draw[gray!60, line width=0.21cm] (0,0)  [partial ellipse=90:0:2];
+				\fill[gray!50, draw = gray!70] (0, 2) circle (0.05 and 0.1);
+				\fill[gray!50, rotate=-90, draw = gray!70] (0, 2) circle (0.05 and 0.1);
+
+				\draw[red!40, line width=0.21cm] (0,0) [partial ellipse=55:45:2];
+				\draw[{Latex[scale=0.5]}-{Latex[scale=0.5]}] (55:2.2)  arc(55:45:2.1) node[above=-1pt, sloped, pos=0.7, font=\tiny] {$d\ell$};
+				\fill[red!40, draw = red!60, rotate=-45] (0, 2) coordinate (S1) circle (0.05 and 0.1);
+				\fill[red!40, draw = red!60, rotate=-35] (0, 2)  circle (0.05 and 0.1);
+
+				\node[font=\tiny, right, inner sep=0] (S) at (42:2.2) {$S$};
+
+				\draw[{Latex[scale=0.3]}-, ultra thin] (S1) to[out=0] (S.west);
+
+				\draw[-{Latex[scale=0.5]}, teal] (55:2)  node[below=1pt, text=teal, font=\tiny] {$\vect{j}$} -- ++({55-90}:0.2);
+				\spy [gray] on (50:2.1)
+				in node [] at (1.5,4.5);
+			\end{tikzpicture}
+		\end{column}
+		\begin{column}{0.7\linewidth}
+			\begin{block}{}\justifying
+				Якщо в задачі не цікавляться
+				внутрішньою будовою провідника, та розподілом струму в його товщі, то можна ввести \alert{лінійний елемент струму}.
+			\end{block}
+			\begin{block}{}\justifying\footnotesize
+				Нехай струм тече провідником із площею поперечного перерізу $S$. Уведемо вектор ділянки провідника завдовжки $d\vect{\ell}$
+				за формулою $d\vect{\ell} = \vect{n}\ell$, де $\vect{n}$ --- одиничний вектор уздовж осі провідника. Тоді $\vect{j} = j\vect{n}$,
+				а $I = j S$ і вираз для об'ємного елемента струму можна переписати у вигляді:
+				\begin{equation*}
+					\vect{j}dV = j\vect{n} S d\ell  = I d\vect{\ell}.
+				\end{equation*}
+			\end{block}
+		\end{column}
+	\end{columns}
+	\begin{block}{}
+		Для лінійного елемента струму сила Ампера:
+		\begin{equation*}
+			d\vect{F} = \frac1c \left[ I d\vect{\ell} \times \Bfield\right].
+		\end{equation*}
+
+	\end{block}
+\end{frame}
+% ===========================================================================
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Зв'язок сили Лоренца та сили Ампера}{}
@@ -130,6 +182,110 @@
 		Закон Біо-Савара встановлено експериментально (1820 р.) шляхом аналізу експериментальних даних і \alert{визначає магнітне поле, що створюється
 			елементом струму}.
 	\end{block}
+	\begin{columns}
+		\begin{column}{0.4\linewidth}\centering
+			\begin{tikzpicture}[>=latex]
+				\draw[gray!60, line width=0.21cm] (0,0)  [partial ellipse=90:0:2];
+				\fill[gray!50, draw = gray!70] (0, 2) circle (0.05 and 0.1);
+				\fill[gray!50, rotate=-90, draw = gray!70] (0, 2) circle (0.05 and 0.1);
+
+
+				\foreach \n in {1,...,3} {
+				\draw[rotate = -40, blue!40] (0, 2) [partial ellipse={10-2*\n}:{350+2*\n}:{0.2*\n} and \n];
+				}
+
+				\node[circle, fill, inner sep=0.5pt] (P) at (3.04,3) {};
+				\node[below] at (P) {$P$};
+
+				\draw[red!40, line width=0.21cm] (0,0)  [partial ellipse=55:45:2];
+				\fill[red!40, draw = red!60, rotate=-45] (0, 2) circle (0.05 and 0.1);
+				\fill[red!40, draw = red!60, rotate=-35] (0, 2) circle (0.05 and 0.1);
+				\draw[-{Latex[scale=0.5]}] (55:2)  node[below=1pt] {$\vect{j}$} -- ++({55-90}:0.2);
+				\draw[-{Latex[scale=0.5]}] (50:2.1)  -- node[anchor=south east, inner sep=1pt] {$\vect{r}$} (P);
+				\draw[->, blue, thick] (P) -- ++(63:0.75) node[anchor=225, text=black] {$d\Bfield$};
+			\end{tikzpicture}
+		\end{column}
+		\begin{column}{0.6\linewidth}
+			\begin{block}{}\justifying
+				Якщо радіус-вектор точки спостереження відносно розглянутого елемента струму є $\vect{r}$, то поле,
+				створюване елементом струму $\vect{j} dV$, дорівнює
+				\begin{equation*}
+					\tcbhighmath{d\Bfield = \frac1c \frac{\left[ \vect{j}dV\times\vect{r}\right] }{r^3}.}
+				\end{equation*}
+			\end{block}
+		\end{column}
+	\end{columns}
+	\begin{alertblock}{}
+		Магнітне поле підкоряється принципу суперпозиції:
+		\(
+		\Bfield = \int d\Bfield.
+		\)
+	\end{alertblock}
+\end{frame}
+% ===========================================================================
+
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}[t]{Вектор-потенціал магнітного поля}{}
+	\begin{columns}
+		\begin{column}{0.35\linewidth}\centering
+			\begin{tikzpicture}[>=latex]
+				\draw[gray!60, line width=0.21cm] (0,0)  [partial ellipse=90:0:2];
+				\fill[gray!50, draw = gray!70] (0, 2) circle (0.05 and 0.1);
+				\fill[gray!50, rotate=-90, draw = gray!70] (0, 2) circle (0.05 and 0.1);
+
+				\node[circle, fill, inner sep=0.5pt] (P) at (2.5,3) {};
+				\node[right] at (P) {$P$};
+
+				\draw[red!40, line width=0.21cm] (0,0)  [partial ellipse=80:70:2];
+				\fill[red!40, draw = red!60, rotate=-10] (0, 2) circle (0.05 and 0.1);
+				\fill[red!40, draw = red!60, rotate=-20] (0, 2) circle (0.05 and 0.1);
+				\draw[-{Latex[scale=0.5]}] (80:2)  node[above=1pt] {$\vect{j}$} -- ++({80-90}:0.2);
+				\draw[->] (75:2.1)  -- (P) node[anchor=south east, inner sep=1pt, sloped, pos=0.8] {$\vect{r} - \vect{r}'$} ;
+				%                \draw[->, blue, thick] (P) -- ++(63:0.75) node[anchor=225, text=black] {$d\Bfield$};
+
+				\draw[->] (0, 0) -- ++(1, 0) node[below] {$y$};
+				\draw[->] (0, 0) -- ++(0, 1) node[left] {$z$};
+				\draw[->] (0, 0) -- ++(225:0.75) node[left] {$x$};
+				\draw[->] (0,0) -- node[anchor=west, inner sep=3pt] {$\vect{r}'$} (75:1.8);
+				\draw[->] (0,0) -- node[anchor=north, inner sep=3pt] {$\vect{r}$} (P);
+			\end{tikzpicture}
+		\end{column}
+		\begin{column}{0.65\linewidth}
+			\begin{block}{}
+				\begin{overprint}
+				\onslide<1>
+				\begin{equation*}
+					\tcbhighmath{d\Bfield(\vect{r}) = \frac1c \frac{ \vect{j}(\vect{r}')dV'\times(\vect{r} - \vect{r}') }{|\vect{r} - \vect{r}'|^3}}
+				\end{equation*}
+					Використаємо тотожність:
+					\begin{equation*}
+						\frac{ (\vect{r} - \vect{r}') }{|\vect{r} - \vect{r}'|^3} = - \vect{\nabla} \frac{ 1 }{|\vect{r} - \vect{r}'|},
+					\end{equation*}
+					у якому операція $\vect{\nabla}$ діє на координати $\vect{r}$.
+					\onslide<2>
+					\begin{equation*}
+						\tcbhighmath{\Bfield = \Rot\vect{A},}
+					\end{equation*}
+					Введений тут вектор $\vect{A}$ називається \alert{вектор-потенціалом}:
+					\begin{equation*}
+						\vect{A}(\vect{r}) = \frac1c \int\limits_{V'} \frac{\vect{j}(\vect{r}')}{|\vect{r} - \vect{r}'|} dV'
+					\end{equation*}
+				\end{overprint}
+			\end{block}
+		\end{column}
+	\end{columns}
+	\begin{onlyenv}<1>
+		\begin{block}{}\justifying
+			Використаємо рівність $\vect{a}\times\nabla{\phi} = - \Rot(\vect{a}\phi)$:
+			\begin{equation*}
+				\Bfield(\vect{r}) = - \int\limits_{V'} \frac1c \vect{j} (\vect{r}') dV' \times \vect{\nabla} \frac{ 1 }{|\vect{r} - \vect{r}'|} =
+				%
+				\Rot \frac1c \int\limits_{V'} \frac{\vect{j}}{|\vect{r} - \vect{r}'|} dV' = \Rot\vect{A}(\vect{r}),
+			\end{equation*}
+		\end{block}
+	\end{onlyenv}
 \end{frame}
 % ===========================================================================
 
