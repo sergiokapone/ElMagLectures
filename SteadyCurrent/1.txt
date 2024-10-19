@@ -1,6 +1,0 @@
-
-Number FriendlyName            SerialNumber MediaType CanPool OperationalStatus HealthStatus Usage            Size
------- ------------            ------------ --------- ------- ----------------- ------------ -----            ----
-1      WD Blue SA510 2.5 500GB 224903A011A1 SSD       False   OK                Healthy      Auto-Select 465.76 GB
-0      SSDPR-CX400-256-G2      GZ6037341    SSD       False   OK                Healthy      Auto-Select 238.47 GB
-
