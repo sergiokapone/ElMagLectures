@@ -1,3 +1,4 @@
+
 % !TeX program = lualatex
 % !TeX encoding = utf8
 % !TeX spellcheck = uk_UA
@@ -159,6 +160,13 @@
 \end{frame}
 % ===========================================================================
 
+
+
+
+
+
+
+
 % ============================== Слайд ## ===================================
 \begin{frame}{Зв'язок сили Лоренца та сили Ампера}{}
 	\begin{block}{}
@@ -225,6 +233,14 @@
 % ===========================================================================
 
 
+% ============================== Слайд ## ===================================
+\begin{frame}{Приклади застосування закону Біо-Савара-Лапласа}{}
+
+\end{frame}
+% ===========================================================================
+
+
+
 
 % ============================== Слайд ## ===================================
 \begin{frame}[t]{Вектор-потенціал магнітного поля}{}
@@ -255,13 +271,13 @@
 		\begin{column}{0.65\linewidth}
 			\begin{block}{}
 				\begin{overprint}
-				\onslide<1>
-				\begin{equation*}
-					\tcbhighmath{d\Bfield(\vect{r}) = \frac1c \frac{ \vect{j}(\vect{r}')dV'\times(\vect{r} - \vect{r}') }{|\vect{r} - \vect{r}'|^3}}
-				\end{equation*}
+					\onslide<1>
+					\begin{equation*}
+						\tcbhighmath{d\Bfield(\vect{r}) = \frac1c \frac{ \vect{j}(\vect{r}')dV'\times(\vect{r} - \vect{r}') }{|\vect{r} - \vect{r}'|^3}}
+					\end{equation*}
 					Використаємо тотожність:
 					\begin{equation*}
-						\frac{ (\vect{r} - \vect{r}') }{|\vect{r} - \vect{r}'|^3} = - \vect{\nabla} \frac{ 1 }{|\vect{r} - \vect{r}'|},
+						\frac{ (\vect{r} - \vect{r}') }{|\vect{r} - \vect{r}'|^3} = - \vect{\nabla}_{\vect{r}} \frac{ 1 }{|\vect{r} - \vect{r}'|},
 					\end{equation*}
 					у якому операція $\vect{\nabla}$ діє на координати $\vect{r}$.
 					\onslide<2>
@@ -286,6 +302,551 @@
 			\end{equation*}
 		\end{block}
 	\end{onlyenv}
+	\begin{onlyenv}<2>
+		\begin{block}{}\justifying\small
+			\alert{Вектор-потенціал вводиться при цьому неоднозначно}.
+			Векторні потенціали $\vect{A}$ і $\vect{A}' = \vect{A} + \grad f(\vect{r})$
+			призводять до одного й того ж магнітного поля $\Bfield$. Цією обставиною можна
+			скористатися для того, щоб накласти на $\vect{A}$ яке-небудь обмеження, Зручно накласти на $\vect{A}$ умову
+			\begin{equation*}
+				\Div\vect{A} = 0, \quad \text{\color{red}кулонівське калібрування}.
+			\end{equation*}\end{block}
+	\end{onlyenv}
+\end{frame}
+% ===========================================================================
+
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Теорема Гаусса для магнітного поля}{}
+	Маючи на увазі тотожність $\Div\Rot\vect{A} = 0$, з формули $\Bfield = \Rot\vect{A}$ отримуємо теорему Гауса в диференціальній формі:
+	\begin{equation*}
+		\tcbhighmath{\Div\Bfield = 0}
+	\end{equation*}
+	Застосовуючи теорему Остроградського-Гауса отримуємо теорему Гауса в інтегральній формі:
+	\begin{equation*}
+		\tcbhighmath{\oiint\limits_S \Bfield\cdot d\vect{S} = 0.}
+	\end{equation*}
+	\begin{alertblock}{}\justifying
+		Теорема Гауса стверджує, що немає вільних (незв'язаних) магнітних зарядів, на яких могли б починатися або закінчуватися силові лінії індукції
+		магнітного поля.
+	\end{alertblock}
+
+\end{frame}
+% ===========================================================================
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Теорема про циркуляцію магнітного поля у вакуумі}{}
+	\begin{block}{}
+		Знайдемо ротор вектора $\Bfield$:
+		\begin{equation*}
+			\Rot\Bfield = \Rot\Rot\vect{A} = \rot\vecdot{\grad}{\vect{A}}  = \grad\scdot{\grad}{\vect{A}} - \nabla^2\vect{A}
+			\stackrel{\color{red}\divg\vect{A}
+				= 0}{=}  - \nabla^2\vect{A}.
+		\end{equation*}
+	\end{block}
+	\begin{exampleblock}{\scriptsize Аналогія з рівнянням Пуассона з електростатики}\scriptsize
+		Рівняння Пуассона та його розв'язок:
+		\begin{equation*}
+			\nabla^2\phi= -4\pi\rho,\ \phi = \iiint\limits_{V'} \frac{\rho dV'}{|\vect{r} - \vect{r}'|}, \qquad
+			\nabla^2 \vect{A} = -\frac{4\pi}{c} \vect{j},\
+			\vect{A} = \frac1c\iiint\limits_{V'} \frac{\vect{j} dV'}{|\vect{r} - \vect{r}'|}
+		\end{equation*}
+		\begin{center}
+			\alert{Однакові рівняння мають однакові розв'язки!}
+		\end{center}
+	\end{exampleblock}
+	Теорема про циркуляцію для вектора $\Bfield$:
+	\begin{columns}\centering
+		\begin{column}{0.5\linewidth}
+			\begin{equation*}
+				\tcbhighmath{\Rot\Bfield = \frac{4\pi}c\vect{j}.}
+			\end{equation*}
+		\end{column}
+		\begin{column}{0.5\linewidth}
+			\begin{equation*}
+				\tcbhighmath{\oint\limits_{L}\Bfield\cdot d\vect{r} = \frac{4\pi}c \iint\limits_{S} \vect{j}\cdot d\vect{S}.}
+			\end{equation*}
+		\end{column}
+	\end{columns}
+\end{frame}
+% ===========================================================================
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Приклади на теорему про циркуляцію \No 1}{}
+	\begin{equation*}
+		\oint\limits_{L}\Bfield\cdot d\vect{r} = \frac{4\pi}c \sum_i I_i
+	\end{equation*}
+	\begin{overprint}
+		\onslide<1>
+		\begin{center}\small
+			\begin{tblr}%
+				{colspec={c|c}}
+				\tikz[>=latex]{
+				\node [] (0) at (0, -1) {};
+				\node [] (1) at (0, +1) {};
+				\draw[line width=2pt, gray, arrowpos={0.7}{4pt}{7pt}] [in=-45, out=120, looseness=1.25] (0.center) to (1.center);
+				\foreach \n in {1,...,4} {
+				\draw[blue!40, arrowpos={0.2}{0pt}{2pt}] (0, 0) [partial ellipse=90:430:{0.3*\n} and {0.05*\n}] ;
+				}
+				\draw[thin, green!50!black, arrowpos={0.2}{0pt}{2pt}] (0,0) [partial ellipse=90:440:{0.3*5} and {0.05*5}]
+				node[pos=0.2, above] {$L$};
+				}
+				 &
+				\tikz[>=latex]{
+				\node [] (0) at (0, -1) {};
+				\node [] (1) at (0, +1) {};
+				\draw[line width=2pt, gray, arrowpos={0.7}{4pt}{7pt}] [in=-45, out=120, looseness=1.25] (0.center) to (1.center);
+				\foreach \n in {1,...,4} {
+				\draw[blue!40, arrowpos={0.2}{0pt}{2pt}] (0, 0) [partial ellipse=90:430:{0.3*\n} and {0.05*\n}] ;
+				}
+				\draw[thin, green!50!black, arrowpos={0.2}{0pt}{2pt}] (-1,0) [partial ellipse=0:360:{0.3*2} and {0.05*2}]
+				node[pos=0.2, above] {$L$};
+				}
+				\\
+				$\oint\limits_L \Bfield\cdot d\vect{r} = \frac{4\pi}c I$
+				 &
+				$\oint\limits_L \Bfield\cdot d\vect{r} = 0$
+				\\\hline
+				\tikz[>=latex]{
+				\node [] (0) at (0, -1) {};
+				\node [] (1) at (0, +1) {};
+				\draw[line width=2pt, gray, arrowpos={0.7}{4pt}{7pt}] [in=-45, out=120, looseness=1.25] (0.center) to (1.center);
+				\draw[line width=2pt, gray, arrowpos={0.7}{4pt}{7pt}] [out=-45, in=120, looseness=1.25] ([xshift=0.5cm]1.center) to
+				([xshift=0.5cm]0.center);
+				\draw[thin, green!50!black, arrowpos={0.4}{0pt}{2pt}] (-0.5,0) [partial ellipse=0:360:{0.3*3} and {0.05*3}]
+				node[pos=0.4, above] {$L$};
+				}
+				 &
+				\tikz[>=latex]{
+				\node [] (0) at (0, -1) {};
+				\node [] (1) at (0, +1) {};
+				\draw[line width=2pt, gray, arrowpos={0.7}{4pt}{7pt}] [in=-45, out=120, looseness=1.25] (0.center) to (1.center);
+				\draw[line width=2pt, gray, arrowpos={0.7}{4pt}{7pt}] [out=-45, in=120, looseness=1.25] ([xshift=0.5cm]1.center) to
+				([xshift=0.5cm]0.center);
+				\draw[thin, green!50!black, arrowpos={0.4}{0pt}{2pt}] (-0.1,0) [partial ellipse=0:360:{0.3*3} and {0.05*3}]
+				node[pos=0.4, above] {$L$};
+				}  \\
+				$\oint\limits_L \Bfield\cdot d\vect{r} = \frac{4\pi}c I$
+				 &
+				$\oint\limits_L \Bfield\cdot d\vect{r} = \frac{4\pi}c (I + (-I)) = 0$
+				\\
+			\end{tblr}
+		\end{center}
+		\onslide<2>
+		\begin{tblr}{colspec={Q[c,m, 0.3\linewidth]|X[c,m]}}
+			Поле нескінченного провідника
+			 &
+			\tikz[>=latex, baseline]{
+			\node [] (0) at (0, -1) {};
+			\node [] (1) at (0, +1) {};
+			\draw[line width=2pt, gray, arrowpos={0.7}{4pt}{7pt}] (0.center) to (1.center);
+			\foreach \n in {1,...,4} {
+			\draw[blue!40, arrowpos={0.2}{0pt}{2pt}] (0, 0) [partial ellipse=100:435:{0.3*\n} and {0.05*\n}] ;
+			}
+			\draw[thin, green!50!black, arrowpos={0.2}{0pt}{2pt}] (0,0) [partial ellipse=100:435:{0.3*4} and {0.05*4}]
+			node[pos=0.2, above] {$L$};
+			}
+			$
+				B = \dfrac{2I}{c r}
+			$
+			\\\hline
+			Поле нескінченного соленоїда
+			 &
+			\tikz[>=latex, baseline]{
+			\foreach \y in {-1,-0.85,...,1} {
+			\draw[thin, gray, arrowpos={0.4}{0pt}{4pt}] (0,\y) [partial ellipse=100:450:{0.3*4} and {0.05*4}];
+			}
+			\draw [thin, green!50!black, arrowpos={0.6}{0pt}{4pt}] (0,-0.5) rectangle (2,0.5) node[pos=0.6, right] {$L$};
+			}
+			$
+				B = \frac{4\pi}c\frac{N}{l} I
+			$
+		\end{tblr}
+	\end{overprint}
+\end{frame}
+% ===========================================================================
+
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Приклади на теорему про циркуляцію \No 2}{}
+	\begin{equation*}
+		\oint\limits_{L}\Bfield\cdot d\vect{r} = \frac{4\pi}c \iint\limits_{S} \vect{j}\cdot d\vect{S}
+	\end{equation*}
+	\begin{center}\small
+		\begin{tblr}%
+			{colspec={Q[c,m, 0.3\linewidth]|X[l,m]}}
+			Поле всередині нескінченного циліндричного провідника
+			 &
+			\tikz[>=latex, baseline]{
+			\draw[gray!50, line width=1cm] (0, -1) -- (0,1);
+			\draw[] (-0.5, -1) -- (-0.5,1) (+0.5, -1) -- (+0.5,1) ;
+			\draw[fill=gray!50] (0,1) circle (0.5 and 0.1);
+			\draw[fill=gray!50] (0,-1) ++(-0.5,0) arc (180:360:0.5 and 0.1);
+			\draw[dotted] (0,-1) ++(+0.5,0) arc (0:180:0.5 and 0.1);
+			\draw[thin, green!50!black, arrowpos={0.1}{0pt}{2pt}, fill=green] (0,0) [partial ellipse=0:360:{0.3*1} and {0.05*1}]
+			node[pos=0.1, above] {$L$};
+			\draw[->] (0,-0.1) -- ++(0, 0.5) node[left] {$\vect{j}$};
+			\path  (0,0) [partial ellipse=0:360:{0.3*3} and {0.05*3}];
+			}
+			$
+				B = \dfrac{2\pi}c jr
+			$
+			\\\hline
+			Поле зовні нескінченного циліндричного провідника
+			 &
+			\tikz[>=latex, baseline]{
+			\draw[gray!50, line width=1cm] (0, -1) -- (0,1);
+			\draw[] (-0.5, -1) -- (-0.5,1) (+0.5, -1) -- (+0.5,1) ;
+			\draw[fill=gray!50] (0,1) circle (0.5 and 0.1);
+			\draw[fill=gray!50] (0,-1) ++(-0.5,0) arc (180:360:0.5 and 0.1);
+			\draw[dotted] (0,-1) ++(+0.5,0) arc (0:180:0.5 and 0.1);
+			\draw[thin, green!50!black, arrowpos={0.1}{0pt}{2pt}] (0,0) [partial ellipse=0:360:{0.3*3} and {0.05*3}]
+			node[pos=0.1, above] {$L$};
+
+			\fill[green] (0,0) [partial ellipse=0:360:{0.5} and {0.05}];
+
+			\draw[->] (0,-0.1) -- ++(0, 0.5) node[left] {$\vect{j}$};
+			}
+			$
+				B = \dfrac{2}{cr} j\pi R^2 = \dfrac{2I}{cr}
+			$
+		\end{tblr}
+	\end{center}
+
+\end{frame}
+% ===========================================================================
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Порівняння законів \\електро- та магнітостатики у вакуумі}{}\scriptsize
+
+	\begin{center}
+		Диференціальні теореми\\[1ex]
+
+		\begin{tblr}%
+			{
+			colspec={|Q[l,m, 1.6cm, bg=yellow! 10]|[1pt, white]Q[c,m, bg=red! 10]|Q[c,m, 1.5cm, font=\tiny]|[1pt, white]Q[c,m,
+			bg=blue! 10]|Q[c,m,1.5cm,
+			font=\tiny]|},
+			row{1}={c, fg=white, bg=cyan, font=\bfseries},
+			%hlines,
+			}
+			\hline
+			Теорема                & Електростатика           & Зміст                                & Магнітостатика                       & Зміст                          \\
+			\hline
+			Теорема Гаусса         & $\Div\Efield = 4\pi\rho$ & Джерелами поля є електричні заряди   & $\Div\Bfield = 0$                    & Джерел у магнітного поля немає \\
+			\hline
+			Теорема про циркуляцію & $\Rot\Efield = 0$        & Електростатичне поле є потенціальним & $\Rot\Bfield = \frac{4\pi}c\vect{j}$ & Магнітне поле є
+			вихровим. Вихором є струм.                                                                                                                                       \\
+			\hline
+		\end{tblr}
+	\end{center}
+
+	\begin{center}
+		Інтегральні теореми\\[1ex]
+
+		\begin{tblr}%
+			{
+			colspec={|Q[l,m, 1.6cm, bg=yellow! 10]|[1pt, white]Q[c,m, bg=red! 10, 4.08cm]|[1pt, white]Q[c,m, bg=blue! 10, 4.08cm]|},
+			row{1}={c, fg=white, bg=cyan, font=\bfseries},
+			%hlines,
+			}
+			\hline
+			Теорема                & Електростатика                                                            & Магнітостатика                                         \\
+			\hline
+			Теорема Гаусса         & $\oiint\limits_S \Efield\cdot d\vect{S} = 4\pi \iiint\limits_{V} \rho dV$ & $\oiint\limits_S\Bfield\cdot d\vect{S} = 0 $           \\
+			\hline
+			Теорема про циркуляцію & $ \oint\limits_L\Efield\cdot d\vect{r} = 0 $                              & $\oint\limits_{L}\Bfield\cdot d\vect{r} = \frac{4\pi}c
+				\iint\limits_{S}
+			\vect{j}\cdot d\vect{S} $                                                                                                                                   \\
+			\hline
+		\end{tblr}
+	\end{center}
+
+\end{frame}
+% ===========================================================================
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Магнітний момент}{}
+	\begin{alertblock}{}\centering
+		Моменту імпульсу $\vect{L} = \vect{r}\times(m\vect{v}) $ для руху мас є аналогом магнітного моменту для руху зарядів!
+	\end{alertblock}
+	\begin{tblr}{
+		colspec={X[c,m, mode=dmath]X[c,m, mode=dmath]},
+		row{1}={mode=text, font=\bfseries\small},
+		}
+		Момент імпульсу                                                           & Магнітний момент                                      \\
+		\tcbhighmath{\vect{L} = \iiint\limits_{V} \vect{r}\times\rho\vect{v}\ dV} & \tcbhighmath{\vect{p}_m = \frac1{2c}\iiint\limits_{V}
+			\vect{r}\times\rho\vect{v}\ dV}
+	\end{tblr}
+	\begin{block}{}\justifying\small
+		Оскільки густина струму $\vect{j} = \rho\vect{v}$, а $\vect{j} dV$ --- є елементом струму, то можна для різних випадків записати різні
+		варіації
+		формули магнітного моменту:
+	\end{block}
+	\begin{center}\scriptsize
+		\begin{tblr}{
+			colspec={Q[c,m, 0.4\linewidth]X[c,m, mode=dmath]},
+			row{1}={mode=text, font=\bfseries\small, fg=white, bg=cyan, font=\bfseries},
+			hlines,
+			vlines,
+			}
+			Випадок                          & Магнітний момент                                                       \\
+			Об'ємні струми                   & \vect{p}_m = \frac1{2c}\iiint\limits_{V} \vect{r}\times\vect{j} dV     \\
+			Лінійні замкнені постійні струми & \vect{p}_m = \frac{I}{2c}\oint\limits_{L}  \vect{r}\times d\vect{\ell} \\
+		\end{tblr}
+	\end{center}
+\end{frame}
+% ===========================================================================
+
+
+
+%% ============================== Слайд ## ===================================
+\begin{frame}{Магнітний момент колового витка}{}
+	\begin{center}
+		\begin{tblr}{colspec={Q[c, m, mode=dmath]X[c,m]}}
+			\vect{p}_m = \frac{I}{2c}\oint\limits_{L}  \vect{r}\times d\vect{\ell} = \frac1c I\pi R^2 \vect{n} =\frac1c I S \vect{n}
+			 &
+			\tikz[>=latex, baseline]{
+				\def\R{1.5}
+				\draw[thick, red, arrowpos={0.7}{4pt}{5pt}] (0,0) [partial ellipse =0:360:\R] node[pos=0.7, above] {$I$};
+				\draw[->] (0,0) -- node[below] {$\vect{r}$} (0:\R) coordinate (P);
+				\draw[->] (P) -- node[right] {$d\vect{\ell}$} ++(0, 0.5) coordinate (E);
+				\fill[red!30, opacity=0.5] (0,0) -- (P) -- (E) -- cycle;
+				\fill[blue] (0, 0) circle (2pt);
+				\draw[blue] (0, 0) circle (4pt);
+				\node[below, circle, inner sep=4pt, blue] at (0, 0) {$\vect{p}_m$};
+			}
+		\end{tblr}
+	\end{center}
+	\begin{tblr}{colspec={X[c,m]X[c,m]}}
+		\begin{tikzpicture}[baseline={(0,0)}]
+			\node[anchor=center,inner sep=0] at (0,0) {\includegraphics[]{corksckrew}};
+			\draw [thick, red, decoration={
+						markings,
+						mark=at position 0.5 with {\arrow{latex}}}, postaction={decorate}](0,0) [partial ellipse
+				=5:355:0.25 and 1];
+			\draw[blue, -latex, thick] (1.5, 0) -- ++(1, 0) node[right, black] {};
+%			\node[blue] at (0.5,1) {$N$};
+%			\node[red] at (-0.5,1) {$S$};
+		\end{tikzpicture}
+		 &
+		\begin{tikzpicture}[baseline={(0,0)}]
+			\draw [thick, red, decoration={
+						markings,
+						mark=at position 0.5 with {\arrow{latex}}}, postaction={decorate}](0,0) [ partial ellipse =0:360:0.25 and
+				1];
+			\draw[blue, -latex, thick] (0, 0) -- +(1, 0) node[right, black] {$\vec{p}_m$};
+%			\node[blue] at (0.5,1) {$N$};
+%			\node[red] at (-0.5,1) {$S$};
+		\end{tikzpicture}
+	\end{tblr}
+\end{frame}
+% ===========================================================================
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Магнітні та механічні моменти різних тіл}{}
+	\begin{block}{}\justifying
+		Відношення магнітного моменту зарядженого тіла, до його механічного моменту називається гіромагнітним відношенням:
+	\end{block}
+	\begin{tblr}{Q[c,m,mode=dmath]X[c, m]}
+		\tcbhighmath{\vect{p}_m = \gamma \vect{L}.}
+		                                                               &
+		\SetCell[r=2,c=1]{c, m}
+		\tikz[baseline, >=latex]{
+			\def\R{0.8}
+			\draw[ball color=red] (0,0) circle (\R);
+			\draw[->, thick, blue] (0, {\R+0.01}) -- ++(0, 0.5) node[above] {$\vect{\omega}$};
+			\draw[->] (0, {\R+0.25}) [partial ellipse=110:{360 + 70}:0.5 and 0.1];
+		}                                                                \\
+		\text{Для любих \alert{класичних} тіл}\ \gamma = \frac{Q}{2Mc} &
+	\end{tblr}
+	\begin{tblr}{
+		colspec={Q[c, m, 1.7cm]X[c,m, mode=dmath]X[c,m, mode=dmath]X[c,m, mode=dmath]},
+		row{1}={mode=text, font=\bfseries\small, fg=white, bg=cyan, font=\bfseries},
+		hlines,
+		vlines,
+		}
+		Тіло                      & Момент імпульсу                   & Магнітний момент         & Гіромагнітне відношення $\gamma$ \\
+		Куля                      & \vect{L} = \frac25mR^2\vect\omega & \vect{p}_m =
+		\frac1{5c}QR^2\vect\omega & \frac{Q}{2Mc}                                                                                   \\
+		Електрон                  & L = \frac12\hbar                  & p_m = \frac{e}{2mc}\hbar & -\frac{e}{m_ec}
+	\end{tblr}
+\end{frame}
+% ===========================================================================
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Вектор-потенціал на далеких відстанях}{}
+	\begin{columns}
+		\begin{column}{0.3\linewidth}
+			\begin{tikzpicture}[>=latex, scale=0.8, transform shape]
+				\draw[->] (0,0) -- ++(1, 0) node[below] {$y$};
+				\draw[->] (0,0) -- ++(0, 1) node[left] {$z$};
+				\draw[->] (0,0) -- ++({180+45}:0.65) node[below] {$x$};
+
+				\node[circle, inner sep=1pt, ball color=red] (i1) at (1, 1.25) {};
+				\node[circle, inner sep=0.5, fill] (P) at (2.5, 1.5) {};
+				\node[right] at (P) {$\vect{A}(\vect{r})$};
+
+				\draw[->, red] (0,0) -- node[above, text=black] {$\vect{r}_i$} (i1);
+				\draw[->] (0,0) -- node[below] {$\vect{r}$} (P);
+				\draw[->, blue] (i1) -- node[above, sloped] {$\vect{r} - \vect{r}_i$} (P);
+			\end{tikzpicture}
+		\end{column}
+		\begin{column}{0.7\linewidth}
+			Магнітний момент системи тіл:
+			\begin{equation*}
+				\vect{A} = \frac1c \sum_i \frac{q_i\vect{v_i}}{|\vect{r} - \vect{r}_i|}
+			\end{equation*}
+		\end{column}
+	\end{columns}
+	\begin{overprint}
+		\onslide<1>
+		\begin{block}{}
+			На далеких відстанях $r_i \ll r$ наближено
+			\(
+			\frac{1}{|\vect{r} - \vect{r}_i|} \approx \frac1r \left(1 + \frac{\vect{r}\ \vect{r}_i}{r^2}\right).
+			\)
+		\end{block}
+		\begin{alertblock}{}\justifying\small
+			Для стаціонарних рухів, які відбуваються в малих областях, можна зробити усереднення вектор-потенціалу, при цьому
+			$\overline{\frac{d}{dt}\ldots}
+				=
+				0$.
+		\end{alertblock}
+		\begin{equation*}
+			\overline{\vect{A}} = \frac1{cr^3} \sum_iq_i\overline{v_i(\vect{r}\ \vect{r}_i)}
+		\end{equation*}
+		\begin{center}\footnotesize
+			\begin{equation*}
+				v_i(\vect{r}\ \vect{r}_i) = \frac12\left[v_i(\vect{r}\ \vect{r}_i) - \vect{r}_i(\vect{r}\ \vect{v}_i)\right] +
+				\frac12\left[v_i(\vect{r}\
+					\vect{r}_i) + \vect{r}_i(\vect{r}\ \vect{v}_i)\right]
+				= \frac12 \vect{r}\times\vect{v}_i\times\vect{r}_i + \frac12\frac{d}{dt}\left(\vect{r}_i(\vect{r}\ \vect{r}_i)\right).
+			\end{equation*}
+		\end{center}
+		\onslide<2>
+		\begin{equation*}
+			\overline{\vect{A}} =  \frac1{r^3}  \left(\frac1{2c} \sum_i \vect{r}_i\times (q_i\vect{v}_i)\right)\times\vect{r} =
+			\frac{\vect{p}_m\times\vect{r}}{r^3} .
+		\end{equation*}
+		Магнітне поле знаходиться за формулою $\Bfield = \Rot\vect{A}$:
+		{\scriptsize%
+		\begin{align*}
+			\Rot\vecdot{\vect{A}}{\vect{B}}                                 & = \scdot{\vect{B}}{\grad}\vect{A} - \scdot{\vect{A}}{\grad}\vect{B}
+			+ 	\vect{A}\Div\vect{B} -
+			\vect{B}\Div\vect{A}
+			\\
+			\Bfield = \Rot\left(\vect{p}_m\times\frac{\vect{r}}{r^3}\right) &
+			=
+			%\cancelto{0}{\vect{p}_m\Div\frac{\vect{r}}{r^3}}
+			-\scdot{\vect{p}_m}{\grad}\frac{\vect{r}}{r^3} = \frac{3\scdot{\vect{p}_m}{\vect{r}}\vect{r}}{r^5} - \frac{\vect{p}_m}{r^3}.
+		\end{align*}
+		}
+		\begin{equation*}
+			\Bfield = \frac{3\scdot{\vect{p}_m}{\vect{r}}\vect{r}}{r^5} - \frac{\vect{p}_m}{r^3}.
+		\end{equation*}
+	\end{overprint}
+\end{frame}
+% ===========================================================================
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Детальние виведення}{}
+\thispagestyle{empty}
+\includegraphics[width=\linewidth]{BrotA}
+\end{frame}
+% ===========================================================================
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Магнітний диполь}{}
+\framesubtitle<1>{Полюса магніту}
+	\begin{onlyenv}<1>
+        \begin{block}{}
+            Отримана формула збігається за виглядом із формулою для електричного поля точкового електричного диполя.
+       		\begin{equation*}
+    			\tcbhighmath{\Bfield = \frac{3\scdot{\vect{p}_m}{\vect{r}}\vect{r}}{r^5} - \frac{\vect{p}_m}{r^3}.}
+    		\end{equation*}
+        \end{block}
+		\begin{columns}
+			\begin{column}{0.7\linewidth}
+				\begin{block}{}\justifying
+					Це означає, що точковий
+					магнітний момент можна розглядати формально як точковий диполь, складений з \alert{\emph{ефективних магнітних зарядів}}:
+					\begin{center}
+                        \textcolor{red}{$N$} (\textcolor{red}{північного}) та \textcolor{blue}{$S$} (\textcolor{blue}{південного}).
+                    \end{center}
+				\end{block}
+			\end{column}
+			\begin{column}{0.3\linewidth}\centering
+				\includegraphics[width=\linewidth]{magdipole}
+			\end{column}
+		\end{columns}
+	\end{onlyenv}
+\framesubtitle<2>{Порівняння електричного та магнітного диполів}
+	\begin{onlyenv}<2>
+		\begin{center}\small
+			\begin{tblr}%
+				{
+				colspec={Q[l,m]X[c,m,bg=red! 10]X[c,m, bg=blue! 10]},
+				cell{1}{2,3} = {fg=white, bg=cyan, font=\bfseries},
+				cell{2,3}{1} = {bg=yellow!10, font=\bfseries},
+						hlines,
+						vlines,
+					}
+				          & Електричний диполь                                                                        & Магнітний
+				диполь                                                                                                              \\
+				%			Означення & $\vect{p}_e = \iiint\limits_V \rho dV$                                                  & $\vect{p}_m =
+				%\frac1{2c}
+				%\iiint\limits_V \vect{r}\times \rho\vect{v}\ dV$ \\
+				Потенціал & $\phi = \dfrac{\vect{p}_e\cdot\vect{r}}{r^3}$                                             & $\vect{A} =
+				\dfrac{\vect{p}_m\times\vect{r}}{r^3}$                                                                              \\
+				Поле      & $\Efield = \dfrac{3\scdot{\vect{p}_e}{\vect{r}}\vect{r}}{r^5} - \dfrac{\vect{p}_e}{r^3} $ & $\Bfield =
+					\dfrac{3\scdot{\vect{p}_m}{\vect{r}}\vect{r}}{r^5} -
+				\dfrac{\vect{p}_m}{r^3}$                                                                                            \\
+			\end{tblr}
+		\end{center}
+\begin{columns}
+			\begin{column}{0.7\linewidth}
+				\begin{block}{}\justifying\small
+					Позначаючи величину ефективного магнітного заряду $q_m$ і плече магнітного диполя $\vect{\ell}$, дипольний момент ефективного
+					магнітного
+					диполя можна
+					записати як
+					\(
+					\vect{p}_m = q_m \vect{\ell}.
+					\)
+					Якщо не розглядати поле усередині такого магнітного диполя, то воно усюди буде таким самим, як і поле системи струмів із магнітним
+					моментом
+					$\vect{p}_m$.
+				\end{block}
+			\end{column}
+			\begin{column}{0.3\linewidth}\centering
+				\begin{tikzpicture}[>=latex]
+					\def\t{0.2}
+					\def\h{1.2}
+					\draw[->, blue, thick] (0, {-(\h+0.3)}) -- (0, {\h+0.3}) node[above] {$\vect{p}_m$};
+					\fill[blue!50] (0, -\h) --  (-\t, 0) -- (\t, 0) -- cycle;
+					\fill[red!50] (-\t, 0) -- (0, \h) -- (\t, 0) -- cycle;
+%                    \draw[->, ultra thin, white] (0, {-\h}) -- (0, \h);
+				\end{tikzpicture}
+			\end{column}
+		\end{columns}
+	\end{onlyenv}
+\end{frame}
+% ===========================================================================
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Потенціальна енергія диполя та сила, що діє на диполь}{}
+
 \end{frame}
 % ===========================================================================
 
