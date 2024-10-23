@@ -42,18 +42,65 @@
 \end{frame}
 % ===========================================================================
 
+
+
+%% --------------------------------------------------------
+\section{Означення}
+%% --------------------------------------------------------
+
+
+
 % ============================== Слайд ## ===================================
 \begin{frame}{Означення}{}
-	\begin{block}{}\justifying
+\begin{block}{}\justifying\small
+    \href{https://www.youtube.com/watch?v=qS361iadCPA}{Дослід Ерстеда}, проведений 1820 року Ерстедом --- є першим експериментальним доказом впливу
+    електричного струму на магніт (магнітну стрілку).
+\end{block}
+\begin{block}{}\justifying
 		\alert{Магнітним полем} називається силове поле, що \alert{діє на рухомі заряди} і як наслідок --- на електричні струми  і на тіла, які мають
 		магнітний  момент.
-
-		\bigskip
-
+\end{block}
+\begin{block}{}\justifying
 		Магнітне поле створюється рухомими зарядами (електричним струмом). Незмінні в часі струми створюють постійні магнітні поля.
-	\end{block}
+\end{block}
+\begin{columns}
+	\begin{column}{0.5\linewidth}\centering
+\begin{tikzpicture}[>=latex, scale=0.9, transform shape]
+    \def\R{0.2}
+    \draw[ball color=red!60] (0,0) circle (\R);
+    \foreach \a in {20,40,...,340} {
+        \draw[->, red] (0, 0) ++(\a:\R) -- (\a:1.5);
+    }
+    \draw[->, thick] (\R, 0) -- ++(2, 0) node[below] {$\vect{v}$};
+    \draw[arrowpos={0.6}{2pt}{5pt}, blue, thick] (0,0) [partial ellipse=15:345:{0.3*0.5} and {1*0.5}];
+    \draw[arrowpos={0.6}{2pt}{5pt}, blue, thick] (0,0) [partial ellipse=1:359:0.3 and 1];
+    \draw[arrowpos={0.6}{2pt}{5pt}, blue, thick] (0,0) [partial ellipse=1:359:{0.3*1.5} and {1*1.5}];
+
+    \foreach \c in {-1.5, +1.5}{
+        \foreach \a in {0.2, 0.5, 1}{
+            \draw[arrowpos={0.6}{2pt}{5pt}, blue, thick] (\c,0) [partial ellipse=1:359:{0.3*\a} and {1*\a}];
+        }
+    }
+\end{tikzpicture}
+	\end{column}
+	\begin{column}{0.5\linewidth}
+         \includegraphics[width=0.9\linewidth]{OerstedExperiment}
+	\end{column}
+\end{columns}
+		\tikz[remember picture,overlay] \node[opacity=0.5,inner sep=0pt,
+			anchor=north west] at (current page.north
+		west){\includegraphics[width=2cm]{Ersted}};
 \end{frame}
 % ===========================================================================
+
+
+
+
+%% --------------------------------------------------------
+\section{Характеристика магнітного поля}
+%% --------------------------------------------------------
+
+
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Характеристика магнітного поля}{}\small
@@ -87,6 +134,14 @@
 \end{frame}
 % ===========================================================================
 
+
+
+%% --------------------------------------------------------
+\section{Дія магнітного поля на заряджені частинки та сруми}
+%% --------------------------------------------------------
+
+
+
 % ============================== Слайд ## ===================================
 \begin{frame}{Сила Лоренца та сила Ампера}{}
 	\begin{block}{}
@@ -108,6 +163,8 @@
 	\end{block}
 \end{frame}
 % ===========================================================================
+
+
 
 
 % ============================== Слайд ## ===================================
@@ -161,26 +218,32 @@
 % ===========================================================================
 
 
-
-
-
-
-
-
 % ============================== Слайд ## ===================================
 \begin{frame}{Зв'язок сили Лоренца та сили Ампера}{}
 	\begin{block}{}
 		Сила Лоренца, що діє на заряд $dq$, дорівнює
 		\begin{equation*}
-			\vect{F} = \left[\frac{dq \vect{v}}{c}\times\Bfield\right].
+			d\vect{F} = \left[\frac{dq \vect{v}}{c}\times\Bfield\right].
 		\end{equation*}
 		Оскільки $dq \vect{v} = \rho \vect{v} dV = \vect{j} dV$, то одразу отримуємо силу Ампера, що діє на об'ємний елемент струму:
 		\begin{equation*}
 			d\vect{F} = \frac1c \left[ \vect{j}dV \times \Bfield\right].
 		\end{equation*}
+		Для рухомого заряду $q$, що рухається з швидкістю $\vect{v}$ --- \alert{елементом струму струму є $q\vect{v}$}.
 	\end{block}
+\begin{center}
+\includegraphics[width=2.2cm]{LeftHandRule}
+\end{center}
 \end{frame}
 % ===========================================================================
+
+
+
+
+
+%% --------------------------------------------------------
+\section{Закон Біо-Савара-Лапласа}
+%% --------------------------------------------------------
 
 
 
@@ -208,17 +271,26 @@
 				\draw[red!40, line width=0.21cm] (0,0)  [partial ellipse=55:45:2];
 				\fill[red!40, draw = red!60, rotate=-45] (0, 2) circle (0.05 and 0.1);
 				\fill[red!40, draw = red!60, rotate=-35] (0, 2) circle (0.05 and 0.1);
-				\draw[-{Latex[scale=0.5]}] (55:2)  node[below=1pt] {$\vect{j}$} -- ++({55-90}:0.2);
-				\draw[-{Latex[scale=0.5]}] (50:2.1)  -- node[anchor=south east, inner sep=1pt] {$\vect{r}$} (P);
+				\draw[-{Latex[scale=0.5]}] (55:2)  node[below=1pt] {$\vect{j}dV'$} -- ++({55-90}:0.2);
+				\draw[-{Latex[scale=0.5]}] (50:2.1)  -- node[anchor=south, inner sep=1pt, sloped] {$\vect{\mathcal{r}}$} (P);
 				\draw[->, blue, thick] (P) -- ++(63:0.75) node[anchor=225, text=black] {$d\Bfield$};
+
+				%                \begin{scope}[opacity=0.5]
+				%                    \coordinate (O) at (1.0, -0.5);
+				%                    \draw[->, gray] (O) -- ++(1, 0);
+				%    				\draw[->, gray] (O) -- ++(0, 1) ;
+				%    				\draw[->, gray] (O) -- ++(225:0.75);
+				%    				\draw[->, gray] (O) -- node[anchor=east, inner sep=3pt] {$\vect{r}'$} (50:1.9);
+				%    				\draw[->, gray] (O) -- node[anchor=north, inner sep=3pt] {$\vect{r}$} (P);
+				%                \end{scope}
 			\end{tikzpicture}
 		\end{column}
 		\begin{column}{0.6\linewidth}
 			\begin{block}{}\justifying
-				Якщо радіус-вектор точки спостереження відносно розглянутого елемента струму є $\vect{r}$, то поле,
-				створюване елементом струму $\vect{j} dV$, дорівнює
+				Якщо радіус-вектор точки спостереження відносно розглянутого елемента струму є $\vect{\mathcal{r}}$, то поле,
+				створюване елементом струму $\vect{j} dV'$, дорівнює
 				\begin{equation*}
-					\tcbhighmath{d\Bfield = \frac1c \frac{\left[ \vect{j}dV\times\vect{r}\right] }{r^3}.}
+					\tcbhighmath{d\Bfield = \frac1c \frac{\left[ \vect{j}dV'\times\vect{\mathcal{r}}\right] }{\mathcal{r}^3}.}
 				\end{equation*}
 			\end{block}
 		\end{column}
@@ -232,27 +304,111 @@
 \end{frame}
 % ===========================================================================
 
+% ============================== Слайд ## ===================================
+\begin{frame}{Відносність величини магнітного поля}{}
+	\begin{columns}
+		\begin{column}{0.5\linewidth}
+			\includegraphics[width=0.85\linewidth]{MagFieldRelativity}
+		\end{column}
+		\begin{column}{0.5\linewidth}
+			\includegraphics[width=0.85\linewidth]{MagFieldRelativity2}
+		\end{column}
+	\end{columns}
+	\begin{block}{}
+		Магнітного поля навколо заряду відносно спостерігача $A$ немає. Відносно спостерігача $B$ буде магнітне поле:
+		\begin{equation*}
+			\Bfield = \frac1c \frac{q\vect{v}\times\vect{\mathcal{r}}}{\mathcal{r}^3} =
+			\frac{\vect{v}}{c}\times\frac{q\vect{\mathcal{r}}}{\mathcal{r}^3} = \frac{\vect{v}}{c}\times\Efield.
+		\end{equation*}
+	\end{block}
+\begin{alertblock}{}\centering
+    Електричне і магнітне поле --- є прояв єдиного цілого, яке можна назвати \alert{електромагнітним полем}.
+\end{alertblock}
+\end{frame}
+% ===========================================================================
+
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Приклади застосування закону Біо-Савара-Лапласа}{}
+\begin{frame}{Приклади застосування закону Біо-Савара-Лапласа}{}\scriptsize
+	%=========================================================
+	\begin{exampleblock}{\scriptsize Задача 1}\label{prb:inf_wire}\justifying
+		Визначити магнітне поле на відстані $r$ від нескінченно довгого провідника зі струмом $I$.
+	\end{exampleblock}
+
+	%=========================================================
+	\begin{exampleblock}{\scriptsize Задача 2}\justifying
+		Визначте магнітне поле в точці $P$ на відстані $r$ від короткого провідника зі струмом. Положення точки $P$ визначається кутами $\alpha_1$ та
+		$\alpha_2$.
+	\end{exampleblock}
+
+	\begin{columns}
+		\begin{column}{0.5\linewidth}\centering
+			\begin{tikzpicture}[scale=0.75, transform shape]
+				\draw[arrowpos={0.2}{0pt}{5pt}, line width=1pt, gray] (0, 0)  to  +(0, 4) coordinate (B);
+				\draw[densely dotted, line width=1pt, gray] (B) -- +(0,0.5) (0,0) -- +(0,-0.5);
+				\draw[blue!40, arrowpos={0.5}{0pt}{5pt}] (0, 1.75) [partial ellipse=110:{360+70}:{1.5} and 0.2];
+				\draw[-latex] (0, 1.75) -- node [below] {$\vect{r}$} ++(1.5, 0);
+			\end{tikzpicture}
+		\end{column}
+		\begin{column}{0.5\linewidth}\centering
+			\begin{tikzpicture}[scale=0.75, transform shape]
+				\draw[arrowpos={0.2}{0pt}{5pt}, line width=1pt, gray] (0,0) --  +(0,4) coordinate (B) node[contact] {};
+				\draw[densely dotted, line width=1pt, gray] (B) -- +(0,1) (0,0) -- +(0,-1);
+				\draw[blue!40, arrowpos={0.5}{0pt}{5pt}] (0, 1.75) [partial ellipse=110:{360+70}:{1.5} and 0.2];
+				\draw[-latex] (0, 1.75) -- node [below]  {$\vect{r}$} ++(1.5, 0) coordinate (P);
+				\draw (0, 0) -- (P);
+				\draw (0, 0) ++(0, 0.2) arc (90:{90-atan(1.5/1.75)}:0.2) node[pos=1, anchor=west] {$\alpha_1$};
+
+				\draw (B) -- (P);
+				\draw (B) ++(0, 0.5) arc (90:{-90+atan(1.5/2.25)}:0.5) node[pos=0.5, anchor=west] {$\alpha_2$};
+			\end{tikzpicture}
+		\end{column}
+	\end{columns}
+
+
 
 \end{frame}
 % ===========================================================================
 
 
+% ============================== Слайд ## ===================================
+\begin{frame}{Взаємодія струмі}{Досліди Ампера}
+\begin{block}{}\justifying
+У 1820 р. А. Ампером було встановлено закон, що визначає силу, яка діє на елемент струму в магнітному полі. Оскільки створити відокремлений елемент
+не можна, то Ампер вивчав вплив паралельних дротів один на одного та поведінку дротяних замкнутих контурів різної форми в магнітному полі.
+\end{block}
+		\tikz[remember picture,overlay] \node[opacity=0.5,inner sep=0pt,
+			anchor=north west] at (current page.north
+		west){\includegraphics[width=2cm]{Ampere}};
+\begin{columns}
+	\begin{column}{0.5\linewidth}\centering
+         \includegraphics[width=\linewidth]{AmpereForce1}
+	\end{column}
+	\begin{column}{0.5\linewidth}\centering
+         \includegraphics[width=\linewidth]{AmpereForce2}
+	\end{column}
+\end{columns}
+\end{frame}
+% ===========================================================================
+
+%% --------------------------------------------------------
+\section{Вектор-потенціал магнітного поля}
+%% --------------------------------------------------------
 
 
 % ============================== Слайд ## ===================================
 \begin{frame}[t]{Вектор-потенціал магнітного поля}{}
+	\framesubtitle<1>{Введення поняття}
+	\framesubtitle<2>{Калібруванні вектор-потенціалу}
 	\begin{columns}
-		\begin{column}{0.35\linewidth}\centering
+		\begin{column}{0.3\linewidth}\centering
 			\begin{tikzpicture}[>=latex]
 				\draw[gray!60, line width=0.21cm] (0,0)  [partial ellipse=90:0:2];
 				\fill[gray!50, draw = gray!70] (0, 2) circle (0.05 and 0.1);
 				\fill[gray!50, rotate=-90, draw = gray!70] (0, 2) circle (0.05 and 0.1);
 
 				\node[circle, fill, inner sep=0.5pt] (P) at (2.5,3) {};
-				\node[right] at (P) {$P$};
+				\node[above] at (P) {$P$};
 
 				\draw[red!40, line width=0.21cm] (0,0)  [partial ellipse=80:70:2];
 				\fill[red!40, draw = red!60, rotate=-10] (0, 2) circle (0.05 and 0.1);
@@ -268,52 +424,69 @@
 				\draw[->] (0,0) -- node[anchor=north, inner sep=3pt] {$\vect{r}$} (P);
 			\end{tikzpicture}
 		\end{column}
-		\begin{column}{0.65\linewidth}
-			\begin{block}{}
-				\begin{overprint}
-					\onslide<1>
+		\begin{column}{0.7\linewidth}
+			\begin{overprint}
+				\onslide<1>
+				\begin{block}{}
+					Закон Біо-Савара-Лапласа
 					\begin{equation*}
-						\tcbhighmath{d\Bfield(\vect{r}) = \frac1c \frac{ \vect{j}(\vect{r}')dV'\times(\vect{r} - \vect{r}') }{|\vect{r} - \vect{r}'|^3}}
+						\Bfield(\vect{r}) = \iiint\limits_{V'} \frac1c \frac{ \vect{j}(\vect{r}')dV'\times(\vect{r} - \vect{r}') }{|\vect{r} -
+							\vect{r}'|^3}
 					\end{equation*}
+					{\scriptsize
 					Використаємо тотожність:
-					\begin{equation*}
-						\frac{ (\vect{r} - \vect{r}') }{|\vect{r} - \vect{r}'|^3} = - \vect{\nabla}_{\vect{r}} \frac{ 1 }{|\vect{r} - \vect{r}'|},
-					\end{equation*}
-					у якому операція $\vect{\nabla}$ діє на координати $\vect{r}$.
-					\onslide<2>
+					\(
+					\frac{ (\vect{r} - \vect{r}') }{|\vect{r} - \vect{r}'|^3} = - \vect{\nabla}_{\vect{r}} \frac{ 1 }{|\vect{r} - \vect{r}'|},
+					\)
+					у якому операція $\vect{\nabla}$ діє на координати $\vect{r}$, а також рівність
+					$\Rot(\phi\vect{C}) = \phi\Rot\vect{C} + \vecdot{\grad\phi}{\vect{C}} $:}
+				\end{block}
+				\onslide<2>
+				\begin{block}{}
 					\begin{equation*}
 						\tcbhighmath{\Bfield = \Rot\vect{A},}
 					\end{equation*}
 					Введений тут вектор $\vect{A}$ називається \alert{вектор-потенціалом}:
 					\begin{equation*}
-						\vect{A}(\vect{r}) = \frac1c \int\limits_{V'} \frac{\vect{j}(\vect{r}')}{|\vect{r} - \vect{r}'|} dV'
+						\vect{A}(\vect{r}) = \frac1c \int\limits_{V'} \frac{\vect{j}(\vect{r}')}{|\vect{r} - \vect{r}'|} dV',
+						\
+						\vect{A}(\vect{r}) = \frac1c \sum\limits_i \frac{q_i\vect{v}_i}{|\vect{r} - \vect{r}_i|}
 					\end{equation*}
-				\end{overprint}
-			\end{block}
+				\end{block}
+			\end{overprint}
 		\end{column}
 	\end{columns}
-	\begin{onlyenv}<1>
-		\begin{block}{}\justifying
-			Використаємо рівність $\vect{a}\times\nabla{\phi} = - \Rot(\vect{a}\phi)$:
+	\begin{overprint}
+		\onslide<1>
+		\begin{block}{}
 			\begin{equation*}
-				\Bfield(\vect{r}) = - \int\limits_{V'} \frac1c \vect{j} (\vect{r}') dV' \times \vect{\nabla} \frac{ 1 }{|\vect{r} - \vect{r}'|} =
+				\Bfield(\vect{r}) =\int\limits_{V'} \frac1c \vect{\nabla} \frac{ 1 }{|\vect{r} - \vect{r}'|}\times\vect{j} (\vect{r}') dV'  =
 				%
-				\Rot \frac1c \int\limits_{V'} \frac{\vect{j}}{|\vect{r} - \vect{r}'|} dV' = \Rot\vect{A}(\vect{r}),
+				\Rot \frac1c \int\limits_{V'} \frac{\vect{j}dV'}{|\vect{r} - \vect{r}'|}  = \Rot\vect{A}(\vect{r}),
+			\end{equation*}
+			\begin{equation*}
+				\Bfield(\vect{r}) = \Rot\vect{A}(\vect{r}).
 			\end{equation*}
 		\end{block}
-	\end{onlyenv}
-	\begin{onlyenv}<2>
+		\onslide<2>
 		\begin{block}{}\justifying\small
 			\alert{Вектор-потенціал вводиться при цьому неоднозначно}.
 			Векторні потенціали $\vect{A}$ і $\vect{A}' = \vect{A} + \grad f(\vect{r})$
 			призводять до одного й того ж магнітного поля $\Bfield$. Цією обставиною можна
 			скористатися для того, щоб накласти на $\vect{A}$ яке-небудь обмеження, Зручно накласти на $\vect{A}$ умову
 			\begin{equation*}
-				\Div\vect{A} = 0, \quad \text{\color{red}кулонівське калібрування}.
-			\end{equation*}\end{block}
-	\end{onlyenv}
+				\tcbhighmath{\Div\vect{A} = 0,} \quad \text{\color{red}кулонівське калібрування}.
+			\end{equation*}
+		\end{block}
+	\end{overprint}
 \end{frame}
 % ===========================================================================
+
+
+%% --------------------------------------------------------
+\section{Теореми магнітостатики}
+%% --------------------------------------------------------
+
 
 
 
@@ -536,12 +709,15 @@
 			%hlines,
 			}
 			\hline
-			Теорема                & Електростатика           & Зміст                                & Магнітостатика                       & Зміст                          \\
+			Теорема                    & Електростатика                  & Зміст                                  & Магнітостатика                       &
+			Зміст                                                                                                                                                                         \\
 			\hline
-			Теорема Гаусса         & $\Div\Efield = 4\pi\rho$ & Джерелами поля є електричні заряди   & $\Div\Bfield = 0$                    & Джерел у магнітного поля немає \\
+			Зв'язок потенціалу та поля & $\Efield = -\grad\phi$          & Скалярний потенціал, поле потенціальне & $\Bfield  = \rot\vect{A}$
+			                           & Вектор-потенціал. Поле вихрове.                                                                                                                  \\\hline
+			Теорема Гаусса             & $\Div\Efield = 4\pi\rho$        & Джерелами поля є електричні заряди     & $\Div\Bfield = 0$                    & Джерел у магнітного поля немає \\
 			\hline
-			Теорема про циркуляцію & $\Rot\Efield = 0$        & Електростатичне поле є потенціальним & $\Rot\Bfield = \frac{4\pi}c\vect{j}$ & Магнітне поле є
-			вихровим. Вихором є струм.                                                                                                                                       \\
+			Теорема про циркуляцію     & $\Rot\Efield = 0$               & Електростатичне поле є потенціальним   & $\Rot\Bfield = \frac{4\pi}c\vect{j}$ & Магнітне поле є
+			вихровим. Вихором є струм.                                                                                                                                                    \\
 			\hline
 		\end{tblr}
 	\end{center}
@@ -556,7 +732,8 @@
 			%hlines,
 			}
 			\hline
-			Теорема                & Електростатика                                                            & Магнітостатика                                         \\
+			Теорема                & Електростатика                                                            &
+			Магнітостатика                                                                                                                                              \\
 			\hline
 			Теорема Гаусса         & $\oiint\limits_S \Efield\cdot d\vect{S} = 4\pi \iiint\limits_{V} \rho dV$ & $\oiint\limits_S\Bfield\cdot d\vect{S} = 0 $           \\
 			\hline
@@ -569,6 +746,13 @@
 
 \end{frame}
 % ===========================================================================
+
+
+
+%% --------------------------------------------------------
+\section{Магнітний момент}
+%% --------------------------------------------------------
+
 
 
 % ============================== Слайд ## ===================================
@@ -632,8 +816,8 @@
 						mark=at position 0.5 with {\arrow{latex}}}, postaction={decorate}](0,0) [partial ellipse
 				=5:355:0.25 and 1];
 			\draw[blue, -latex, thick] (1.5, 0) -- ++(1, 0) node[right, black] {};
-%			\node[blue] at (0.5,1) {$N$};
-%			\node[red] at (-0.5,1) {$S$};
+			%			\node[blue] at (0.5,1) {$N$};
+			%			\node[red] at (-0.5,1) {$S$};
 		\end{tikzpicture}
 		 &
 		\begin{tikzpicture}[baseline={(0,0)}]
@@ -642,8 +826,8 @@
 						mark=at position 0.5 with {\arrow{latex}}}, postaction={decorate}](0,0) [ partial ellipse =0:360:0.25 and
 				1];
 			\draw[blue, -latex, thick] (0, 0) -- +(1, 0) node[right, black] {$\vec{p}_m$};
-%			\node[blue] at (0.5,1) {$N$};
-%			\node[red] at (-0.5,1) {$S$};
+			%			\node[blue] at (0.5,1) {$N$};
+			%			\node[red] at (-0.5,1) {$S$};
 		\end{tikzpicture}
 	\end{tblr}
 \end{frame}
@@ -759,30 +943,30 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Детальние виведення}{}
-\thispagestyle{empty}
-\includegraphics[width=\linewidth]{BrotA}
+	\thispagestyle{empty}
+	\includegraphics[width=\linewidth]{BrotA}
 \end{frame}
 % ===========================================================================
 
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Магнітний диполь}{}
-\framesubtitle<1>{Полюса магніту}
+	\framesubtitle<1>{Полюса магніту}
 	\begin{onlyenv}<1>
-        \begin{block}{}
-            Отримана формула збігається за виглядом із формулою для електричного поля точкового електричного диполя.
-       		\begin{equation*}
-    			\tcbhighmath{\Bfield = \frac{3\scdot{\vect{p}_m}{\vect{r}}\vect{r}}{r^5} - \frac{\vect{p}_m}{r^3}.}
-    		\end{equation*}
-        \end{block}
+		\begin{block}{}
+			Отримана формула збігається за виглядом із формулою для електричного поля точкового електричного диполя.
+			\begin{equation*}
+				\tcbhighmath{\Bfield = \frac{3\scdot{\vect{p}_m}{\vect{r}}\vect{r}}{r^5} - \frac{\vect{p}_m}{r^3}.}
+			\end{equation*}
+		\end{block}
 		\begin{columns}
 			\begin{column}{0.7\linewidth}
 				\begin{block}{}\justifying
 					Це означає, що точковий
 					магнітний момент можна розглядати формально як точковий диполь, складений з \alert{\emph{ефективних магнітних зарядів}}:
 					\begin{center}
-                        \textcolor{red}{$N$} (\textcolor{red}{північного}) та \textcolor{blue}{$S$} (\textcolor{blue}{південного}).
-                    \end{center}
+						\textcolor{red}{$N$} (\textcolor{red}{північного}) та \textcolor{blue}{$S$} (\textcolor{blue}{південного}).
+					\end{center}
 				\end{block}
 			\end{column}
 			\begin{column}{0.3\linewidth}\centering
@@ -790,7 +974,7 @@
 			\end{column}
 		\end{columns}
 	\end{onlyenv}
-\framesubtitle<2>{Порівняння електричного та магнітного диполів}
+	\framesubtitle<2>{Порівняння електричного та магнітного диполів}
 	\begin{onlyenv}<2>
 		\begin{center}\small
 			\begin{tblr}%
@@ -813,7 +997,7 @@
 				\dfrac{\vect{p}_m}{r^3}$                                                                                            \\
 			\end{tblr}
 		\end{center}
-\begin{columns}
+		\begin{columns}
 			\begin{column}{0.7\linewidth}
 				\begin{block}{}\justifying\small
 					Позначаючи величину ефективного магнітного заряду $q_m$ і плече магнітного диполя $\vect{\ell}$, дипольний момент ефективного
@@ -835,7 +1019,7 @@
 					\draw[->, blue, thick] (0, {-(\h+0.3)}) -- (0, {\h+0.3}) node[above] {$\vect{p}_m$};
 					\fill[blue!50] (0, -\h) --  (-\t, 0) -- (\t, 0) -- cycle;
 					\fill[red!50] (-\t, 0) -- (0, \h) -- (\t, 0) -- cycle;
-%                    \draw[->, ultra thin, white] (0, {-\h}) -- (0, \h);
+					%                    \draw[->, ultra thin, white] (0, {-\h}) -- (0, \h);
 				\end{tikzpicture}
 			\end{column}
 		\end{columns}
@@ -843,10 +1027,63 @@
 \end{frame}
 % ===========================================================================
 
+%% --------------------------------------------------------
+\section{Потенціальна енергія диполя та сила, що діє на диполь в магнітному полі}
+%% --------------------------------------------------------
+
+
+
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Потенціальна енергія диполя та сила, що діє на диполь}{}
+\begin{frame}{Потенціальна енергія диполя в магнітному полі}{}\small
+\begin{block}{}\justifying
+Розглянемо виток площею $S$, у якому циркулює струм $I$, магнітний момент якого $\vect{p}_m = \frac1c IS\vec{n}$. Вважаємо, що магнітний момент не
+змінюється за величиною, тільки може змінювати напрямок у просторі. Останнє припущення істотне, і воно передбачає, що в коло витка ввімкнене
+\alert{джерело енергії (ЕРС)}, що підтримує струм незмінним. Якщо виток перебуває в магнітному полі, то виникає момент сил, які прагнуть орієнтувати
+його магнітний момент за напрямком поля:
+\begin{equation*}
+    \vect{M} = \left[\vect{p}_m\times\Bfield\right]
+\end{equation*}
+З визначення потенціальної енергії знаходимо
+\begin{equation*}
+    U = -\vect{p}_m\cdot\Bfield
+\end{equation*}
+\end{block}
+       \begin{block}{}
+     Той факт, що потенціальна енергія досягає мінімуму $\vect{p}_m\uparrow\uparrow\Bfield$, означає, що момент прагне орієнтуватися за напрямом поля.
+\end{block}
+\end{frame}
+% ===========================================================================
 
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Сила, що діє на диполь в магнітному полі}{}\small
+\begin{block}{}\justifying
+У зовнішньому магнітному полі потенціальна енергія магнітного моменту дорівнює $U = -\vect{p}_m\cdot\Bfield$, а сила, що діє на момент:
+\begin{equation*}
+    \vect{F} = -\grad U = \grad(\vect{p}_m\cdot\Bfield).
+\end{equation*}
+{\scriptsize
+\begin{equation*}
+    \grad\scdot{\vect{A}}{\vect{B}}  = \vecdot{\vect{B}}{\Rot\vect{A}} + \vecdot{\vect{A}}{\Rot\vect{B}} + \scdot{\vect{B}}{\grad}\vect{A} +
+    \scdot{\vect{A}}{\grad}\vect{B}.
+\end{equation*}
+}
+Якщо в середовищі, в якому перебуває момент, відсутні струми провідності, то $\Rot\Bfield = 0$. Тоді має місце тотожність:
+\begin{equation*}
+    \tcbhighmath{\vect{F} = \scdot{\vect{p}_m}{\grad}\vect{B}.}
+\end{equation*}
+\end{block}
+\begin{block}{}\justifying\scriptsize
+У окремому випадку, коли момент спрямований уздовж поля $\vect{p}_m\uparrow\uparrow\vect{B}$, а поле залежить тільки від координати $z$, сила
+спрямована по осі $z$ і дорівнює:
+\begin{equation*}
+    F_z = p_m\frac{dB}{dz}.
+\end{equation*}
+\end{block}
+
+\href{https://www.youtube.com/watch?v=66yHf8Mv1SQ}{\scriptsize\color{blue} Порівняйте з випадком електричного диполя в неоднорідному електричному
+полі}
 \end{frame}
 % ===========================================================================
 
