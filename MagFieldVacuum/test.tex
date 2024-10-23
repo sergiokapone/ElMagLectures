@@ -54,57 +54,67 @@
 \begin{document}
 
 
-% ============================== Слайд ## ===================================
-\begin{frame}{Потенціальна енергія диполя в магнітному полі}{}\small
-\begin{block}{}\justifying
-Розглянемо виток площею $S$, у якому циркулює струм $I$, магнітний момент якого $\vect{p}_m = \frac1c IS\vec{n}$. Вважаємо, що магнітний момент не
-змінюється за величиною, тільки може змінювати напрямок у просторі. Останнє припущення істотне, і воно передбачає, що в коло витка ввімкнене
-\alert{джерело енергії (ЕРС)}, що підтримує струм незмінним. Якщо виток перебуває в магнітному полі, то виникає момент сил, які прагнуть орієнтувати
-його магнітний момент за напрямком поля:
-\begin{equation*}
-    \vect{M} = \left[\vect{p}_m\times\Bfield\right]
-\end{equation*}
-З визначення потенціальної енергії знаходимо
-\begin{equation*}
-    U = -\vect{p}_m\cdot\Bfield
-\end{equation*}
-\end{block}
-       \begin{block}{}
-     Той факт, що потенціальна енергія досягає мінімуму $\vect{p}_m\uparrow\uparrow\Bfield$, означає, що момент прагне орієнтуватися за напрямом поля.
-\end{block}
-\end{frame}
-% ===========================================================================
+
 
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Сила, що діє на диполь в магнітному полі}{}\small
-\begin{block}{}\justifying
-У зовнішньому магнітному полі потенціальна енергія магнітного моменту дорівнює $U = -\vect{p}_m\cdot\Bfield$, а сила, що діє на момент:
-\begin{equation*}
-    \vect{F} = -\grad U = \grad(\vect{p}_m\cdot\Bfield).
-\end{equation*}
-{\scriptsize
-\begin{equation*}
-    \grad\scdot{\vect{A}}{\vect{B}}  = \vecdot{\vect{B}}{\Rot\vect{A}} + \vecdot{\vect{A}}{\Rot\vect{B}} + \scdot{\vect{B}}{\grad}\vect{A} +
-    \scdot{\vect{A}}{\grad}\vect{B}.
-\end{equation*}
-}
-Якщо в середовищі, в якому перебуває момент, відсутні струми провідності, то $\Rot\Bfield = 0$. Тоді має місце тотожність:
-\begin{equation*}
-    \tcbhighmath{\vect{F} = \scdot{\vect{p}_m}{\grad}\vect{B}.}
-\end{equation*}
-\end{block}
-\begin{block}{}\justifying\scriptsize
-У окремому випадку, коли момент спрямований уздовж поля $\vect{p}_m\uparrow\uparrow\vect{B}$, а поле залежить тільки від координати $z$, сила
-спрямована по осі $z$ і дорівнює:
-\begin{equation*}
-    F_z = p_m\frac{dB}{dz}.
-\end{equation*}
-\end{block}
+	\begin{block}{}\justifying
+		У зовнішньому магнітному полі потенціальна енергія магнітного моменту дорівнює $U = -\vect{p}_m\cdot\Bfield$, а сила, що діє на
+		момент:
+		\begin{equation*}
+			\vect{F} = -\grad U = \grad(\vect{p}_m\cdot\Bfield).
+		\end{equation*}
+	\end{block}
+	\begin{columns}
+		\begin{column}{0.75\linewidth}
+			\begin{block}{}\justifying
+				У зовнішньому магнітному полі потенціальна енергія магнітного моменту дорівнює $U = -\vect{p}_m\cdot\Bfield$, а сила, що діє на момент:
+				\begin{equation*}
+					\vect{F} = -\grad U = \grad(\vect{p}_m\cdot\Bfield).
+				\end{equation*}
+				{\scriptsize \begin{equation*}
+					\grad\scdot{\vect{A}}{\vect{B}}  = \vecdot{\vect{B}}{\Rot\vect{A}} + \vecdot{\vect{A}}{\Rot\vect{B}} +
+					\scdot{\vect{B}}{\grad}\vect{A} +
+					\scdot{\vect{A}}{\grad}\vect{B}.
+				\end{equation*}}
 
-\href{https://www.youtube.com/watch?v=66yHf8Mv1SQ}{\scriptsize\color{blue} Порівняйте з випадком електричного диполя в неоднорідному електричному
-полі}
+		Якщо в середовищі, в якому перебуває момент, відсутні струми провідності, то $\Rot\Bfield = 0$. Тоді має місце тотожність:
+		\begin{equation*}
+			\tcbhighmath{\vect{F} = \scdot{\vect{p}_m}{\grad}\vect{B}.}
+		\end{equation*}
+			\end{block}
+		\end{column}
+		\begin{column}{0.25\linewidth}\centering
+			\begin{tikzpicture}[scale=0.9, >=latex, midarrow/.style={%
+							postaction={ decorate,
+									decoration={ markings, mark=at position .7 with {\arrow{latex}}}}}]
+
+				\foreach \y in {-3,...,3}{
+						\draw[blue, midarrow] plot[domain=1:4] (\x, 0.2*\y+0.05*\y*\x^2);
+					}
+
+				\coordinate (AP) at (3, 0);
+				\pic[scale=0.7, rotate=210] at (AP) {magarrow};
+				\draw[->, ultra thick] (AP) -- ++(-1, 0) node[below=2pt, fill=white, inner sep=1pt] {$\vect{F}$};
+			\end{tikzpicture}
+		\end{column}
+	\end{columns}
+%	\begin{block}{}\justifying\scriptsize
+%		У окремому випадку, коли момент спрямований уздовж поля $\vect{p}_m\uparrow\uparrow\vect{B}$, а поле залежить тільки від координати
+%		$z$, сила
+%		спрямована по осі $z$ і дорівнює:
+%		\begin{equation*}
+%			F_z = p_m\frac{dB}{dz}.
+%		\end{equation*}
+%	\end{block}
+%	\href{https://www.youtube.com/watch?v=66yHf8Mv1SQ}{\scriptsize\color{blue} Порівняйте з випадком електричного диполя в неоднорідному електричному
+%		полі}
 \end{frame}
 % ===========================================================================
 % https://tikz.net/magnetic_moment/
+
+
+
+
 \end{document}
