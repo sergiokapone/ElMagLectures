@@ -1,0 +1,190 @@
+%%============================ Compiler Directives =======================%%
+%%                                                                        %%
+% !TeX program = lualatex
+% !TeX encoding = utf8
+% !TeX spellcheck = uk_UA
+%%                                                                        %%
+%%============================== Клас документа ==========================%%
+%%                                                                        %%
+\documentclass[]{article}
+\usepackage[fontsize = 12pt]{fontsize}
+\usepackage{ifluatex}
+%%                                                                        %%
+%%========================== Мови, шрифти та кодування ===================%%
+%%
+\ifluatex                                                                        %%
+	\usepackage{fontspec}
+	\setsansfont{CMU Sans Serif}%{Arial}
+	\setmainfont{CMU Serif}%{Times New Roman}
+	\setmonofont{CMU Typewriter Text}%{Consolas}
+	\defaultfontfeatures{Ligatures={TeX}}
+	\usepackage[math-style=TeX]{unicode-math}
+\else
+	\usepackage[utf8]{inputenc}
+	\usepackage[T2A,T1]{fontenc}
+	\usepackage{amsmath}
+	%\usepackage{pscyr}
+	\usepackage{cmap}
+\fi
+\usepackage[english, russian, ukrainian]{babel}
+%%                                                                        %%
+%%============================= Геометрія сторінки =======================%%
+%%                                                                        %%
+\usepackage[%
+	a4paper,%
+	footskip=1cm,%
+	headsep=0.3cm,%
+	top=2cm, %поле сверху
+	bottom=2cm, %поле снизу
+	left=2cm, %поле ліворуч
+	right=2cm, %поле праворуч
+    ]{geometry}
+%%                                                                        %%
+%%============================== Інтерліньяж  ============================%%
+%%                                                                        %%
+\renewcommand{\baselinestretch}{1}
+%-------------------------  Подавление висячих строк  --------------------%%
+\clubpenalty =10000
+\widowpenalty=10000
+%---------------------------------Інтервали-------------------------------%%
+\setlength{\parskip}{0.5ex}%
+\setlength{\parindent}{2.5em}%
+%%                                                                        %%
+%%=========================== Математичні пакети і графіка ===============%%
+%%                                                                        %%
+\usepackage{tikz, pgfplots}
+\usetikzlibrary{circuits.ee.IEC}
+\tikzset{circuit ee IEC,
+	every info/.style=red,
+	semithick,
+	every info/.style={font=\footnotesize},
+	small circuit symbols,
+	circuit declare symbol = ocontact,
+	circuit declare symbol = multimeter,
+	circuit declare symbol = ampermeter,
+	circuit declare symbol = voltmeter,
+	circuit declare symbol = galvanometer,
+	circuit declare symbol = ac source,
+	set ocontact graphic = {draw, fill = white, generic circle IEC, shape=circle, minimum size=1mm},
+	set multimeter graphic = {draw,generic circle IEC, minimum size=5mm},
+	set ampermeter graphic = {draw,generic circle IEC, minimum size=5mm,info=center:A},%
+	set voltmeter graphic = {draw,generic circle IEC, minimum size=5mm,info=center:V},
+	set galvanometer graphic = {draw,generic circle IEC, minimum size=5mm,info=center:G},
+	set ac source graphic = ac source IEC graphic,
+	ac source IEC graphic/.style=
+		{
+			transform shape,
+			circuit symbol lines,
+			circuit symbol size = width 3 height 3,
+			shape=generic circle IEC,
+			/pgf/generic circle IEC/before background=
+				{
+					\pgfpathmoveto{\pgfpoint{-0.575pt}{0pt}}
+					\pgfpathsine{\pgfpoint{0.3pt}{0.3pt}}
+					\pgfpathcosine{\pgfpoint{0.3pt}{-0.3pt}}
+					\pgfpathsine{\pgfpoint{0.3pt}{-0.3pt}}
+					\pgfpathcosine{\pgfpoint{0.3pt}{0.3pt}}
+					\pgfusepathqstroke
+				}
+		}
+}
+\usepackage{lipsum}
+%%                                                                        %%
+%%========================== Гіперпосилення (href) =======================%%
+%%                                                                        %%
+\usepackage[%colorlinks=true,
+	%urlcolor = blue, %Colour for external hyperlinks
+	%linkcolor  = malina, %Colour of internal links
+	%citecolor  = green, %Colour of citations
+	bookmarks = true,
+	bookmarksnumbered=true,
+	unicode,
+	linktoc = all,
+	hypertexnames=false,
+	pdftoolbar=false,
+	pdfpagelayout=TwoPageRight,
+	pdfauthor={Ponomarenko S.M. aka sergiokapone},
+	pdfdisplaydoctitle=true,
+	pdfencoding=auto
+	]%
+	{hyperref}
+		\makeatletter
+	\AtBeginDocument{
+	\hypersetup{
+		pdfinfo={
+		Title={\@title},
+		}
+	}
+	}
+	\makeatother
+%%                                                                        %%
+%%============================ Заголовок та автори =======================%%
+%%                                                                        %%
+\title{Електродинаміка рухомих провідників}
+\author{}
+\date{}
+%%                                                                        %%
+%%========================================================================%%
+
+
+\def\EMF{\mathcal{E}}
+\newcommand{\vect}[1]{\symbf{#1}}
+\def\Efield{\vect{E}}          % --- Визначення вектора електричного поля            ---
+\def\Dfield{\vect{D}}          % --- Визначення електричної індукції                 ---
+\def\Bfield{\vect{B}}          % --- Визначення вектора магнітногї індукції          ---
+\def\Hfield{\vect{H}}          % --- Визначення вектора напруженості магнітного поля ---
+\def\rot{\symbf{\nabla}\times} % --- Визначення ротора                               ---
+\def\divg{\symbf{\nabla}\cdot} % --- Визначення дівергенції                          ---
+\AtBeginDocument{%
+	\let\phi\varphi
+	\let\epsilon\varepsilon
+	\DeclareMathOperator{\const}{const}
+	\DeclareMathOperator{\inv}{inv}
+	\newcommand{\Laplasian}{\Delta}
+}
+\usepackage{indentfirst}
+
+\begin{document}
+\maketitle
+
+\section{Робота по переміщенню провідника в магнітному полі}
+
+На елементи контуру зі струмом у зовнішньому магнітному полі діє сили Ампера.
+
+Тому при переміщенні контуру або його елементів ці сили виконуватимуть роботу. Знайдемо цю роботу.
+
+Нехай контур із рухомою перемичкою довжиною $ l $ знаходиться в однорідному магнітному полі $ \Bfield = \const $, яке перпендикулярне до площини контуру. У
+контурі та по перемичці тече постійний електричний струм $ I = \const $.
+
+Сила Ампера, що діє на перемичку зі струмом, спрямована вздовж осі $ x $ та згідно та дорівнює:
+\begin{equation*}
+    F_x = \frac{I}{c} B l.
+\end{equation*}
+
+Робота цієї сили дорівнює:
+\begin{equation*}
+    \delta A = F_x dx = \frac{I}{c} B l dx = \frac{I}{c} B dS,
+\end{equation*}
+де $ dS $ --- збільшення площі контуру. Виберемо нормаль $ \vect{n} $
+до площини контуру так, щоб вона утворювала правогвинтову систему із напрямом струму $ I $. Тоді, вводячи потік вектор магнітної індукції $ d\Phi = \Bfield\cdot d\vect{S} $:
+\begin{equation*}
+    \delta A = \frac{I}{c} d\Phi.
+\end{equation*}
+
+Для кінцевого переміщення перемички маємо:
+\begin{equation*}
+    A = \int\limits_{\Phi_1}^{\Phi_2} \frac{I}{c} d\Phi = \frac{I}{c} (\Phi_2 - \Phi_1).
+\end{equation*}
+де $ \Phi_1 $ та $ \Phi_2 $ --- магнітні потоки крізь замкнутий контур у початковому та кінцевому положеннях перемички.
+
+Розглянемо загальний випадок переміщення контуру зі струмом у магнітному полі.
+
+Нехай контур зі струмом довільної форми здійснює у неоднорідному постійному магнітному полі деяке переміщення, в процесі якого контур може деформуватись.
+
+Уявно розіб'ємо такий контур на нескінченно малі елементи струму $ Id\vect{l} $ і розглянемо їх нескінченно малі переміщення $ \Delta\vect{r} $. Магнітне поле, в якому переміщується кожен елемент контуру $ Id\vect{l} $, можна вважати однорідним протягом малого переміщення $ \Delta\vect{r} $. Робота сили Ампера по переміщення кожного елемента струму дорівнює:
+\begin{equation*}
+    A =  \int \Delta\vect{r}  \cdot d\vect{F} =  \frac{I}{c}   \oint\limits_L \Delta\vect{r} \cdot [d\vect{l}\times\Bfield] =  \frac{I}{c} \Bfield \cdot \oint\limits_L  [\Delta\vect{r} \times d\vect{l}] = \frac{I}{c} \Bfield \cdot d\vect{S}.
+\end{equation*}
+\end{document}
+
+

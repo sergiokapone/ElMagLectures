@@ -1,0 +1,127 @@
+
+\documentclass{beamer}
+\usetheme{Electromagnetism}
+\usepackage{Electromagnetism}
+\graphicspath{{pictures/}}
+% -------------------------------------- Grid
+%-------------------------------------------------------
+\makeatletter
+\def\grd@save@target#1{%
+  \def\grd@target{#1}}
+\def\grd@save@start#1{%
+  \def\grd@start{#1}}
+\tikzset{
+  grid with coordinates/.style={
+    to path={%
+      \pgfextra{%
+        \edef\grd@@target{(\tikztotarget)}%
+        \tikz@scan@one@point\grd@save@target\grd@@target\relax
+        \edef\grd@@start{(\tikztostart)}%
+        \tikz@scan@one@point\grd@save@start\grd@@start\relax
+        \draw[minor help lines, gray!50] (\tikztostart) grid (\tikztotarget);
+        \draw[major help lines, gray!50] (\tikztostart) grid (\tikztotarget);
+        \grd@start
+        \pgfmathsetmacro{\grd@xa}{\the\pgf@x/1cm}
+        \pgfmathsetmacro{\grd@ya}{\the\pgf@y/1cm}
+        \grd@target
+        \pgfmathsetmacro{\grd@xb}{\the\pgf@x/1cm}
+        \pgfmathsetmacro{\grd@yb}{\the\pgf@y/1cm}
+        \pgfmathsetmacro{\grd@xc}{\grd@xa + \pgfkeysvalueof{/tikz/grid with coordinates/major step}}
+        \pgfmathsetmacro{\grd@yc}{\grd@ya + \pgfkeysvalueof{/tikz/grid with coordinates/major step}}
+        \foreach \x in {\grd@xa,\grd@xc,...,\grd@xb}
+        \node[anchor=north] at (\x,\grd@ya) {\pgfmathprintnumber{\x}};
+        \foreach \y in {\grd@ya,\grd@yc,...,\grd@yb}
+        \node[anchor=east] at (\grd@xa,\y) {\pgfmathprintnumber{\y}};
+      }
+    }
+  },
+  minor help lines/.style={
+    help lines,
+    step=\pgfkeysvalueof{/tikz/grid with coordinates/minor step}
+  },
+  major help lines/.style={
+    help lines,
+    line width= 0.5pt,
+    step=\pgfkeysvalueof{/tikz/grid with coordinates/major step}
+  },
+  grid with coordinates/.cd,
+  minor step/.initial=.2,
+  major step/.initial=1,
+  major line width/.initial=2pt,
+}
+\makeatother
+
+\begin{document}
+
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Зв'язок намагніченості з молекулярними струмами}{}
+
+
+	\begin{block}{}\justifying\small
+		Виділимо в речовині досить малий циліндр, так що поле в ньому можна вважати практично однорідним. У його об'ємі молекулярні струми компенсують один
+		одного. Циліндр (ліворуч) і вигляд його торця (праворуч). Кільцеві струми, що циркулюють в об'ємі, компенсують один одного всюди, окрім точок бічної
+		поверхні. У результаті залишається тільки поверхневий струм, що тече бічною поверхнею циліндра.
+	\end{block}
+	\begin{columns}
+		\begin{column}{0.5\linewidth}\centering
+			\begin{tikzpicture}[>=latex]
+				\draw[fill=gray!20] (0,0) arc(180:350:1 and 0.2) -- ++(45:2)  arc(350:180:1 and 0.2) -- cycle;
+%				\draw[fill=gray!20] (45:2) ++(1,0) coordinate (O) circle(1 and 0.2);
+                \path (45:2) ++(1,0) coordinate (O);
+
+				\begin{scope}[shift={(O)}, yscale=0.2]
+					\draw[thick, blue, arrowpos={0.7}{2pt}{3pt}] (0,0) [partial ellipse=0:360:1];
+					\foreach \a in {10, 40,...,340} {
+							\draw[red, smooth, arrowpos={0.75}{2pt}{3pt}] (\a:0.8) [partial ellipse=0:360:0.2];
+						}
+					\foreach \a in {25,85,...,335} {
+							\draw[red, smooth] (\a:0.42) [partial ellipse=0:360:0.2];
+						}
+					\draw[red, smooth] (0, 0) [partial ellipse=0:360:0.2];
+				\end{scope}
+
+				\foreach \l in {0.2,0.4,...,1.8} {
+						\draw[blue, arrowpos={0.4}{2pt}{3pt}] (45:\l) arc(180:350:1 and 0.2);
+					}
+				\draw[->, ultra thick] (O) -- ++(0,1) coordinate (J) node[left] {$\vect{J}$};
+				\draw (0,0) -- ++(0,2);
+				\draw (0,0) ++(0, 0.5) arc (90:45:0.5) node[pos=0.5, anchor=south] {$\theta$};
+                \draw[->] (O) -- ++(45:{1*cos(45)}) coordinate (Pr) node[right] {$\ell\vect{\tau}$};
+                \draw[dashed] (J) -- (Pr);
+				\draw[<->] (2.2, 0) -- node[right] {$\ell$} ++(45:2);
+			\end{tikzpicture}
+		\end{column}
+		\begin{column}{0.5\linewidth}\centering
+			\begin{tikzpicture}[>=latex]
+					\draw[arrowpos={0.4}{2pt}{4pt}, thick, blue] (0,0) [partial ellipse=0:360:1.01];
+					\foreach[evaluate=\a as \p using \a/360] \a in {10, 40,...,340} {
+							\draw[arrowpos={\p}{2pt}{3pt}, red] (\a:0.8) [partial ellipse=0:360:0.2];
+						}
+					\foreach \a in {25,85,...,335} {
+							\draw[arrowpos={\a/360}{2pt}{3pt}, red] (\a:0.42) [partial ellipse=0:360:0.2];
+						}
+					\draw[arrowpos={0.5}{2pt}{3pt}, red] (0, 0) [partial ellipse=0:360:0.2];
+			\end{tikzpicture}
+		\end{column}
+	\end{columns}
+
+\end{frame}
+% ===========================================================================
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{}{}
+\begin{tikzpicture}[]
+    \draw (0,0) -- ++(4, 0) -- ++(-45:2) -- ++(-4, 0) --cycle;
+    \foreach \x in {0,1,...,8}{
+        \draw[arrowpos={0.65}{2pt}{3pt}, red, scale=0.5] (\x, 0) [partial ellipse=10:350:0.2 and 1];
+        \draw[arrowpos={0.65}{2pt}{3pt}, red, scale=0.5] ({\x+3}, -2.8) [partial ellipse=10:350:0.2 and 1];
+    }
+\end{tikzpicture}
+\end{frame}
+% ===========================================================================
+
+
+\end{document}
