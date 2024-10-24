@@ -1085,6 +1085,60 @@
 
 
 
+% ============================== Слайд ## ===================================
+\begin{frame}{Момент сили, що діє на контур в магнітному полі}{}\footnotesize
+\begin{columns}
+		\begin{column}{0.75\linewidth}
+			\begin{block}{}\justifying
+				Якщо виток перебуває в однорідному магнітному полі, то виникає момент сил, який орієнтує
+				його магнітний момент за напрямком поля. За означенням моменту сил:
+				\begin{equation*}
+					\vect{M} = \frac1c \oint\limits_L  \vect{r}\times(Id\vect{\ell}\times\Bfield).
+				\end{equation*}
+ 			\end{block}
+		\end{column}
+		\begin{column}{0.25\linewidth}\centering
+			\begin{tikzpicture}[>=latex]
+				\foreach \x in {-2,...,2} {
+						\draw[->, blue] ({0.6*\x}, -1.5) -- ++(0, 3);
+					}
+
+				\begin{scope}[rotate around={45:(0,0)}]
+					\draw[->, thick, gray] (0, 1) -- ++(-45:-0.7) node[below=5pt, inner sep=1pt, fill=white] {$d\vect{F}$};
+					\draw[->, thick, gray] (0, -1) -- ++(-45:0.7);
+					\draw[arrowpos={0.5}{2pt}{7pt}, red!40, ultra thick] (0,0) [partial ellipse=0:360:0.3 and 1];
+                    \draw[red, ultra thick] (0,0) [partial ellipse=110:70:0.3 and 1];
+					\draw[->,  thick] (0, 0) --  node[anchor=south west] {$\vect{r}'$} ++(0, 1);
+				\end{scope}
+			\end{tikzpicture}
+		\end{column}
+	\end{columns}
+\begin{block}{}\tiny
+    \alert{Треба витягнути $\Bfield$ з-під інтегралу. Всі інтеграли типу $\oint\limits_L d(\ldots) = 0$, як інтеграли повних диференціалів.}
+    \begin{equation*}
+        \overset{\color{red}a}{\vect{r}}\times(\overset{\color{red}b}{d\vect{r}}\times\overset{\color{red}c}{\Bfield}) =
+        \overset{\color{red}b}{d\vect{r}}\ (\overset{\color{red}a}{\vect{r}}\cdot\overset{\color{red}c}{\Bfield}) -
+        \overset{\color{red}c}{\Bfield}\ (\overset{\color{red}a}{\vect{r}}\cdot\overset{\color{red}b}{d\vect{r}}), \
+        \oint\limits_L  d\vect{r} (\vect{r}\cdot\Bfield)  - \cancelto{0}{\Bfield \oint\limits_L d\left(\frac{r^2}{2}\right)}
+    \end{equation*}
+\begin{equation*}
+    d\vect{r} (\vect{r}\cdot\Bfield) = \frac12 \left[d\vect{r} (\vect{r}\cdot\Bfield) + \vect{r} (d\vect{r}\cdot\Bfield) \right] +
+    \frac12 \left[d\vect{r} (\vect{r}\cdot\Bfield) - \vect{r} (d\vect{r}\cdot\Bfield) \right] = \frac12 \left[d\vect{r} (\Bfield\cdot\vect{r}) +
+    \vect{r} (\Bfield\cdot d\vect{r}) \right]  - \frac12 \Bfield\times(\vect{r}\times d\vect{r}).
+\end{equation*}
+\begin{equation*}
+    d\vect{r} (\Bfield\cdot\vect{r}) +
+    \vect{r} (\Bfield\cdot d\vect{r})  = d(\vect{r}(\Bfield\cdot\vect{r})),\
+     \oint\limits_L d(\vect{r}(\Bfield\cdot\vect{r})) = 0.
+\end{equation*}
+\end{block}
+\begin{equation*}
+    \vect{M} = \left(\frac{I}{c} \oint\limits_L (\vect{r}\times d\vect{r})\right)\times\Bfield = \vect{p}_m\times\Bfield
+\end{equation*}
+\end{frame}
+% ===========================================================================
+
+
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Потенціальна енергія диполя в магнітному полі}{}\small
@@ -1099,7 +1153,7 @@
 	\begin{columns}
 		\begin{column}{0.75\linewidth}
 			\begin{block}{}\justifying
-				Якщо виток перебуває в магнітному полі, то виникає момент сил, які прагнуть орієнтувати
+				Якщо виток перебуває в однорідному магнітному полі, то виникає момент сил, які прагнуть орієнтувати
 				його магнітний момент за напрямком поля:
 				\begin{equation*}
 					\vect{M} = \left[\vect{p}_m\times\Bfield\right]
@@ -1116,16 +1170,16 @@
 						\draw[->, blue] ({0.6*\x}, -1.5) -- ++(0, 3);
 					}
 				\begin{scope}[rotate around={0:(0,0)}, opacity=0.1]
-					\draw[->, thick, gray] (0, 1) -- ++(-1, 0);
-					\draw[->, thick, gray] (0, -1) -- ++(1, 0);
+					\draw[->, thick, gray] (0, 1) -- ++(-0.7, 0);
+					\draw[->, thick, gray] (0, -1) -- ++(0.7, 0);
 					\draw[arrowpos={0.5}{2pt}{7pt}, red, ultra thick] (0,0) [partial ellipse=0:360:0.3 and 1];
 					\draw[->, brown, thick] (0, 0) -- ++(1, 0);
 					\pic[opacity=0.1, rotate={180+0}, scale=0.7] at (0, 0) {magarrow};
 				\end{scope}
 
 				\begin{scope}[rotate around={45:(0,0)}]
-					\draw[->, thick, gray] (0, 1) -- ++(-0.7, 0);
-					\draw[->, thick, gray] (0, -1) -- ++(0.7, 0);
+					\draw[->, thick, gray] (0, 1) -- ++(-45:-0.7);
+					\draw[->, thick, gray] (0, -1) -- ++(-45:0.7);
 					\draw[arrowpos={0.5}{2pt}{7pt}, red, ultra thick] (0,0) [partial ellipse=0:360:0.3 and 1];
 					\draw[->, brown, thick] (0, 0) -- ++(1, 0) node[anchor=south west] {$\vect{p}_m$};
 					\pic[opacity=0.4, rotate={180+45}, scale=0.7] at (0, 0) {magarrow};
@@ -1156,6 +1210,27 @@
 % ============================== Слайд ## ===================================
 \begin{frame}{Принцип роботи електричного двигуна}{}
 
+\begin{columns}
+	\begin{column}{0.4\linewidth}\centering\scriptsize
+         \includegraphics[width=0.8\linewidth]{motor}
+
+        Схема показує роботу простого електродвигуна.
+	\end{column}
+	\begin{column}{0.6\linewidth}
+\begin{block}{}\justifying
+На основі дії магнітного поля на рамку з провідником, через яку проходить електричний струм, ґрунтується принцип роботи електродвигуна.
+\end{block}
+	\end{column}
+\end{columns}
+\begin{block}{}\scriptsize
+        \begin{enumerate}
+        \item Ротор (провідник), через який тече струм, поміщений у зовнішнє магнітне поле між полюсами магнітів (N і S).
+        \item Відповідно до правила лівої руки, на провідник діє сила з боку магнітного поля (сила Ампера), що створює обертальний момент.
+        \item Комутатор змінює напрям струму в обмотці після кожного півоберта, забезпечуючи постійний рух у одному напрямку.
+        \item Магнітний момент системи намагається вирівнятися з напрямом зовнішнього поля, що викликає обертальний момент.
+        \item Таким чином, магнітний момент у магнітному полі забезпечує обертання електродвигуна.
+    \end{enumerate}
+\end{block}
 \end{frame}
 % ===========================================================================
 

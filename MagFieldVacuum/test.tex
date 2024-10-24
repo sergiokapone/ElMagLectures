@@ -58,62 +58,57 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Сила, що діє на диполь в магнітному полі}{}\small
-	\begin{block}{}\justifying
-		У зовнішньому магнітному полі потенціальна енергія магнітного моменту дорівнює $U = -\vect{p}_m\cdot\Bfield$, а сила, що діє на
-		момент:
-		\begin{equation*}
-			\vect{F} = -\grad U = \grad(\vect{p}_m\cdot\Bfield).
-		\end{equation*}
-	\end{block}
-	\begin{columns}
+\begin{frame}{Момент сили, що діє на контур в магнітному полі}{}\footnotesize
+\begin{columns}
 		\begin{column}{0.75\linewidth}
 			\begin{block}{}\justifying
-				У зовнішньому магнітному полі потенціальна енергія магнітного моменту дорівнює $U = -\vect{p}_m\cdot\Bfield$, а сила, що діє на момент:
+				Якщо виток перебуває в однорідному магнітному полі, то виникає момент сил, який орієнтує
+				його магнітний момент за напрямком поля. За означенням моменту сил:
 				\begin{equation*}
-					\vect{F} = -\grad U = \grad(\vect{p}_m\cdot\Bfield).
+					\vect{M} = \frac1c \oint\limits_L  \vect{r}\times(Id\vect{\ell}\times\Bfield).
 				\end{equation*}
-				{\scriptsize \begin{equation*}
-					\grad\scdot{\vect{A}}{\vect{B}}  = \vecdot{\vect{B}}{\Rot\vect{A}} + \vecdot{\vect{A}}{\Rot\vect{B}} +
-					\scdot{\vect{B}}{\grad}\vect{A} +
-					\scdot{\vect{A}}{\grad}\vect{B}.
-				\end{equation*}}
-
-		Якщо в середовищі, в якому перебуває момент, відсутні струми провідності, то $\Rot\Bfield = 0$. Тоді має місце тотожність:
-		\begin{equation*}
-			\tcbhighmath{\vect{F} = \scdot{\vect{p}_m}{\grad}\vect{B}.}
-		\end{equation*}
-			\end{block}
+ 			\end{block}
 		\end{column}
 		\begin{column}{0.25\linewidth}\centering
-			\begin{tikzpicture}[scale=0.9, >=latex, midarrow/.style={%
-							postaction={ decorate,
-									decoration={ markings, mark=at position .7 with {\arrow{latex}}}}}]
-
-				\foreach \y in {-3,...,3}{
-						\draw[blue, midarrow] plot[domain=1:4] (\x, 0.2*\y+0.05*\y*\x^2);
+			\begin{tikzpicture}[>=latex]
+				\foreach \x in {-2,...,2} {
+						\draw[->, blue] ({0.6*\x}, -1.5) -- ++(0, 3);
 					}
 
-				\coordinate (AP) at (3, 0);
-				\pic[scale=0.7, rotate=210] at (AP) {magarrow};
-				\draw[->, ultra thick] (AP) -- ++(-1, 0) node[below=2pt, fill=white, inner sep=1pt] {$\vect{F}$};
+				\begin{scope}[rotate around={45:(0,0)}]
+					\draw[->, thick, gray] (0, 1) -- ++(-45:-0.7) node[below=5pt, inner sep=1pt, fill=white] {$d\vect{F}$};
+					\draw[->, thick, gray] (0, -1) -- ++(-45:0.7);
+					\draw[arrowpos={0.5}{2pt}{7pt}, red!40, ultra thick] (0,0) [partial ellipse=0:360:0.3 and 1];
+                    \draw[red, ultra thick] (0,0) [partial ellipse=110:70:0.3 and 1];
+					\draw[->,  thick] (0, 0) --  node[anchor=south west] {$\vect{r}'$} ++(0, 1);
+				\end{scope}
 			\end{tikzpicture}
 		\end{column}
 	\end{columns}
-%	\begin{block}{}\justifying\scriptsize
-%		У окремому випадку, коли момент спрямований уздовж поля $\vect{p}_m\uparrow\uparrow\vect{B}$, а поле залежить тільки від координати
-%		$z$, сила
-%		спрямована по осі $z$ і дорівнює:
-%		\begin{equation*}
-%			F_z = p_m\frac{dB}{dz}.
-%		\end{equation*}
-%	\end{block}
-%	\href{https://www.youtube.com/watch?v=66yHf8Mv1SQ}{\scriptsize\color{blue} Порівняйте з випадком електричного диполя в неоднорідному електричному
-%		полі}
+\begin{block}{}\tiny
+    \alert{Треба витягнути $\Bfield$ з-під інтегралу. Всі інтеграли типу $\oint\limits_L d(\ldots) = 0$, як інтеграли повних диференціалів.}
+    \begin{equation*}
+        \overset{\color{red}a}{\vect{r}}\times(\overset{\color{red}b}{d\vect{r}}\times\overset{\color{red}c}{\Bfield}) =
+        \overset{\color{red}b}{d\vect{r}}\ (\overset{\color{red}a}{\vect{r}}\cdot\overset{\color{red}c}{\Bfield}) -
+        \overset{\color{red}c}{\Bfield}\ (\overset{\color{red}a}{\vect{r}}\cdot\overset{\color{red}b}{d\vect{r}}), \
+        \oint\limits_L  d\vect{r} (\vect{r}\cdot\Bfield)  - \cancelto{0}{\Bfield \oint\limits_L d\left(\frac{r^2}{2}\right)}
+    \end{equation*}
+\begin{equation*}
+    d\vect{r} (\vect{r}\cdot\Bfield) = \frac12 \left[d\vect{r} (\vect{r}\cdot\Bfield) + \vect{r} (d\vect{r}\cdot\Bfield) \right] +
+    \frac12 \left[d\vect{r} (\vect{r}\cdot\Bfield) - \vect{r} (d\vect{r}\cdot\Bfield) \right] = \frac12 \left[d\vect{r} (\Bfield\cdot\vect{r}) +
+    \vect{r} (\Bfield\cdot d\vect{r}) \right]  - \frac12 \Bfield\times(\vect{r}\times d\vect{r}).
+\end{equation*}
+\begin{equation*}
+    d\vect{r} (\Bfield\cdot\vect{r}) +
+    \vect{r} (\Bfield\cdot d\vect{r})  = d(\vect{r}(\Bfield\cdot\vect{r})),\
+     \oint\limits_L d(\vect{r}(\Bfield\cdot\vect{r})) = 0.
+\end{equation*}
+\end{block}
+\begin{equation*}
+    \vect{M} = \left(\frac{I}{c} \oint\limits_L (\vect{r}\times d\vect{r})\right)\times\Bfield = \vect{p}_m\times\Bfield
+\end{equation*}
 \end{frame}
 % ===========================================================================
-% https://tikz.net/magnetic_moment/
-
 
 
 
