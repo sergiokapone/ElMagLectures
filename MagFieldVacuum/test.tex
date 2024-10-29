@@ -3,6 +3,7 @@
 \usetheme{Electromagnetism}
 \usepackage{Electromagnetism}
 \graphicspath{{pictures/}}
+\usetikzlibrary{spy}
 % -------------------------------------- Grid
 %-------------------------------------------------------
 \makeatletter
@@ -58,55 +59,106 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Момент сили, що діє на контур в магнітному полі}{}\footnotesize
-\begin{columns}
-		\begin{column}{0.75\linewidth}
-			\begin{block}{}\justifying
-				Якщо виток перебуває в однорідному магнітному полі, то виникає момент сил, який орієнтує
-				його магнітний момент за напрямком поля. За означенням моменту сил:
-				\begin{equation*}
-					\vect{M} = \frac1c \oint\limits_L  \vect{r}\times(Id\vect{\ell}\times\Bfield).
-				\end{equation*}
- 			\end{block}
-		\end{column}
-		\begin{column}{0.25\linewidth}\centering
-			\begin{tikzpicture}[>=latex]
-				\foreach \x in {-2,...,2} {
-						\draw[->, blue] ({0.6*\x}, -1.5) -- ++(0, 3);
-					}
+\begin{frame}{Елемент струму}{}
+\begin{onlyenv}<1>
+	\begin{columns}
+		\begin{column}{0.3\linewidth}\centering
+			\begin{tikzpicture}[>=latex,
+					spy using outlines={circle, magnification=3, size=3.2cm, connect spies}
+				]
+				\draw[gray!60, line width=0.21cm] (0,0)  [partial ellipse=90:0:2];
+				\fill[gray!50, draw = gray!70] (0, 2) circle (0.05 and 0.1);
+				\fill[gray!50, rotate=-90, draw = gray!70] (0, 2) circle (0.05 and 0.1);
 
-				\begin{scope}[rotate around={45:(0,0)}]
-					\draw[->, thick, gray] (0, 1) -- ++(-45:-0.7) node[below=5pt, inner sep=1pt, fill=white] {$d\vect{F}$};
-					\draw[->, thick, gray] (0, -1) -- ++(-45:0.7);
-					\draw[arrowpos={0.5}{2pt}{7pt}, red!40, ultra thick] (0,0) [partial ellipse=0:360:0.3 and 1];
-                    \draw[red, ultra thick] (0,0) [partial ellipse=110:70:0.3 and 1];
-					\draw[->,  thick] (0, 0) --  node[anchor=south west] {$\vect{r}'$} ++(0, 1);
-				\end{scope}
+				\draw[red!40, line width=0.21cm] (0,0) [partial ellipse=55:45:2];
+				\draw[{Latex[scale=0.5]}-{Latex[scale=0.5]}] (55:2.2)  arc(55:45:2.1) node[above=-1pt, sloped, pos=0.7, font=\tiny] {$d\ell$};
+				\fill[red!40, draw = red!60, rotate=-45] (0, 2) coordinate (S1) circle (0.05 and 0.1);
+				\fill[red!40, draw = red!60, rotate=-35] (0, 2)  circle (0.05 and 0.1);
+
+				\node[font=\tiny, right, inner sep=0] (S) at (42:2.2) {$S$};
+
+				\draw[{Latex[scale=0.3]}-, ultra thin] (S1) to[out=0] (S.west);
+
+				\draw[-{Latex[scale=0.5]}, teal] (55:2)  node[below=1pt, text=teal, font=\tiny] {$\vect{j}$} -- ++({55-90}:0.2);
+				\spy [gray] on (50:2.1)
+				in node [] at (1.5,4.5);
 			\end{tikzpicture}
 		\end{column}
+		\begin{column}{0.7\linewidth}
+			\begin{block}{}\justifying
+				Якщо в задачі не цікавляться
+				внутрішньою будовою провідника, та розподілом струму в його товщі, то можна ввести \alert{лінійний елемент струму}.
+			\end{block}
+			\begin{block}{}\justifying\footnotesize
+				Нехай струм тече провідником із площею поперечного перерізу $S$. Уведемо вектор ділянки провідника завдовжки $d\vect{\ell}$
+				за формулою $d\vect{\ell} = \vect{n}\ell$, де $\vect{n}$ --- одиничний вектор уздовж осі провідника. Тоді $\vect{j} = j\vect{n}$,
+				а $I = j S$ і вираз для об'ємного елемента струму можна переписати у вигляді:
+				\begin{equation*}
+					\vect{j}dV = j\vect{n} S d\ell  = I d\vect{\ell}.
+				\end{equation*}
+			\end{block}
+		\end{column}
 	\end{columns}
-\begin{block}{}\tiny
-    \alert{Треба витягнути $\Bfield$ з-під інтегралу. Всі інтеграли типу $\oint\limits_L d(\ldots) = 0$, як інтеграли повних диференціалів.}
-    \begin{equation*}
-        \overset{\color{red}a}{\vect{r}}\times(\overset{\color{red}b}{d\vect{r}}\times\overset{\color{red}c}{\Bfield}) =
-        \overset{\color{red}b}{d\vect{r}}\ (\overset{\color{red}a}{\vect{r}}\cdot\overset{\color{red}c}{\Bfield}) -
-        \overset{\color{red}c}{\Bfield}\ (\overset{\color{red}a}{\vect{r}}\cdot\overset{\color{red}b}{d\vect{r}}), \
-        \oint\limits_L  d\vect{r} (\vect{r}\cdot\Bfield)  - \cancelto{0}{\Bfield \oint\limits_L d\left(\frac{r^2}{2}\right)}
-    \end{equation*}
-\begin{equation*}
-    d\vect{r} (\vect{r}\cdot\Bfield) = \frac12 \left[d\vect{r} (\vect{r}\cdot\Bfield) + \vect{r} (d\vect{r}\cdot\Bfield) \right] +
-    \frac12 \left[d\vect{r} (\vect{r}\cdot\Bfield) - \vect{r} (d\vect{r}\cdot\Bfield) \right] = \frac12 \left[d\vect{r} (\Bfield\cdot\vect{r}) +
-    \vect{r} (\Bfield\cdot d\vect{r}) \right]  - \frac12 \Bfield\times(\vect{r}\times d\vect{r}).
-\end{equation*}
-\begin{equation*}
-    d\vect{r} (\Bfield\cdot\vect{r}) +
-    \vect{r} (\Bfield\cdot d\vect{r})  = d(\vect{r}(\Bfield\cdot\vect{r})),\
-     \oint\limits_L d(\vect{r}(\Bfield\cdot\vect{r})) = 0.
-\end{equation*}
-\end{block}
-\begin{equation*}
-    \vect{M} = \left(\frac{I}{c} \oint\limits_L (\vect{r}\times d\vect{r})\right)\times\Bfield = \vect{p}_m\times\Bfield
-\end{equation*}
+	\begin{block}{}
+		Для лінійного елемента струму сила Ампера:
+		\begin{equation*}
+			d\vect{F} = \frac1c \left[ I d\vect{\ell} \times \Bfield\right].
+		\end{equation*}
+	\end{block}
+\end{onlyenv}
+\begin{onlyenv}<2>
+\begin{tblr}{
+colspec={Q[c,h]X[l,m]}
+}
+\tikz[>=latex, baseline]{
+	\draw[gray!60, line width=0.21cm] (0,0)  [partial ellipse=90:0:2];
+	\fill[gray!50, draw = gray!70] (0, 2) circle (0.05 and 0.1);
+	\fill[gray!50, rotate=-90, draw = gray!70] (0, 2) circle (0.05 and 0.1);
+
+	\draw[red!40, line width=0.21cm] (0,0) [partial ellipse=55:45:2];
+	\draw[{Latex[scale=0.5]}-{Latex[scale=0.5]}] (55:2.2)  arc(55:45:2.1) node[above=-1pt, sloped, pos=0.7, font=\tiny] {$d\ell$};
+	\fill[red!40, draw = red!60, rotate=-45] (0, 2) coordinate (S1) circle (0.05 and 0.1);
+	\fill[red!40, draw = red!60, rotate=-35] (0, 2)  circle (0.05 and 0.1);
+	\node[font=\tiny, right, inner sep=0] (S) at (42:2.2) {$S$};
+	\draw[{Latex[scale=0.3]}-, ultra thin] (S1) to[out=0] (S.west);
+	\draw[-{Latex[scale=0.5]}, teal] (55:2)  node[below=1pt, text=teal, font=\tiny] {$\vect{j}$} -- ++({55-90}:0.2);
+}
+&
+Елемент об'ємного струму $\vect{j}dV$
+\\
+\tikz[>=latex, baseline]{
+	\draw[gray!60, line width=0.05cm, arrowpos={0.2}{2pt}{6pt}] (0,0)  [partial ellipse=90:0:2] node[pos=0.2, anchor=north, text=black] {$I$};
+	\draw[red!40, line width=0.05cm] (0,0) [partial ellipse=55:45:2];
+	\draw[-{Latex[scale=0.5]}] (55:2)  arc(55:45:2) node[above, sloped, pos=0.7, font=\tiny] {$d\vect{\ell}$};
+}
+&
+Елемент лінійного струму $Id\vect{\ell}$
+\\
+\tikz[>=latex, baseline,
+                    pencildraw/.style={ %
+							decorate,
+							decoration={random steps,segment length=2pt,amplitude=1pt}
+						},]{
+        \draw[fill=gray!60] (0,0) -- ++(3, 0) decorate [pencildraw]
+          {to ++(1, 1)}
+        -- ++(-3, 0)
+         decorate [pencildraw]  {to cycle};
+        \foreach \s in {0.2,0.4,...,0.8}  {
+            \draw[->, red] ({0.8+\s}, \s) -- ++(1.2, 0);
+        }
+        \draw (1.5, 0) -- node[right, fill=gray!60, circle, inner sep=0] {$l$} ++(1,1) node (S) [above=5pt] {$dS$};
+        \draw[fill=red!50, opacity=0.5] (1.0,0) -- ++(1, 0) -- ++(1, 1) -- ++(-1, 0) -- cycle;
+        \draw[->] (S.east) to[out=0, in=90] (2.7, 0.9);
+
+}
+&
+{
+Поверхнева густина струму $i = \frac{I}{l}$.\\
+Елемент струму $I\ell = il\ell = i S$, де $\ell$ та $l$ --- сторони виділеного елемента, площа якого $S = l\cdot \ell$.
+Елемент поверхневого струму $\vect{i}dS$
+}
+\end{tblr}
+\end{onlyenv}
 \end{frame}
 % ===========================================================================
 
