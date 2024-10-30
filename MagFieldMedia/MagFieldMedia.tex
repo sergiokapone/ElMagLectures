@@ -248,7 +248,7 @@
 		\begin{block}{}\justifying
 			Отриманий вираз на підставі теореми Стокса перетворюється на вигляд:
 			\begin{equation*}
-				I_m = c\oint\limits_L \vect{J}\cdot d\vect{\ell} = c \iint\limits_S \Rot\vect{I}\cdot d\vect{S}.
+				I_m = c\oint\limits_L \vect{J}\cdot d\vect{\ell} = c \iint\limits_S \Rot\vect{J}\cdot d\vect{S}.
 			\end{equation*}
 			де $S$ --- поверхня, що спирається на контур $L$.
 		\end{block}
@@ -284,7 +284,7 @@
 			Тепер у нас є інструмент для вилучення $I_m$ з рівняння.
 			\begin{equation*}
 				\oint\limits_L\Bfield\cdot d\vect{\ell} = \frac{4\pi}c\left(I + c
-				\iint\limits_S \Rot\vect{I}\cdot d\vect{S}\right).
+				\iint\limits_S \Rot\vect{J}\cdot d\vect{S}\right).
 			\end{equation*}
 		\end{block}
 	\end{onlyenv}
@@ -346,21 +346,32 @@
 % ============================== Слайд ## ===================================
 \begin{frame}{Магнетики}{}\small
 	\begin{block}{}\justifying
-		Залежно від значення магнітної проникності виділяють такі два основні класи середовищ.
+		Залежно від значення магнітної проникності виділяють такі основні класи середовищ:
 		\begin{enumerate}
-			\item Якщо $\chi_m > 0$, $\mu > 1$, то речовина називається \alert{парамагнетиком}. Парамагнітні властивості мають, наприклад, \ce{Al}, \ce{Pt},
-			      \ce{FeCl2}, \ce{O2}, лужні та лужноземельні метали.
-			\item Якщо $\chi_m < 0$, $\mu < 1$, то речовина називається \alert{діамагнетиком}. Діамагнетиком є \ce{Bi}, \ce{Sb}, \ce{Si}, \ce{H2O}, \ce{H2},
-			      \ce{N2} тощо.
+			\item Якщо $\chi_m > 0$, $\mu > 1$, то речовина називається \alert{парамагнетиком}. Парамагнітні властивості мають, наприклад,
+			      \href{https://en.wikipedia.org/wiki/Aluminium}{\ce{Al}},
+			      \href{https://en.wikipedia.org/wiki/Platinum}{\ce{Pt}},
+			      \href{https://en.wikipedia.org/wiki/Iron(II)\_chloride}{\ce{FeCl2}},
+			      \href{https://en.wikipedia.org/wiki/Oxygen}{\ce{O2}},
+			      лужні та лужноземельні метали.
+
+			\item Якщо $\chi_m < 0$, $\mu < 1$, то речовина називається \alert{діамагнетиком}. Діамагнетиками  є
+			      \href{https://en.wikipedia.org/wiki/Bismuth}{\ce{Bi}},
+			      \href{https://en.wikipedia.org/wiki/Antimony}{\ce{Sb}},
+			      \href{https://en.wikipedia.org/wiki/Silicon}{\ce{Si}},
+			      \href{https://en.wikipedia.org/wiki/Water}{\ce{H2O}},
+			      \href{https://en.wikipedia.org/wiki/Dihydrogen}{\ce{H2}},
+			      \href{https://en.wikipedia.org/wiki/Nitrogen}{\ce{N2}} тощо.
 		\end{enumerate}
 		Класифікація речовин на парамагнетики та діамагнетики запропонував М. Фарадей у 1845 р. Типові значення магнітної сприйнятливості для діа- і
 		парамагнетиків становлять $|\mu| = 10^{-5} \div 10^{-5}$.
 	\end{block}
-	\begin{block}{}\justifying
+	\vspace*{-1em}
+	\begin{block}{}\justifying\footnotesize
 		Деякі речовини можуть зберігати намагніченість $\vect{J}$ за відсутності зовнішнього магнітного поля. Для них не виконується просте співвідношення
 		$\vect{J} = \chi_m\Hfield$ при всіх значеннях $\Hfield$. Такі речовини називаються \alert{феромагнетиками}. До їх числа належать, наприклад, \ce{Fe},
 		\ce{Co}, \ce{Ni}. В діапазоні, де таке співвідношення формально виконується, магнітна проникність феромагнетиків сягає значень порядку $\mu
-		\gg 1$.
+			\gg 1$.
 	\end{block}
 \end{frame}
 % ===========================================================================
