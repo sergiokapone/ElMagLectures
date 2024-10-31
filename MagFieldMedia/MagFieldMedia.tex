@@ -382,7 +382,83 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Граничні умови для $\Bfield$ та $\Hfield$}{}
-
+	\begin{onlyenv}<1>
+		\begin{columns}
+			\begin{column}{0.6\linewidth}
+				\begin{block}{}\scriptsize\justifying
+					Застосуємо теорему Гауса до нескінченно малого циліндра, що охоплює частину межі
+					розділу двох
+					середовищ. Вважаючи $d\vect{S}_1 = - d\vect{S}_2$, $q = \sigma dS$,
+					$d\vect{S}_1 =
+						\vect{n}\ dS$,
+					маємо
+				\end{block}
+			\end{column}
+			\begin{column}{0.4\linewidth}\centering
+				\input{tikz/bc1.tikz}
+			\end{column}
+		\end{columns}
+		\begin{block}{}\scriptsize
+			\begin{equation*}
+				\oiint_S \Bfield_1\cdot d\vect{S} = 0\ \Rightarrow  \Bfield_2\cdot
+				d\vect{S}_1 +
+				\Bfield\cdot d\vect{S}_2 = 0
+			\end{equation*}
+		\end{block}
+		\begin{block}{}
+			Звідси випливає перша гранична умова:
+			\begin{equation*}
+				\tcbhighmath{
+					B_{1n} = B_{2n}.
+				}
+			\end{equation*}
+		\end{block}
+		\begin{alertblock}{}\justifying\scriptsize
+			Нормальна складова вектора $\Bfield$ не зазнає стрибка при
+			переході через границю розділу середовищ.
+		\end{alertblock}
+	\end{onlyenv}
+	\begin{onlyenv}<2>
+		\begin{columns}
+			\begin{column}{0.6\linewidth}
+				\begin{block}{}\scriptsize\justifying
+					Застосуємо теорему про циркуляцію до нескінченно малого прямокутного
+					контуру $L$, що проходить на нескінченно малій відстані над і під поверхнею
+					розділу середовищ. Вважаючи, що $d\vect{r}_1 = -d\vect{r}_2$, маємо
+				\end{block}
+			\end{column}
+			\begin{column}{0.4\linewidth}\centering
+				\input{tikz/bc2.tikz}
+			\end{column}
+		\end{columns}
+		\begin{block}{}\scriptsize
+			\begin{equation*}
+				\oint\limits_L \Hfield\cdot d\vect{r} = \frac{4\pi}cI \Rightarrow \Hfield_1 d\vect{r}_1 +
+				\Hfield_2 d\vect{r}_2 = \frac{4\pi}c i_b d\ell
+			\end{equation*}
+		\end{block}
+		\begin{block}{}
+			Звідси випливає друга гранична умова:
+			\(
+			\tcbhighmath{
+				H_{2\tau} - H_{1\tau} = \frac{4\pi}c i_b.
+			}
+			\)
+		\end{block}
+		\begin{block}{}\justifying\scriptsize
+			Останню умову можна можна записати у векторному вигляді: Оскільки $ \vect{\tau} = \vect{b}\times\vect{n} $. То $(\Hfield_2 - \Hfield_1)\vect{\tau} =
+				\frac{4\pi}c i_b $, або $(\Hfield_2 - \Hfield_1)[\vect{b}\times\vect{n}] = \frac{4\pi}c i_b $. Зробивши циклічний зсув співмножників у змішаному
+			добутку векторів, отримаємо:
+			\(
+				\tcbhighmath{
+					\vect{n}\times (\Hfield_2 - \Hfield_1) = \frac{4\pi}c \vect{i}.
+				}
+			\)
+		\end{block}
+\begin{alertblock}{}\centering\scriptsize
+    Тангенціальна складова $\Hfield$ зазнає розриву, якщо по поверхні розділу середовищ течуть \alert{струми провідності}.
+\end{alertblock}
+	\end{onlyenv}
 \end{frame}
 % ===========================================================================
 
