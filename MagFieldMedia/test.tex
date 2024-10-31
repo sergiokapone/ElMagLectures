@@ -56,116 +56,59 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Зв'язок намагніченості з молекулярними струмами}{}
+\begin{frame}{}{}
+\begin{tikzpicture}[>=latex]
+    % Основные параметры
+    \pgfmathsetmacro\h{3}          % Высота
+    \pgfmathsetmacro\R{1}          % Радиус
+    \coordinate (A) at (0, {-\h/2});
+    \coordinate (B) at (0, {+\h/2});
 
+    % Вертикальные линии
+    \draw[gray] ([xshift=\R cm]A) -- ([xshift=\R cm]B)
+                ([xshift=-\R cm]A) -- ([xshift=-\R cm]B);
+    \draw[line width={\R*2cm}, gray!50] (A) -- (B);
 
-	\begin{block}{}\justifying\small
-		Виділимо в речовині досить малий циліндр, так що поле в ньому можна вважати практично однорідним. У його об'ємі молекулярні струми компенсують один
-		одного. Циліндр (ліворуч) і вигляд його торця (праворуч). Кільцеві струми, що циркулюють в об'ємі, компенсують один одного всюди, окрім точок бічної
-		поверхні. У результаті залишається тільки поверхневий струм, що тече бічною поверхнею циліндра.
-	\end{block}
-	\begin{columns}
-		\begin{column}{0.5\linewidth}\centering
-			\begin{tikzpicture}[>=latex]
-				\draw[fill=gray!20] (0,0) arc(180:350:1 and 0.2) -- ++(45:2)  arc(350:180:1 and 0.2) -- cycle;
-				%				\draw[fill=gray!20] (45:2) ++(1,0) coordinate (O) circle(1 and 0.2);
-				\path (45:2) ++(1,0) coordinate (O);
+    % Верхняя и нижняя части
+    \draw[gray, fill=gray!50] (B) circle ({\R} and {0.2*\R});
+    \draw[gray] ([xshift=\R cm]A) arc(0:-180:{\R} and {0.2*\R});
+    \draw[gray, densely dashed] ([xshift=-\R cm]A) arc(180:0:{\R} and {0.2*\R});
+    \fill[gray!50] (A) circle ({\R} and {0.2*\R});
 
-				\begin{scope}[shift={(O)}, yscale=0.2]
-					\draw[thick, blue, arrowpos={0.7}{2pt}{3pt}] (0,0) [partial ellipse=0:360:1];
-					\foreach \a in {10, 40,...,340} {
-							\draw[red, smooth, arrowpos={0.75}{2pt}{3pt}] (\a:0.8) [partial ellipse=0:360:0.2];
-						}
-					\foreach \a in {25,85,...,335} {
-							\draw[red, smooth] (\a:0.42) [partial ellipse=0:360:0.2];
-						}
-					\draw[red, smooth] (0, 0) [partial ellipse=0:360:0.2];
-				\end{scope}
+    % Стрелка для тока
+    \draw[->] ([yshift={\h*0.3cm}]A) -- ([yshift={-\h*0.3cm}]B) node[above] {$I$};
 
-				\foreach \l in {0.2,0.4,...,1.8} {
-						\draw[blue, arrowpos={0.4}{2pt}{3pt}] (45:\l) arc(180:350:1 and 0.2);
-					}
-				\draw[->, ultra thick] (O) -- ++(0,1) coordinate (J) node[left] {$\vect{J}$};
-				\draw (0,0) -- ++(0,2);
-				\draw (0,0) ++(0, 0.5) arc (90:45:0.5) node[pos=0.5, anchor=south] {$\theta$};
-				\draw[->] (O) -- ++(45:{1*cos(45)}) coordinate (Pr) node[right] {$\ell\vect{\tau}$};
-				\draw[dashed] (J) -- (Pr);
-				\draw[<->] (2.2, 0) -- node[right] {$\ell$} ++(45:2);
-			\end{tikzpicture}
-		\end{column}
-		\begin{column}{0.5\linewidth}\centering
-			\begin{tikzpicture}[>=latex]
-				\draw[arrowpos={0.4}{2pt}{4pt}, thick, blue] (0,0) [partial ellipse=0:360:1.01];
-				\foreach[evaluate=\a as \p using \a/360] \a in {10, 40,...,340} {
-						\draw[arrowpos={\p}{2pt}{3pt}, red] (\a:0.8) [partial ellipse=0:360:0.2];
-					}
-				\foreach \a in {25,85,...,335} {
-						\draw[arrowpos={\a/360}{2pt}{3pt}, red] (\a:0.42) [partial ellipse=0:360:0.2];
-					}
-				\draw[arrowpos={0.5}{2pt}{3pt}, red] (0, 0) [partial ellipse=0:360:0.2];
-			\end{tikzpicture}
-		\end{column}
-	\end{columns}
+    % Параметры для витков
+    \def\fLarge{0.8}  % Масштаб большого витка
+    \def\fSmall{0.4}  % Масштаб маленького витка
 
+    % Витки на разных уровнях
+    \foreach \y in {-1.5, -1, ..., +1.5} {
+        \pgfmathtruncatemacro{\c}{round(\y)}
+        \ifnum\c=0 \edef\t{1} \else \edef\t{0.1} \fi % Прозрачность
+        \begin{scope}[opacity=\t]
+
+            % Большой виток
+            \draw[arrowpos={0.4}{0}{3pt}, blue] (0,{0.8*\y})
+                [partial ellipse=91:{360+89}:{\fLarge*\R} and {\fLarge*0.2*\R}];
+            \draw[arrowpos={0.5}{2pt}{3pt}, green!50!black] (0,{0.8*\y})
+                ++(180:{\fLarge*\R}) circle(0.2);
+            \draw[arrowpos={0}{2pt}{3pt}, green!50!black] (0,{0.8*\y})
+                ++(0:{\fLarge*\R}) circle(0.2);
+
+            % Маленький виток
+            \draw[arrowpos={0.4}{0}{2pt}, blue] (0,{0.8*\y})
+                [partial ellipse=91:{360+89}:{\fSmall*\R} and {\fSmall*0.2*\R}];
+            \draw[arrowpos={0.5}{1.2pt}{2pt}, green!50!black] (0,{0.8*\y})
+                ++(180:{\fSmall*\R}) circle(0.1);
+            \draw[arrowpos={0.5}{1.2pt}{2pt}, green!50!black, rotate=180] (0,{0.8*\y})
+                ++(180:{\fSmall*\R}) circle(0.1);
+        \end{scope}
+    }
+\end{tikzpicture}
 \end{frame}
 % ===========================================================================
 
-
-% ============================== Слайд ## ===================================
-\begin{frame}{Циркуляція вектора намагнічення}{}
-	\framesubtitle<2>{Молекулярні об'ємні струми намагнічення}
-	\begin{onlyenv}<1>
-		\begin{columns}
-			\begin{column}{0.5\linewidth}
-				\begin{tikzpicture}[>=latex]
-					\fill[red!50, draw=green!50!black, arrowpos={0.2}{0pt}{4pt}] (0,0) -- ++(4, 0) -- ++(-45:2) -- ++(-4, 0) --cycle;
-					\foreach \x in {0,1,...,8}{
-							\draw[arrowpos={0.45}{2pt}{3pt}, red, scale=0.5] (\x, 0) [partial ellipse=10:350:0.2 and 1];
-							\draw[arrowpos={0.95}{2pt}{3pt}, red, scale=0.5] ({\x+3}, -2.8) [partial ellipse=10:350:0.12 and 0.6];
-						}
-					\draw[->, ultra thick, green!50!black, opacity=0.75] (2.8, -0.7) -- ++(0, -1.5) node[below] {$d\vect{S}$};
-				\end{tikzpicture}
-			\end{column}
-			\begin{column}{0.5\linewidth}
-				\begin{block}{}\justifying\small
-					Виберемо тепер у речовині довільний замкнутий контур {\color{green!50!black}$L$}. На одиницю довжини контуру припадає струм
-					намагнічування:
-					\begin{equation*}
-						i_m = c\vect{J}\cdot d\vect{\ell},
-					\end{equation*}
-					таким чином,  контур перетинає повний струм:
-					\begin{equation*}
-						I_m = c\oint\limits_L \vect{J}\cdot d\vect{\ell}.
-					\end{equation*}
-				\end{block}
-			\end{column}
-		\end{columns}
-	\end{onlyenv}
-	\begin{onlyenv}<1-2>
-		\begin{block}{}\justifying
-			Отриманий вираз на підставі теореми Стокса перетворюється на вигляд:
-			\begin{equation*}
-				I_m = c\oint\limits_L \vect{J}\cdot d\vect{\ell} = c \iint\limits_S \Rot\vect{I}\cdot d\vect{S}.
-			\end{equation*}
-			де $S$ --- поверхня, що спирається на контур $L$.
-		\end{block}
-	\end{onlyenv}
-	\begin{onlyenv}<2>
-		\begin{block}{}\justifying
-			Струм, що протікає через поверхню $S$, виражається через густину струму формулою
-			\(
-				I_m = \iint\limits_S \vect{j}_m\cdot d\vect{S}.
-			\)
-			отже, що густина молекулярних струмів пов'язана з вектором намагнічування
-			формулою:
-			\begin{equation*}
-				\tcbhighmath{\vect{j}_m = c\Rot\vect{J}.}
-			\end{equation*}
-			Це співвідношення дає зв'язок молекулярного струму з вектором намагнічування в диференціальній формі.
-		\end{block}
-	\end{onlyenv}
-\end{frame}
-% ===========================================================================
 
 
 \end{document}

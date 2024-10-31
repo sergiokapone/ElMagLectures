@@ -4,7 +4,7 @@
 % !TeX spellcheck = uk_UA
 % !BIB program = bibler
 
-\documentclass{beamer}
+\documentclass[onlytextwidth]{beamer}
 \usetheme{Electromagnetism}
 \usepackage{Electromagnetism}
 \usetikzlibrary{spy}
@@ -14,6 +14,7 @@
   urlcolor=red,    % Цвет для URL
   citecolor=blue   % Цвет для библиографических ссылок
 }
+
 
 
 %\def\colform#1{
@@ -122,7 +123,8 @@
 
 
 	\begin{block}{}\justifying\small
-		Намагніченість називається \alert{однорідною}, якщо вектор $I$ не залежить від вибору точки в речовин. Якщо ж $\vect{I}\neq\const$, то намагніченість
+		Намагніченість називається \alert{однорідною}, якщо вектор $J$ не залежить від вибору точки в речовин. Якщо ж $\vect{J}\neq\const$, то
+		намагніченість
 		називається \alert{неоднорідною}.
 	\end{block}
 	\begin{center}
@@ -149,8 +151,6 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Зв'язок намагніченості з молекулярними струмами}{}
-
-
 	\begin{block}{}\justifying\scriptsize
 		Виділимо в речовині досить малий циліндр, так що поле в ньому можна вважати практично однорідним. У його об'ємі молекулярні струми компенсують один
 		одного. Циліндр (ліворуч) і вигляд його торця (праворуч). Кільцеві струми, що циркулюють в об'ємі, компенсують один одного всюди, окрім точок бічної
@@ -197,15 +197,16 @@
 			\end{tikzpicture}
 		\end{column}
 	\end{columns}
-	\begin{block}{}
+	\begin{block}{}\small
 		Знайдемо магнітний момент такого циліндрика:
 		\begin{equation*}
 			\vect{p}_m = \vect{J}V = \frac1c I_mS\ \vect{n} \Rightarrow\ \vect{J}S\ell\cos\theta = \frac1c I_m S\ \vect{n}
-			\Rightarrow\ \vect{J}\cdot\vect{\ell} \ell\cos\theta  = \frac1c I_m \ \vect{n}\cdot\vect{\ell}
+			\Rightarrow\ \vect{J}\cdot\vect{\tau} \ell\cos\theta  = \frac1c I_m \ \vect{n}\cdot\vect{\tau}
 		\end{equation*}
 		\begin{equation*}
-			\frac{I_m}{\ell} = i_m = c\vect{J}\cdot\vect{\ell}.
+			{I_m}\ /\ {\ell} = i_m = c\vect{J}\cdot\vect{\tau},\ {\color{red}\vect{n}\cdot\vect{\tau} = \cos\theta}.
 		\end{equation*}
+		\alert{Молекулярні струми перпендикулярні намагніченості: $\vect{i}_m \perp \vect{J}$.}
 	\end{block}
 \end{frame}
 % ===========================================================================
@@ -379,6 +380,86 @@
 
 
 
+% ============================== Слайд ## ===================================
+\begin{frame}{Задачі}{}
+	\begin{exampleblock}{\scriptsize Задача 1}
+		\begin{columns}
+			\begin{column}{0.75\linewidth}\justifying\scriptsize
+				Постійний струм $I$ тече вздовж довгого циліндричного дроту круглого перерізу. Дріт виготовлений з парамагнетика сприйнятливістю $\chi$.
+				Знайти:
+				\begin{enumerate}
+					\item поверхневий молекулярний струм;
+					\item об'ємний молекулярний струм.
+				\end{enumerate}
+				Як ці струми напрямлені один відносно одного?
+				\bigskip
+
+				\textit{Відповіді}:
+
+				\begin{enumerate}
+					\item $I'_\text{пов} = 4\pi\chi I$;
+					\item $I'_\text{об} = 4\pi\chi I$.
+				\end{enumerate}
+				Струми напрямлені протилежно один відносно одного.
+
+			\end{column}
+			\begin{column}{0.25\linewidth}\centering
+				\begin{tikzpicture}[>=latex]
+					% Основные параметры
+					\pgfmathsetmacro\h{3}          % Высота
+					\pgfmathsetmacro\R{1}          % Радиус
+					\coordinate (A) at (0, {-\h/2});
+					\coordinate (B) at (0, {+\h/2});
+
+					% Вертикальные линии
+					\draw[gray] ([xshift=\R cm]A) -- ([xshift=\R cm]B)
+					([xshift=-\R cm]A) -- ([xshift=-\R cm]B);
+					\draw[line width={\R*2cm}, gray!50] (A) -- (B);
+
+					% Верхняя и нижняя части
+					\draw[gray, fill=gray!50] (B) circle ({\R} and {0.2*\R});
+					\draw[gray] ([xshift=\R cm]A) arc(0:-180:{\R} and {0.2*\R});
+					\draw[gray, densely dashed] ([xshift=-\R cm]A) arc(180:0:{\R} and {0.2*\R});
+					\fill[gray!50] (A) circle ({\R} and {0.2*\R});
+
+					% Стрелка для тока
+					\draw[->] ([yshift={\h*0.3cm}]A) -- ([yshift={-\h*0.3cm}]B) node[above] {$I$};
+
+					% Параметры для витков
+					\def\fLarge{0.8}  % Масштаб большого витка
+					\def\fSmall{0.4}  % Масштаб маленького витка
+
+					% Витки на разных уровнях
+					\foreach \y in {-1.5, -1, ..., +1.5} {
+							\pgfmathtruncatemacro{\c}{round(\y)}
+							\ifnum\c=0 \edef\t{1} \else \edef\t{0.1} \fi % Прозрачность
+							\begin{scope}[opacity=\t]
+
+								% Большой виток
+								\draw[arrowpos={0.4}{0}{3pt}, blue] (0,{0.8*\y})
+								[partial ellipse=91:{360+89}:{\fLarge*\R} and {\fLarge*0.2*\R}];
+								\draw[arrowpos={0.5}{2pt}{3pt}, green!50!black] (0,{0.8*\y})
+								++(180:{\fLarge*\R}) circle(0.2);
+								\draw[arrowpos={0}{2pt}{3pt}, green!50!black] (0,{0.8*\y})
+								++(0:{\fLarge*\R}) circle(0.2);
+
+								% Маленький виток
+								\draw[arrowpos={0.4}{0}{2pt}, blue] (0,{0.8*\y})
+								[partial ellipse=91:{360+89}:{\fSmall*\R} and {\fSmall*0.2*\R}];
+								\draw[arrowpos={0.5}{1.2pt}{2pt}, green!50!black] (0,{0.8*\y})
+								++(180:{\fSmall*\R}) circle(0.1);
+								\draw[arrowpos={0.5}{1.2pt}{2pt}, green!50!black, rotate=180] (0,{0.8*\y})
+								++(180:{\fSmall*\R}) circle(0.1);
+							\end{scope}
+						}
+				\end{tikzpicture}
+			\end{column}
+		\end{columns}
+
+	\end{exampleblock}
+\end{frame}
+% ===========================================================================
+
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Граничні умови для $\Bfield$ та $\Hfield$}{}
@@ -450,15 +531,151 @@
 				\frac{4\pi}c i_b $, або $(\Hfield_2 - \Hfield_1)[\vect{b}\times\vect{n}] = \frac{4\pi}c i_b $. Зробивши циклічний зсув співмножників у змішаному
 			добутку векторів, отримаємо:
 			\(
-				\tcbhighmath{
-					\vect{n}\times (\Hfield_2 - \Hfield_1) = \frac{4\pi}c \vect{i}.
-				}
+			\tcbhighmath{
+				\vect{n}\times (\Hfield_2 - \Hfield_1) = \frac{4\pi}c \vect{i}.
+			}
 			\)
 		\end{block}
-\begin{alertblock}{}\centering\scriptsize
-    Тангенціальна складова $\Hfield$ зазнає розриву, якщо по поверхні розділу середовищ течуть \alert{струми провідності}.
-\end{alertblock}
+		\begin{alertblock}{}\centering\scriptsize
+			Тангенціальна складова $\Hfield$ зазнає розриву, якщо по поверхні розділу середовищ течуть \alert{струми провідності}.
+		\end{alertblock}
 	\end{onlyenv}
+\end{frame}
+% ===========================================================================
+
+
+
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Заломлення силових ліній на границі магнетиків}{}\small
+	\begin{block}{}\justifying
+		Лінії векторів $\Bfield$ і $\Hfield$ на границі розділу двох
+		магнетиків заломлюються.
+	\end{block}
+	\begin{columns}
+		\begin{column}{0.55\linewidth}\centering
+			\begin{tikzpicture}[>=latex,
+					scale=0.73,
+					transform shape,
+					pencildraw/.style={ %
+							decorate,
+							decoration={random steps,segment length=3pt,amplitude=2pt}
+						},
+				]
+
+
+
+				% Георметрія
+
+				% Середовище 1
+				\fill[thick, red!10,  pencildraw, opacity=0.85] (-2, +0.05) rectangle (6, -2.1);
+				\node[circle, draw, inner sep =1pt, font=\scriptsize] at (-1.8, -0.5) {$1$};
+
+				% Середовище 2
+				\fill[thick, blue!10, pencildraw, opacity=0.85] (-2, -0.05) rectangle (6, +2.1);
+				\node[circle, draw, inner sep =1pt, font=\scriptsize] at (-1.8, +0.5) {$2$};
+
+				% Границя розділу
+				\draw[line width=2pt, gray!50] (-2, 0) -- (6, 0);
+
+				\draw[dashed] (-1, -2) -- ++(0, 4);
+
+				\draw[midarrow] (-1.5, -2) -- (-1,0);
+				%				\draw[->, red, thin, opacity=0.5] (-1.5, 0) -- node[above, font=\scriptsize]
+				%				{$E_{1\tau}$}
+				%				++(0.5, 0);
+				%				\draw[->, red, thin, opacity=0.5] (-1.5, -2) -- node[left, font=\scriptsize]
+				%				{$E_{1n}$} ++(0, 2);
+				%
+				%				\draw[->, red, thin, opacity=0.5] (-1, 0)     -- node[above, font=\scriptsize]
+				%				{$E_{2\tau}$}
+				%				++(1, 0);
+				%				\draw[->, red, thin, opacity=0.5] (0, 0)      -- node[right, font=\scriptsize]
+				%				{$E_{2n}$} ++(0,
+				%				2);
+
+				\draw[midarrow] (-1,0) -- ++(1, 2);
+				\draw (-1,0) ++(90:0.8) arc[start angle=90, delta angle={-atan(1/2)}, radius =
+						0.8]  node[pos=0.5, anchor=south, inner sep=1, font=\scriptsize] {$\alpha_2$};
+				\draw (-1,0) ++(-90:0.8) arc[start angle=-90, delta angle={-atan(0.5/2)}, radius =
+						0.8] node[pos=0.5, anchor=north, inner sep=5pt, font=\scriptsize] {$\alpha_1$};
+
+				% Поле вектора E
+				\foreach[] \x in {0,1,...,6}{
+						\draw[midarrow, red] (0.25*\x, -2) -- ++(0.5, 2);
+						\ifnum\x<4
+							\draw[midarrow, red] ({0.5*(\x + 1)}, 0) -- ++(1, 2);
+						\fi
+					}
+				\node[font=\small] at (0.8, -2.5) {Поле вектора $\Hfield$};
+
+				% Поле вектора D
+				\begin{scope}[xshift=3cm]
+					\foreach[] \x in {0,1,...,6}{
+							\draw[midarrow, blue ] (0.25*\x, -2) -- ++(0.5, 2);
+							\draw[midarrow, blue ] ({0.25*(\x+2)}, 0) -- ++(1, 2);
+						}
+				\end{scope}
+				\node[font=\small] at (3.8, -2.5) {Поле вектора $\Bfield$};
+
+			\end{tikzpicture}
+		\end{column}
+		\begin{column}{0.45\linewidth}\scriptsize
+			Граничні умови для вектора $\Hfield$
+			\begin{equation*}
+				\begin{cases}
+					H_{1\tau} = H_{2\tau},\ \Rightarrow\ H_1\sin\alpha_1 = H_2\sin\alpha_2, \\
+					B_{1n} = B_{2n},\ \Rightarrow\ \mu_1H_1\cos\alpha_1 =
+					\mu_2H_2\cos\alpha_2
+				\end{cases}
+			\end{equation*}
+			Граничні умови для вектора $\Bfield$
+			\begin{equation*}
+				\begin{cases}
+					H_{1\tau} = H_{2\tau},\ \Rightarrow\ B_1/\mu_1\sin\alpha_1 =
+					B_2/\mu_2\sin\alpha_2, \\
+					B_{1n} = B_{2n},\ \Rightarrow\ B_1\cos\alpha_1 =
+					B_2\cos\alpha_2
+				\end{cases}
+			\end{equation*}
+		\end{column}
+	\end{columns}
+	\begin{block}{}\justifying
+		Закон заломлення ліній $\Bfield$ та $\Hfield$ однаковий:
+		\begin{equation*}
+			\tg\alpha_2 / \tg\alpha_1 = \mu_2 / \mu_1.
+		\end{equation*}
+		В діелектрику з більшим значенням $\mu$ лінії $\Hfield$ і $\Bfield$
+		становитимуть більший кут із нормаллю до границі розділу.
+	\end{block}
+\end{frame}
+% ===========================================================================
+
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Магнітне екранування}{}
+\begin{block}{}\justifying
+На заломленні магнітних ліній заснований \alert{магнітний захист}.
+\end{block}
+\begin{columns}
+	\begin{column}{0.5\linewidth}
+         \begin{block}{}\justifying\small
+При внесенні, наприклад, замкненої залізної оболонки (шару) в зовнішнє магнітне
+поле лінії цього поля будуть концентруватися (згущуватися) переважно в самій оболонці. Усередині ж цієї оболонки --- в порожнині --- магнітне поле
+виявляється сильно ослабленим порівняно із зовнішнім полем. Іншими словами, \alert{залізна оболонка має екрануючу дію}.
+\end{block}
+	\end{column}
+	\begin{column}{0.5\linewidth}\centering
+         \includegraphics[width=0.75\linewidth]{magshield}
+	\end{column}
+\end{columns}
+\begin{block}{}
+    Це використовують для
+оберігання чутливих  приладів від зовнішніх магнітних полів.
+\end{block}
+
 \end{frame}
 % ===========================================================================
 
