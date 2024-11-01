@@ -14,6 +14,7 @@ _minted*/
 *.out
 *.fls
 *.fdb_latexmk
+test.pdf
 
 
 
