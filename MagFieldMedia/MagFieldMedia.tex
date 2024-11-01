@@ -221,7 +221,7 @@
 	\begin{onlyenv}<1>
 		\begin{columns}
 			\begin{column}{0.5\linewidth}
-				\begin{tikzpicture}[>=latex]
+				\begin{tikzpicture}[>=latex, scale=0.85]
 					\fill[red!20, draw=green!50!black, arrowpos={0.2}{0pt}{4pt}] (0,0) -- ++(4, 0) -- ++(-45:2) -- ++(-4, 0) --cycle;
 					\foreach \x in {0,1,...,8}{
 							\draw[arrowpos={0.45}{2pt}{3pt}, red, scale=0.5] (\x, 0) [partial ellipse=10:350:0.2 and 1];
@@ -656,26 +656,119 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Магнітне екранування}{}
-\begin{block}{}\justifying
-На заломленні магнітних ліній заснований \alert{магнітний захист}.
-\end{block}
-\begin{columns}
-	\begin{column}{0.5\linewidth}
-         \begin{block}{}\justifying\small
-При внесенні, наприклад, замкненої залізної оболонки (шару) в зовнішнє магнітне
-поле лінії цього поля будуть концентруватися (згущуватися) переважно в самій оболонці. Усередині ж цієї оболонки --- в порожнині --- магнітне поле
-виявляється сильно ослабленим порівняно із зовнішнім полем. Іншими словами, \alert{залізна оболонка має екрануючу дію}.
-\end{block}
-	\end{column}
-	\begin{column}{0.5\linewidth}\centering
-         \includegraphics[width=0.75\linewidth]{magshield}
-	\end{column}
-\end{columns}
-\begin{block}{}
-    Це використовують для
-оберігання чутливих  приладів від зовнішніх магнітних полів.
+	\begin{block}{}\justifying
+		На заломленні магнітних ліній заснований \alert{магнітний захист}.
+	\end{block}
+	\begin{columns}
+		\begin{column}{0.5\linewidth}
+			\begin{block}{}\justifying\small
+				При внесенні, наприклад, замкненої залізної оболонки (шару) в зовнішнє магнітне
+				поле лінії цього поля будуть концентруватися (згущуватися) переважно в самій оболонці. Усередині ж цієї оболонки --- в порожнині --- магнітне поле
+				виявляється сильно ослабленим порівняно із зовнішнім полем. Іншими словами, \alert{залізна оболонка має екрануючу дію}.
+			\end{block}
+		\end{column}
+		\begin{column}{0.5\linewidth}\centering
+			\includegraphics[width=0.75\linewidth]{magshield}
+		\end{column}
+	\end{columns}
+	\begin{block}{}
+		Це використовують для
+		оберігання чутливих  приладів від зовнішніх магнітних полів.
+	\end{block}
+\end{frame}
+% ===========================================================================
+
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Феромагнетики}{}
+	\begin{block}{}
+		\alert{Феромагнетиками} називають речовини (тверді), які можуть мати \alert{спонтанну намагніченість в середині окремих доменів}, тобто
+		намагнічені вже за відсутності зовнішнього магнітного поля. Типові представники феромагнетиків --- це залізо, кобальт і багато їхніх сплавів.
+	\end{block}
+	\begin{columns}
+		\begin{column}{0.65\linewidth}
+			\begin{block}{}\justifying\small
+				\alert{Домен} --- це локальна область усередині феромагнетика, де дипольні моменти
+				орієнтовані в одному й тому самому напрямку. У кожному домені намагніченість постійна і спрямована
+				в один бік.
+			\end{block}
+		\end{column}
+		\begin{column}{0.3\linewidth}\centering
+			\includegraphics[width=1\linewidth]{domains}
+		\end{column}
+	\end{columns}
+\end{frame}
+% ===========================================================================
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Гістерезис в феромагнетиках}{}\small
+	\begin{block}{}\justifying
+		\alert{Гістерезис} --- неоднозначна петлеподібна залежність поляризації сегнетоелектриків від
+		зовнішнього магнітного поля $\Hfield$ за його циклічної зміни.
+	\end{block}
+	\begin{columns}
+		\begin{column}{0.5\linewidth}\centering
+			\begin{tikzpicture}[>=latex, scale=0.8, transform shape,
+					point/.style={circle, draw, inner sep=0.7pt, fill=white}
+				]
+
+				\draw[-latex, name path=E] (-2.5,0) -- (2.5,0) node[below]{$H$};
+				\draw[-latex, name path
+					=P] (0,-1.5) -- (0,1.5)node[left]{$J $};
+
+				\draw[samples=200, domain=-3:2, name path=d, midarrow,  red, thick] plot ({\x+0.5}, {0.2*\x
+						+ tanh(1.9*\x) + 0.1}); \draw[samples=200, domain=-2:3, name path=u, midarrowR, red, thick]
+				plot ({\x-0.5}, {0.2*\x + tanh(1.9*\x) - 0.1});
+				\draw[midarrow, thick, cyan!50!black] (0,0) .. controls (0.5, 0.2) and
+				(0.2, 1.0) ..
+				(1.52, 1.28);
+				\tikzfillbetween[of=u and d]{blue, opacity=0.1};
+
+				\foreach \i/\a in {P/u, P/d, E/u, E/d} {
+						\path[name intersections={of={\i} and {\a}}]
+						(intersection-1) node[point] (\i\a) {};
+					}
+				\node[left,  text=brown] at (Pu) {$J_r$};
+				\node[right, text=brown] at (Pd) {$-J_r$};
+				\node[above left, text=red] at (Eu) {$-H_c$};
+				\node[below right, text=red] at (Ed) {$H_c$};
+			\end{tikzpicture}
+		\end{column}
+		\begin{column}{0.5\linewidth}
+			\begin{figure}
+				\includegraphics[width=0.5\linewidth]{domains}
+				\caption{\centering\scriptsize Доменна структура феромагнетика}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\begin{enumerate}\justifying\scriptsize
+		\item За високого поля $ H $, намагніченість досягає насичення і поводить себе як
+		      парамагнетик у якого $J \propto H$.
+		\item  Поле зменшується до нуля $H = 0$, але намагніченість $ J_r $ залишається.
+		\item Для того щоб звести намагніченість до нуля, потрібно прикласти негативне поле $-H_c$,
+		      яке називається \alert{коерцитивною силою}.
+		\item При подальшому збільшенні негативного поля намагніченість $J \propto H$.
+		\item  При зменшенні негативного поля до нуля намагніченість залишається на рівні $ -J_r $.
+	\end{enumerate}
+\end{frame}
+% ===========================================================================
+
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Магнітом'які та магнітожорсткі феромагнетики}{}
+       \begin{block}{}\justifying
+\alert{Магнітом'який} матеріал, який застосовують як осердя в трансформаторах, електромагнітах та інших приладах і машинах, характерний дуже вузькою
+петлею гістерезису. Вузькість петлі (мала коерцитивна сила) означає малі втрати на перемагнічування. У ділянці до насичення петля близька до прямої
+лінії, рівняння якої можна записати, як для неферомагнітних речовин, у вигляді $\Bfield = \mu\Hfield$.
 \end{block}
 
+\begin{block}{}\justifying
+Постійні магніти слід виготовляти з магнітно-жорстких матеріалів, наприклад із загартованої сталі. Гістерезисна петля її широка, $H_c$ велика, що
+забезпечує стійкість намагнічування.
+\end{block}
 \end{frame}
 % ===========================================================================
 
