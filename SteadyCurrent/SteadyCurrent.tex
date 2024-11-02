@@ -310,7 +310,7 @@
 			\begin{block}{}\justifying
 				Нехай в деякому провідному середовищі, струм, який витікає через поверхню $S$ дорівнює $I =
 					\oiint\limits_S  \vect{j} d\vect{S}$. Оскільки струм --- це рух зарядів, то заряд  в об'ємі $V$
-				він має заряд зменшується з часом:
+				 має заряд зменшується з часом:
 				\begin{equation*}
 					\oiint\limits_S \vect{j} d\vect{S} = -\frac{d}{dt} \iiint\limits_V \rho dV
 				\end{equation*}
@@ -1164,9 +1164,31 @@
 
 
 % ============================== Слайд ## ===================================
-%\begin{frame}{Підсумки}{}
-%
-%\end{frame}
+\begin{frame}{Підсумки}{}\small
+\begin{overprint}
+\onslide<1>
+\begin{tblr}{colspec={Q[l,m]Q[l,m,mode=dmath]}}
+    Сила струму & I = \frac{dq}{dt} \\
+    Вектор густини струму & j = \frac{dI}{dS_{\perp}} \\
+    Струм, як потік вектора $\vect{j}$ & I = \iint\limits_S \vect{j}\cdot d\vect{S} \\
+    Зв'язок густини струму і густини заряду & \vect{j} = \rho\vect{u} \\
+    Закон збереження заряду (рівняння неперервності) & \Div\vect{j} = - \frac{\partial\rho}{\partial t} \\
+    Закон Ома в інтегральній формі & I = \frac{U}{R} \\
+    Закон Ома в диференціальній формі & \vect{j} = \lambda\Efield \\
+    Провідність металів за теорією Друде & \lambda = \frac{ne^2\tau}{2m_e} \\
+    Електрорушійна сила (означення) & \mathcal{E} = \frac{A^*}{q} = \int\limits_{(1)}^{(2)}\vect{E}^*\cdot d\vect{r}
+\end{tblr}
+\onslide<2>
+\begin{tblr}{colspec={Q[l,m]Q[l,m,mode=dmath]}}
+    Електрорушійна сила (означення) & \mathcal{E} = \frac{A^*}{q} = \int\limits_{(1)}^{(2)}\vect{E}^*\cdot d\vect{r}\\
+    Закон Ома для неоднорідної ділянки кола & IR = \phi_1 - \phi_2 + \mathcal{E}\\
+    Перше правило Кірхгофа (для вузла) & \sum\limits_{k=1}^{K} I_k = 0\\
+    Друге правило Кірхгофа (для контурів) & \sum\limits_{m=1}^{M} I_m R_m = \sum\limits_{n=1}^{N} \mathcal{E}\\
+    Закон Джоуля-Ленца (в диференціальній формі) & w = \lambda E^2 \\
+    Закон Джоуля-Ленца (в Інтегральній формі) & W = I R^2
+\end{tblr}
+\end{overprint}
+\end{frame}
 % ===========================================================================
 
 
