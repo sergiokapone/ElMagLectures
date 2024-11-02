@@ -55,44 +55,28 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Означення}{}
-\begin{block}{}\justifying\small
-    \href{https://www.youtube.com/watch?v=qS361iadCPA}{Дослід Ерстеда}, проведений 1820 року Ерстедом --- є першим експериментальним доказом впливу
-    електричного струму на магніт (магнітну стрілку).
-\end{block}
-\begin{block}{}\justifying
+	\begin{block}{}\justifying\small
+		\href{https://www.youtube.com/watch?v=qS361iadCPA}{Дослід Ерстеда}, проведений 1820 року Ерстедом --- є першим експериментальним доказом впливу
+		електричного струму на магніт (магнітну стрілку).
+	\end{block}
+	\begin{block}{}\justifying
 		\alert{Магнітним полем} називається силове поле, що \alert{діє на рухомі заряди} і як наслідок --- на електричні струми  і на тіла, які мають
 		магнітний  момент.
-\end{block}
-\begin{block}{}\justifying
+	\end{block}
+	\begin{block}{}\justifying
 		Магнітне поле створюється рухомими зарядами (електричним струмом). Незмінні в часі струми створюють постійні магнітні поля.
-\end{block}
-\begin{columns}
-	\begin{column}{0.5\linewidth}\centering
-\begin{tikzpicture}[>=latex, scale=0.9, transform shape]
-    \def\R{0.2}
-    \draw[ball color=red!60] (0,0) circle (\R);
-    \foreach \a in {20,40,...,340} {
-        \draw[->, red] (0, 0) ++(\a:\R) -- (\a:1.5);
-    }
-    \draw[->, thick] (\R, 0) -- ++(2, 0) node[below] {$\vect{v}$};
-    \draw[arrowpos={0.6}{2pt}{5pt}, blue, thick] (0,0) [partial ellipse=15:345:{0.3*0.5} and {1*0.5}];
-    \draw[arrowpos={0.6}{2pt}{5pt}, blue, thick] (0,0) [partial ellipse=1:359:0.3 and 1];
-    \draw[arrowpos={0.6}{2pt}{5pt}, blue, thick] (0,0) [partial ellipse=1:359:{0.3*1.5} and {1*1.5}];
-
-    \foreach \c in {-1.5, +1.5}{
-        \foreach \a in {0.2, 0.5, 1}{
-            \draw[arrowpos={0.6}{2pt}{5pt}, blue, thick] (\c,0) [partial ellipse=1:359:{0.3*\a} and {1*\a}];
-        }
-    }
-\end{tikzpicture}
-	\end{column}
-	\begin{column}{0.5\linewidth}
-         \includegraphics[width=0.9\linewidth]{OerstedExperiment}
-	\end{column}
-\end{columns}
-		\tikz[remember picture,overlay] \node[opacity=0.5,inner sep=0pt,
-			anchor=north west] at (current page.north
-		west){\includegraphics[width=2cm]{Ersted}};
+	\end{block}
+	\begin{columns}
+		\begin{column}{0.5\linewidth}\centering
+            \input{tikz/chargeFields.tikz}
+		\end{column}
+		\begin{column}{0.5\linewidth}
+			\includegraphics[width=0.9\linewidth]{OerstedExperiment}
+		\end{column}
+	\end{columns}
+	\tikz[remember picture,overlay] \node[opacity=0.5,inner sep=0pt,
+		anchor=north west] at (current page.north
+	west){\includegraphics[width=2cm]{Ersted}};
 \end{frame}
 % ===========================================================================
 
@@ -172,105 +156,54 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Елемент струму}{}
-\begin{onlyenv}<1>
-	\begin{columns}
-		\begin{column}{0.3\linewidth}\centering
-			\begin{tikzpicture}[>=latex,
-					spy using outlines={circle, magnification=3, size=3.2cm, connect spies}
-				]
-				\draw[gray!60, line width=0.21cm] (0,0)  [partial ellipse=90:0:2];
-				\fill[gray!50, draw = gray!70] (0, 2) circle (0.05 and 0.1);
-				\fill[gray!50, rotate=-90, draw = gray!70] (0, 2) circle (0.05 and 0.1);
-
-				\draw[red!40, line width=0.21cm] (0,0) [partial ellipse=55:45:2];
-				\draw[{Latex[scale=0.5]}-{Latex[scale=0.5]}] (55:2.2)  arc(55:45:2.1) node[above=-1pt, sloped, pos=0.7, font=\tiny] {$d\ell$};
-				\fill[red!40, draw = red!60, rotate=-45] (0, 2) coordinate (S1) circle (0.05 and 0.1);
-				\fill[red!40, draw = red!60, rotate=-35] (0, 2)  circle (0.05 and 0.1);
-
-				\node[font=\tiny, right, inner sep=0] (S) at (42:2.2) {$S$};
-
-				\draw[{Latex[scale=0.3]}-, ultra thin] (S1) to[out=0] (S.west);
-
-				\draw[-{Latex[scale=0.5]}, teal] (55:2)  node[below=1pt, text=teal, font=\tiny] {$\vect{j}$} -- ++({55-90}:0.2);
-				\spy [gray] on (50:2.1)
-				in node [] at (1.5,4.5);
-			\end{tikzpicture}
-		\end{column}
-		\begin{column}{0.7\linewidth}
-			\begin{block}{}\justifying
-				Якщо в задачі не цікавляться
-				внутрішньою будовою провідника, та розподілом струму в його товщі, то можна ввести \alert{елемент лінійного струму}.
-			\end{block}
-			\begin{block}{}\justifying\footnotesize
-				Нехай струм тече провідником із площею поперечного перерізу $S$. Уведемо вектор ділянки провідника завдовжки $d\vect{\ell}$
-				за формулою $d\vect{\ell} = \vect{n}\ell$, де $\vect{n}$ --- одиничний вектор уздовж осі провідника. Тоді $\vect{j} = j\vect{n}$,
-				а $I = j S$ і вираз для елемента об'ємного струму можна переписати у вигляді:
-				\begin{equation*}
-					\vect{j}dV = j\vect{n} S d\ell  = I d\vect{\ell}.
-				\end{equation*}
-			\end{block}
-		\end{column}
-	\end{columns}
-	\begin{block}{}
-		Для елемента лінійного струму сила Ампера:
-		\begin{equation*}
-			d\vect{F} = \frac1c \left[ I d\vect{\ell} \times \Bfield\right].
-		\end{equation*}
-	\end{block}
-\end{onlyenv}
-\begin{onlyenv}<2>
-\begin{tblr}{
-colspec={Q[c,h]X[l,m]}
-}
-\tikz[>=latex, baseline]{
-	\draw[gray!60, line width=0.21cm] (0,0)  [partial ellipse=90:0:2];
-	\fill[gray!50, draw = gray!70] (0, 2) circle (0.05 and 0.1);
-	\fill[gray!50, rotate=-90, draw = gray!70] (0, 2) circle (0.05 and 0.1);
-
-	\draw[red!40, line width=0.21cm] (0,0) [partial ellipse=55:45:2];
-	\draw[{Latex[scale=0.5]}-{Latex[scale=0.5]}] (55:2.2)  arc(55:45:2.1) node[above=-1pt, sloped, pos=0.7, font=\tiny] {$d\ell$};
-	\fill[red!40, draw = red!60, rotate=-45] (0, 2) coordinate (S1) circle (0.05 and 0.1);
-	\fill[red!40, draw = red!60, rotate=-35] (0, 2)  circle (0.05 and 0.1);
-	\node[font=\tiny, right, inner sep=0] (S) at (42:2.2) {$S$};
-	\draw[{Latex[scale=0.3]}-, ultra thin] (S1) to[out=0] (S.west);
-	\draw[-{Latex[scale=0.5]}, teal] (55:2)  node[below=1pt, text=teal, font=\tiny] {$\vect{j}$} -- ++({55-90}:0.2);
-}
-&
-Елемент об'ємного струму $\vect{j}dV$
-\\
-\tikz[>=latex, baseline]{
-	\draw[gray!60, line width=0.05cm, arrowpos={0.2}{2pt}{6pt}] (0,0)  [partial ellipse=90:0:2] node[pos=0.2, anchor=north, text=black] {$I$};
-	\draw[red!40, line width=0.05cm] (0,0) [partial ellipse=55:45:2];
-	\draw[-{Latex[scale=0.5]}] (55:2)  arc(55:45:2) node[above, sloped, pos=0.7, font=\tiny] {$d\vect{\ell}$};
-}
-&
-Елемент лінійного струму $Id\vect{\ell}$
-\\
-\tikz[>=latex, baseline,
-                    pencildraw/.style={ %
-							decorate,
-							decoration={random steps,segment length=2pt,amplitude=1pt}
-						},]{
-        \draw[fill=gray!60] (0,0) -- ++(3, 0) decorate [pencildraw]
-          {to ++(1, 1)}
-        -- ++(-3, 0)
-         decorate [pencildraw]  {to cycle};
-        \foreach \s in {0.2,0.4,...,0.8}  {
-            \draw[->, red] ({0.8+\s}, \s) -- ++(1.2, 0);
-        }
-        \draw (1.5, 0) -- node[right, fill=gray!60, circle, inner sep=0] {$l$} ++(1,1) node (S) [above=5pt] {$dS$};
-        \draw[fill=red!50, opacity=0.5] (1.0,0) -- ++(1, 0) -- ++(1, 1) -- ++(-1, 0) -- cycle;
-        \draw[->] (S.east) to[out=0, in=90] (2.7, 0.9);
-
-}
-&
-{
-Поверхнева густина струму $i = \frac{I}{l}$.\\
-Елемент струму $I\ell = il\ell = i S$, де $\ell$ та $l$ --- сторони виділеного елемента, площа якого $S = l\cdot \ell$.
-Елемент поверхневого струму $\vect{i}dS$
-}
-\end{tblr}
-\end{onlyenv}
+	\begin{onlyenv}<1>
+		\begin{columns}
+			\begin{column}{0.3\linewidth}\centering
+                \input{tikz/CurrentElementSpy.tikz}
+			\end{column}
+			\begin{column}{0.7\linewidth}
+				\begin{block}{}\justifying
+					Якщо в задачі не цікавляться
+					внутрішньою будовою провідника, та розподілом струму в його товщі, то можна ввести \alert{елемент лінійного струму}.
+				\end{block}
+				\begin{block}{}\justifying\footnotesize
+					Нехай струм тече провідником із площею поперечного перерізу $S$. Уведемо вектор ділянки провідника завдовжки $d\vect{\ell}$
+					за формулою $d\vect{\ell} = \vect{n}\ell$, де $\vect{n}$ --- одиничний вектор уздовж осі провідника. Тоді $\vect{j} = j\vect{n}$,
+					а $I = j S$ і вираз для елемента об'ємного струму можна переписати у вигляді:
+					\begin{equation*}
+						\vect{j}dV = j\vect{n} S d\ell  = I d\vect{\ell}.
+					\end{equation*}
+				\end{block}
+			\end{column}
+		\end{columns}
+		\begin{block}{}
+			Для елемента лінійного струму сила Ампера:
+			\begin{equation*}
+				d\vect{F} = \frac1c \left[ I d\vect{\ell} \times \Bfield\right].
+			\end{equation*}
+		\end{block}
+	\end{onlyenv}
+	\begin{onlyenv}<2>
+		\begin{tblr}{
+			colspec={Q[c,h]X[l,m]}
+			}
+              \input{tikz/VolCurrentElement.tikz}
+			 &
+			Елемент об'ємного струму $\vect{j}dV$
+			\\
+            \input{tikz/LinCurrentElement.tikz}
+			 &
+			Елемент лінійного струму $Id\vect{\ell}$
+			\\
+            \input{tikz/SurfCurrentElement.tikz}
+			 &
+			{
+			Поверхнева густина струму $i = \frac{I}{l}$. \\
+					Елемент струму $I\ell = il\ell = i S$, де $\ell$ та $l$ --- сторони виділеного елемента, площа якого $S = l\cdot \ell$.
+					Елемент поверхневого струму $\vect{i}dS$
+				}
+		\end{tblr}
+	\end{onlyenv}
 \end{frame}
 % ===========================================================================
 
@@ -288,9 +221,9 @@ colspec={Q[c,h]X[l,m]}
 		\end{equation*}
 		Для рухомого заряду $q$, що рухається з швидкістю $\vect{v}$ --- \alert{елементом струму струму є $q\vect{v}$}.
 	\end{block}
-\begin{center}
-\includegraphics[width=2.2cm]{LeftHandRule}
-\end{center}
+	\begin{center}
+		\includegraphics[width=2.2cm]{LeftHandRule}
+	\end{center}
 \end{frame}
 % ===========================================================================
 
@@ -298,46 +231,34 @@ colspec={Q[c,h]X[l,m]}
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Робота магнітного поля}{}
-    Робота сили Лоренца:
-        \begin{columns}
-        	\begin{column}{0.65\linewidth}
-         \begin{equation*}
-            \delta A = \vect{F}\cdot d\vect{r} = \vect{F}\cdot\vect{v}dt = \left[\frac{q \vect{v}}{c}\times\Bfield\right] \cdot\vect{v}dt.
-        \end{equation*}
-        \begin{block}{}\scriptsize
-            \begin{equation*}
-                 \vect{A}\cdot\vecdot{\vect{B}}{\vect{C}} = \vect{C}\cdot\vecdot{\vect{A}}{\vect{B}}.
-            \end{equation*}
-        \end{block}
-        \begin{equation*}
-           \vect{v}\cdot\left[\vect{v}\times\Bfield\right] = \Bfield\cdot\left[\vect{v}\times\vect{v}\right] = 0.
-        \end{equation*}
-        \begin{equation*}
-            \delta A = 0.
-        \end{equation*}
-	\end{column}
-	\begin{column}{0.35\linewidth}\centering
-     \begin{tikzpicture}[>=latex, every node/.style={font=\scriptsize}, scale=1.4]
-            \foreach \x in {0,...,2} {
-                \draw[->, blue] (\x, 0) -- ++(0, 2) \ifnum\x=1 node[right] {$\Bfield$}\fi;
-                \draw[->, blue] ({\x+0.5}, -0.5) -- ++(0, 2);
-                \draw[arrowpos={0.2}{2pt}{5pt}, red] (1.25, 0.5) coordinate (O) [partial ellipse=360:0:1.2 and 0.2] node[pos=0.7, circle, inner
-                sep=1pt, ball
-                color=red,
-                text=white] (q)
-                {$+$} ;
-            }
-            \draw[->, green!50!black, thick] (q) -- ++(3:1) node[above] {$\vect{v}$};
-            \draw[gray, ->] (q) -- (O) node[anchor=west] {$\vect{F}$};
-    \end{tikzpicture}
-	\end{column}
-\end{columns}
-\begin{block}{}
-За теоремою про зміну кінетичної енергії $A = \Delta\left(\frac{mv^2}{2}\right) = 0$, кінетична енергія частинки не змінюється.
-\end{block}
-\begin{alertblock}{}\centering
-    Магнітне поле не виконує роботи над частинкою!
-\end{alertblock}
+	Робота сили Лоренца:
+	\begin{columns}
+		\begin{column}{0.65\linewidth}
+			\begin{equation*}
+				\delta A = \vect{F}\cdot d\vect{r} = \vect{F}\cdot\vect{v}dt = \left[\frac{q \vect{v}}{c}\times\Bfield\right] \cdot\vect{v}dt.
+			\end{equation*}
+			\begin{block}{}\scriptsize
+				\begin{equation*}
+					\vect{A}\cdot\vecdot{\vect{B}}{\vect{C}} = \vect{C}\cdot\vecdot{\vect{A}}{\vect{B}}.
+				\end{equation*}
+			\end{block}
+			\begin{equation*}
+				\vect{v}\cdot\left[\vect{v}\times\Bfield\right] = \Bfield\cdot\left[\vect{v}\times\vect{v}\right] = 0.
+			\end{equation*}
+			\begin{equation*}
+				\delta A = 0.
+			\end{equation*}
+		\end{column}
+		\begin{column}{0.35\linewidth}\centering
+            \input{tikz/CycletronicTrajectory.tikz}
+		\end{column}
+	\end{columns}
+	\begin{block}{}
+		За теоремою про зміну кінетичної енергії $A = \Delta\left(\frac{mv^2}{2}\right) = 0$, кінетична енергія частинки не змінюється.
+	\end{block}
+	\begin{alertblock}{}\centering
+		Магнітне поле не виконує роботи над частинкою!
+	\end{alertblock}
 \end{frame}
 % ===========================================================================
 
@@ -357,35 +278,7 @@ colspec={Q[c,h]X[l,m]}
 	\end{block}
 	\begin{columns}
 		\begin{column}{0.4\linewidth}\centering
-			\begin{tikzpicture}[>=latex]
-				\draw[gray!60, line width=0.21cm] (0,0)  [partial ellipse=90:0:2];
-				\fill[gray!50, draw = gray!70] (0, 2) circle (0.05 and 0.1);
-				\fill[gray!50, rotate=-90, draw = gray!70] (0, 2) circle (0.05 and 0.1);
-
-
-				\foreach \n in {1,...,3} {
-				\draw[rotate = -40, blue!40] (0, 2) [partial ellipse={10-2*\n}:{350+2*\n}:{0.2*\n} and \n];
-				}
-
-				\node[circle, fill, inner sep=0.5pt] (P) at (3.04,3) {};
-				\node[below] at (P) {$P$};
-
-				\draw[red!40, line width=0.21cm] (0,0)  [partial ellipse=55:45:2];
-				\fill[red!40, draw = red!60, rotate=-45] (0, 2) circle (0.05 and 0.1);
-				\fill[red!40, draw = red!60, rotate=-35] (0, 2) circle (0.05 and 0.1);
-				\draw[-{Latex[scale=0.5]}] (55:2)  node[below=1pt] {$\vect{j}dV'$} -- ++({55-90}:0.2);
-				\draw[-{Latex[scale=0.5]}] (50:2.1)  -- node[anchor=south, inner sep=1pt, sloped] {$\vect{\mathcal{r}}$} (P);
-				\draw[->, blue, thick] (P) -- ++(63:0.75) node[anchor=225, text=black] {$d\Bfield$};
-
-				%                \begin{scope}[opacity=0.5]
-				%                    \coordinate (O) at (1.0, -0.5);
-				%                    \draw[->, gray] (O) -- ++(1, 0);
-				%    				\draw[->, gray] (O) -- ++(0, 1) ;
-				%    				\draw[->, gray] (O) -- ++(225:0.75);
-				%    				\draw[->, gray] (O) -- node[anchor=east, inner sep=3pt] {$\vect{r}'$} (50:1.9);
-				%    				\draw[->, gray] (O) -- node[anchor=north, inner sep=3pt] {$\vect{r}$} (P);
-				%                \end{scope}
-			\end{tikzpicture}
+            \input{tikz/BSL.tikz}
 		\end{column}
 		\begin{column}{0.6\linewidth}
 			\begin{block}{}\justifying
@@ -427,9 +320,9 @@ colspec={Q[c,h]X[l,m]}
 			\frac{\vect{v}}{c}\times\frac{q\vect{\mathcal{r}}}{\mathcal{r}^3} = \frac{\vect{v}}{c}\times\Efield.
 		\end{equation*}
 	\end{block}
-\begin{alertblock}{}\centering
-    Електричне і магнітне поле --- є прояв єдиного цілого, яке можна назвати \alert{електромагнітним полем}.
-\end{alertblock}
+	\begin{alertblock}{}\centering
+		Електричне і магнітне поле --- є прояв єдиного цілого, яке можна назвати \alert{електромагнітним полем}.
+	\end{alertblock}
 \end{frame}
 % ===========================================================================
 
@@ -440,13 +333,11 @@ colspec={Q[c,h]X[l,m]}
 	\begin{exampleblock}{\scriptsize Задача 1}\label{prb:inf_wire}\justifying
 		Визначити магнітне поле на відстані $r$ від нескінченно довгого провідника зі струмом $I$.
 	\end{exampleblock}
-
 	%=========================================================
 	\begin{exampleblock}{\scriptsize Задача 2}\justifying
 		Визначте магнітне поле в точці $P$ на відстані $r$ від короткого провідника зі струмом. Положення точки $P$ визначається кутами $\alpha_1$ та
 		$\alpha_2$.
 	\end{exampleblock}
-
 	\begin{columns}
 		\begin{column}{0.5\linewidth}\centering
 			\begin{tikzpicture}[scale=0.75, transform shape]
@@ -470,30 +361,27 @@ colspec={Q[c,h]X[l,m]}
 			\end{tikzpicture}
 		\end{column}
 	\end{columns}
-
-
-
 \end{frame}
 % ===========================================================================
 
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Взаємодія струмі}{Досліди Ампера}
-\begin{block}{}\justifying
-У 1820 р. А. Ампером було встановлено закон, що визначає силу, яка діє на елемент струму в магнітному полі. Оскільки створити відокремлений елемент
-не можна, то Ампер вивчав вплив паралельних дротів один на одного та поведінку дротяних замкнутих контурів різної форми в магнітному полі.
-\end{block}
-		\tikz[remember picture,overlay] \node[opacity=0.5,inner sep=0pt,
-			anchor=north west] at (current page.north
-		west){\includegraphics[width=2cm]{Ampere}};
-\begin{columns}
-	\begin{column}{0.5\linewidth}\centering
-         \includegraphics[width=\linewidth]{AmpereForce1}
-	\end{column}
-	\begin{column}{0.5\linewidth}\centering
-         \includegraphics[width=\linewidth]{AmpereForce2}
-	\end{column}
-\end{columns}
+	\begin{block}{}\justifying
+		У 1820 р. А. Ампером було встановлено закон, що визначає силу, яка діє на елемент струму в магнітному полі. Оскільки створити відокремлений елемент
+		не можна, то Ампер вивчав вплив паралельних дротів один на одного та поведінку дротяних замкнутих контурів різної форми в магнітному полі.
+	\end{block}
+	\tikz[remember picture,overlay] \node[opacity=0.5,inner sep=0pt,
+		anchor=north west] at (current page.north
+	west){\includegraphics[width=2cm]{Ampere}};
+	\begin{columns}
+		\begin{column}{0.5\linewidth}\centering
+			\includegraphics[width=\linewidth]{AmpereForce1}
+		\end{column}
+		\begin{column}{0.5\linewidth}\centering
+			\includegraphics[width=\linewidth]{AmpereForce2}
+		\end{column}
+	\end{columns}
 \end{frame}
 % ===========================================================================
 
@@ -508,27 +396,7 @@ colspec={Q[c,h]X[l,m]}
 	\framesubtitle<2>{Калібруванні вектор-потенціалу}
 	\begin{columns}
 		\begin{column}{0.3\linewidth}\centering
-			\begin{tikzpicture}[>=latex]
-				\draw[gray!60, line width=0.21cm] (0,0)  [partial ellipse=90:0:2];
-				\fill[gray!50, draw = gray!70] (0, 2) circle (0.05 and 0.1);
-				\fill[gray!50, rotate=-90, draw = gray!70] (0, 2) circle (0.05 and 0.1);
-
-				\node[circle, fill, inner sep=0.5pt] (P) at (2.5,3) {};
-				\node[above] at (P) {$P$};
-
-				\draw[red!40, line width=0.21cm] (0,0)  [partial ellipse=80:70:2];
-				\fill[red!40, draw = red!60, rotate=-10] (0, 2) circle (0.05 and 0.1);
-				\fill[red!40, draw = red!60, rotate=-20] (0, 2) circle (0.05 and 0.1);
-				\draw[-{Latex[scale=0.5]}] (80:2)  node[above=1pt] {$\vect{j}$} -- ++({80-90}:0.2);
-				\draw[->] (75:2.1)  -- (P) node[anchor=south east, inner sep=1pt, sloped, pos=0.8] {$\vect{r} - \vect{r}'$} ;
-				%                \draw[->, blue, thick] (P) -- ++(63:0.75) node[anchor=225, text=black] {$d\Bfield$};
-
-				\draw[->] (0, 0) -- ++(1, 0) node[below] {$y$};
-				\draw[->] (0, 0) -- ++(0, 1) node[left] {$z$};
-				\draw[->] (0, 0) -- ++(225:0.75) node[left] {$x$};
-				\draw[->] (0,0) -- node[anchor=west, inner sep=3pt] {$\vect{r}'$} (75:1.8);
-				\draw[->] (0,0) -- node[anchor=north, inner sep=3pt] {$\vect{r}$} (P);
-			\end{tikzpicture}
+            \input{tikz/FieldPoint.tikz}
 		\end{column}
 		\begin{column}{0.7\linewidth}
 			\begin{overprint}
@@ -575,11 +443,11 @@ colspec={Q[c,h]X[l,m]}
 			\end{equation*}
 		\end{block}
 		\onslide<2>
-		\begin{block}{}\justifying\small
+		\begin{block}{}\justifying\footnotesize
 			\alert{Вектор-потенціал вводиться при цьому неоднозначно}.
 			Векторні потенціали $\vect{A}$ і $\vect{A}' = \vect{A} + \grad f(\vect{r})$
 			призводять до одного й того ж магнітного поля $\Bfield$. Цією обставиною можна
-			скористатися для того, щоб накласти на $\vect{A}$ яке-небудь обмеження, Зручно накласти на $\vect{A}$ умову
+			скористатися для того, щоб накласти на $\vect{A}$ яке-небудь обмеження. Зручно накласти на $\vect{A}$ умову
 			\begin{equation*}
 				\tcbhighmath{\Div\vect{A} = 0,} \quad \text{\color{red}кулонівське калібрування}.
 			\end{equation*}
@@ -1141,7 +1009,7 @@ colspec={Q[c,h]X[l,m]}
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Момент сили, що діє на контур в магнітному полі}{}\footnotesize
-\begin{columns}
+	\begin{columns}
 		\begin{column}{0.75\linewidth}
 			\begin{block}{}\justifying
 				Якщо виток перебуває в однорідному магнітному полі, то виникає момент сил, який орієнтує
@@ -1149,7 +1017,7 @@ colspec={Q[c,h]X[l,m]}
 				\begin{equation*}
 					\vect{M} = \frac1c \oint\limits_L  \vect{r}\times(Id\vect{\ell}\times\Bfield).
 				\end{equation*}
- 			\end{block}
+			\end{block}
 		\end{column}
 		\begin{column}{0.25\linewidth}\centering
 			\begin{tikzpicture}[>=latex]
@@ -1161,34 +1029,34 @@ colspec={Q[c,h]X[l,m]}
 					\draw[->, thick, gray] (0, 1) -- ++(-45:-0.7) node[below=5pt, inner sep=1pt, fill=white] {$d\vect{F}$};
 					\draw[->, thick, gray] (0, -1) -- ++(-45:0.7);
 					\draw[arrowpos={0.5}{2pt}{7pt}, red!40, ultra thick] (0,0) [partial ellipse=0:360:0.3 and 1];
-                    \draw[red, ultra thick] (0,0) [partial ellipse=110:70:0.3 and 1];
+					\draw[red, ultra thick] (0,0) [partial ellipse=110:70:0.3 and 1];
 					\draw[->,  thick] (0, 0) --  node[anchor=south west] {$\vect{r}'$} ++(0, 1);
 				\end{scope}
 			\end{tikzpicture}
 		\end{column}
 	\end{columns}
-\begin{block}{}\tiny
-    \alert{Треба витягнути $\Bfield$ з-під інтегралу. Всі інтеграли типу $\oint\limits_L d(\ldots) = 0$, як інтеграли повних диференціалів.}
-    \begin{equation*}
-        \overset{\color{red}a}{\vect{r}}\times(\overset{\color{red}b}{d\vect{r}}\times\overset{\color{red}c}{\Bfield}) =
-        \overset{\color{red}b}{d\vect{r}}\ (\overset{\color{red}a}{\vect{r}}\cdot\overset{\color{red}c}{\Bfield}) -
-        \overset{\color{red}c}{\Bfield}\ (\overset{\color{red}a}{\vect{r}}\cdot\overset{\color{red}b}{d\vect{r}}), \
-        \oint\limits_L  d\vect{r} (\vect{r}\cdot\Bfield)  - \cancelto{0}{\Bfield \oint\limits_L d\left(\frac{r^2}{2}\right)}
-    \end{equation*}
-\begin{equation*}
-    d\vect{r} (\vect{r}\cdot\Bfield) = \frac12 \left[d\vect{r} (\vect{r}\cdot\Bfield) + \vect{r} (d\vect{r}\cdot\Bfield) \right] +
-    \frac12 \left[d\vect{r} (\vect{r}\cdot\Bfield) - \vect{r} (d\vect{r}\cdot\Bfield) \right] = \frac12 \left[d\vect{r} (\Bfield\cdot\vect{r}) +
-    \vect{r} (\Bfield\cdot d\vect{r}) \right]  - \frac12 \Bfield\times(\vect{r}\times d\vect{r}).
-\end{equation*}
-\begin{equation*}
-    d\vect{r} (\Bfield\cdot\vect{r}) +
-    \vect{r} (\Bfield\cdot d\vect{r})  = d(\vect{r}(\Bfield\cdot\vect{r})),\
-     \oint\limits_L d(\vect{r}(\Bfield\cdot\vect{r})) = 0.
-\end{equation*}
-\end{block}
-\begin{equation*}
-    \vect{M} = \left(\frac{I}{c} \oint\limits_L (\vect{r}\times d\vect{r})\right)\times\Bfield = \vect{p}_m\times\Bfield
-\end{equation*}
+	\begin{block}{}\tiny
+		\alert{Треба витягнути $\Bfield$ з-під інтегралу. Всі інтеграли типу $\oint\limits_L d(\ldots) = 0$, як інтеграли повних диференціалів.}
+		\begin{equation*}
+			\overset{\color{red}a}{\vect{r}}\times(\overset{\color{red}b}{d\vect{r}}\times\overset{\color{red}c}{\Bfield}) =
+			\overset{\color{red}b}{d\vect{r}}\ (\overset{\color{red}a}{\vect{r}}\cdot\overset{\color{red}c}{\Bfield}) -
+			\overset{\color{red}c}{\Bfield}\ (\overset{\color{red}a}{\vect{r}}\cdot\overset{\color{red}b}{d\vect{r}}), \
+			\oint\limits_L  d\vect{r} (\vect{r}\cdot\Bfield)  - \cancelto{0}{\Bfield \oint\limits_L d\left(\frac{r^2}{2}\right)}
+		\end{equation*}
+		\begin{equation*}
+			d\vect{r} (\vect{r}\cdot\Bfield) = \frac12 \left[d\vect{r} (\vect{r}\cdot\Bfield) + \vect{r} (d\vect{r}\cdot\Bfield) \right] +
+			\frac12 \left[d\vect{r} (\vect{r}\cdot\Bfield) - \vect{r} (d\vect{r}\cdot\Bfield) \right] = \frac12 \left[d\vect{r} (\Bfield\cdot\vect{r}) +
+				\vect{r} (\Bfield\cdot d\vect{r}) \right]  - \frac12 \Bfield\times(\vect{r}\times d\vect{r}).
+		\end{equation*}
+		\begin{equation*}
+			d\vect{r} (\Bfield\cdot\vect{r}) +
+			\vect{r} (\Bfield\cdot d\vect{r})  = d(\vect{r}(\Bfield\cdot\vect{r})),\
+			\oint\limits_L d(\vect{r}(\Bfield\cdot\vect{r})) = 0.
+		\end{equation*}
+	\end{block}
+	\begin{equation*}
+		\vect{M} = \left(\frac{I}{c} \oint\limits_L (\vect{r}\times d\vect{r})\right)\times\Bfield = \vect{p}_m\times\Bfield
+	\end{equation*}
 \end{frame}
 % ===========================================================================
 
@@ -1264,24 +1132,24 @@ colspec={Q[c,h]X[l,m]}
 % ============================== Слайд ## ===================================
 \begin{frame}{Принцип роботи електричного двигуна}{}
 
-\begin{columns}
-	\begin{column}{0.4\linewidth}\centering\scriptsize
-         \includegraphics[width=1\linewidth]{motor}
-	\end{column}
-	\begin{column}{0.6\linewidth}
-\begin{block}{}\justifying
-На основі дії магнітного поля на рамку, через яку проходить електричний струм, ґрунтується принцип роботи електродвигуна.
-\end{block}
-	\end{column}
-\end{columns}
-\begin{block}{}\scriptsize
-        \begin{enumerate}
-        \item Ротор (провідник), через який тече струм, поміщений у зовнішнє магнітне поле між полюсами магнітів (N і S).
-        \item Відповідно до правила лівої руки, на провідник діє сила з боку магнітного поля (сила Ампера), що створює обертальний момент.
-        \item Магнітний момент системи намагається вирівнятися з напрямом зовнішнього поля.
-        \item Комутатор змінює напрям струму в обмотці після кожного півоберта, забезпечуючи постійне обертання у одному напрямку.
-    \end{enumerate}
-\end{block}
+	\begin{columns}
+		\begin{column}{0.4\linewidth}\centering\scriptsize
+			\includegraphics[width=1\linewidth]{motor}
+		\end{column}
+		\begin{column}{0.6\linewidth}
+			\begin{block}{}\justifying
+				На основі дії магнітного поля на рамку, через яку проходить електричний струм, ґрунтується принцип роботи електродвигуна.
+			\end{block}
+		\end{column}
+	\end{columns}
+	\begin{block}{}\scriptsize
+		\begin{enumerate}
+			\item Ротор (провідник), через який тече струм, поміщений у зовнішнє магнітне поле між полюсами магнітів (N і S).
+			\item Відповідно до правила лівої руки, на провідник діє сила з боку магнітного поля (сила Ампера), що створює обертальний момент.
+			\item Магнітний момент системи намагається вирівнятися з напрямом зовнішнього поля.
+			\item Комутатор змінює напрям струму в обмотці після кожного півоберта, забезпечуючи постійне обертання у одному напрямку.
+		\end{enumerate}
+	\end{block}
 \end{frame}
 % ===========================================================================
 
@@ -1311,10 +1179,10 @@ colspec={Q[c,h]X[l,m]}
 					\scdot{\vect{A}}{\grad}\vect{B}.
 				\end{equation*}}
 
-		Якщо в середовищі, в якому перебуває момент, відсутні струми провідності, то $\Rot\Bfield = 0$. Тоді має місце тотожність:
-		\begin{equation*}
-			\tcbhighmath{\vect{F} = \scdot{\vect{p}_m}{\grad}\vect{B}.}
-		\end{equation*}
+				Якщо в середовищі, в якому перебуває момент, відсутні струми провідності, то $\Rot\Bfield = 0$. Тоді має місце тотожність:
+				\begin{equation*}
+					\tcbhighmath{\vect{F} = \scdot{\vect{p}_m}{\grad}\vect{B}.}
+				\end{equation*}
 			\end{block}
 		\end{column}
 		\begin{column}{0.25\linewidth}\centering
@@ -1332,16 +1200,16 @@ colspec={Q[c,h]X[l,m]}
 			\end{tikzpicture}
 		\end{column}
 	\end{columns}
-%	\begin{block}{}\justifying\scriptsize
-%		У окремому випадку, коли момент спрямований уздовж поля $\vect{p}_m\uparrow\uparrow\vect{B}$, а поле залежить тільки від координати
-%		$z$, сила
-%		спрямована по осі $z$ і дорівнює:
-%		\begin{equation*}
-%			F_z = p_m\frac{dB}{dz}.
-%		\end{equation*}
-%	\end{block}
-%	\href{https://www.youtube.com/watch?v=66yHf8Mv1SQ}{\scriptsize\color{blue} Порівняйте з випадком електричного диполя в неоднорідному електричному
-%		полі}
+	%	\begin{block}{}\justifying\scriptsize
+	%		У окремому випадку, коли момент спрямований уздовж поля $\vect{p}_m\uparrow\uparrow\vect{B}$, а поле залежить тільки від координати
+	%		$z$, сила
+	%		спрямована по осі $z$ і дорівнює:
+	%		\begin{equation*}
+	%			F_z = p_m\frac{dB}{dz}.
+	%		\end{equation*}
+	%	\end{block}
+	%	\href{https://www.youtube.com/watch?v=66yHf8Mv1SQ}{\scriptsize\color{blue} Порівняйте з випадком електричного диполя в неоднорідному електричному
+	%		полі}
 \end{frame}
 % ===========================================================================
 % https://tikz.net/magnetic_moment/
