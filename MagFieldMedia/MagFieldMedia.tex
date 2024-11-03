@@ -178,43 +178,10 @@
 	\end{block}
 	\begin{columns}
 		\begin{column}{0.5\linewidth}\centering
-			\begin{tikzpicture}[>=latex]
-				\draw[fill=gray!20] (0,0) arc(180:350:1 and 0.2) -- ++(45:2)  arc(350:180:1 and 0.2) -- cycle;
-				\path (45:2) ++(1,0) coordinate (O);
-
-				\begin{scope}[shift={(O)}, yscale=0.2]
-					\draw[thick, blue, arrowpos={0.7}{2pt}{3pt}] (0,0) [partial ellipse=0:360:1];
-					\foreach \a in {10, 40,...,340} {
-							\draw[red, smooth, arrowpos={0.75}{2pt}{3pt}] (\a:0.8) [partial ellipse=0:360:0.2];
-						}
-					\foreach \a in {25,85,...,335} {
-							\draw[red, smooth] (\a:0.42) [partial ellipse=0:360:0.2];
-						}
-					\draw[red, smooth] (0, 0) [partial ellipse=0:360:0.2];
-				\end{scope}
-
-				\foreach \l in {0.2,0.4,...,1.8} {
-						\draw[blue, arrowpos={0.4}{2pt}{3pt}] (45:\l) arc(180:350:1 and 0.2);
-					}
-				\draw[->, ultra thick] (O) -- ++(0,1) coordinate (J) node[left] {$\vect{J}$};
-				\draw (0,0) -- ++(0,2);
-				\draw (0,0) ++(0, 0.5) arc (90:45:0.5) node[pos=0.5, anchor=south] {$\theta$};
-				\draw[->] (O) -- ++(45:{1*cos(45)}) coordinate (Pr) node[right] {$\ell\vect{\tau}$};
-				\draw[dashed] (J) -- (Pr);
-				\draw[<->] (2.2, 0) -- node[right] {$\ell$} ++(45:2);
-			\end{tikzpicture}
+			\input{tikz/cylinder.tikz}
 		\end{column}
 		\begin{column}{0.5\linewidth}\centering
-			\begin{tikzpicture}[>=latex]
-				\draw[arrowpos={0.4}{2pt}{4pt}, thick, blue] (0,0) [partial ellipse=0:360:1.01];
-				\foreach \a in {10, 40,...,340} {
-						\draw[arrowpos={\a/360}{2pt}{3pt}, red] (\a:0.8) [partial ellipse=0:360:0.2];
-					}
-				\foreach \a in {25,85,...,335} {
-						\draw[arrowpos={\a/360}{2pt}{3pt}, red] (\a:0.42) [partial ellipse=0:360:0.2];
-					}
-				\draw[arrowpos={0.5}{2pt}{3pt}, red] (0, 0) [partial ellipse=0:360:0.2];
-			\end{tikzpicture}
+			\input{tikz/cylindertop.tikz}
 		\end{column}
 	\end{columns}
 	\begin{block}{}\small
@@ -247,14 +214,7 @@
 	\begin{onlyenv}<1>
 		\begin{columns}
 			\begin{column}{0.5\linewidth}
-				\begin{tikzpicture}[>=latex, scale=0.85]
-					\fill[red!20, draw=green!50!black, arrowpos={0.2}{0pt}{4pt}] (0,0) -- ++(4, 0) -- ++(-45:2) -- ++(-4, 0) --cycle;
-					\foreach \x in {0,1,...,8}{
-							\draw[arrowpos={0.45}{2pt}{3pt}, red, scale=0.5] (\x, 0) [partial ellipse=10:350:0.2 and 1];
-							\draw[arrowpos={0.95}{2pt}{3pt}, red, scale=0.5] ({\x+3}, -2.8) [partial ellipse=10:350:0.12 and 0.6];
-						}
-					\draw[->, ultra thick, red!50, opacity=0.75] (2.8, -0.7) -- ++(0, -1.5) node[below] {$d\vect{S}$};
-				\end{tikzpicture}
+				\input{tikz/Jloop.tikz}
 			\end{column}
 			\begin{column}{0.5\linewidth}
 				\begin{block}{}\justifying\small
@@ -439,55 +399,7 @@
 
 			\end{column}
 			\begin{column}{0.25\linewidth}\centering
-				\begin{tikzpicture}[>=latex]
-					% Основные параметры
-					\pgfmathsetmacro\h{3}          % Высота
-					\pgfmathsetmacro\R{1}          % Радиус
-					\coordinate (A) at (0, {-\h/2});
-					\coordinate (B) at (0, {+\h/2});
-
-					% Вертикальные линии
-					\draw[gray] ([xshift=\R cm]A) -- ([xshift=\R cm]B)
-					([xshift=-\R cm]A) -- ([xshift=-\R cm]B);
-					\draw[line width={\R*2cm}, gray!50] (A) -- (B);
-
-					% Верхняя и нижняя части
-					\draw[gray, fill=gray!50] (B) circle ({\R} and {0.2*\R});
-					\draw[gray] ([xshift=\R cm]A) arc(0:-180:{\R} and {0.2*\R});
-					\draw[gray, densely dashed] ([xshift=-\R cm]A) arc(180:0:{\R} and {0.2*\R});
-					\fill[gray!50] (A) circle ({\R} and {0.2*\R});
-
-					% Стрелка для тока
-					\draw[->] ([yshift={\h*0.3cm}]A) -- ([yshift={-\h*0.3cm}]B) node[above] {$I$};
-
-					% Параметры для витков
-					\def\fLarge{0.8}  % Масштаб большого витка
-					\def\fSmall{0.4}  % Масштаб маленького витка
-
-					% Витки на разных уровнях
-					\foreach \y in {-1.5, -1, ..., +1.5} {
-							\pgfmathtruncatemacro{\c}{round(\y)}
-							\ifnum\c=0 \edef\t{1} \else \edef\t{0.1} \fi % Прозрачность
-							\begin{scope}[opacity=\t]
-
-								% Большой виток
-								\draw[arrowpos={0.4}{0}{3pt}, blue] (0,{0.8*\y})
-								[partial ellipse=91:{360+89}:{\fLarge*\R} and {\fLarge*0.2*\R}];
-								\draw[arrowpos={0.5}{2pt}{3pt}, green!50!black] (0,{0.8*\y})
-								++(180:{\fLarge*\R}) circle(0.2);
-								\draw[arrowpos={0}{2pt}{3pt}, green!50!black] (0,{0.8*\y})
-								++(0:{\fLarge*\R}) circle(0.2);
-
-								% Маленький виток
-								\draw[arrowpos={0.4}{0}{2pt}, blue] (0,{0.8*\y})
-								[partial ellipse=91:{360+89}:{\fSmall*\R} and {\fSmall*0.2*\R}];
-								\draw[arrowpos={0.5}{1.2pt}{2pt}, green!50!black] (0,{0.8*\y})
-								++(180:{\fSmall*\R}) circle(0.1);
-								\draw[arrowpos={0.5}{1.2pt}{2pt}, green!50!black, rotate=180] (0,{0.8*\y})
-								++(180:{\fSmall*\R}) circle(0.1);
-							\end{scope}
-						}
-				\end{tikzpicture}
+				\input{tikz/current_in_magnetic.tikz}
 			\end{column}
 		\end{columns}
 
@@ -603,71 +515,7 @@
 	\end{block}
 	\begin{columns}
 		\begin{column}{0.55\linewidth}\centering
-			\begin{tikzpicture}[>=latex,
-					scale=0.73,
-					transform shape,
-					pencildraw/.style={ %
-							decorate,
-							decoration={random steps,segment length=3pt,amplitude=2pt}
-						},
-				]
-
-
-
-				% Георметрія
-
-				% Середовище 1
-				\fill[thick, red!10,  pencildraw, opacity=0.85] (-2, +0.05) rectangle (6, -2.1);
-				\node[circle, draw, inner sep =1pt, font=\scriptsize] at (-1.8, -0.5) {$1$};
-
-				% Середовище 2
-				\fill[thick, blue!10, pencildraw, opacity=0.85] (-2, -0.05) rectangle (6, +2.1);
-				\node[circle, draw, inner sep =1pt, font=\scriptsize] at (-1.8, +0.5) {$2$};
-
-				% Границя розділу
-				\draw[line width=2pt, gray!50] (-2, 0) -- (6, 0);
-
-				\draw[dashed] (-1, -2) -- ++(0, 4);
-
-				\draw[midarrow] (-1.5, -2) -- (-1,0);
-				%				\draw[->, red, thin, opacity=0.5] (-1.5, 0) -- node[above, font=\scriptsize]
-				%				{$E_{1\tau}$}
-				%				++(0.5, 0);
-				%				\draw[->, red, thin, opacity=0.5] (-1.5, -2) -- node[left, font=\scriptsize]
-				%				{$E_{1n}$} ++(0, 2);
-				%
-				%				\draw[->, red, thin, opacity=0.5] (-1, 0)     -- node[above, font=\scriptsize]
-				%				{$E_{2\tau}$}
-				%				++(1, 0);
-				%				\draw[->, red, thin, opacity=0.5] (0, 0)      -- node[right, font=\scriptsize]
-				%				{$E_{2n}$} ++(0,
-				%				2);
-
-				\draw[midarrow] (-1,0) -- ++(1, 2);
-				\draw (-1,0) ++(90:0.8) arc[start angle=90, delta angle={-atan(1/2)}, radius =
-						0.8]  node[pos=0.5, anchor=south, inner sep=1, font=\scriptsize] {$\alpha_2$};
-				\draw (-1,0) ++(-90:0.8) arc[start angle=-90, delta angle={-atan(0.5/2)}, radius =
-						0.8] node[pos=0.5, anchor=north, inner sep=5pt, font=\scriptsize] {$\alpha_1$};
-
-				% Поле вектора E
-				\foreach[] \x in {0,1,...,6}{
-						\draw[midarrow, red] (0.25*\x, -2) -- ++(0.5, 2);
-						\ifnum\x<4
-							\draw[midarrow, red] ({0.5*(\x + 1)}, 0) -- ++(1, 2);
-						\fi
-					}
-				\node[font=\small] at (0.8, -2.5) {Поле вектора $\Hfield$};
-
-				% Поле вектора D
-				\begin{scope}[xshift=3cm]
-					\foreach[] \x in {0,1,...,6}{
-							\draw[midarrow, blue ] (0.25*\x, -2) -- ++(0.5, 2);
-							\draw[midarrow, blue ] ({0.25*(\x+2)}, 0) -- ++(1, 2);
-						}
-				\end{scope}
-				\node[font=\small] at (3.8, -2.5) {Поле вектора $\Bfield$};
-
-			\end{tikzpicture}
+            \input{tikz/refraction.tikz}
 		\end{column}
 		\begin{column}{0.45\linewidth}\scriptsize
 			Граничні умови для вектора $\Hfield$
@@ -766,31 +614,7 @@
 	\end{block}
 	\begin{columns}
 		\begin{column}{0.5\linewidth}\centering
-			\begin{tikzpicture}[>=latex, scale=0.8, transform shape,
-					point/.style={circle, draw, inner sep=0.7pt, fill=white}
-				]
-
-				\draw[-latex, name path=E] (-2.5,0) -- (2.5,0) node[below]{$H$};
-				\draw[-latex, name path
-					=P] (0,-1.5) -- (0,1.5)node[left]{$J $};
-
-				\draw[samples=200, domain=-3:2, name path=d, midarrow,  red, thick] plot ({\x+0.5}, {0.2*\x
-						+ tanh(1.9*\x) + 0.1}); \draw[samples=200, domain=-2:3, name path=u, midarrowR, red, thick]
-				plot ({\x-0.5}, {0.2*\x + tanh(1.9*\x) - 0.1});
-				\draw[midarrow, thick, cyan!50!black] (0,0) .. controls (0.5, 0.2) and
-				(0.2, 1.0) ..
-				(1.52, 1.28);
-				\tikzfillbetween[of=u and d]{blue, opacity=0.1};
-
-				\foreach \i/\a in {P/u, P/d, E/u, E/d} {
-						\path[name intersections={of={\i} and {\a}}]
-						(intersection-1) node[point] (\i\a) {};
-					}
-				\node[left,  text=brown] at (Pu) {$J_r$};
-				\node[right, text=brown] at (Pd) {$-J_r$};
-				\node[above left, text=red] at (Eu) {$-H_c$};
-				\node[below right, text=red] at (Ed) {$H_c$};
-			\end{tikzpicture}
+            \input{tikz/hysteresis.tikz}
 		\end{column}
 		\begin{column}{0.5\linewidth}
 			\begin{figure}
@@ -842,5 +666,30 @@
 
 \end{frame}
 % ===========================================================================
+
+
+
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Підсумки}{}\small
+\begin{tblr}{
+colspec={Q[c,l]Q[mode=dmath]}
+}
+Вектор намагнічення & \vect{J} = \frac1V\sum \vect{p}_i \\
+Теорема про циркуляцію для вектора $\vect{J}$ & c \oint\limits_L \vect{P}d\vect{\ell} = I_m\\
+в диференціальній формі & c\Rot\vect{J} = \vect{j}_m \\
+Вектор напруженості & \Hfield = \Bfield  - 4\pi\vect{J}\\
+Для лінійних магнетиків & \vect{J} = \chi_m \Hfield \\
+{Зв'язок проникності і сприйнятливості \\ (для лінійних магнетиків)} & \mu = 1+ 4\pi\chi_m \\
+Для лінійних магнетиків & \Bfield = \mu\Hfield \\
+Теорема про циркуляцію в магнетиках & \oint\limits_L \Hfield d\vect{\ell} = \frac{4\pi}c \iint\limits_S\vect{j} dS \\
+в диференціальній формі & \Rot\Hfield = \frac{4\pi}c \vect{j}
+\end{tblr}
+\end{frame}
+% ===========================================================================
+
+
+
 
 \end{document}
