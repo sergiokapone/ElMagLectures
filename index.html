@@ -4,62 +4,192 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Лекції з дисципліни "Електрика та магнетизм"</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Основные стили для страницы */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        h1 {
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            margin-top: 20px;
+            color: #2c3e50;
+        }
+
+        p {
+            font-family: 'ROboto', serif;
+            text-align: center;
+            font-size: 18px;
+            color: #7f8c8d;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Стиль для списка лекций */
+        ol {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            display: flex;
+            flex-direction: column;
+            margin: 20px 0;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        li:hover {
+            transform: translateY(-10px);
+        }
+
+        .lecture-content {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .lecture-content a {
+            flex: 1;
+            margin-right: 20px;
+            text-decoration: none;
+            color: #2980b9;
+            font-size: 16px;
+        }
+
+        .lecture-content iframe {
+            flex: 2;
+            border: none;
+        }
+
+        /* Стиль для ссылки */
+        a:hover {
+            color: #e74c3c;
+        }
+
+        /* Анимация для фреймов и ссылок */
+        a, iframe {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        a:hover, iframe:hover {
+            transform: scale(1.05);
+            opacity: 0.8;
+        }
+
+
+        /* Стили для маленьких экранов */
+        @media (max-width: 768px) {
+            .lecture-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .lecture-content a {
+                margin-bottom: 10px;
+                text-align: center;
+            }
+
+            .lecture-content iframe {
+                width: 100%;
+                height: 400px;
+            }
+        }
+    </style>
 </head>
 <body>
     <h1>Лекції з дисципліни "Електрика та магнетизм"</h1>
     <p>Конспекти-презентації лекцій</p>
-    <ol>
-        <li>
-            <a href="./SteadyEfield/SteadyEfield.pdf" target="_blank">
-                Постійне електричне поле в вакуумі
-            </a>
-            <iframe src="./SteadyEfield/SteadyEfield.pdf" width="50%" height="500px"></iframe>
-        </li>
-        <li>
-            <a href="./FileldInMetall/FileldInMetall.pdf" target="_blank">Електричне поле в металах</a>
-            <iframe src="./FileldInMetall/FileldInMetall.pdf" width="50%" height="500px"></iframe>
-        </li>
-        <li>
-            <a href="./FileldInDielectrics/FileldInDielectrics.pdf" target="_blank">Електричне поле в діелектриках</a>
-            <iframe src="./FileldInDielectrics/FileldInDielectrics.pdf" width="50%" height="500px"></iframe>
-        </li>
-        <li>
-            <a href="./ElEnergy/ElEnergy.pdf" target="_blank">Енергія електричного поля</a>
-            <iframe src="./ElEnergy/ElEnergy.pdf" width="50%" height="500px"></iframe>
-        </li>
-        <li>
-            <a href="./SteadyCurrent/SteadyCurrent.pdf" target="_blank">Постійний електричний струм</a>
-            <iframe src="./SteadyCurrent/SteadyCurrent.pdf" width="50%" height="500px"></iframe>
-        </li>
-        <li>
-            <a href="./MagFieldVacuum/MagFieldVacuum.pdf" target="_blank">Магнітне поле у вакуумі</a>
-            <iframe src="./MagFieldVacuum/MagFieldVacuum.pdf" width="50%" height="500px"></iframe>
-        </li>
-        <li>
-            <a href="./MagFieldMedia/MagFieldMedia.pdf" target="_blank">Магнітне поле у речовині</a>
-            <iframe src="./MagFieldMedia/MagFieldMedia.pdf" width="50%" height="500px"></iframe>
-        </li>
-        <li>
-            <a href="./ElmagInduction/ElmagInduction.pdf" target="_blank">Явище електромагнітної індукції</a>
-            <iframe src="./ElmagInduction/ElmagInduction.pdf" width="50%" height="500px"></iframe>
-        </li>
-        <li>
-            <a href="./MagEnergy/MagEnergy.pdf" target="_blank">Енергія магнітного поля</a>
-            <iframe src="./MagEnergy/MagEnergy.pdf" width="50%" height="500px"></iframe>
-        </li>
-        <li>
-            <a href="./ElMagEnergy/ElMagEnergy.pdf" target="_blank">Енергія електромагнітного поля</a>
-            <iframe src="./ElMagEnergy/ElMagEnergy.pdf" width="50%" height="500px"></iframe>
-        </li>
-        <li>
-            <a href="./Relativity/Relativity.pdf" target="_blank">Відносність електричних та магнітних полів</a>
-            <iframe src="./Relativity/Relativity.pdf" width="50%" height="500px"></iframe>
-        </li>
-        <li>
-            <a href="./Radition/Radition.pdf" target="_blank">Випромінювання електромагнітних хвиль</a>
-            <iframe src="./Radition/Radition.pdf" width="50%" height="500px"></iframe>
-        </li>
-    </ol>
+
+    <div class="container">
+        <ol>
+            <li>
+                <div class="lecture-content">
+                    <a href="./SteadyEfield/SteadyEfield.pdf" target="_blank">Постійне електричне поле в вакуумі</a>
+                    <iframe src="./SteadyEfield/SteadyEfield.pdf" width="50%" height="500px"></iframe>
+                </div>
+            </li>
+            <li>
+                <div class="lecture-content">
+                    <a href="./FileldInMetall/FileldInMetall.pdf" target="_blank">Електричне поле в металах</a>
+                    <iframe src="./FileldInMetall/FileldInMetall.pdf" width="50%" height="500px"></iframe>
+                </div>
+            </li>
+            <li>
+                <div class="lecture-content">
+                    <a href="./FileldInDielectrics/FileldInDielectrics.pdf" target="_blank">Електричне поле в діелектриках</a>
+                    <iframe src="./FileldInDielectrics/FileldInDielectrics.pdf" width="50%" height="500px"></iframe>
+                </div>
+            </li>
+            <li>
+                <div class="lecture-content">
+                    <a href="./ElEnergy/ElEnergy.pdf" target="_blank">Енергія електричного поля</a>
+                    <iframe src="./ElEnergy/ElEnergy.pdf" width="50%" height="500px"></iframe>
+                </div>
+            </li>
+            <li>
+                <div class="lecture-content">
+                    <a href="./SteadyCurrent/SteadyCurrent.pdf" target="_blank">Постійний електричний струм</a>
+                    <iframe src="./SteadyCurrent/SteadyCurrent.pdf" width="50%" height="500px"></iframe>
+                </div>
+            </li>
+            <li>
+                <div class="lecture-content">
+                    <a href="./MagFieldVacuum/MagFieldVacuum.pdf" target="_blank">Магнітне поле у вакуумі</a>
+                    <iframe src="./MagFieldVacuum/MagFieldVacuum.pdf" width="50%" height="500px"></iframe>
+                </div>
+            </li>
+            <li>
+                <div class="lecture-content">
+                    <a href="./MagFieldMedia/MagFieldMedia.pdf" target="_blank">Магнітне поле у речовині</a>
+                    <iframe src="./MagFieldMedia/MagFieldMedia.pdf" width="50%" height="500px"></iframe>
+                </div>
+            </li>
+            <li>
+                <div class="lecture-content">
+                    <a href="./ElmagInduction/ElmagInduction.pdf" target="_blank">Явище електромагнітної індукції</a>
+                    <iframe src="./ElmagInduction/ElmagInduction.pdf" width="50%" height="500px"></iframe>
+                </div>
+            </li>
+            <li>
+                <div class="lecture-content">
+                    <a href="./MagEnergy/MagEnergy.pdf" target="_blank">Енергія магнітного поля</a>
+                    <iframe src="./MagEnergy/MagEnergy.pdf" width="50%" height="500px"></iframe>
+                </div>
+            </li>
+            <li>
+                <div class="lecture-content">
+                    <a href="./ElMagEnergy/ElMagEnergy.pdf" target="_blank">Енергія електромагнітного поля</a>
+                    <iframe src="./ElMagEnergy/ElMagEnergy.pdf" width="50%" height="500px"></iframe>
+                </div>
+            </li>
+            <li>
+                <div class="lecture-content">
+                    <a href="./Relativity/Relativity.pdf" target="_blank">Відносність електричних та магнітних полів</a>
+                    <iframe src="./Relativity/Relativity.pdf" width="50%" height="500px"></iframe>
+                </div>
+            </li>
+            <li>
+                <div class="lecture-content">
+                    <a href="./Radiation/Radiation.pdf" target="_blank">Випромінювання електромагнітних хвиль</a>
+                    <iframe src="./Radiation/Radiation.pdf" width="50%" height="500px"></iframe>
+                </div>
+            </li>
+        </ol>
+    </div>
 </body>
 </html>
 
