@@ -7,6 +7,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Основные стили для страницы */
+        html, body {
+            overflow: hidden;
+        }
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -17,22 +20,47 @@
 
         h1 {
             font-family: 'Roboto', sans-serif;
-            text-align: center;
-            margin-top: 20px;
+            margin: 0;
             color: #2c3e50;
         }
 
         p {
-            font-family: 'ROboto', serif;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            color: #7f8c8d;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
-            font-size: 18px;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #ffffff;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 10px 0;
+            z-index: 1000;
+            font-size: 14px;
             color: #7f8c8d;
         }
 
         .container {
             width: 80%;
-            margin: 0 auto;
+            margin: 100px auto 50px auto; /* Оставляем место для header и footer */
             padding: 20px;
+            overflow-y: auto;
+            max-height: calc(100vh - 160px); /* Высота окна с учетом header и footer */
+            overflow-y: auto;
         }
 
         /* Стиль для списка лекций */
@@ -90,7 +118,6 @@
             opacity: 0.8;
         }
 
-
         /* Стили для маленьких экранов */
         @media (max-width: 768px) {
             .lecture-content {
@@ -111,8 +138,10 @@
     </style>
 </head>
 <body>
-    <h1>Лекції з дисципліни "Електрика та магнетизм"</h1>
-    <p>Конспекти-презентації лекцій</p>
+    <header>
+        <h1>Лекції з дисципліни "Електрика та магнетизм"</h1>
+        <p>Конспекти-презентації лекцій</p>
+    </header>
 
     <div class="container">
         <ol>
@@ -190,6 +219,9 @@
             </li>
         </ol>
     </div>
+    <footer>
+        &copy; Пономаренко Сергій Миколайович
+    </footer>
 </body>
 </html>
 
