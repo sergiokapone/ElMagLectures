@@ -7,6 +7,7 @@
 \usetheme{Electromagnetism}
 \usepackage{Electromagnetism}
 \usepackage[europeanresistors, americaninductors]{circuitikz}
+\usepackage{tikz-3dplot}
 
 
 %============================================================================
@@ -222,8 +223,8 @@
 % ============================== Слайд ## ===================================
 \begin{frame}{Явище самоіндукції}{}
 	\begin{block}{}\justifying
-        Зміна струму в контурі викликає зміну магнітного поля, що створює змінний магнітний потік через цей же контур і, як наслідок, ЕРС індукції. Це
-        явище називають \alert{самоіндукцією}.
+		Зміна струму в контурі викликає зміну магнітного поля, що створює змінний магнітний потік через цей же контур і, як наслідок, ЕРС індукції. Це
+		явище називають \alert{самоіндукцією}.
 	\end{block}
 	\begin{columns}
 		\begin{column}{0.35\linewidth}\centering
@@ -239,61 +240,68 @@
 			\end{tikzpicture}
 		\end{column}
 		\begin{column}{0.65\linewidth}
-            \begin{onlyenv}<1>
-    			\begin{block}{}\justifying
-    				Якщо в просторі, де розташований контур зі
-    				струмом $I$, немає феромагнетиків, поле $\Bfield$, а отже, і повний
-    				магнітний потік $\Phi$ через контур будуть пропорційні силі
-    				струму $I$:
-    				\begin{equation*}
-    					\Phi = \frac1c L I
-    				\end{equation*}
-    			\end{block}
-            \end{onlyenv}
-            \begin{onlyenv}<2>
-    			\begin{block}{}\justifying
-                    При зміні сили струму в контурі згідно закону Фарадея виникає ЕРС самоіндукції:
-                    \begin{equation*}
-                        \mathcal{E}_\text{si} = - L\frac{dI}{dt}
-                    \end{equation*}
-                      {\scriptsize Тут знак мінус показує, що $\mathcal{E}$ завжди спрямована так, щоб перешкоджати зміні сили струму відповідно до
-                      правила Ленца. Ця ЕРС прагне зберегти струм незмінним: вона протидіє струму, коли він збільшується, і підтримує струм, коли він
-                      зменшується.}
-    			\end{block}
-            \end{onlyenv}
+			\begin{onlyenv}<1>
+				\begin{block}{}\justifying
+					Якщо в просторі, де розташований контур зі
+					струмом $I$, немає феромагнетиків, поле $\Bfield$, а отже, і повний
+					магнітний потік $\Phi$ через контур будуть пропорційні силі
+					струму $I$:
+					\begin{equation*}
+						\Phi = \frac1c L I
+					\end{equation*}
+				\end{block}
+			\end{onlyenv}
+			\begin{onlyenv}<2>
+				\begin{block}{}\justifying
+					При зміні сили струму в контурі згідно закону Фарадея виникає ЕРС самоіндукції:
+					\begin{equation*}
+						\mathcal{E}_\text{si} = - L\frac{dI}{dt}
+					\end{equation*}
+					{\scriptsize Тут знак мінус показує, що $\mathcal{E}$ завжди спрямована так, щоб перешкоджати зміні сили струму відповідно до
+					правила Ленца. Ця ЕРС прагне зберегти струм незмінним: вона протидіє струму, коли він збільшується, і підтримує струм, коли він
+					зменшується.}
+				\end{block}
+			\end{onlyenv}
 		\end{column}
 	\end{columns}
-\begin{block}{}
-Коефіцієнт $L$ називається \alert{індуктивністю контуру}.
-\end{block}
+	\begin{block}{}
+		Коефіцієнт $L$ називається \alert{індуктивністю контуру}.
+	\end{block}
 \end{frame}
 % ===========================================================================
 
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Приклади розрахунку індуктивності}{}
-       \begin{tblr}{colspec={Q[c,m, 0.15\linewidth]|Q[c,m]|X[j,m, font=\small]}}
-			Соленоїд
-			 &
-			\raisebox{-0.5\totalheight}{\includegraphics[width=2cm]{Solenoid}}
-            &
-			Магнітне поле в середині соленоїда $B = \dfrac{2I}{c r}$. Магнітний потік через всі витки
-            $\Phi = NBS =  N \frac{4\pi}c\frac{N}{l} I S$. Порівнюючи з формулою $\Phi = \frac1c LI$, індуктивність соленоїда дорівнює: $L = \frac{4\pi
-            N^2 S}{l}$
-			\\\hline
-			Тороїд
-			 &
-			\raisebox{-0.5\totalheight}{\includegraphics[width=2cm]{toroid}}
-            &
-            Нехай тороїд має прямокутний переріз шириною $b-a$ і висоту $d$.
+	\begin{tblr}{colspec={Q[c,m, 0.15\linewidth]|Q[c,m]|X[j,m, font=\small]}}
+		Соленоїд
+		 &
+		\raisebox{-0.5\totalheight}{\includegraphics[width=2cm]{Solenoid}}
+		 &
+		Магнітне поле в середині соленоїда $B = \dfrac{2I}{c r}$. Магнітний потік через всі витки
+		$\Phi = NBS =  N \frac{4\pi}c\frac{N}{l} I S$. Порівнюючи з формулою $\Phi = \frac1c LI$, індуктивність соленоїда дорівнює: $L = \frac{4\pi
+				N^2 S}{l}$
+		\\\hline
+		Тороїд
+		 &
+		\raisebox{-0.5\totalheight}{\includegraphics[width=2cm]{toroid}}
+		 &
+		Нехай тороїд має прямокутний переріз шириною $b-a$ і висоту $d$.
 
-            $L = 2N^2d\ln\left( \frac{b}{a}\right) $.
-		\end{tblr}
-\begin{block}{}\justifying
-    Одиницею індуктивності в системі СГС є сантиметр: $[L] = \text{см}$. Це означає, що індуктивність є \alert{геометричною} характеристикою.
-\end{block}
+		$L = 2N^2d\ln\left( \frac{b}{a}\right) $.
+	\end{tblr}
+	\begin{block}{}\justifying
+		Одиницею індуктивності в системі СГС є сантиметр: $[L] = \text{см}$. Це означає, що індуктивність є \alert{геометричною} характеристикою.
+	\end{block}
 \end{frame}
 % ===========================================================================
+
+
+
+%% --------------------------------------------------------
+\subsection{Перехідні процеси в колі з індуктивністю}
+%% --------------------------------------------------------
+
 
 
 % ============================== Слайд ## ===================================
@@ -303,7 +311,7 @@
 		\begin{columns}
 			\begin{column}{0.3\linewidth}\centering
 				\begin{circuitikz}[
-                    scale=0.7, transform shape]
+						scale=0.7, transform shape]
 					\draw
 					(0,0) to[L, l=$L$] ++(0,2) to[battery2, l=$\mathcal{E}$] ++(2.5, 0) to[R, l=$R$] ++(0, -2)
 					to[closing switch, l=$S$, mirror] ++(-2.5, 0) -- cycle
@@ -335,37 +343,176 @@
 	\framesubtitle<2>{Екстраструми при розмиканні}
 	\begin{onlyenv}<2>
 		\begin{columns}
-			\begin{column}{0.3\linewidth}\centering
+			\begin{column}{0.25\linewidth}\centering
 				\begin{circuitikz}[
-                    resistor = european,
-                    scale=0.7, transform shape]
-					\draw
-					(0,0) to[battery2, l=$\mathcal{E}$] ++(0,2)  to[R, l=$R$] ++(2.5, 0) to[L, l=$L$] ++(0, -2)
-					to[opening switch, l=$S$, mirror] ++(-2.5, 0) -- cycle
-					;
+						resistor = european,
+						scale=0.7, transform shape]
+					\draw (0,0) -- (0,1) coordinate (A) -- (0, 2) to[R, l=$R$] (3, 2) -- (3,1) coordinate (A') -- (3, 0);
+					\draw (3, 0) to[battery2, l=$\mathcal{E}$] (1.5, 0) to[opening switch, l=$S$, mirror]  (0, 0);
+					\draw (A) to[L, l={$L$, $r$}] (A');
+					%					\draw
+					%					(0,0) to[battery2, l=$\mathcal{E}$] ++(0,2)  to[R, l=$R$] ++(2.5, 0) to[L, l=$L$] ++(0, -2)
+					%					to[opening switch, l=$S$, mirror] ++(-2.5, 0) -- cycle
+					%					;
 				\end{circuitikz}
 				\begin{tikzpicture}[>=latex]
 					\draw[->] (0,0) -- ++(2,0) node[below] {$t$};
-					\draw[->] (0,0) -- ++(0,2) node[left] {$q$};
-					\node[left] at (0, 1.6) {$q_0$};
+					\draw[->] (0,0) -- ++(0,2) node[left] {$I$};
+					\node[left] at (0, 1.6) {$I_0$};
 					\draw[domain=0:1.8, red, thick] plot (\x, {1.6*exp(-1.5*\x)});
 				\end{tikzpicture}
 			\end{column}
-			\begin{column}{0.7\linewidth}
-				\begin{block}{}
-					Закон Ома для кола $RI + U = \mathcal{E}$. Оскільки $I = dq/dt$ і $U= q/C$, закон набуде вигляду
+			\begin{column}{0.75\linewidth}
+				\begin{block}{}\justifying
+					Спочатку ключ $S$ замкнутий. Тоді через опір $R$ і через котушку індуктивності $L$ тече струм:
 					\begin{equation*}
-						\frac{dq}{dt}  + \frac{q}{RC} =  \mathcal{E}.
+						I_0 = \mathcal{E} / r.
+					\end{equation*}
+					Після розмикання ключа (відключення ЕРС) магнітне поле почне убувати. Це збудить електрорушійну $\mathcal{E}_\text{si}$ силу та
+					індукційний струм $I$ у контурі. Такий струм називається \alert{екстраструмом розмикання}. По закону Ома:
+					\begin{equation*}
+						I(R+r) = -L\frac{dI}{dt}.
 					\end{equation*}
 					Після інтегрування ми отримаємо:
-					\begin{equation*}
-						q =  q_{\max}(1 - e^{- t / \tau}),
-					\end{equation*}
-					де $q_{\max} = \mathcal{E} C$ --- граничне значення заряду на конденсаторі ($t \to \infty$).
+					\(
+					I(t) = I_0e^{-\frac{R + r}{L}t}.
+					\)
 				\end{block}
 			\end{column}
 		\end{columns}
+		\begin{block}{}\justifying\footnotesize
+			Якщо $R \gg r$, то $\mathcal{E}_\text{si} = \frac{R}{r}\mathcal{E}e^{-\frac{R}{L}t}$.  При розмиканні ця величина може
+			значно перевершити ЕРС батареї, тобто може статись пробій, що спостерігається під час вимкнення струму в колах з великими
+			індуктивностями.
+		\end{block}
 	\end{onlyenv}
+\end{frame}
+% ===========================================================================
+
+%% --------------------------------------------------------
+\section{Взаємна індукція}
+%% --------------------------------------------------------
+
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Взаємна індукція}{}
+	\begin{columns}
+		\begin{column}{0.4\linewidth}\centering
+			\begin{tikzpicture}[scale=0.9, >=latex, midarrow/.style={%
+							postaction={ decorate,
+									decoration={ markings, mark=at position .7 with {\arrow{latex}}}}}]
+				\begin{scope}%[rotate around={45:(0,1)}]
+					\draw[arrowpos={0.5}{2pt}{7pt}, red!40, ultra thick] (1.1,0) [partial ellipse=0:360:0.3 and 1] node[pos=0.5, left] {$I_1$} node[pos=0.25,
+						above, text=black] {$1$};
+				\end{scope}
+				\foreach \y in {-3,...,2}{
+						\draw[blue, midarrow] plot[domain=1:4] (\x, 0.2*\y+0.05*\y*\x^2);
+					}
+				\begin{scope}[rotate around={-25:(3, -1.5)}]
+					\draw[arrowpos={0.5}{2pt}{7pt}, red!40, ultra thick] (3, -1.5) [partial ellipse=0:360:0.3 and 1] node[pos=0.5, left] {$I_2$} node[pos=0.25,
+						above, text=black] {$2$};
+				\end{scope}
+			\end{tikzpicture}
+		\end{column}
+		\begin{column}{0.6\linewidth}
+			\begin{block}{}\justifying
+				Нехай два нерухомих контури $1$ і $2$ розташовані близько один до одного. Якщо в контурі $1$ тече струм $I_1$, він створює через контур
+				$2$ магнітний потік $\Phi_2$, пропорційний струму $I_1$:
+				\begin{equation*}
+					\Phi_2 = \frac1c L_{21}I_1
+				\end{equation*}
+				Аналогічно, якщо в контурі $2$ тече струм $I_2$, то він створює через контур $1$ магнітний потік:
+				\begin{equation*}
+					\Phi_1 = \frac1c L_{12}I_2.
+				\end{equation*}
+			\end{block}
+		\end{column}
+	\end{columns}
+	\begin{block}{}\justifying
+		Коефіцієнти пропорційності $L_{12}$ і $L_{21}$ називають \alert{коефіцієнтами взаємної індуктивністю} контурів.
+	\end{block}
+\end{frame}
+% ===========================================================================
+
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Теорема взаємності}{}
+	\begin{block}{}\justifying
+		Теоремою взаємності стверджує, що коефіцієнтами взаємної індуктивністю контурів однаков:
+		\begin{equation*}
+			\tcbhighmath{L_{12} = L_{21}.}
+		\end{equation*}
+		Завдяки цій теоремі можна не робити різниці між $L_{12}$ і $L_{21}$ і просто говорити про взаємну індуктивність двох контурів.
+	\end{block}
+
+	\begin{block}{Практичне застосування}\justifying
+		Практичне застосування теореми взаємності полягає у тому, що якщо по контурам течуть однакові струми $I$, то
+		\begin{equation*}
+			\Phi_1 = \Phi_2
+		\end{equation*}
+		Ця обставина нерідко дає змогу сильно спрощувати вирішення питання про знаходження, наприклад, магнітних потоків.
+	\end{block}
+\end{frame}
+% ===========================================================================
+
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Задачі на застосування теореми взаємності}{}\scriptsize
+	\begin{exampleblock}{\small Задача 1}\justifying
+		Два тонкі колові провідники, осі яких співпадають, лежать в одній площині. Радіус зовнішнього провідника $R_1$ внутрішнього $R_2$ ($R_2 \ll
+			R_1$). Знайдіть магнітний потік, що пронизує площу зовнішнього провідника, якщо по внутрішньому провіднику тече струм~$I$.
+	\end{exampleblock}
+	\begin{exampleblock}{\small Задача 2}\justifying
+		Магнітний диполь з моментом $p_m$ обертається з частотою $\omega$ навколо осі, яка проходить через його центр і перпендикулярна магнітному моменту
+		(див. рис.). Знайти струм в плоскому нерухомому кільці радіусом $a$ з опором $R$, яке знаходиться на відстані $l \gg a$ від
+		диполя. Нормаль $\vect{n}$ до площини кільця перпендикулярна осі обертання диполя. Самоіндукцією рамки знехтувати.
+	\end{exampleblock}
+	%---------------------------------------------------------
+	\begin{columns}
+		\begin{column}{0.5\linewidth}\centering
+			\begin{tikzpicture}[rotate=90]
+				\draw[red!40, ultra thick] (0, 0) [partial ellipse=0:360:0.6 and 2];
+				\draw[arrowpos={0.5}{2pt}{7pt}, red!40, ultra thick] (0, 0) [partial ellipse=0:360:0.2 and 0.6];
+			\end{tikzpicture}
+		\end{column}
+		\begin{column}{0.5\linewidth}\centering
+			\begin{tikzpicture}[scale=1]
+				\tdplotsetmaincoords{0}{0}
+				\begin{scope}[tdplot_main_coords, rotate around x=70, rotate around z=-45]
+					\draw [dashed] (0,0,0) circle (1);
+					\fill [blue] (180:0.2) -- (90:1) -- (0:0.2) -- cycle;
+					\fill [red] (180:0.2) -- (-90:1) -- (0:0.2) -- cycle;
+				\end{scope}
+				\draw [-latex'] (0,-1) -- (0,1) node [above] {$\omega$};
+				\draw [-latex'] (3,0) -- (3.5,0) node [right] {$\vect{n}$};
+				\begin{scope}[shift={(3,0,0)}, tdplot_main_coords, rotate around y=60]
+					\draw [thick, red!40] (0,0,0) circle (0.4);
+					\draw [-latex'] (0,0) -- +(110:0.4) node[above] {$a$};
+				\end{scope}
+				\draw (3,0) -- ([yshift=-1cm]3,0);
+				\draw [dash dot] (0,0) -- (3,0);
+				\draw [latex'-latex']  (0,-0.8) -- node [above] {$l$}(3,-0.8);
+			\end{tikzpicture}
+		\end{column}
+	\end{columns}
+	%---------------------------------------------------------
+	\end{frame}
+% ===========================================================================
+
+
+
+%% --------------------------------------------------------
+\section{Енергія магнітного поля}
+%% --------------------------------------------------------
+
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Енергія магнітного поля}{}
+
 \end{frame}
 % ===========================================================================
 
