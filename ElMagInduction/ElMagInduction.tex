@@ -6,7 +6,7 @@
 \documentclass[onlytextwidth]{beamer}
 \usetheme{Electromagnetism}
 \usepackage{Electromagnetism}
-\usepackage{circuitikz}
+\usepackage[europeanresistors, americaninductors]{circuitikz}
 
 
 %============================================================================
@@ -254,7 +254,7 @@
     			\begin{block}{}\justifying
                     При зміні сили струму в контурі згідно закону Фарадея виникає ЕРС самоіндукції:
                     \begin{equation*}
-                        \mathcal{E} = - L\frac{dI}{dt}
+                        \mathcal{E}_\text{si} = - L\frac{dI}{dt}
                     \end{equation*}
                       {\scriptsize Тут знак мінус показує, що $\mathcal{E}$ завжди спрямована так, щоб перешкоджати зміні сили струму відповідно до
                       правила Ленца. Ця ЕРС прагне зберегти струм незмінним: вона протидіє струму, коли він збільшується, і підтримує струм, коли він
@@ -290,17 +290,82 @@
             $L = 2N^2d\ln\left( \frac{b}{a}\right) $.
 		\end{tblr}
 \begin{block}{}\justifying
-    Одиницею індуктивності в системі СГС є сантиметр. Це означає, що індуктивність є \alert{геометричною} характеристикою.
+    Одиницею індуктивності в системі СГС є сантиметр: $[L] = \text{см}$. Це означає, що індуктивність є \alert{геометричною} характеристикою.
 \end{block}
 \end{frame}
 % ===========================================================================
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Встановлення струму в LR-контурі}{}
-\begin{block}{}
-
-\end{block}
+\begin{frame}{Перехідні процеси в колі з індуктивністю}{}\small
+	\framesubtitle<1>{Встановлення струму в $LR$-контурі}
+	\begin{onlyenv}<1>
+		\begin{columns}
+			\begin{column}{0.3\linewidth}\centering
+				\begin{circuitikz}[
+                    scale=0.7, transform shape]
+					\draw
+					(0,0) to[L, l=$L$] ++(0,2) to[battery2, l=$\mathcal{E}$] ++(2.5, 0) to[R, l=$R$] ++(0, -2)
+					to[closing switch, l=$S$, mirror] ++(-2.5, 0) -- cycle
+					;
+				\end{circuitikz}
+				\begin{tikzpicture}[>=latex]
+					\draw[->] (0,0) -- ++(2,0) node[below] {$t$};
+					\draw[->] (0,0) -- ++(0,2) node[left] {$I$};
+					\node[left] at (0, 1.6) {$\frac{\mathcal{E}}{R}$};
+					\draw[dashed] (0, 1.6) -- ++(2,0);
+					\draw[domain=0:1.8, red, thick] plot (\x, {1.6*(1-exp(-2*\x))});
+				\end{tikzpicture}
+			\end{column}
+			\begin{column}{0.7\linewidth}
+				\begin{block}{}
+					Закон Ома для кола $\mathcal{E} + \mathcal{E}_\text{si} = IR$. Враховуючи що $\mathcal{E}_\text{si} = -L dI/dt$, закон набуде вигляду
+					\begin{equation*}
+						L\frac{dI}{dt}  + IR = \mathcal{E}.
+					\end{equation*}
+					Після інтегрування ми отримаємо:
+					\begin{equation*}
+						I(t) = \frac{\mathcal{E}}{R}\left(1 - e^{-\frac{R}{L}t} \right) ,
+					\end{equation*}
+					де $q_0$ --- початковий заряд конденсатора, а $\tau = \frac{L}{R}$ --- називають \alert{часом релаксації}.
+				\end{block}
+			\end{column}
+		\end{columns}
+	\end{onlyenv}
+	\framesubtitle<2>{Екстраструми при розмиканні}
+	\begin{onlyenv}<2>
+		\begin{columns}
+			\begin{column}{0.3\linewidth}\centering
+				\begin{circuitikz}[
+                    resistor = european,
+                    scale=0.7, transform shape]
+					\draw
+					(0,0) to[battery2, l=$\mathcal{E}$] ++(0,2)  to[R, l=$R$] ++(2.5, 0) to[L, l=$L$] ++(0, -2)
+					to[opening switch, l=$S$, mirror] ++(-2.5, 0) -- cycle
+					;
+				\end{circuitikz}
+				\begin{tikzpicture}[>=latex]
+					\draw[->] (0,0) -- ++(2,0) node[below] {$t$};
+					\draw[->] (0,0) -- ++(0,2) node[left] {$q$};
+					\node[left] at (0, 1.6) {$q_0$};
+					\draw[domain=0:1.8, red, thick] plot (\x, {1.6*exp(-1.5*\x)});
+				\end{tikzpicture}
+			\end{column}
+			\begin{column}{0.7\linewidth}
+				\begin{block}{}
+					Закон Ома для кола $RI + U = \mathcal{E}$. Оскільки $I = dq/dt$ і $U= q/C$, закон набуде вигляду
+					\begin{equation*}
+						\frac{dq}{dt}  + \frac{q}{RC} =  \mathcal{E}.
+					\end{equation*}
+					Після інтегрування ми отримаємо:
+					\begin{equation*}
+						q =  q_{\max}(1 - e^{- t / \tau}),
+					\end{equation*}
+					де $q_{\max} = \mathcal{E} C$ --- граничне значення заряду на конденсаторі ($t \to \infty$).
+				\end{block}
+			\end{column}
+		\end{columns}
+	\end{onlyenv}
 \end{frame}
 % ===========================================================================
 
