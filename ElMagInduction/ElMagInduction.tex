@@ -280,7 +280,7 @@
 		 &
 		Магнітне поле в середині соленоїда $B = \dfrac{4\pi\mu NI}{c l}$. Магнітний потік через всі витки
 		$\Phi = NBS =  N \frac{4\pi\mu}c\frac{N}{l} I S$. Порівнюючи з формулою $\Phi = \frac1c LI$, індуктивність соленоїда дорівнює: $L =
-		\frac{4\pi\mu
+			\frac{4\pi\mu
 				N^2 S}{l}$
 		\\\hline
 		Тороїд
@@ -400,21 +400,7 @@
 \begin{frame}{Взаємна індукція}{}
 	\begin{columns}
 		\begin{column}{0.4\linewidth}\centering
-			\begin{tikzpicture}[scale=0.9, >=latex, midarrow/.style={%
-							postaction={ decorate,
-									decoration={ markings, mark=at position .7 with {\arrow{latex}}}}}]
-				\begin{scope}%[rotate around={45:(0,1)}]
-					\draw[arrowpos={0.5}{2pt}{7pt}, red!40, ultra thick] (1.1,0) [partial ellipse=0:360:0.3 and 1] node[pos=0.5, left] {$I_1$} node[pos=0.25,
-						above, text=black] {$1$};
-				\end{scope}
-				\foreach \y in {-3,...,2}{
-						\draw[blue, midarrow] plot[domain=1:4] (\x, 0.2*\y+0.05*\y*\x^2);
-					}
-				\begin{scope}[rotate around={-25:(3, -1.5)}]
-					\draw[arrowpos={0.5}{2pt}{7pt}, red!40, ultra thick] (3, -1.5) [partial ellipse=0:360:0.3 and 1] node[pos=0.5, left] {$I_2$} node[pos=0.25,
-						above, text=black] {$2$};
-				\end{scope}
-			\end{tikzpicture}
+            \input{tikz/12contours.tikz}
 		\end{column}
 		\begin{column}{0.6\linewidth}
 			\begin{block}{}\justifying
@@ -527,84 +513,84 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Енергія магнітного поля}{}
-\begin{onlyenv}<1>
-	\begin{block}{}\justifying
-		Провідник зі струмом створює магнітне поле, яке з'являється та зникає разом зі струмом. \alert{Магнітне поле є носієм енергії}, що дорівнює
-		роботі струму на його створення. Розглянемо роботу, яку виконує джерело при замиканні ключа в колі по переміщенню заряду $dq = Idt$:
-	\end{block}
-	\begin{columns}
-		\begin{column}{0.3\linewidth}\centering
-			\begin{circuitikz}[
-					scale=0.7, transform shape]
-				\draw
-				(0,0) to[L, l=$L$] ++(0,2) to[battery2, l=$\mathcal{E}$] ++(2.5, 0) to[R, l=$R$] ++(0, -2)
-				to[closing switch, l=$S$, mirror] ++(-2.5, 0) -- cycle
-				;
-			\end{circuitikz}
-		\end{column}
-		\begin{column}{0.7\linewidth}
-			\begin{block}{}\justifying
-				\begin{multline*}
-					\delta A = \mathcal{E} dq = I^2Rdt - \mathcal{E}_\text{si}Idt = \\
-					= \underbrace{I^2Rdt}_\text{Теплота} +
-					\underbrace{\frac1{c^2}LIdI}_\text{\parbox{2.2cm}{\centering\scriptsize\strut\ignorespaces Енергія\\ магнітного\\
-							поля}}.
-				\end{multline*}
-			\end{block}
-		\end{column}
-	\end{columns}
-	\begin{block}{}\justifying
-		Енергія магнітного поля:
-		\(
-			W = \frac1{c^2}\int\limits_0^I LIdI = \frac1{c^2}\frac{LI^2}{2}.
-		\)
-	\end{block}
-\end{onlyenv}
-\begin{onlyenv}<2-3>
-\begin{block}{}
-    Енергію магнітного поля визначається через характеристики поля.
-\end{block}
-\vspace*{-2ex}
-\begin{columns}\small
-	\begin{column}{0.25\linewidth}\centering
-         \includegraphics[width=0.75\linewidth]{tikz/Solenoid.pdf}
-	\end{column}
-	\begin{column}{0.75\linewidth}
-        \begin{block}{}
-            Розглянемо однорідне магнітне поле всередині довгого соленоїда.\\[1ex]
+	\begin{onlyenv}<1>
+		\begin{block}{}\justifying
+			Провідник зі струмом створює магнітне поле, яке з'являється та зникає разом зі струмом. \alert{Магнітне поле є носієм енергії}, що дорівнює
+			роботі струму на його створення. Розглянемо роботу, яку виконує джерело при замиканні ключа в колі по переміщенню заряду $dq = Idt$:
+		\end{block}
+		\begin{columns}
+			\begin{column}{0.3\linewidth}\centering
+				\begin{circuitikz}[
+						scale=0.7, transform shape]
+					\draw
+					(0,0) to[L, l=$L$] ++(0,2) to[battery2, l=$\mathcal{E}$] ++(2.5, 0) to[R, l=$R$] ++(0, -2)
+					to[closing switch, l=$S$, mirror] ++(-2.5, 0) -- cycle
+					;
+				\end{circuitikz}
+			\end{column}
+			\begin{column}{0.7\linewidth}
+				\begin{block}{}\justifying
+					\begin{multline*}
+						\delta A = \mathcal{E} dq = I^2Rdt - \mathcal{E}_\text{si}Idt = \\
+						= \underbrace{I^2Rdt}_\text{Теплота} +
+						\underbrace{\frac1{c^2}LIdI}_\text{\parbox{2.2cm}{\centering\scriptsize\strut\ignorespaces Енергія\\ магнітного\\
+								поля}}.
+					\end{multline*}
+				\end{block}
+			\end{column}
+		\end{columns}
+		\begin{block}{}\justifying
+			Енергія магнітного поля:
+			\(
+			W = \frac1{c^2}\int\limits_0^I LIdI = \frac1{c^2}\frac{LI^2}{2} = \frac1c I\Phi = \frac{\Phi^2}{2L}.
+			\)
+		\end{block}
+	\end{onlyenv}
+	\begin{onlyenv}<2-3>
+		\begin{block}{}
+			Енергію магнітного поля визначається через характеристики поля.
+		\end{block}
+		\vspace*{-2ex}
+		\begin{columns}\small
+			\begin{column}{0.25\linewidth}\centering
+				\includegraphics[width=0.75\linewidth]{tikz/Solenoid.pdf}
+			\end{column}
+			\begin{column}{0.75\linewidth}
+				\begin{block}{}
+					Розглянемо однорідне магнітне поле всередині довгого соленоїда.\\[1ex]
 
-            Індуктивність соленоїда:
-            \begin{equation*}
-                L= \frac{4\pi\mu N^2 S}{l}.
-            \end{equation*}
-            Магнітне поле в середині соленоїда:
-            \begin{equation*}
-                B = \dfrac{4\pi\mu NI}{c l}
-            \end{equation*}
-        \end{block}
-	\end{column}
-\end{columns}
-\end{onlyenv}
-\vspace*{-2ex}
-    \begin{overprint}
-    \onslide<2>
-    \begin{block}{}\justifying
-        Енергія магнітного поля:
-        \begin{equation*}
-            W =  \frac1{c^2}\frac{LI^2}{2} = \frac1{c^2}\frac{(4\pi\mu N I)^2 S l }{ 8\pi\mu l^2} = \frac{B^2}{8\pi\mu} V = \frac{BH}{8\pi}
-            V.
-        \end{equation*}
-    \end{block}
-    \onslide<3>
-    \begin{block}{}\justifying
-        Густина енергії магнітного поля:
-        \(
-            \tcbhighmath{w =  \frac{BH}{8\pi}.}
-        \)\\[1ex]
+					Індуктивність соленоїда:
+					\begin{equation*}
+						L= \frac{4\pi\mu N^2 S}{l}.
+					\end{equation*}
+					Магнітне поле в середині соленоїда:
+					\begin{equation*}
+						B = \dfrac{4\pi\mu NI}{c l}
+					\end{equation*}
+				\end{block}
+			\end{column}
+		\end{columns}
+	\end{onlyenv}
+	\vspace*{-2ex}
+	\begin{overprint}
+		\onslide<2>
+		\begin{block}{}\justifying
+			Енергія магнітного поля:
+			\begin{equation*}
+				W =  \frac1{c^2}\frac{LI^2}{2} = \frac1{c^2}\frac{(4\pi\mu N I)^2 S l }{ 8\pi\mu l^2} = \frac{B^2}{8\pi\mu} V = \frac{BH}{8\pi}
+				V.
+			\end{equation*}
+		\end{block}
+		\onslide<3>
+		\begin{block}{}\justifying
+			Густина енергії магнітного поля:
+			\(
+			\tcbhighmath{w =  \frac{BH}{8\pi}.}
+			\)\\[1ex]
 
-        \alert{Магнітна енергія зосереджена в об'ємі соленоїда --- в тій області простору, де присутнє магнітне поле}.
-    \end{block}
-    \end{overprint}
+			\alert{Магнітна енергія зосереджена в об'ємі соленоїда --- в тій області простору, де присутнє магнітне поле}.
+		\end{block}
+	\end{overprint}
 \end{frame}
 % ===========================================================================
 
@@ -667,7 +653,28 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Пондеромоторні сили в магнітному полі}{}
-
+	\begin{columns}
+		\begin{column}{0.4\linewidth}\centering
+            \input{tikz/12contours.tikz}
+		\end{column}
+		\begin{column}{0.6\linewidth}
+			\begin{block}{}\justifying
+				Обмежимося випадком, коли система складається з двох
+				контурів зі струмами $I_1$ і $I_2$. Магнітна енергія такої системи:
+				\begin{equation*}
+					W = \frac1{2c} (I_1\Phi_1 + I_2\Phi_2)
+				\end{equation*}
+			\end{block}
+		\end{column}
+	\end{columns}
+	\begin{block}{}\justifying
+		Відповідно до закону збереження енергії робота, яку
+		виконують джерела струму, включені в контури $1$ і $2$, йде на
+		теплоту, на збільшення магнітної енергії системи і на механічну роботу внаслідок переміщення або деформації контурів):
+		\begin{equation*}
+			\delta A_\text{дж} = \delta Q + dW + \delta A_\text{мех}
+		\end{equation*}
+	\end{block}
 \end{frame}
 % ===========================================================================
 
