@@ -278,8 +278,9 @@
 		 &
 		\raisebox{-0.5\totalheight}{\includegraphics[width=2cm]{Solenoid}}
 		 &
-		Магнітне поле в середині соленоїда $B = \dfrac{2I}{c r}$. Магнітний потік через всі витки
-		$\Phi = NBS =  N \frac{4\pi}c\frac{N}{l} I S$. Порівнюючи з формулою $\Phi = \frac1c LI$, індуктивність соленоїда дорівнює: $L = \frac{4\pi
+		Магнітне поле в середині соленоїда $B = \dfrac{4\pi\mu NI}{c l}$. Магнітний потік через всі витки
+		$\Phi = NBS =  N \frac{4\pi\mu}c\frac{N}{l} I S$. Порівнюючи з формулою $\Phi = \frac1c LI$, індуктивність соленоїда дорівнює: $L =
+		\frac{4\pi\mu
 				N^2 S}{l}$
 		\\\hline
 		Тороїд
@@ -437,6 +438,8 @@
 
 
 
+
+
 % ============================== Слайд ## ===================================
 \begin{frame}{Теорема взаємності}{}
 	\begin{block}{}\justifying
@@ -499,7 +502,19 @@
 		\end{column}
 	\end{columns}
 	%---------------------------------------------------------
-	\end{frame}
+\end{frame}
+% ===========================================================================
+
+
+%% --------------------------------------------------------
+\subsection{Принцип роботи трансформаторів}
+%% --------------------------------------------------------
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Трансформатор}{}
+
+\end{frame}
 % ===========================================================================
 
 
@@ -512,6 +527,146 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Енергія магнітного поля}{}
+\begin{onlyenv}<1>
+	\begin{block}{}\justifying
+		Провідник зі струмом створює магнітне поле, яке з'являється та зникає разом зі струмом. \alert{Магнітне поле є носієм енергії}, що дорівнює
+		роботі струму на його створення. Розглянемо роботу, яку виконує джерело при замиканні ключа в колі по переміщенню заряду $dq = Idt$:
+	\end{block}
+	\begin{columns}
+		\begin{column}{0.3\linewidth}\centering
+			\begin{circuitikz}[
+					scale=0.7, transform shape]
+				\draw
+				(0,0) to[L, l=$L$] ++(0,2) to[battery2, l=$\mathcal{E}$] ++(2.5, 0) to[R, l=$R$] ++(0, -2)
+				to[closing switch, l=$S$, mirror] ++(-2.5, 0) -- cycle
+				;
+			\end{circuitikz}
+		\end{column}
+		\begin{column}{0.7\linewidth}
+			\begin{block}{}\justifying
+				\begin{multline*}
+					\delta A = \mathcal{E} dq = I^2Rdt - \mathcal{E}_\text{si}Idt = \\
+					= \underbrace{I^2Rdt}_\text{Теплота} +
+					\underbrace{\frac1{c^2}LIdI}_\text{\parbox{2.2cm}{\centering\scriptsize\strut\ignorespaces Енергія\\ магнітного\\
+							поля}}.
+				\end{multline*}
+			\end{block}
+		\end{column}
+	\end{columns}
+	\begin{block}{}\justifying
+		Енергія магнітного поля:
+		\(
+			W = \frac1{c^2}\int\limits_0^I LIdI = \frac1{c^2}\frac{LI^2}{2}.
+		\)
+	\end{block}
+\end{onlyenv}
+\begin{onlyenv}<2-3>
+\begin{block}{}
+    Енергію магнітного поля визначається через характеристики поля.
+\end{block}
+\vspace*{-2ex}
+\begin{columns}\small
+	\begin{column}{0.25\linewidth}\centering
+         \includegraphics[width=0.75\linewidth]{tikz/Solenoid.pdf}
+	\end{column}
+	\begin{column}{0.75\linewidth}
+        \begin{block}{}
+            Розглянемо однорідне магнітне поле всередині довгого соленоїда.\\[1ex]
+
+            Індуктивність соленоїда:
+            \begin{equation*}
+                L= \frac{4\pi\mu N^2 S}{l}.
+            \end{equation*}
+            Магнітне поле в середині соленоїда:
+            \begin{equation*}
+                B = \dfrac{4\pi\mu NI}{c l}
+            \end{equation*}
+        \end{block}
+	\end{column}
+\end{columns}
+\end{onlyenv}
+\vspace*{-2ex}
+    \begin{overprint}
+    \onslide<2>
+    \begin{block}{}\justifying
+        Енергія магнітного поля:
+        \begin{equation*}
+            W =  \frac1{c^2}\frac{LI^2}{2} = \frac1{c^2}\frac{(4\pi\mu N I)^2 S l }{ 8\pi\mu l^2} = \frac{B^2}{8\pi\mu} V = \frac{BH}{8\pi}
+            V.
+        \end{equation*}
+    \end{block}
+    \onslide<3>
+    \begin{block}{}\justifying
+        Густина енергії магнітного поля:
+        \(
+            \tcbhighmath{w =  \frac{BH}{8\pi}.}
+        \)\\[1ex]
+
+        \alert{Магнітна енергія зосереджена в об'ємі соленоїда --- в тій області простору, де присутнє магнітне поле}.
+    \end{block}
+    \end{overprint}
+\end{frame}
+% ===========================================================================
+
+
+
+% ============================== Слайд ## ===================================
+%\begin{frame}{Енергія магнітного поля (загальний випадок)}\small
+%\framesubtitle<1>{Попередні зауваження}
+%\begin{onlyenv}<1>
+%\begin{block}{}\justifying
+%    Наведемо тепер загальне виведення виразу для енергії, який не обмежений будь-яким конкретним класом систем, на зразок соленоїда.
+%
+%\bigskip
+%
+%Саме \alert{магнітне поле роботи над зарядами не виконує}, а \alert{виконує її вихрове електричне поле}, що виникає (за законом індукції)
+%на
+%стадії
+%<<включення>> магнітного поля.
+%
+%\end{block}
+%\end{onlyenv}
+%\begin{onlyenv}<2>
+%\begin{block}{}\justifying
+%    За законом Джоуля-Ленца робота електричного поля $\Efield$ над струмами $\vect{j}$ в одиничному об'ємі в одиницю часу дорівнює
+%    $\vect{j}\cdot\Efield$. Відповідно за час $dt$ в об'ємі $V$ робота сил поля дорівнює:
+%\begin{equation*}
+%    \delta A = dt \iiint\limits_V \vect{j}\cdot\Efield dV.
+%\end{equation*}
+%З теореми про циркуляцію (у диференціальній формі) $\vect{j} = \frac{c}{4\pi} \Rot\Hfield$, а тому робота поля:
+%\begin{equation*}
+%    \delta A = \frac{cdt}{4\pi} \iiint\limits_V \Efield\cdot\Rot\Hfield dV.
+%\end{equation*}
+%З урахуванням тотожності $\Div(\Efield\times\Hfield) = \Hfield\cdot\Rot\Efield-\Efield\cdot\Rot\Hfield$ перепишемо вираз для роботи:
+%\begin{equation*}
+%    \delta A = \frac{cdt}{4\pi} \iiint\limits_V \left[\Hfield\cdot\Rot\Efield-\Div(\Efield\times\Hfield)\right] dV.
+%\end{equation*}
+%\end{block}
+%\end{onlyenv}
+%\begin{onlyenv}<3>
+%\begin{block}{}\justifying
+%\begin{equation*}
+%    \delta A = \frac{cdt}{4\pi} \iiint\limits_V \left[\Hfield\cdot\Rot\Efield-\Div(\Efield\times\Hfield)\right] dV.
+%\end{equation*}
+%    Другий інтеграл обертається в нуль. Дійсно, перетворюючи об'ємний інтеграл за формулою Остроградського-Гауса в поверхневий і
+%враховуючи,
+%    що на нескінченно віддаленій поверхні поля обертаються в нуль $\Efield, \Hfield \to 0$, отримаємо
+%\begin{equation*}
+%    \iiint\limits_V \Div(\Efield\times\Hfield) = \oiint\limits_S (\Efield\times\Hfield) dS = 0.
+%\end{equation*}
+%Врахуємо також закон електромагнітної індукції $\Rot\Efield = - \frac1c \frac{\partial\Bfield}{\partial t}$:
+%\begin{equation*}
+%    \delta A = \frac{cdt}{4\pi} \iiint\limits_V \Hfield\cdot\Rot\Efield dV = - \frac{cdt}{4\pi} \iiint\limits_V
+%    \Hfield\cdot\frac{\partial\Bfield}{\partial t} dV .
+%\end{equation*}
+%\end{block}
+%\end{onlyenv}
+%\end{frame}
+% ===========================================================================
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Пондеромоторні сили в магнітному полі}{}
 
 \end{frame}
 % ===========================================================================
