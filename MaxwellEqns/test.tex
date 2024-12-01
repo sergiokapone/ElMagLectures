@@ -1,0 +1,94 @@
+
+\documentclass{beamer}
+\usetheme{Electromagnetism}
+\usepackage{Electromagnetism}
+\graphicspath{{pictures/}}
+% -------------------------------------- Grid
+%-------------------------------------------------------
+\makeatletter
+\def\grd@save@target#1{%
+  \def\grd@target{#1}}
+\def\grd@save@start#1{%
+  \def\grd@start{#1}}
+\tikzset{
+  grid with coordinates/.style={
+    to path={%
+      \pgfextra{%
+        \edef\grd@@target{(\tikztotarget)}%
+        \tikz@scan@one@point\grd@save@target\grd@@target\relax
+        \edef\grd@@start{(\tikztostart)}%
+        \tikz@scan@one@point\grd@save@start\grd@@start\relax
+        \draw[minor help lines] (\tikztostart) grid (\tikztotarget);
+        \draw[major help lines] (\tikztostart) grid (\tikztotarget);
+        \grd@start
+        \pgfmathsetmacro{\grd@xa}{\the\pgf@x/1cm}
+        \pgfmathsetmacro{\grd@ya}{\the\pgf@y/1cm}
+        \grd@target
+        \pgfmathsetmacro{\grd@xb}{\the\pgf@x/1cm}
+        \pgfmathsetmacro{\grd@yb}{\the\pgf@y/1cm}
+        \pgfmathsetmacro{\grd@xc}{\grd@xa + \pgfkeysvalueof{/tikz/grid with coordinates/major step}}
+        \pgfmathsetmacro{\grd@yc}{\grd@ya + \pgfkeysvalueof{/tikz/grid with coordinates/major step}}
+        \foreach \x in {\grd@xa,\grd@xc,...,\grd@xb}
+        \node[anchor=north] at (\x,\grd@ya) {\pgfmathprintnumber{\x}};
+        \foreach \y in {\grd@ya,\grd@yc,...,\grd@yb}
+        \node[anchor=east] at (\grd@xa,\y) {\pgfmathprintnumber{\y}};
+      }
+    }
+  },
+  minor help lines/.style={
+    help lines,
+    step=\pgfkeysvalueof{/tikz/grid with coordinates/minor step}
+  },
+  major help lines/.style={
+    help lines,
+    line width= 0.5pt,
+    step=\pgfkeysvalueof{/tikz/grid with coordinates/major step}
+  },
+  grid with coordinates/.cd,
+  minor step/.initial=.2,
+  major step/.initial=1,
+  major line width/.initial=2pt,
+}
+\makeatother
+\usepackage{cancel}
+\begin{document}
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Система рівнянь Максвелла}{}
+\begin{block}{}\justifying\small
+    Доповнивши основні факти зі сфери електромагнетизму, та доповнивши їх гіпотезою струмів зміщення, Максвелл зміг написати систему фундаментальних
+    рівнянь електродинаміки. Таких рівнянь чотири.
+\end{block}
+       \begin{center}
+		\begin{tblr}%
+			{
+			colspec={|Q[l,m, 2.5cm, bg=yellow!10, font=\scriptsize]|[1pt, white]X[c,m, bg=red!10]|[1pt, white]Q[c,m, 2.5cm, bg=blue!10]|},
+			row{1}={c, fg=white, bg=cyan, font=\bfseries\scriptsize},
+            cell{2-5}{2-Z}={c, m, mode=dmath, font=\scriptsize},
+			%hlines,
+			}
+			\hline
+			Рівняння & Інтегральна форма & Диференціальна форма\\
+			\hline\hline
+            Теорема Гаусса для магнітного поля         & \oiint\limits_S \Bfield\cdot d\vect{S} =  0 & \Div\Bfield = 0\\
+			\hline
+            Теорема про циркуляцію для електричного поля & \oint\limits_L \Efield\cdot d\vect{r} = -
+			\frac1c\iint\limits_S \frac{\partial\Bfield}{\partial t} \cdot d\vect{S}  &  \Rot\Efield = - \frac1c \frac{\partial\Bfield}{\partial t} \\
+            \hline\hline
+			Теорема Гаусса для електричного поля         & \oiint\limits_S \Dfield\cdot d\vect{S} = 4\pi \iiint\limits_{V} \rho dV & \Div\Dfield =
+			4\pi\rho\\
+			\hline
+			Теорема про циркуляцію для магнітного поля & \oint\limits_L \Hfield\cdot d\vect{r} = \frac{4\pi}{c} \iint\limits_S \left( \vect{j} +
+			\frac1{4\pi}\frac{\partial\Dfield}{\partial t} \right) \cdot d\vect{S} &  \Rot\Hfield = \frac{4\pi}{c}\vect{j} + \frac1c
+			\frac{\partial\Dfield}{\partial
+			t}
+			\\
+            \hline
+		\end{tblr}
+	\end{center}
+\end{frame}
+% ===========================================================================
+
+
+\end{document}
