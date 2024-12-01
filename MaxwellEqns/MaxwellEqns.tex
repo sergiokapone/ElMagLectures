@@ -187,41 +187,41 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Радіальне стікання заряду з кулі}{}\footnotesize
-\begin{block}{}\justifying
-    Нехай куля несе заряд $Q$, який стікає в зовнішнє середовище. Унаслідок стікання заряду виникають струми, які можуть індукувати магнітне поле.
-    Знайдемо це магнітне поле.
-\end{block}
-\begin{columns}
-	\begin{column}{0.25\linewidth}\centering
-        \begin{tikzpicture}[>=latex]
-                \draw[ball color=red!50] (0, 0) circle[radius=0.5cm];
-                \draw[dashed] (0, 0) circle[radius=0.75cm];
-                \foreach \a in {0,45,...,340}{
-                    \draw[brown, ->] (0,0) ++(\a:0.75) -- ++(\a:0.25) node[anchor={180+\a}] {$I$};
-                    \draw[orange, <-] (0,0) ++({\a+45/2}:0.75) -- ++({\a+45/2}:0.25) node[anchor={180+\a+45/2}] {$I_\text{зм}$};
-                }
-        \end{tikzpicture}
-	\end{column}
-	\begin{column}{0.75\linewidth}
- \begin{block}{}\justifying
-    Стікання заряду з кулі створює струм провідності, який дорівнює:
-\begin{equation*}
-    I = -\frac{\partial Q}{\partial t}.
-\end{equation*}
-Електричне поле кулі $\Efield(r) = \frac{Q(t)}{r^3}\vect{r}$ також зменшується з часом, а тому струм зміщення дорівнює:
-\begin{equation*}
-    I_\text{зм} = \frac1{4\pi} \oiint\limits_S \frac{\partial\Efield}{\partial t}\cdot d\vect{S} = + \frac{\partial Q}{\partial t} = -I.
-\end{equation*}
-\end{block}
-	\end{column}
-\end{columns}
-\begin{block}{}\justifying
-    З теореми про циркуляцію:
-			\begin{equation*}
-				\oint\limits_L \Hfield\cdot d\vect{r} = \frac{4\pi}{c} (I + I_\text{зм}) = 0,\ \Rightarrow\ \Hfield = \Bfield = 0.
-			\end{equation*}
-\end{block}
-Отже, в цьому випадку, магнітного поля не виникає.
+	\begin{block}{}\justifying
+		Нехай куля несе заряд $Q$, який стікає в зовнішнє середовище. Унаслідок стікання заряду виникають струми, які можуть індукувати магнітне поле.
+		Знайдемо це магнітне поле.
+	\end{block}
+	\begin{columns}
+		\begin{column}{0.25\linewidth}\centering
+			\begin{tikzpicture}[>=latex]
+				\draw[ball color=red!50] (0, 0) circle[radius=0.5cm];
+				\draw[dashed] (0, 0) circle[radius=0.75cm];
+				\foreach \a in {0,45,...,340}{
+						\draw[brown, ->] (0,0) ++(\a:0.75) -- ++(\a:0.25) node[anchor={180+\a}] {$I$};
+						\draw[orange, <-] (0,0) ++({\a+45/2}:0.75) -- ++({\a+45/2}:0.25) node[anchor={180+\a+45/2}] {$I_\text{зм}$};
+					}
+			\end{tikzpicture}
+		\end{column}
+		\begin{column}{0.75\linewidth}
+			\begin{block}{}\justifying
+				Стікання заряду з кулі створює струм провідності, який дорівнює:
+				\begin{equation*}
+					I = -\frac{\partial Q}{\partial t}.
+				\end{equation*}
+				Електричне поле кулі $\Efield(r) = \frac{Q(t)}{r^3}\vect{r}$ також зменшується з часом, а тому струм зміщення дорівнює:
+				\begin{equation*}
+					I_\text{зм} = \frac1{4\pi} \oiint\limits_S \frac{\partial\Efield}{\partial t}\cdot d\vect{S} = + \frac{\partial Q}{\partial t} = -I.
+				\end{equation*}
+			\end{block}
+		\end{column}
+	\end{columns}
+	\begin{block}{}\justifying
+		З теореми про циркуляцію:
+		\begin{equation*}
+			\oint\limits_L \Hfield\cdot d\vect{r} = \frac{4\pi}{c} (I + I_\text{зм}) = 0,\ \Rightarrow\ \Hfield = \Bfield = 0.
+		\end{equation*}
+	\end{block}
+	Отже, в цьому випадку, магнітного поля не виникає.
 \end{frame}
 % ===========================================================================
 
@@ -255,7 +255,7 @@
 					\draw [arrowpos={0.5}{4pt}{4pt}, bend left=120, looseness=2] (B) to (A);
 					\draw[fill=red!50, opacity=0.6] (0, -1.5) circle[x radius=1 cm, y radius= 0.3 cm];
 					\draw[in=55, out=125, looseness=3.9, fill=red!50, opacity=0.5] (-1, -1.5) to (+1, -1.5) arc[x radius=1 cm, y radius= 0.3 cm, start
-					angle=0,
+							angle=0,
 							delta angle=180] --cycle;
 				\end{tikzpicture}
 				\\
@@ -266,32 +266,32 @@
 		\end{column}
 		\begin{column}{0.5\linewidth}
 			\begin{block}{}\justifying
-                Теорема про циркуляцію має вигляд:
-                \begin{itemize}
-                \item Для лівого рисунка
-                \begin{equation*}
-					\oint\limits_L \Hfield\cdot d\vect{r} = \frac{4\pi}{c}I.
-				\end{equation*}
-                \item Для правого рисунка
-				\begin{equation*}
-					\oint\limits_L \Hfield\cdot d\vect{r} = \frac{4\pi}{c}I_\text{зм}.
-				\end{equation*}
-                \end{itemize}
+				Теорема про циркуляцію має вигляд:
+				\begin{itemize}
+					\item Для лівого рисунка
+					      \begin{equation*}
+						      \oint\limits_L \Hfield\cdot d\vect{r} = \frac{4\pi}{c}I.
+					      \end{equation*}
+					\item Для правого рисунка
+					      \begin{equation*}
+						      \oint\limits_L \Hfield\cdot d\vect{r} = \frac{4\pi}{c}I_\text{зм}.
+					      \end{equation*}
+				\end{itemize}
 			\end{block}
 		\end{column}
 	\end{columns}
-\begin{overprint}
-\onslide<1>
-	\begin{block}{}\justifying\small
-		Оскільки різні поверхні спираються на один і той же контур $L$, то циркуляція $\oint\limits_L \Hfield\cdot d\vect{r}$ не повинна залежати вибору
-		поверхні. А, отже, $I = I_\text{зм}$, тобто в середині конденсатора <<протікає>> струм зміщення, який замикає коло.
-	\end{block}
-\onslide<2>
-	\begin{block}{}\justifying\small
-		Як видно з теореми про циркуляцію, \alert{струми зміщення} замикають струми провідності і \alert{створюють магнітне поле точно так само}, як і
-		струми провідності. Вони, однак, не створюють прямо теплового ефекту, до них незастосовні закон Ома і закон Джоуля-Ленца.
-	\end{block}
-\end{overprint}
+	\begin{overprint}
+		\onslide<1>
+		\begin{block}{}\justifying\small
+			Оскільки різні поверхні спираються на один і той же контур $L$, то циркуляція $\oint\limits_L \Hfield\cdot d\vect{r}$ не повинна залежати вибору
+			поверхні. А, отже, $I = I_\text{зм}$, тобто в середині конденсатора <<протікає>> струм зміщення, який замикає коло.
+		\end{block}
+		\onslide<2>
+		\begin{block}{}\justifying\small
+			Як видно з теореми про циркуляцію, \alert{струми зміщення} замикають струми провідності і \alert{створюють магнітне поле точно так само}, як і
+			струми провідності. Вони, однак, не створюють прямо теплового ефекту, до них незастосовні закон Ома і закон Джоуля-Ленца.
+		\end{block}
+	\end{overprint}
 \end{frame}
 % ===========================================================================
 
@@ -301,37 +301,179 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Система рівнянь Максвелла}{}
-\begin{block}{}\justifying\small
-    Доповнивши основні факти зі сфери електромагнетизму, та доповнивши їх гіпотезою струмів зміщення, Максвелл зміг написати систему фундаментальних
-    рівнянь електродинаміки. Таких рівнянь чотири.
-\end{block}
-       \begin{center}
+	\begin{block}{}\justifying\small
+		Доповнивши основні факти зі сфери електромагнетизму, та доповнивши їх гіпотезою струмів зміщення, Максвелл зміг написати систему фундаментальних
+		рівнянь електродинаміки. Таких рівнянь чотири.
+	\end{block}
+	\begin{center}
 		\begin{tblr}%
 			{
-			colspec={|Q[l,m, 2.5cm, bg=yellow!10, font=\scriptsize]|[1pt, white]X[c,m, bg=red!10]|[1pt, white]Q[c,m, 2.5cm, bg=blue!10]|},
+			colspec={|Q[l,m, 2.5cm, bg=yellow!10, font=\scriptsize]|[1pt, white]X[l,m, bg=red!10]|[1pt, white]Q[l,m, 2.5cm, bg=blue!10]|},
 			row{1}={c, fg=white, bg=cyan, font=\bfseries\scriptsize},
-            cell{2-5}{2-Z}={c, m, mode=dmath, font=\scriptsize},
+			cell{2-5}{2-Z}={l, m, mode=dmath, font=\scriptsize},
 			%hlines,
 			}
 			\hline
-			Рівняння & Інтегральна форма & Диференціальна форма\\
+			Рівняння                                                                 & Інтегральна форма                                                                       & Диференціальна форма \\
 			\hline\hline
-            Теорема Гаусса для магнітного поля         & \oiint\limits_S \Bfield\cdot d\vect{S} =  0 & \Div\Bfield = 0\\
+			Теорема Гаусса для магнітного поля                                       & \oiint\limits_S \Bfield\cdot d\vect{S} =  0                                             & \Div\Bfield = 0      \\
 			\hline
-            Теорема про циркуляцію для електричного поля & \oint\limits_L \Efield\cdot d\vect{r} = -
-			\frac1c\iint\limits_S \frac{\partial\Bfield}{\partial t} \cdot d\vect{S}  &  \Rot\Efield = - \frac1c \frac{\partial\Bfield}{\partial t} \\
-            \hline\hline
-			Теорема Гаусса для електричного поля         & \oiint\limits_S \Dfield\cdot d\vect{S} = 4\pi \iiint\limits_{V} \rho dV & \Div\Dfield =
-			4\pi\rho\\
+			Теорема про циркуляцію для електричного поля                             & \oint\limits_L \Efield\cdot d\vect{r} = -
+			\frac1c\iint\limits_S \frac{\partial\Bfield}{\partial t} \cdot d\vect{S} & \Rot\Efield = - \frac1c \frac{\partial\Bfield}{\partial t}                                                     \\
+			\hline\hline
+			Теорема Гаусса для електричного поля                                     & \oiint\limits_S \Dfield\cdot d\vect{S} = 4\pi \iiint\limits_{V} \rho dV                 & \Div\Dfield =
+			4\pi\rho                                                                                                                                                                                  \\
 			\hline
-			Теорема про циркуляцію для магнітного поля & \oint\limits_L \Hfield\cdot d\vect{r} = \frac{4\pi}{c} \iint\limits_S \left( \vect{j} +
-			\frac1{4\pi}\frac{\partial\Dfield}{\partial t} \right) \cdot d\vect{S} &  \Rot\Hfield = \frac{4\pi}{c}\vect{j} + \frac1c
+			Теорема про циркуляцію для магнітного поля                               & \oint\limits_L \Hfield\cdot d\vect{r} = \frac{4\pi}{c} \iint\limits_S \left( \vect{j} +
+			\frac1{4\pi}\frac{\partial\Dfield}{\partial t} \right) \cdot d\vect{S}   & \Rot\Hfield = \frac{4\pi}{c}\vect{j} + \frac1c
 			\frac{\partial\Dfield}{\partial
-			t}
+				t}
 			\\
-            \hline
+			\hline
 		\end{tblr}
 	\end{center}
 \end{frame}
 % ===========================================================================
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Вираз електричного поля через потенціали}{}\footnotesize
+	\renewcommand{\baselinestretch}{0.99}
+	\begin{block}{}\justifying
+		Рівняння Максвелла групуються парами. \alert{Перша пара рівнянь} --- рівняння \alert{без зарядів та струмів}, \alert{друга пара} --- рівняння
+		\alert{із зарядами та струмами}.
+	\end{block}
+	\begin{block}{}
+		Теорема Гаусса для магнітного поля дозволяє ввести векторний потенціал:
+		\begin{equation*}
+			\Bfield=\Rot\vect{A}
+		\end{equation*}
+		Тоді теорема про циркуляцію для електричного поля записується як:
+		\begin{equation*}
+			\Rot\left(\Efield  + \frac{\partial\vect{A}}{\partial t}\right) = 0
+		\end{equation*}
+		Ця рівність означає, що це
+		поле може бути представлене як градієнт скалярної функції, тоді отримуємо:
+		\begin{equation*}
+			\Efield = -\vect{\nabla}\phi - \frac{\partial\vect{A}}{\partial t}
+		\end{equation*}
+		У випадку постійних у часі полів: $\Efield = -\vect{\nabla}\phi $, тобто, що введена тут функція $\phi$
+		збігається зі скалярним потенціалом.
+	\end{block}
+\end{frame}
+% ===========================================================================
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Стаціонарні поля}{}
+	\begin{block}{}\justifying
+		У стаціонарному випадку часткові похідні за часом від полів дорівнюють нулю, тому рівняння максвела розпадається на дві окремі
+		системи для електростатики і магнітостатики.
+	\end{block}
+	\begin{center}
+		\begin{tblr}%
+			{
+			colspec={|X[l,m, bg=yellow!10, font=\scriptsize]|[1pt, white]X[c,m, bg=red!10]|},
+			row{1}={c, fg=white, bg=cyan, font=\bfseries},
+			cell{2-5}{1-Z}={c, m, mode=dmath, font=},
+			%hlines,
+			}
+			\hline
+			Рівняння електростатики & Рівняння магнітостатики \\
+			\hline
+			\begin{cases}
+				\Div\Dfield = 4\pi\rho, \\
+				\Rot\Efield = 0.
+			\end{cases}
+			                        &
+			\begin{cases}
+				\Div\Bfield = 0, \\
+				\Rot\Hfield = \frac{4\pi}{c} \vect{j}.
+			\end{cases}
+			\\
+			\hline
+		\end{tblr}
+	\end{center}
+\end{frame}
+% ===========================================================================
+
+
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Матеріальні рівняння}{}\small
+	\begin{block}{}\justifying
+		Рівняння Максвелла мають бути доповнені співвідношеннями, що зв'язують поля $\Dfield$ та $\Efield$ з одного боку, та $\Hfield$ та $\Bfield$ з
+		іншого
+		боку.
+	\end{block}
+	\begin{center}
+		\begin{tblr}%
+			{
+			colspec={|X[l,m, bg=yellow!10, font=\scriptsize]|[1pt, white]Q[l,m, 0.2\linewidth,bg=red!10]|},
+			row{1}={c, fg=white, bg=cyan, font=\bfseries},
+			cell{2-Z}{2-Z}={l, m, mode=dmath, font=\scriptsize},
+			hlines,
+			}
+			                                                                                           & Вираз                            \\
+			Вектор індукції електричного поля                                                          & \Dfield = \Efield + 4\pi\vect{P} \\
+			Вектор поляризації (для лінійних ізотропних речовин)                                       & \vect{P} = \chi_e\Efield         \\
+			Діелектрична проникніть  (для лінійних ізотропних речовин)                                 & \epsilon = 1 + 4\pi \chi_e       \\
+			Зв'язок $\Dfield$ та $\Efield$ (для лінійних ізотропних речовин)                           & \Dfield = \epsilon\Efield        \\
+			\hline
+			Вектор напруженості магнітного поля                                                        & \Hfield = \Bfield - 4\pi\vect{J} \\
+			Вектор намагнічування (для лінійних ізотропних речовин)                                    & \vect{J} = \chi_e\Hfield         \\
+			Магнітна проникніть  (для лінійних ізотропних речовин)                                     & \mu = 1 + 4\pi \chi_m            \\
+			Зв'язок $\Hfield$ та $\Bfield$ (для лінійних ізотропних речовин)                           & \Bfield = \mu\Hfield             \\
+			\hline
+			У разі струму, спричиненого електричним полем у провідному середовищі, має місце закон Ома & \vect{j} = \lambda\Efield
+		\end{tblr}
+	\end{center}
+\end{frame}
+% ===========================================================================
+
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Граничні умови}{}\small
+	\begin{block}{}\justifying
+		Диференціальні рівняння Максвелла треба доповнити граничними умовами, яким має задовольняти електромагнітне поле на межі
+		розділу двох середовищ. Ці умови неявно містяться в інтегральній формі рівнянь Максвелла і отримуються за їх допомогою. Граничні умови в стаціонарному
+		випадку аналогічні і для випадку змінних полів.
+	\end{block}
+	\begin{center}
+		\begin{tblr}%
+			{
+			colspec={|X[l,m, bg=yellow!10, font=\scriptsize]|[1pt, white]X[c,m, bg=red!10]|},
+			row{1}={c, fg=white, bg=cyan, font=\bfseries},
+			cell{2-Z}{1-Z}={c, m, mode=dmath, font=},
+			%hlines,
+			}
+			\hline
+			Умови для електричних векторів & Умови для магнітних векторів \\
+			\hline
+			D_{2n} - D_{1n} = 4\pi\sigma
+			                               &
+			B_{1n} = B_{2n}
+			\\
+			\hline
+			\hline
+			E_{1\tau} = E_{2\tau}
+			                               &
+			\left[\vect{n}\times\Hfield_2\right] - \left[\vect{n}\times\Hfield_1\right] = \frac{4\pi}{c}\vect{i}
+			\\
+			\hline
+		\end{tblr}
+	\end{center}
+	\begin{block}{}\justifying
+		Тут $\sigma$ ---  поверхнева густина вільних електричних зарядів, a $\vect{i}$ --- поверхнева густина струму провідності на розглянутій границі
+		розділу. У випадку, коли поверхневих струмів немає, гранична умова для тангенціальної компоненти вектора напруженості магнітного поля набуває
+		вигляду:
+		\begin{equation*}
+			H_{1\tau} = H_{2\tau}
+		\end{equation*}
+	\end{block}
+\end{frame}
+% ===========================================================================
+
 \end{document}
