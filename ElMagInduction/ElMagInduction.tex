@@ -58,7 +58,7 @@
 	\begin{block}{}\justifying
 		Електрорішійна сила (ЕРС), що виникає в контурі пропорційна швидкості зміни магнітного потоку, що пронизує площу, охоплену даним контуро:
 		\begin{equation*}
-			\tcbhighmath{\mathcal{E}_\text{ind} =  -\frac1c \frac{d\Phi}{dt}} = -\frac1c \frac{d}{dt} \iint\limits_S.
+			\tcbhighmath{\mathcal{E}_\text{ind} =  -\frac1c \frac{d\Phi}{dt}} = -\frac1c \frac{d}{dt} \iint\limits_S \Bfield\cdot\vect{S}.
 		\end{equation*}
 	\end{block}
 	\begin{columns}
@@ -400,28 +400,97 @@
 \begin{frame}{Взаємна індукція}{}
 	\begin{columns}
 		\begin{column}{0.4\linewidth}\centering
-            \input{tikz/12contours.tikz}
+			\input{tikz/12contours.tikz}
 		\end{column}
 		\begin{column}{0.6\linewidth}
-			\begin{block}{}\justifying
-				Нехай два нерухомих контури $1$ і $2$ розташовані близько один до одного. Якщо в контурі $1$ тече струм $I_1$, він створює через контур
-				$2$ магнітний потік $\Phi_2$, пропорційний струму $I_1$:
-				\begin{equation*}
-					\Phi_2 = \frac1c L_{21}I_1
-				\end{equation*}
-				Аналогічно, якщо в контурі $2$ тече струм $I_2$, то він створює через контур $1$ магнітний потік:
-				\begin{equation*}
-					\Phi_1 = \frac1c L_{12}I_2.
-				\end{equation*}
-			\end{block}
+			\begin{overprint}
+				\onslide<1>
+				\begin{block}{}\justifying
+					Нехай два нерухомих контури $1$ і $2$ розташовані близько один до одного. Якщо в контурі $1$ тече струм $I_1$, він створює через контур
+					$2$ магнітний потік $\Phi_2$, пропорційний струму $I_1$:
+					\begin{equation*}
+						\Phi_{21} = \frac1c L_{21}I_1
+					\end{equation*}
+					Аналогічно, якщо в контурі $2$ тече струм $I_2$, то він створює через контур $1$ магнітний потік:
+					\begin{equation*}
+						\Phi_{12} = \frac1c L_{12}I_2.
+					\end{equation*}
+				\end{block}
+				\onslide<2>
+				\begin{block}{}\justifying
+					Закони Ома для контурів:
+					\begin{equation*}
+						\begin{cases}
+							I_1R_1 = \mathcal{E}_1 - \dfrac1{c^2}\dfrac{d}{dt}\left( L_{11} I_1\right) - \dfrac1{c^2}\dfrac{d}{dt}\left( L_{12} I_2\right),
+							\\[1,5ex]
+							I_2R_2 = \mathcal{E}_2 - \dfrac1{c^2}\dfrac{d}{dt}\left( L_{21} I_1\right) - \dfrac1{c^2}\dfrac{d}{dt}\left( L_{22} I_2\right).
+						\end{cases}
+					\end{equation*}
+					Наявність магнітного зв'язку між контурами проявляється в тому, що за будь-якої зміни струму в одному з контурів в іншому контурі виникає
+					ЕРС індукції. е явище називають \alert{взаємною індукцією}.
+				\end{block}
+			\end{overprint}
 		\end{column}
 	\end{columns}
-	\begin{block}{}\justifying
-		Коефіцієнти пропорційності $L_{12}$ і $L_{21}$ називають \alert{коефіцієнтами взаємної індуктивністю} контурів.
-	\end{block}
+	\begin{overprint}
+		\onslide<1>
+		\begin{block}{}\justifying
+			Коефіцієнти пропорційності $L_{12}$ і $L_{21}$ називають \alert{коефіцієнтами взаємної індуктивністю} контурів.
+		\end{block}
+		\onslide<2>
+		\begin{block}{}\justifying
+			$L_{12}$ --- алгебраїчна величина, яка може мати різний знак, а також дорівнювати нулю.
+		\end{block}
+	\end{overprint}
 \end{frame}
 % ===========================================================================
 
+
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Розрахунок коефіцієнтів взаємної індуктивності}{}
+	\begin{exampleblock}{\small Приклад}\justifying\scriptsize
+		Довгий парамагнітний циліндр об'ємом $V$ має дві обмотки (одна на іншій). Одна обмотка містить $n_1$ витків на одиницю довжини, інша ---
+		$n_2$. Знайдемо їхню взаємну індуктивність, нехтуючи крайовими ефектами.
+	\end{exampleblock}
+
+	\begin{overprint}
+		\onslide<1>
+		\begin{block}{\small Розв'язок}\justifying\scriptsize
+			Оскільки $L_{21} = \Phi_2 / I_1$. Це означає, що ми повинні створити струм $I_1$ в обмотці $1$ і обчислити повний магнітний потік через всі витки
+			обмотки $2$. Якщо в обмотці $2$ міститься $N_2$ витків, то
+			\[
+				\Phi_2 = N_2 B_1 S,
+			\]
+			де $S$ --- площа поперечного перерізу циліндра. Оскільки $N_2 = n_2 l$, $l$ --- довжина циліндра, $B_1 = \frac{4\pi}{c} \mu n_1 I_1$, то
+			\[
+				\Phi_2 =  \frac{4\pi}{c} \mu N_2 n_1 I_1 S.
+			\]
+			Отже
+			\[
+				L_{21} = \frac{4\pi}{c} \mu \frac{N_2 N_1}{l} S.
+			\]
+			Аналогічно знаходимо і $L_{12}$:
+			\[
+				L_{12} = \frac{4\pi}{c} \mu \frac{N_1 N_2}{l} S.
+			\]
+		\end{block}
+		\onslide<2>
+		\begin{block}{\small Зауваження}\justifying\scriptsize
+			В розглянутому прикладі коефіцієнти індуктивності задовольняють співвідношенням:
+			\begin{equation*}
+				L_{21} = L_{12} = \sqrt{L_1L_2}
+			\end{equation*}
+			Їх справедливість пов'язана, по-перше, з тим, що ми знехтували розсіюванням магнітного потоку, а по-друге, з тим, що магнітна проникність осердя не
+			залежить від величини магнітного поля. Співвідношення $L_{21} = L_{12}$ не буде виконуватись для феромагнетика, для якого  $\mu = \mu(H)$ і за умови що
+			$N_1 \neq N_2$. Тоді обмотки при однакових струмах створюють в осерді різні магнітні поля, так що вирази для $L_{21}$ і $L_{12}$ міститимуть різні
+			коефіцієнти $\mu$, що й
+			призводить до нерівності.
+		\end{block}
+	\end{overprint}
+\end{frame}
+% ===========================================================================
 
 
 
@@ -499,7 +568,50 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Трансформатор}{}
+	\framesubtitle<1>{Принцип роботи}
+	\framesubtitle<2>{Теорія}
+	\begin{onlyenv}<1>
+		\begin{block}{}
+			Принцип дії трансформаторів --- пристроїв, що застосовуються для підвищення або зниження напруги змінного струму, заснований на явищі взаємної індукції.
+		\end{block}
+		\begin{columns}
+			\begin{column}{0.4\linewidth}\centering
+				\includegraphics[width=0.85\linewidth]{Transformator}
+			\end{column}
+			\begin{column}{0.6\linewidth}
+				\begin{block}{}\justifying
+					Первинна і вторинна обмотки з $N_1$ і $N_2$ витками укріплені на замкнутому залізному осерді. Змінна напруга $\mathcal{E}_1$ у первинній
+					обмотці створює струм $I_1$ і змінний магнітний потік $\Phi$, локалізований в осерді. Потік пронизує витки вторинної обмотки, викликаючи ЕРС
+					взаємної індукції, а в первинній — ЕРС самоіндукції.
+				\end{block}
+			\end{column}
+		\end{columns}
+	\end{onlyenv}
+	\begin{onlyenv}<2>
+		\begin{block}{}\small\justifying
+			Струм $I_1$ у первинній обмотці визначається за законом Ома:
+			\begin{equation*}
+				\mathcal{E}_1 - \frac{d}{dt}(N_1\Phi) = I_1R_1.
+			\end{equation*}
+			При швидкозмінних полях $I_1R_1 \ll \mathcal{E}_1, \frac{d}{dt}(N_1\Phi)$:
+			\begin{equation*}
+				\mathcal{E}_1 \approx N_1 \frac{d\Phi}{dt}.
+			\end{equation*}
 
+			ЕРС у вторинній обмотці:
+			\begin{equation*}
+				\mathcal{E}_2 = -N_2 \frac{d\Phi}{dt} = -\frac{N_2}{N_1} \mathcal{E}_1,\quad \text{\scriptsize знак «$-$» вказує на протилежність фаз.}
+			\end{equation*}
+			Відношення $\eta = \frac{N_2}{N_1}$ називається \alert{коефіцієнтом трансформації}.
+		\end{block}
+		\begin{block}{}\justifying\scriptsize
+			Якщо $\eta > 1$, то це підвищувальний трансформатор, що збільшує ЕРС і зменшує струм.
+
+			\smallskip
+
+			Якщо $\eta < 1$, то це знижувальний трансформатор, що зменшує ЕРС і збільшує струм.
+		\end{block}
+	\end{onlyenv}
 \end{frame}
 % ===========================================================================
 
@@ -651,29 +763,110 @@
 % ===========================================================================
 
 
+
+%% --------------------------------------------------------
+\section{Пондеромоторні сили в магнітному полі}
+%% --------------------------------------------------------
+
+
 % ============================== Слайд ## ===================================
 \begin{frame}{Пондеромоторні сили в магнітному полі}{}
+	\begin{center}
+		\begin{tikzpicture}[]
+			\node[anchor=center, opacity=0.75, ] at (0, 0) {\includegraphics[width=6cm]{pull_in_solenoid}};
+		\end{tikzpicture}
+	\end{center}
+	\begin{onlyenv}<1>
+		\begin{block}{}\justifying
+			Відповідно до \alert{закону збереження енергії} робота, яку
+			виконують джерела струму, йде на теплоту, на збільшення магнітної енергії системи і на механічну роботу ро переміщенню осердя:
+			\begin{equation*}
+				\delta A_\text{дж} = \delta Q + dW + \delta A_\text{мех}.
+			\end{equation*}
+			З іншого боку, та ж робота визначається як:
+			\begin{equation*}
+				\delta A_\text{дж} = \delta Q - \mathcal{E}_\text{in} I dt,
+			\end{equation*}
+			Звідки
+			\begin{equation*}
+				- \mathcal{E}_\text{in} I dt = dW + \delta A_\text{мех}
+			\end{equation*}
+		\end{block}
+	\end{onlyenv}
+	\framesubtitle<2>{Випадок $I = \const$}
+	\begin{onlyenv}<2>
+		\begin{equation*}
+			-\mathcal{E}_\text{in} I dt = dW + \delta A_\text{мех}
+		\end{equation*}
+		Розглянемо умову, коли в колі підтримується постійним струм.
+		\begin{equation*}
+			- \mathcal{E}_\text{in} I dt = + \frac{I^2}{c^2} dL.
+		\end{equation*}
+		При цьому, зміна магнітної енергії $dW = \frac{I^2}{2c^2} dL$. Отже, $\delta A_\text{мех} = + dW$, а сила втягування:
+		\begin{equation*}
+			F_x = + \left( \frac{d W}{dx} \right)_{I}
+		\end{equation*}
+	\end{onlyenv}
+	\framesubtitle<3>{Випадок $\Phi = \const$}
+	\begin{onlyenv}<3>
+		\begin{equation*}
+			-\mathcal{E}_\text{in} I dt = dW + \delta A_\text{мех}
+		\end{equation*}
+		Розглянемо умову, коли в колі підтримується потік, що пронизує котушку (наприклад якщо котушка із надпровідника).
+		\begin{equation*}
+			- \mathcal{E}_\text{in} I dt = 0.
+		\end{equation*}
+		Отже, $\delta A_\text{мех} = - dW$, а сила втягування:
+		\begin{equation*}
+			F_x = - \left( \frac{dW}{dx} \right)_{\Phi}
+		\end{equation*}
+	\end{onlyenv}
+\end{frame}
+% ===========================================================================
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Приклади}{Поведінка різних тіл в магнітному полі}
+	\begin{tblr}{
+		colspec = {X[c,m, font=\small]X[c,m, font=\small]}
+		}
+		\includegraphics[width=0.5\linewidth]{amplula_FeCl}                 & \includegraphics[width=0.5\linewidth]{probirka_FeCl}   \\
+		Ампула з парамагнітним розчином хлористого заліза в магнітному полі & Втягування розчину хлористого заліза в магнітне поле   \\
+		\includegraphics[width=0.5\linewidth]{palochka_Bi}                  & \includegraphics[width=0.5\linewidth]{Flame_diamagnet} \\
+		Діамагнітна паличка вісмута в магнітному полі                       & Діамагнетизм полум'я
+	\end{tblr}
+\end{frame}
+% ===========================================================================
+
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Підйомна сила електромагніта}{}\small
 	\begin{columns}
-		\begin{column}{0.4\linewidth}\centering
-            \input{tikz/12contours.tikz}
+		\begin{column}{0.25\linewidth}
+			\includegraphics[width=\linewidth]{electromagnet_force}
 		\end{column}
-		\begin{column}{0.6\linewidth}
+		\begin{column}{0.75\linewidth}
 			\begin{block}{}\justifying
-				Обмежимося випадком, коли система складається з двох
-				контурів зі струмами $I_1$ і $I_2$. Магнітна енергія такої системи:
+				За теоремою про циркуляцію для $\Hfield$:
 				\begin{equation*}
-					W = \frac1{2c} (I_1\Phi_1 + I_2\Phi_2)
+					\frac{B}{\mu} l + B\ 2x = \frac{4\pi}{c} IN, \Rightarrow B = \frac{4\pi\mu}{c} \frac{NI}{l + 2\mu x},
+				\end{equation*}
+				де $l$ --- довжина контура в середині магніту.
+				Потік магнітного поля через площу перерізу $S$ магніту:
+				\begin{equation*}
+					\Phi = NBS = \frac{4\pi\mu}{c} \frac{N^2I}{l + 2\mu x} S.
 				\end{equation*}
 			\end{block}
 		\end{column}
 	\end{columns}
 	\begin{block}{}\justifying
-		Відповідно до закону збереження енергії робота, яку
-		виконують джерела струму, включені в контури $1$ і $2$, йде на
-		теплоту, на збільшення магнітної енергії системи і на механічну роботу внаслідок переміщення або деформації контурів):
+		За умови, що струм постійний, зміна енергії магнітного поля при віртуальній зміні $x$ дорівнює $dW = \frac{I d\Phi}{2c}$,
+		і силу можна знайти як:
 		\begin{equation*}
-			\delta A_\text{дж} = \delta Q + dW + \delta A_\text{мех}
-		\end{equation*}
+			F_x =  \left( \frac{d W}{dx} \right)_{I} = \frac{I}{2c} \left( \frac{d \Phi}{dx} \right)_{I} = -\frac{4\pi\mu^2}{c^2}\frac{N^2I^2}{(l + 2\mu
+			x)^2} S = \frac{B^2}{8\pi} 2S.
+		\end{equation*}Сила $F_x <0 $ означає, що це сила притягання.
 	\end{block}
 \end{frame}
 % ===========================================================================
