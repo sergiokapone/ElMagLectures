@@ -119,9 +119,39 @@
 
 
 % ============================== Слайд ## ===================================
-%\begin{frame}{Закон збереження магнітного потока}{}
-%
-%\end{frame}
+\begin{frame}{Закон збереження магнітного потока}{}\small
+\begin{block}{}
+    Нехай замкнутий виток з опором $R$ перебуває в зовнішньому магнітному полі.
+\end{block}
+\vspace*{-2ex}
+	\begin{columns}
+		\begin{column}{0.2\linewidth}
+			\includegraphics[width=0.95\linewidth]{Phi_conserv}
+		\end{column}
+		\begin{column}{0.8\linewidth}
+			\begin{block}{}\justifying
+				За будь-якої зміни магнітного поля у витку збуджується ЕРС
+				індукції. Струм, що виникає у витку:
+				\begin{equation*}
+					I = \frac{\mathcal{E}_i}{R} = - \frac{1}{cR} \frac{d\Phi}{dt}.
+				\end{equation*}
+				Якщо опір контуру $R = 0$ (для надпровідника), то:
+				\begin{equation*}
+					\frac{d\Phi}{dt} = 0,\ \Rightarrow\ \Phi = \const
+				\end{equation*}
+				інакше навіть малі зміни $\Phi$ викликали б нескінченні струми. Тобто, \alert{магнітний потік через контур з малим опором зберігається}.
+
+			\end{block}
+		\end{column}
+	\end{columns}
+	\begin{block}{}\justifying
+        Це означає, що \alert{число силових ліній, що пронизують виток незмінне}.
+
+\smallskip
+
+		Силові лінії ніби <<вморожені>> в провідний контур, при зміщенні контура він захоплює силові лінії магнітного поля.
+	\end{block}
+\end{frame}
 % ===========================================================================
 
 
@@ -770,16 +800,18 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Пондеромоторні сили в магнітному полі}{}
+\begin{frame}{Пондеромоторні сили в магнітному полі}{}\small
+	\framesubtitle<1>{Закон збереження енергії}
 	\begin{center}
 		\begin{tikzpicture}[]
 			\node[anchor=center, opacity=0.75, ] at (0, 0) {\includegraphics[width=6cm]{pull_in_solenoid}};
 		\end{tikzpicture}
 	\end{center}
-	\begin{onlyenv}<1>
+	\begin{overprint}
+		\onslide<1>
 		\begin{block}{}\justifying
-			Відповідно до \alert{закону збереження енергії} робота, яку
-			виконують джерела струму, йде на теплоту, на збільшення магнітної енергії системи і на механічну роботу ро переміщенню осердя:
+			По \alert{закону збереження енергії} \alert{робота, яку виконують джерела струму}, йде на теплоту, на збільшення магнітної енергії і на
+			механічну роботу:
 			\begin{equation*}
 				\delta A_\text{дж} = \delta Q + dW + \delta A_\text{мех}.
 			\end{equation*}
@@ -792,9 +824,8 @@
 				- \mathcal{E}_\text{in} I dt = dW + \delta A_\text{мех}
 			\end{equation*}
 		\end{block}
-	\end{onlyenv}
-	\framesubtitle<2>{Випадок $I = \const$}
-	\begin{onlyenv}<2>
+		\framesubtitle<2>{Випадок $I = \const$}
+		\onslide<2>
 		\begin{equation*}
 			-\mathcal{E}_\text{in} I dt = dW + \delta A_\text{мех}
 		\end{equation*}
@@ -806,9 +837,8 @@
 		\begin{equation*}
 			F_x = + \left( \frac{d W}{dx} \right)_{I}
 		\end{equation*}
-	\end{onlyenv}
-	\framesubtitle<3>{Випадок $\Phi = \const$}
-	\begin{onlyenv}<3>
+		\framesubtitle<3>{Випадок $\Phi = \const$}
+		\onslide<3>
 		\begin{equation*}
 			-\mathcal{E}_\text{in} I dt = dW + \delta A_\text{мех}
 		\end{equation*}
@@ -820,7 +850,7 @@
 		\begin{equation*}
 			F_x = - \left( \frac{dW}{dx} \right)_{\Phi}
 		\end{equation*}
-	\end{onlyenv}
+	\end{overprint}
 \end{frame}
 % ===========================================================================
 
@@ -865,7 +895,7 @@
 		і силу можна знайти як:
 		\begin{equation*}
 			F_x =  \left( \frac{d W}{dx} \right)_{I} = \frac{I}{2c} \left( \frac{d \Phi}{dx} \right)_{I} = -\frac{4\pi\mu^2}{c^2}\frac{N^2I^2}{(l + 2\mu
-			x)^2} S = \frac{B^2}{8\pi} 2S.
+				x)^2} S = \frac{B^2}{8\pi} 2S.
 		\end{equation*}Сила $F_x <0 $ означає, що це сила притягання.
 	\end{block}
 \end{frame}
