@@ -484,43 +484,43 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Закон збереження енергії електромагнітного поля}{}
-\begin{columns}
-	\begin{column}{0.4\linewidth}\centering
-\begin{tikzpicture}[>=latex, scale=0.75]
-		\pgfmathsetseed{55}
-        \foreach \a in {0,10,...,350}
-        {
-            \pgfmathparse{1.2*abs(rand)}
-            \node[inner sep=1pt, circle, ball color=red!50] at (\a:{\pgfmathresult}) {};
-            \draw[->] (0,0) ++(\a:2) -- ++(\a:0.5);
-        }
-		\draw[ball color=gray!5, name path=metall, smooth, opacity=0.5] plot
-			[smooth cycle,
-				samples=8,domain={1:10}]
-		(\x*360/10+5*rnd:1cm+1cm*rnd);
-\end{tikzpicture}
-	\end{column}
-	\begin{column}{0.6\linewidth}
-\begin{block}{}\justifying
-    Якщо  у деякій області простору присутнє електромагнітне поле та заряджені частинки, які взаємодіють з цим полем, то енергія такої
-    системи має
-    зберігатись, якщо система замкнена. Якщо ж система незамкнена, то енергія може як втікати в цю область, так і витікати з неї.
-\end{block}
-	\end{column}
-\end{columns}
-\begin{block}{}\centering\small
-    (Зміна енергії в об'ємі) = (Рух частинок) + (Потік енергії на зовні).
-\end{block}
+	\begin{columns}
+		\begin{column}{0.4\linewidth}\centering
+			\begin{tikzpicture}[>=latex, scale=0.75]
+				\pgfmathsetseed{55}
+				\foreach \a in {0,10,...,350}
+					{
+						\pgfmathparse{1.2*abs(rand)}
+						\node[inner sep=1pt, circle, ball color=red!50] at (\a:{\pgfmathresult}) {};
+						\draw[->] (0,0) ++(\a:2) -- ++(\a:0.5);
+					}
+				\draw[ball color=gray!5, name path=metall, smooth, opacity=0.5] plot
+					[smooth cycle,
+						samples=8,domain={1:10}]
+				(\x*360/10+5*rnd:1cm+1cm*rnd);
+			\end{tikzpicture}
+		\end{column}
+		\begin{column}{0.6\linewidth}
+			\begin{block}{}\justifying
+				Якщо  у деякій області простору присутнє електромагнітне поле та заряджені частинки, які взаємодіють з цим полем, то енергія такої
+				системи має
+				зберігатись, якщо система замкнена. Якщо ж система незамкнена, то енергія може як втікати в цю область, так і витікати з неї.
+			\end{block}
+		\end{column}
+	\end{columns}
+	\begin{block}{}\centering\small
+		(Зміна енергії в об'ємі) = (Рух частинок) + (Потік енергії на зовні).
+	\end{block}
 
-\begin{block}{}\centering\small
-     (Рух частинок) = (Зміна енергії в об'ємі) -- (Потік енергії на зовні).
-\end{block}
+	\begin{block}{}\centering\small
+		(Рух частинок) = (Зміна енергії в об'ємі) -- (Потік енергії на зовні).
+	\end{block}
 
-\begin{block}{}
-    Рухати частинки може лише електричне поле. Енергія, яка витрачається полем на розгін частинок в одиниці об'єму за одиницю часу ---
-    джоулеве тепло
-    $\vect{j}\cdot\Efield$.
-\end{block}
+	\begin{block}{}
+		Рухати частинки може лише електричне поле. Енергія, яка витрачається полем на розгін частинок в одиниці об'єму за одиницю часу ---
+		джоулеве тепло
+		$\vect{j}\cdot\Efield$.
+	\end{block}
 \end{frame}
 % ===========================================================================
 
@@ -548,7 +548,7 @@
 		\begin{column}{0.6\linewidth}
 			\begin{block}{}\justifying
 				Якщо  у деякій області простору присутнє електромагнітне поле та заряджені частинки, які взаємодіють з цим полем, то енергія
-такої системи має
+				такої системи має
 				зберігатись, якщо система замкнена. Якщо ж система незамкнена, то енергія може як втікати в цю область, так і витікати з неї.
 			\end{block}
 		\end{column}
@@ -584,7 +584,7 @@
 		\end{equation*}
 		\begin{equation*}
 			\vect{j}\cdot\vect{E} =  - \Div\left(\frac{c}{4\pi}[\Efield\times\Hfield]\right) + \frac{c}{4\pi}  \Hfield\cdot \Rot\Efield  -
-\parttime{}
+			\parttime{}
 			\left( \frac1{8\pi}\epsilon\Efield^2\right)
 		\end{equation*}
 
@@ -594,13 +594,13 @@
 		Врахуємо матеріальні рівняння $\Dfield = \epsilon\Efield$ та $\Bfield = \mu\Hfield$.
 		\begin{equation*}
 			\vect{j}\cdot\vect{E} =  - \Div\left(\frac{c}{4\pi}[\Efield\times\Hfield]\right) - \frac{1}{4\pi}  \Hfield\cdot
-\parttime{\Bfield}  -
+			\parttime{\Bfield}  -
 			\parttime{} \left( \frac1{8\pi}\epsilon\Efield^2\right)
 		\end{equation*}
 
 		\begin{equation*}
 			\vect{j}\cdot\vect{E} =  - \Div\left(\frac{c}{4\pi}[\Efield\times\Hfield]\right) -  \parttime{} \left(
-\frac1{8\pi}\epsilon\Efield^2 +
+			\frac1{8\pi}\epsilon\Efield^2 +
 			\frac1{8\pi}\mu\Hfield^2 \right)
 		\end{equation*}
 
@@ -733,12 +733,12 @@
 				\begin{block}{}\justifying
 					Вектор Пойнтінга
 					\(
-						\vect{\Pi} = \frac{c}{4\pi}\left[\Efield\times\Hfield\right]
+					\vect{\Pi} = \frac{c}{4\pi}\left[\Efield\times\Hfield\right]
 					\)
 					спрямований до осі конденсатора і дорівнює за величиною на межі (\( r = R \)):
 					\[
 						\Pi = \frac{c}{4 \pi} EH = \frac{c}{4 \pi} \left( \frac{4 \pi q}{\varepsilon \pi R^2} \right) \left( \frac{2
-						\dot{q}}{c R}
+							\dot{q}}{c R}
 						\right) =
 						\frac{1}{\varepsilon
 							\pi R^2} 2 q \dot{q}.
@@ -747,34 +747,34 @@
 			\end{overprint}
 		\end{column}
 	\end{columns}
-\begin{overprint}
-    \onslide<1-2>
-	\begin{block}{}\justifying
-		Цей струм породжує в конденсаторі магнітне поле, яке можна знайти за допомогою теореми про циркуляцію:
-		\[
-			\oint\limits_{L} \mathbf{H} \, d\mathbf{r} = \frac{4 \pi}{c} J_{\text{зм}}(r)
-			\Rightarrow 2 \pi r H(r) = \frac{4 \pi}{c} \pi r^2 j_{\text{зм}}(r)
-			\Rightarrow H(r) = \frac{2r}{c R^2} \dot{q}.
-		\]
+	\begin{overprint}
+		\onslide<1-2>
+		\begin{block}{}\justifying
+			Цей струм породжує в конденсаторі магнітне поле, яке можна знайти за допомогою теореми про циркуляцію:
+			\[
+				\oint\limits_{L} \mathbf{H} \, d\mathbf{r} = \frac{4 \pi}{c} J_{\text{зм}}(r)
+				\Rightarrow 2 \pi r H(r) = \frac{4 \pi}{c} \pi r^2 j_{\text{зм}}(r)
+				\Rightarrow H(r) = \frac{2r}{c R^2} \dot{q}.
+			\]
 
-		Тут за контур \( L \) узято коло радіусу \( r \) з центром на осі конденсатора. Маючи на увазі, що конденсатор заряджається (\(
-		\dot{q} > 0 \)), робимо висновок, що струм зміщення спрямований від нижньої пластини до верхньої. Це означає, що силові лінії
-		магнітного поля
-		спрямовані, як 	показано на рис.
-	\end{block}
-    \onslide<3>
-    \begin{block}{}\justifying
-        Якщо відстань між пластинами дорівнює \( h \), то енергія, що втікає в конденсатор за одиницю часу, дорівнює:
-        \[
-        \frac{dW}{dt} = S \cdot 2 \pi R h = \frac{1}{\varepsilon \pi R^2} \cdot q \dot{q} \cdot 2 \pi R h = \frac{q \dot{q}}{C},
-        \]
-        де \( C = \epsilon \pi R^2 / 4\pi h\) --- ємність конденсатора. За кінцевий час, при досягненні заряду q на пластині, енергія складе:
-        \[
-            W = \frac{q^2}{2C}.
-        \]
-         Ми прийшли до відомої формули для енергії, що запасається в конденсаторі.
-    \end{block}
-\end{overprint}
+			Тут за контур \( L \) узято коло радіусу \( r \) з центром на осі конденсатора. Маючи на увазі, що конденсатор заряджається (\(
+			\dot{q} > 0 \)), робимо висновок, що струм зміщення спрямований від нижньої пластини до верхньої. Це означає, що силові лінії
+			магнітного поля
+			спрямовані, як 	показано на рис.
+		\end{block}
+		\onslide<3>
+		\begin{block}{}\justifying
+			Якщо відстань між пластинами дорівнює \( h \), то енергія, що втікає в конденсатор за одиницю часу, дорівнює:
+			\[
+				\frac{dW}{dt} = S \cdot 2 \pi R h = \frac{1}{\varepsilon \pi R^2} \cdot q \dot{q} \cdot 2 \pi R h = \frac{q \dot{q}}{C},
+			\]
+			де \( C = \epsilon \pi R^2 / 4\pi h\) --- ємність конденсатора. За кінцевий час, при досягненні заряду q на пластині, енергія складе:
+			\[
+				W = \frac{q^2}{2C}.
+			\]
+			Ми прийшли до відомої формули для енергії, що запасається в конденсаторі.
+		\end{block}
+	\end{overprint}
 \end{frame}
 % ===========================================================================
 
@@ -789,7 +789,7 @@
 				\draw[fill=gray!50] (1, 2) circle (1 and 0.3);
 				\draw[blue, arrowpos={0.5}{2pt}{4pt}] (1, 1) [partial ellipse=155:385:1.1 and 0.3] node[pos=0.5, below] {$\Hfield$};
 				\draw[->, red] (1, 1) -- ++(0, 0.5) node[left] {$\Efield$};
-                \draw[->, orange!60!black, thick] (2.1, 1) -- ++(-0.5, 0) node[above] {$\vect{\Pi}$};
+				\draw[->, orange!60!black, thick] (2.1, 1) -- ++(-0.5, 0) node[above] {$\vect{\Pi}$};
 			\end{tikzpicture}
 		\end{column}
 		\begin{column}{0.7\linewidth}
@@ -802,7 +802,7 @@
 		\end{column}
 	\end{columns}
 	\begin{block}{}\justifying
-		Вектор Пойнтінга виявляється спрямованим до осі дроту і рівнй за величиною:
+		Вектор Пойнтінга виявляється спрямованим до осі дроту і дорівнює за величиною:
 		\begin{equation*}
 			\Pi = \frac{c}{4\pi} EH = \frac{c}{4\pi} \frac{U}{\ell} \frac{2I}{cR} = \frac{1}{2\pi\ell R} UI
 		\end{equation*}
@@ -816,6 +816,8 @@
 	\end{block}
 \end{frame}
 % ===========================================================================
+
+
 
 
 
