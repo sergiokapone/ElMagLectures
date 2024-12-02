@@ -54,47 +54,40 @@
 \begin{document}
 
 
-
 % ============================== Слайд ## ===================================
-\begin{frame}{Граничні умови}{}\small
-       \begin{block}{}\justifying
-    Диференціальні рівняння Максвелла треба доповнити граничними умовами, яким має задовольняти електромагнітне поле на межі
-розділу двох середовищ. Ці умови неявно містяться в інтегральній формі рівнянь Максвелла і отримуються за їх допомогою. Граничні умови в стаціонарному
-випадку аналогічні і для випадку змінних полів.
-\end{block}
-       \begin{center}
-		\begin{tblr}%
-			{
-			colspec={|X[l,m, bg=yellow!10, font=\scriptsize]|[1pt, white]X[c,m, bg=red!10]|},
-			row{1}={c, fg=white, bg=cyan, font=\bfseries},
-            cell{2-Z}{1-Z}={c, m, mode=dmath, font=},
-			%hlines,
-			}
-			\hline
-			Умови для електричних векторів & Умови для магнітних векторів \\
-			\hline
-             D_{2n} - D_{1n} = 4\pi\sigma
-             &
-             B_{1n} = B_{2n}
-            \\
-            \hline
-			\hline
-             E_{1\tau} = E_{2\tau}
-             &
-             \left[\vect{n}\times\Hfield_2\right] - \left[\vect{n}\times\Hfield_1\right] = \frac{4\pi}{c}\vect{i}
-            \\
-            \hline
-		\end{tblr}
-	\end{center}
-\begin{block}{}\justifying
-    Тут $\sigma$ ---  поверхнева густина вільних електричних зарядів, a $\vect{i}$ --- поверхнева густина струму провідності на розглянутій границі
-    розділу. У випадку, коли поверхневих струмів немає, гранична умова для тангенціальної компоненти вектора напруженості магнітного поля набуває
-    вигляду:
-\begin{equation*}
-    H_{1\tau} = H_{2\tau}
-\end{equation*}
-\end{block}
+\begin{frame}{Довгий провідник}{}\small
+	\begin{columns}
+		\begin{column}{0.3\linewidth}\centering
+			\begin{tikzpicture}[>=latex]
+				\draw[fill=gray!50] (0, 0) -- ++(0,2) arc(180:360:1 and 0.3) -- ++(0, -2) arc(0:-180:1 and 0.3);
+				\draw[fill=gray!50] (1, 2) circle (1 and 0.3);
+				\draw[blue, arrowpos={0.5}{2pt}{4pt}] (1, 1) [partial ellipse=155:385:1.1 and 0.3] node[pos=0.5, below] {$\Hfield$};
+				\draw[->, red] (1, 1) -- ++(0, 0.5) node[left] {$\Efield$};
+                \draw[->, orange!60!black, thick] (2.1, 1) -- ++(-0.5, 0) node[above] {$\vect{\Pi}$};
+			\end{tikzpicture}
+		\end{column}
+		\begin{column}{0.7\linewidth}
+			\begin{block}{}\justifying
+				Розглянемо довгий прямий дріт радіуса $R$ і довжини $\ell$, яким тече струм $I$ . На зовнішній поверхні дроту
+				присутнє магнітне поле $H = \frac{2I}{cR}$. Струм у дроті виникає
+				завдяки напрузі $U$ на його кінцях, що створює поле величиною $E = \frac{U}{\ell}$. Напрямки полів $\Efield$ і $\Hfield$ показано на рис.
+			\end{block}
+		\end{column}
+	\end{columns}
+	\begin{block}{}\justifying
+		Вектор Пойнтінга виявляється спрямованим до осі дроту і рівнй за величиною:
+		\begin{equation*}
+			\Pi = \frac{c}{4\pi} EH = \frac{c}{4\pi} \frac{U}{\ell} \frac{2I}{cR} = \frac{1}{2\pi\ell R} UI
+		\end{equation*}
+		Оскільки площа бічної поверхні дроту дорівнює $S= 2\pi\ell R$, то повний потік енергії, що втікає в дріт, становить $\Pi S = UI$. Це в точності та сама
+		енергія, що йде на джоулеві втрати в дроті: $\Pi S = Q = UI$.
+	\end{block}
+	\begin{block}{}\justifying
+		Таким чином, електрони отримують свою енергію, ззовні, від потоку енергії зовнішнього поля всередину дроту і витрачають її на
+		створення теплоти. Енергія віддалених зарядів якимось чином розтікається по великій області простору і потім втікає всередину дроту.
+	\end{block}
 \end{frame}
 % ===========================================================================
+
 
 \end{document}
