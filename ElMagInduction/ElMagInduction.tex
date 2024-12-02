@@ -66,28 +66,25 @@
 			\begin{tikzpicture}[rotate=90, scale=0.9, >=latex, midarrow/.style={%
 							postaction={ decorate,
 									decoration={ markings, mark=at position .7 with {\arrow{latex}}}}}]
-				\begin{scope}%[rotate around={45:(0,1)}]
-					\draw[arrowpos={0.5}{2pt}{7pt}, red!40, ultra thick] (1.1,0) [partial ellipse=360:0:0.3 and 1];
-				\end{scope}
-
+				\draw[red!40, ultra thick] ({1.1+0.3},0) circle(0.3 and 1);
 				\foreach \y in {-3,...,3}{
 						\draw[blue, midarrow] plot[domain=1:3] (\x, 0.2*\y+0.05*\y*\x^2);
 					}
 				\node[blue, font=\small] at (3.5, 0) {$\frac{d\Phi}{dt}>0$};
+				\draw[arrowpos={0.5}{2pt}{7pt}, red!40, ultra thick] ({1.1+0.3},0) ++(90:1) arc(90:270:0.3 and 1);
 			\end{tikzpicture}
 		\end{column}
 		\begin{column}{0.5\linewidth}\centering
 			\begin{tikzpicture}[rotate=90, scale=0.9, >=latex, midarrow/.style={%
 							postaction={ decorate,
 									decoration={ markings, mark=at position .7 with {\arrow{latex}}}}}]
-				\begin{scope}%[rotate around={45:(0,1)}]
-					\draw[arrowpos={0.5}{2pt}{7pt}, red!40, ultra thick] (1.1,0) [partial ellipse=0:360:0.3 and 1];
-				\end{scope}
+				\draw[red!40, ultra thick] ({1.1+0.3},0) circle(0.3 and 1);
 
 				\foreach \y in {-3,...,3}{
 						\draw[blue, midarrow] plot[domain=1:3] (\x, 0.2*\y+0.05*\y*\x^2);
 					}
 				\node[blue, font=\small] at (3.5, 0) {$\frac{d\Phi}{dt}<0$};
+				\draw[arrowpos={0.5}{2pt}{7pt}, red!40, ultra thick] ({1.1+0.3},0) ++(270:1) arc(270:90:0.3 and 1);
 			\end{tikzpicture}
 		\end{column}
 	\end{columns}
@@ -114,19 +111,42 @@
 		Струми Фуко, як і індукційні струми в лінійних провідниках, підпорядковані правилу Ленца: їх магнітне поле направлене так, щоб протидіяти змінам
 		магнітного потоку, що індукували ці струми.
 	\end{block}
+	\begin{block}{}
+		\href{https://youtu.be/MglUIiBy2lQ}{Відео-демонстрація струмів Фуко}
+	\end{block}
 \end{frame}
 % ===========================================================================
 
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Закон збереження магнітного потока}{}\small
-\begin{block}{}
-    Нехай замкнутий виток з опором $R$ перебуває в зовнішньому магнітному полі.
-\end{block}
-\vspace*{-2ex}
+	\begin{block}{}
+		Нехай замкнутий виток з опором $R$ перебуває в зовнішньому магнітному полі.
+	\end{block}
+	\vspace*{-2ex}
 	\begin{columns}
-		\begin{column}{0.2\linewidth}
-			\includegraphics[width=0.95\linewidth]{Phi_conserv}
+		\begin{column}{0.2\linewidth}\centering
+			\begin{tikzpicture}[>=latex, scale=0.6, transform shape]
+				\begin{scope}
+					\draw[red, line width=2pt] (0,0) circle[x radius=1cm, y radius=0.3cm];
+					\foreach[count=\i from -2] \x in {-0.8,-0.4,...,1} {
+							\draw[->, blue, thick] (\x, -2) -- ++(0,4) \ifnum\i=5 node[right] {$\Bfield$}\fi;
+						}
+					\draw[red, line width=2pt, arrowpos={0.5}{3pt}{7pt}] (0,0) ++(180:1) arc[start angle=180, end angle=360, x radius=1cm, y radius=0.3cm];
+				\end{scope}
+				\begin{scope}[yshift=-4.3cm]
+					\draw[red, line width=2pt] (1,0) circle[x radius=1cm, y radius=0.3cm];
+					\foreach[count=\i from -2] \x in {-0.8,-0.4,...,1} {
+							\begin{scope}[blue, thick, xshift=\x cm]
+								\draw [in=135, out=-90, <-] (0, 2) to (0.25, 1);
+								\draw [in=45, out=-45]  (0.25, 1) to (0.75, -0.5);
+								\draw [in=90, out=-135] (0.75, -0.5) to (0, -2);
+							\end{scope}
+						}
+					\draw[red, line width=2pt, arrowpos={0.5}{3pt}{7pt}] (1,0) ++(180:1) arc[start angle=180, end angle=360, x radius=1cm, y radius=0.3cm];
+					\draw[->, thick] (-0.7, 0) -- ++(0.5, 0);
+				\end{scope}
+			\end{tikzpicture}
 		\end{column}
 		\begin{column}{0.8\linewidth}
 			\begin{block}{}\justifying
@@ -145,9 +165,9 @@
 		\end{column}
 	\end{columns}
 	\begin{block}{}\justifying
-        Це означає, що \alert{число силових ліній, що пронизують виток незмінне}.
+		Це означає, що \alert{число силових ліній, що пронизують виток незмінне}.
 
-        \smallskip
+		\smallskip
 
 		Силові лінії ніби <<вморожені>> в провідний контур, при зміщенні контура він захоплює силові лінії магнітного поля.
 	\end{block}
@@ -189,7 +209,7 @@
 				\begin{tikzpicture}[rotate=90, scale=0.9, >=latex, midarrow/.style={%
 								postaction={ decorate,
 										decoration={ markings, mark=at position .7 with {\arrow{latex}}}}}]
-					\begin{scope}%[rotate around={45:(0,1)}]
+					\begin{scope}[xshift=0.3cm]
 						\draw[arrowpos={0.5}{2pt}{4pt}, red] (1.1,0) [partial ellipse=360:0:0.15 and 0.5];
 						\draw[arrowpos={0.5}{2pt}{4pt}, red] (1.1,0) [partial ellipse=360:0:0.3 and 1];
 						\draw[arrowpos={0.5}{2pt}{4pt}, red] (1.1,0) [partial ellipse=360:0:0.6 and 2] node[pos=0.5, below] {$\Efield$};
