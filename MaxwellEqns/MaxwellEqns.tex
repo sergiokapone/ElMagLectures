@@ -38,20 +38,23 @@
 
 	\begin{tblr}{
 		colspec={X[c,m]X[c,m]},
-		row{2} = {c,m, font=\scriptsize}
+		row{2} = {c,m, font=\small}
 		}
 		\includegraphics[height=0.75\linewidth]{Faraday} & \includegraphics[height=0.75\linewidth]{Maxwell} \\
 		\href{https://en.wikipedia.org/wiki/Michael_Faraday}{Майкл Фарадей} (1791 -- 1867) --- англійський фізик і хімік.
 		                                                 &
-		\href{https://en.wikipedia.org/wiki/James_Clerk_Maxwell}{Джеймс Клерк Максвелл} (1831 -- 1879) --- шотландський вчений.
+		{\href{https://en.wikipedia.org/wiki/James_Clerk_Maxwell}{Джеймс Клерк Максвелл}\\ (1831 -- 1879) --- шотландський вчений.}
 	\end{tblr}
 \end{frame}
 % ===========================================================================
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Цитати із книги <<Еволюція фізики>>}{А. Ейнштейн, Л. Інфельд}
-	\begin{block}{}\justifying
-		Кількісне, математичне формулювання законів поля дано в так званих рівняннях Максвелла. [Експериментальні] факти призвели до формулювання цих рівнянь,
+\begin{frame}[t]{Цитати із книги <<Еволюція фізики>>}{А. Ейнштейн, Л. Інфельд}
+	\tikz[remember picture,overlay] \node[opacity=0.85,inner sep=0pt,
+		anchor=south east] at (current page.south east){\includegraphics[width=2cm]{Evolution}};
+	\begin{block}{}\justifying\itshape
+		Кількісне, математичне формулювання законів поля дано в так званих рівняннях Максвелла. \alert{[Експериментальні] факти призвели до формулювання
+		цих рівнянь},
 		але зміст їх значно багатший [\ldots]. Їхня проста форма приховує глибину, що виявляється тільки при ретельному вивченні.
 
 		\bigskip
@@ -127,13 +130,13 @@
 			на контур $L$.
 			Отже, згідно гіпотези Максвелла \alert{змінне електричне поле поряд зі звичайними струмами, також створює магнітне поле}.
 		\end{block}
-	\end{onlyenv}
-	\framesubtitle<4>{Порівняння закону Фарадея та гіпотези Максвелла}
+	\end{onlyenv}%
+	\framesubtitle<4>{Порівняння закону Фарадея та гіпотези Максвелла}%
 	\begin{onlyenv}<4>
 		\begin{block}{}\justifying
 			Порівняємо закон електромагнітної індукції Фарадея, та <<оновлену>> теорему про циркуляцію за відсутності струмів провідності ($\vect{j} = 0$) у
 			вакуумі ($\epsilon = \mu = 1$ $\Rightarrow$ {\color{red}$\Efield = \Dfield$}, {\color{blue}$\Hfield = \Bfield$}).
-			\begin{center}
+			\begin{center}\small
 				\begin{tblr}%
 					{
 					colspec={X[c,m]X[c,m]},
@@ -173,7 +176,7 @@
 				\end{tblr}
 			\end{center}
 		\end{block}
-		\begin{alertblock}{}
+		\begin{alertblock}{}\centering
 			Змінне в часі магнітне поле породжує вихрове електричне поле, а змінне в часі електричне поле породжує магнітне поле.
 		\end{alertblock}
 	\end{onlyenv}
@@ -186,7 +189,7 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Радіальне стікання заряду з кулі}{}\footnotesize
+\begin{frame}{Радіальне стікання заряду з кулі}{}\small
 	\begin{block}{}\justifying
 		Нехай куля несе заряд $Q$, який стікає в зовнішнє середовище. Унаслідок стікання заряду виникають струми, які можуть індукувати магнітне поле.
 		Знайдемо це магнітне поле.
@@ -308,9 +311,9 @@
 	\begin{center}
 		\begin{tblr}%
 			{
-			colspec={|Q[l,m, 2.5cm, bg=yellow!10, font=\scriptsize]|[1pt, white]X[l,m, bg=red!10]|[1pt, white]Q[l,m, 2.5cm, bg=blue!10]|},
-			row{1}={c, fg=white, bg=cyan, font=\bfseries\scriptsize},
-			cell{2-5}{2-Z}={l, m, mode=dmath, font=\scriptsize},
+			colspec={|Q[l,m, 2.5cm, bg=yellow!10, font=\small]|[1pt, white]X[l,m, bg=red!10]|[1pt, white]Q[l,m, 2.5cm, bg=blue!10]|},
+			row{1}={c, fg=white, bg=cyan, font=\bfseries\small},
+			cell{2-5}{2-Z}={l, m, mode=dmath, font=\small},
 			%hlines,
 			}
 			\hline
@@ -337,7 +340,7 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Вираз електричного поля через потенціали}{}\footnotesize
+\begin{frame}{Вираз електричного поля через потенціали}{}
 	\renewcommand{\baselinestretch}{0.99}
 	\begin{block}{}\justifying
 		Рівняння Максвелла групуються парами. \alert{Перша пара рівнянь} --- рівняння \alert{без зарядів та струмів}, \alert{друга пара} --- рівняння
@@ -410,9 +413,9 @@
 	\begin{center}
 		\begin{tblr}%
 			{
-			colspec={|X[l,m, bg=yellow!10, font=\scriptsize]|[1pt, white]Q[l,m, 0.2\linewidth,bg=red!10]|},
+			colspec={|X[l,m, bg=yellow!10, font=\small]|[1pt, white]Q[l,m, 0.2\linewidth,bg=red!10]|},
 			row{1}={c, fg=white, bg=cyan, font=\bfseries},
-			cell{2-Z}{2-Z}={l, m, mode=dmath, font=\scriptsize},
+			cell{2-Z}{2-Z}={l, m, mode=dmath, font=\small},
 			hlines,
 			}
 			                                                                                           & Вираз                            \\
@@ -444,7 +447,7 @@
 	\begin{center}
 		\begin{tblr}%
 			{
-			colspec={|X[l,m, bg=yellow!10, font=\scriptsize]|[1pt, white]X[c,m, bg=red!10]|},
+			colspec={|X[l,m, bg=yellow!10, font=\small]|[1pt, white]X[c,m, bg=red!10]|},
 			row{1}={c, fg=white, bg=cyan, font=\bfseries},
 			cell{2-Z}{1-Z}={c, m, mode=dmath, font=},
 			%hlines,
@@ -686,7 +689,7 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Зарядка конденсатора}{}\footnotesize
+\begin{frame}{Зарядка конденсатора}{}\small
 	\begin{columns}
 		\begin{column}{0.35\linewidth}\centering
 			\begin{tikzpicture}[scale=0.8, >=latex, midarrow/.style={%

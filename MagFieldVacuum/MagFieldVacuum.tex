@@ -55,7 +55,7 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Означення}{}
-	\begin{block}{}\justifying\small
+	\begin{block}{}\justifying
 		\href{https://www.youtube.com/watch?v=qS361iadCPA}{Дослід Ерстеда}, проведений 1820 року Ерстедом --- є першим експериментальним доказом впливу
 		електричного струму на магніт (магнітну стрілку).
 	\end{block}
@@ -68,7 +68,7 @@
 	\end{block}
 	\begin{columns}
 		\begin{column}{0.5\linewidth}\centering
-            \input{tikz/chargeFields.tikz}
+			\input{tikz/chargeFields.tikz}
 		\end{column}
 		\begin{column}{0.5\linewidth}
 			\includegraphics[width=0.9\linewidth]{OerstedExperiment}
@@ -90,7 +90,7 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Характеристика магнітного поля}{}\small
+\begin{frame}{Характеристика магнітного поля}{}
 	\begin{block}{}\justifying
 		Магнітних зарядів (магнітних монополів) у в природі немає (експериментальний факт). Характеристику магнітного поля, аналогічно до $\Efield =
 			\frac{\vect{F}}{q}$
@@ -159,14 +159,14 @@
 	\begin{onlyenv}<1>
 		\begin{columns}
 			\begin{column}{0.3\linewidth}\centering
-                \input{tikz/CurrentElementSpy.tikz}
+				\input{tikz/CurrentElementSpy.tikz}
 			\end{column}
 			\begin{column}{0.7\linewidth}
 				\begin{block}{}\justifying
 					Якщо в задачі не цікавляться
 					внутрішньою будовою провідника, та розподілом струму в його товщі, то можна ввести \alert{елемент лінійного струму}.
 				\end{block}
-				\begin{block}{}\justifying\footnotesize
+				\begin{block}{}\justifying
 					Нехай струм тече провідником із площею поперечного перерізу $S$. Уведемо вектор ділянки провідника завдовжки $d\vect{\ell}$
 					за формулою $d\vect{\ell} = \vect{n}\ell$, де $\vect{n}$ --- одиничний вектор уздовж осі провідника. Тоді $\vect{j} = j\vect{n}$,
 					а $I = j S$ і вираз для елемента об'ємного струму можна переписати у вигляді:
@@ -185,17 +185,17 @@
 	\end{onlyenv}
 	\begin{onlyenv}<2>
 		\begin{tblr}{
-			colspec={Q[c,h]X[l,m]}
+			colspec={Q[c,h]X[j,m]}
 			}
-              \input{tikz/VolCurrentElement.tikz}
+			\input{tikz/VolCurrentElement.tikz}
 			 &
 			Елемент об'ємного струму $\vect{j}dV$
 			\\
-            \input{tikz/LinCurrentElement.tikz}
+			\input{tikz/LinCurrentElement.tikz}
 			 &
 			Елемент лінійного струму $Id\vect{\ell}$
 			\\
-            \input{tikz/SurfCurrentElement.tikz}
+			\input{tikz/SurfCurrentElement.tikz}
 			 &
 			{
 			Поверхнева густина струму $i = \frac{I}{l}$. \\
@@ -237,7 +237,7 @@
 			\begin{equation*}
 				\delta A = \vect{F}\cdot d\vect{r} = \vect{F}\cdot\vect{v}dt = \left[\frac{q \vect{v}}{c}\times\Bfield\right] \cdot\vect{v}dt.
 			\end{equation*}
-			\begin{block}{}\scriptsize
+			\begin{block}{}
 				\begin{equation*}
 					\vect{A}\cdot\vecdot{\vect{B}}{\vect{C}} = \vect{C}\cdot\vecdot{\vect{A}}{\vect{B}}.
 				\end{equation*}
@@ -250,7 +250,7 @@
 			\end{equation*}
 		\end{column}
 		\begin{column}{0.35\linewidth}\centering
-            \input{tikz/CycletronicTrajectory.tikz}
+			\input{tikz/CycletronicTrajectory.tikz}
 		\end{column}
 	\end{columns}
 	\begin{block}{}
@@ -278,7 +278,7 @@
 	\end{block}
 	\begin{columns}
 		\begin{column}{0.4\linewidth}\centering
-            \input{tikz/BSL.tikz}
+			\input{tikz/BSL.tikz}
 		\end{column}
 		\begin{column}{0.6\linewidth}
 			\begin{block}{}\justifying
@@ -328,7 +328,7 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Приклади застосування закону Біо-Савара-Лапласа}{}\scriptsize
+\begin{frame}{Приклади застосування закону Біо-Савара-Лапласа}{}
 	%=========================================================
 	\begin{exampleblock}{\scriptsize Задача 1}\label{prb:inf_wire}\justifying
 		Визначити магнітне поле на відстані $r$ від нескінченно довгого провідника зі струмом $I$.
@@ -396,7 +396,7 @@
 	\framesubtitle<2>{Калібруванні вектор-потенціалу}
 	\begin{columns}
 		\begin{column}{0.3\linewidth}\centering
-            \input{tikz/FieldPoint.tikz}
+			\input{tikz/FieldPoint.tikz}
 		\end{column}
 		\begin{column}{0.7\linewidth}
 			\begin{overprint}
@@ -407,7 +407,7 @@
 						\Bfield(\vect{r}) = \iiint\limits_{V'} \frac1c \frac{ \vect{j}(\vect{r}')dV'\times(\vect{r} - \vect{r}') }{|\vect{r} -
 							\vect{r}'|^3}
 					\end{equation*}
-					{\scriptsize
+					{\small
 					Використаємо тотожність:
 					\(
 					\frac{ (\vect{r} - \vect{r}') }{|\vect{r} - \vect{r}'|^3} = - \vect{\nabla}_{\vect{r}} \frac{ 1 }{|\vect{r} - \vect{r}'|},
@@ -443,7 +443,7 @@
 			\end{equation*}
 		\end{block}
 		\onslide<2>
-		\begin{block}{}\justifying\footnotesize
+		\begin{block}{}\justifying\small
 			\alert{Вектор-потенціал вводиться при цьому неоднозначно}.
 			Векторні потенціали $\vect{A}$ і $\vect{A}' = \vect{A} + \grad f(\vect{r})$
 			призводять до одного й того ж магнітного поля $\Bfield$. Цією обставиною можна
@@ -484,7 +484,7 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Теорема про циркуляцію магнітного поля у вакуумі}{}
+\begin{frame}{Теорема про циркуляцію магнітного поля у вакуумі}{Диференціальна форма}
 	\begin{block}{}
 		Знайдемо ротор вектора $\Bfield$:
 		\begin{equation*}
@@ -493,7 +493,7 @@
 				= 0}{=}  - \nabla^2\vect{A}.
 		\end{equation*}
 	\end{block}
-	\begin{exampleblock}{\scriptsize Аналогія з рівнянням Пуассона з електростатики}\scriptsize
+	\begin{exampleblock}{\small Аналогія з рівнянням Пуассона з електростатики}\small
 		Рівняння Пуассона та його розв'язок:
 		\begin{equation*}
 			\nabla^2\phi= -4\pi\rho,\ \phi = \iiint\limits_{V'} \frac{\rho dV'}{|\vect{r} - \vect{r}'|}, \qquad
@@ -504,22 +504,77 @@
 			\alert{Однакові рівняння мають однакові розв'язки!}
 		\end{center}
 	\end{exampleblock}
-	Теорема про циркуляцію для вектора $\Bfield$:
+	\begin{block}{}\centering
+		Теорема про циркуляцію для вектора $\Bfield$:
+		\begin{equation*}
+			\tcbhighmath{\Rot\Bfield = \frac{4\pi}c\vect{j}.}
+		\end{equation*}
+	\end{block}
+\end{frame}
+% ===========================================================================
+
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Теорема про циркуляцію магнітного поля у вакуумі}{Інтегральна форма}
+	\begin{block}{}
+		Циркуляція вектора $\Bfield$ по довільному контуру $L$ пропорційна струмам, що охоплюються контуром $L$.
+	\end{block}
 	\begin{columns}\centering
-		\begin{column}{0.5\linewidth}
-			\begin{equation*}
-				\tcbhighmath{\Rot\Bfield = \frac{4\pi}c\vect{j}.}
-			\end{equation*}
-		\end{column}
-		\begin{column}{0.5\linewidth}
+		\begin{column}{0.7\linewidth}
 			\begin{equation*}
 				\tcbhighmath{\oint\limits_{L}\Bfield\cdot d\vect{r} = \frac{4\pi}c \iint\limits_{S} \vect{j}\cdot d\vect{S}.}
 			\end{equation*}
 		\end{column}
+		\begin{column}{0.3\linewidth}
+			\begin{tikzpicture}[>=latex, scale=0.7, transform shape]
+				\draw [in=-105, out=75, looseness=1.25, line width=4pt, gray!50] (-1, -1) coordinate (A) to (2, 2) coordinate (B);
+				\draw[fill=gray!50, ultra thin, rotate around={-10:(B)}] (B) circle(2pt and 0.75pt);
+				\draw[fill=gray!50, ultra thin, rotate around={-10:(A)}] (A) circle(2pt and 0.75pt);
+				\draw[thick, green!50!black] (0, 0) circle(1 and 0.3);
+				\begin{scope}
+					\clip (0,0) rectangle (1,1);
+					\draw [in=-105, out=75, looseness=1.25, line width=4pt, gray!50] (-1, -1) coordinate (A) to (2, 2) coordinate (B);
+				\end{scope}
+				\draw[red!20, pattern=crosshatch, pattern color=red!20] (-1,0) to[out=85, in=45, looseness=3] node[pos=0.2, above, text=red]
+				{$S$} (1, 0) arc(0:-180:1 and 0.3) ;
+				\draw[thick, arrowpos={0.5}{3pt}{4pt}, green!50!black] (-1, 0) arc(180:360:1 and 0.3) node[pos=0.5, below] {$L$};
+			\end{tikzpicture}
+		\end{column}
+	\end{columns}
+	\begin{block}{}\justifying
+		У випадку дискретних струмів, циркуляція вектора $\Bfield$ по довільному контуру $L$ пропорційна алгебраїчній сумі струмів, що охоплюються
+		контуром~$L$.
+	\end{block}
+	\begin{columns}
+		\begin{column}{0.7\linewidth}
+			\begin{equation*}
+				\tcbhighmath{\oint\limits_{L}\Bfield\cdot d\vect{r} = \frac{4\pi}c \sum\limits_i I_i.}
+			\end{equation*}
+		\end{column}
+		\begin{column}{0.3\linewidth}
+		\begin{tikzpicture}[>=latex]
+			\draw [arrowpos={0.9}{2pt}{4pt}, in=-45, out=45, looseness=1.25, line width=1pt, gray!50] (-1, -1) to (-1, 1) node[above, text=black] {$I_1 >
+					0$};
+			\draw [arrowpos={0.1}{2pt}{4pt}, out=225, looseness=0.80, line width=1pt, gray!50] (0.2, 1) node[above, text=black ] {$I_2 < 0$} to (0.2,
+			-1) ;
+			\draw [arrowpos={0.1}{2pt}{4pt}, line width=1pt, gray!50]  (0.9, 0.1)  circle(0.2 and 0.7) node[above right=0.4cm, text=black] {$I_3 <
+						0$};
+			\draw[thick, green!50!black, fill=red!20] (0, 0) circle(1 and 0.3);
+			\draw[thick, arrowpos={0.4}{3pt}{4pt}, green!50!black] (-1, 0) arc(180:360:1 and 0.3) node[pos=0.4, below] {$L$};
+            \draw[->, red, thick] (0,0) -- ++(0, 0.5);
+			\node[text=red] at (0.3, 0) {$S$};
+			\begin{scope}
+				\clip (-1, 0) rectangle ++(2, 0.5);
+				\draw [in=-45, out=45, looseness=1.25, line width=1pt, gray!50] (-1, -1) to (-1, 1);
+				\draw [out=225, looseness=0.80, line width=1pt, gray!50] (0.2, 1)  to (0.2, -1);
+				\draw [line width=1pt, gray!50]  (0.9, 0.1)  circle(0.2 and 0.7);
+			\end{scope}
+		\end{tikzpicture}
+		\end{column}
 	\end{columns}
 \end{frame}
 % ===========================================================================
-
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Приклади на теорему про циркуляцію \No 1}{}
@@ -669,7 +724,7 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Порівняння законів \\електро- та магнітостатики у вакуумі}{}\scriptsize
+\begin{frame}{Порівняння законів \\електро- та магнітостатики у вакуумі}{}
 
 	\begin{center}
 		Диференціальні теореми\\[1ex]
@@ -1071,8 +1126,8 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Потенціальна енергія диполя в магнітному полі}{}\small
-	\begin{block}{}\justifying\scriptsize
+\begin{frame}{Потенціальна енергія диполя в магнітному полі}{}
+	\begin{block}{}\justifying
 		Розглянемо виток площею $S$, у якому циркулює \alert{постійний} струм $I$. Магнітний момент цього витка $\vect{p}_m = \frac1c IS\ \vec{n}$.
 		%Вважаємо, що магнітний
 		%момент не змінюється за величиною, тільки може змінювати напрямок у просторі. Останнє припущення істотне, і воно передбачає, що в коло витка
@@ -1122,7 +1177,7 @@
 		поля.
 	\end{block}
 
-	\begin{alertblock}{}\scriptsize\justifying
+	\begin{alertblock}{}\justifying
 		Якщо магнітний диполь представляє собою виток, через який тече постійний струм, і магнітне поле орієнтує його, то потенційна енергія витка
 		змінюється. Однак, оскільки магнітне поле не є потенційним і не може виконувати роботу, постає питання: за рахунок чого відбувається зміна
 		енергії
@@ -1148,10 +1203,10 @@
 			\begin{block}{}\justifying
 				На основі дії магнітного поля на рамку, через яку проходить електричний струм, ґрунтується принцип роботи електродвигуна.
 			\end{block}
-            \begin{alertblock}{}\justifying\small
-                Робота по обертанню рамки виконується не магнітним полем, а за рахунок енергії джерела. Роль магнітного полягає у тому, щоб
-                перенаправити цю енергію у механічну, а саме у обертання рамки.
-            \end{alertblock}
+			\begin{alertblock}{}\justifying\small
+				Робота по обертанню рамки виконується не магнітним полем, а за рахунок енергії джерела. Роль магнітного полягає у тому, щоб
+				перенаправити цю енергію у механічну, а саме у обертання рамки.
+			\end{alertblock}
 		\end{column}
 	\end{columns}
 	\begin{block}{}\scriptsize

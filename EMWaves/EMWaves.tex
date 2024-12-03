@@ -6,7 +6,6 @@
 \documentclass[onlytextwidth]{beamer}
 \usetheme{Electromagnetism}
 \usepackage{Electromagnetism}
-\usepackage{ocgx2}
 
 %============================================================================
 \title[Лекції електрики та магнетизму]{\huge\bfseries Електромагнітні хвилі}
@@ -31,9 +30,9 @@
 				\begin{equation*}
 					\begin{cases}
 						\Div\Bfield = 0,                          \\
-						\Rot\Efield = -\frac1c\parttime{\Bfield}, \\
+						\alert<1>{\Rot\Efield = -\frac1c\parttime{\Bfield}}, \\
 						\Div\Dfield = 0,                          \\
-						\Rot\Hfield = \frac1c\parttime{\Dfield}.
+						\alert<2>{\Rot\Hfield = \frac1c\parttime{\Dfield}}.
 					\end{cases}
 				\end{equation*}
 				Врахуємо також матеріальні рівняння $\Dfield = \epsilon\Efield$, $\Bfield = \mu\Hfield$.
@@ -129,7 +128,7 @@
 	\begin{onlyenv}<1>
 
 		\begin{center}
-			\begin{tikzpicture}[scale=0.75]
+			\begin{tikzpicture}[scale=0.75, >=latex]
 				\clip (-1,-1) rectangle (6,5);
 				\draw[->] (0, -1) to (0,5) node[below left] {$y$};
 				\draw[->] (-1, 0) to (6,0) node[below left] {$x$};
@@ -138,7 +137,7 @@
 					}
 				\coordinate (K) at (1.5, {-1.5 + 4});
 				\draw[->] (0,0) -- node[left=1pt] {$\vect{r}$} (K);
-				\draw[->, red, double] (K) -- ++(45:1) node[right] {$\vect{k}$};
+				\draw[->, red, double] (K) -- ++(45:1) node[right] {$\k$};
 			\end{tikzpicture}
 		\end{center}
 	\end{onlyenv}
@@ -146,7 +145,7 @@
 	% -------------------------------------------------
 	\begin{onlyenv}<2>
 		% Electromagnetic wave - colored
-		\begin{tikzpicture}[x=(-15:1.2), y=(90:1.0), z=(-150:1.0),
+		\begin{tikzpicture}[>=latex, x=(-15:1.2), y=(90:1.0), z=(-150:1.0),
 				line cap=round, line join=round,
 				axis/.style={black, thick,->},
 				vector/.style={>=stealth,->}, scale=0.8]
@@ -187,7 +186,7 @@
 			\def\xOffset{{(\nNodes-2)*pi/2}}
 			\def\yOffset{\A*1.2}
 			\def\zOffset{\A*1.2}
-			\draw[axis,black] (\xOffset,\yOffset,-\zOffset) -- ++(\A*0.6,0,0) node[right,align=center] {$\vect{k}$}; %\\propagation
+			\draw[axis,black] (\xOffset,\yOffset,-\zOffset) -- ++(\A*0.6,0,0) node[right,align=center] {$\k$}; %\\propagation
 			\draw[axis,red]  (\xOffset,\yOffset,-\zOffset) -- ++(0,\A*0.6,0) node[right] {$\Efield$};
 			\draw[axis,blue]   (\xOffset,\yOffset,-\zOffset) -- ++(0,0,\A*0.6) node[above left] {$\Bfield$};
 
@@ -207,7 +206,7 @@
 	% -------------------------------------------------
 	\begin{onlyenv}<3>
 
-		Підставимо \eqref{Ew} та \eqref{Bw} в рівняння Максвелла. 		Диференціальні операції заміняються на:
+		Підставимо \eqref{Ew} та \eqref{Bw} в рівняння Максвелла. Диференціальні операції заміняються на:
 
 		\begin{equation*}
 			\vect{\nabla} \to -i\vect{k}, \quad \frac{\partial}{\partial t} \to i\omega
@@ -264,8 +263,8 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Тиск світла}{}
-	\begin{block}{}\justifying\small
+\begin{frame}{Тиск світла}{}\small
+	\begin{block}{}\justifying
 		Максвел теоретично показав, що електромагнітні хвилі, відбиваючись чи поглинаючись тілами, на які  вони падають, чинять на них тиск. Цей тиск виникає внаслідок впливу магнітного поля хвилі на електричні струми, що збуджуються електричним полем тієї самої хвилі.
 	\end{block}
 	\vspace*{-1.25em}
@@ -277,10 +276,13 @@
 		\end{column}
 		\begin{column}{0.6\linewidth}
 			\begin{block}{}\justifying\small
-				Електричне поле хвилі збуджує електричний струм густиною $ \vect{j} = \sigma\Efield $ ($ \vect{F} = e\Efield $). Внаслідок цього на об'єму середовища діє сила Ампера $ d\vect{F} = \frac1c[\vect{j}\times\Bfield] dV$, спрямована убік поширення хвилі. Ця сила та викликає тиск електромагнітної хвилі.
-
-				\medskip
-
+				Електричне поле хвилі збуджує електричний струм густиною $ \vect{j} = \sigma\Efield $ ($ \vect{F} = e\Efield $). Внаслідок цього на
+				об'єму середовища діє сила Ампера $ d\vect{F} = \frac1c[\vect{j}\times\Bfield] dV$, спрямована убік поширення хвилі. Ця сила та викликає
+				тиск електромагнітної хвилі.
+        	\end{block}
+		\end{column}
+	\end{columns}
+            \begin{block}{}\justifying\small
 				\begin{overprint}
 					\onslide<1>
 					У випадку поглинання вся енергія, яка падає за секунду на поверхню $wv dS$ тіла, перетворюється на теплову $ jE dV $:
@@ -296,30 +298,35 @@
 					де $ \rho = 0 \ldots 1$ --- коефіцієнт відбивання.
 				\end{overprint}
 			\end{block}
-		\end{column}
-	\end{columns}
 \end{frame}
 
-\begin{frame}{Тиск світла}{Дослід Лебедєва}
+\begin{frame}{Тиск світла}{Дослід Лебедєва}\small
+\begin{block}{}\justifying
+    Петро Миколайович Лебедєв в 1899 р. вперше виміряв світловий тиск.
+\end{block}
 	\begin{columns}
-		\begin{column}{0.5\linewidth}\small\justifying
-			Петро Миколайович Лебедєв в 1899 р. вперше виміряв світловий тиск. Він підвісив на тонкій нитці коромисло з парою крилець на кінцях: поверхня в одного з них була зачорненою, забезпечуючи майже повне поглинання, а в іншого --- дзеркальною, забезпечуючи повне відбивання. Підвіс з крильцями утворив чутливі крутильні терези, що поміщаються в посудину, повітря в якому було відкачано.
+		\begin{column}{0.6\linewidth}
+            \begin{block}{}\justifying
+			Він підвісив на тонкій нитці коромисло з парою крилець на кінцях:
+			поверхня в одного з них була зачорненою, забезпечуючи майже повне поглинання, а в іншого --- дзеркальною, забезпечуючи повне відбивання.
+			Підвіс з крильцями утворив чутливі крутильні терези, що поміщаються в посудину, повітря в якому було відкачано.
+            \end{block}
 		\end{column}
-		\begin{column}{0.5\linewidth}\centering
+		\begin{column}{0.4\linewidth}\centering
 			\includegraphics[width=\linewidth]{LebedevExp}
 		\end{column}
 	\end{columns}
 
-	\begin{block}{}\small\justifying
+	\begin{block}{}\justifying
 		Світло практично повністю відбивалося від дзеркальної поверхні та його тиск на дзеркальне крильце було вдвічі більше, ніж на зачорнене. Внаслідок цього створювався момент сил, що повертає коромисло. Вимірюючи кут повороту коромисла, можна було виміряти силу, що діяла на крильця, а отже, визначити світловий тиск.
 	\end{block}
 	{\tiny \url{https://youtu.be/Dr07pTIoue8}}
 \end{frame}
 
 % ===========================================================================
-\begin{frame}{Тиск світла}{Сонячні вітрила}
+\begin{frame}{Тиск світла}{Сонячні вітрила}\small
 	\begin{onlyenv}<1>
-		\begin{block}{}\small\justifying
+		\begin{block}{}\justifying
 			Сонячне вітрило --- пристрій, що використовує тиск сонячного світла чи лазера на дзеркальну поверхню для приведення в рух космічного апарату.
 
 			\bigskip
@@ -334,19 +341,19 @@
 		{\tiny \url{https://youtu.be/U0_wjnmlmRg}}
 	\end{onlyenv}
 	\begin{onlyenv}<2>
-		\begin{block}{}\scriptsize\justifying
+		\begin{block}{}\justifying
 			Вчені з Австралійського національного університету запропонували спосіб запуску для космічного вітрильника до найближчої зірки Альфи Центавра в рамках проекту Breakthrough Starshot. За їх задумом, надати необхідну швидкість апарату допоможе фотонний двигун --- система, що сумарно включає до 100 мільйонів лазерів.
 		\end{block}
 		\begin{center}
 			\includegraphics[width=0.5\linewidth]{Starshot-light-sail_Breakthroughinitiatives}
 		\end{center}
-		\begin{block}{}\scriptsize\justifying
+		\begin{block}{}\justifying
 			Подорож до Альфи Центавра за допомогою звичайних способів переміщення триватиме близько 100 років. Дістатись до Альфи Центавра за допомогою космічного вітрильника на фотонному двигуні передбачається за 20 років зі швидкістю в $ 0.2 c $.
 		\end{block}
 		{\tiny      \href{https://opg.optica.org/josab/fulltext.cfm?uri=josab-38-5-1477&id=450064}{Journal of the Optical Society of America B}.}
 	\end{onlyenv}
 	\begin{onlyenv}<3>
-		\begin{block}{}\justifying\small
+		\begin{block}{}\justifying
 			Тиск світла відіграє велику роль в астрономічних та атомних явищах. В астрофізиці тиск світла поряд із тиском газу забезпечує стабільність зірок, протидіючи силам гравітації. Дія тиску світла пояснюються деякі форми кометних хвостів. До атомних ефектів відноситься так звана світлова віддача, яку відчуває збуджений атом під час випромінювання фотона.
 		\end{block}
 		\begin{columns}\centering
@@ -356,7 +363,7 @@
 			\begin{column}{0.5\linewidth}\centering
 				\includegraphics[width=0.75\linewidth]{Comet}
 
-				\begin{block}{}\tiny
+				\begin{block}{}\tiny\centering
 					Товстий білий хвіст комети Гейла-Боппа складається з частинок пилу, і утворюється завдяки тиску світла. Другий, тонкий і блакитний складається з іонів і створюється сонячним вітром.
 				\end{block}
 			\end{column}
