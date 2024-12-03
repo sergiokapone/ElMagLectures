@@ -55,7 +55,7 @@
 	\end{block}
 
 
-	\begin{block}{}\justifying\scriptsize
+	\begin{block}{}\justifying\small
 		Але якщо взяти стрілку або магніт у руки, то ніяких струмів ми не відчуваємо. Отже,  ці струми циркулюють усередині речовини і
 		ніколи не виходять назовні. Що це за струми такі всередині речовини, Ампер звісно ж не знав. Сучасній науці вже відомо, що звичайна речовина
 		складається з атомів. Своєю чергою, всередині атомів є позитивно заряджені ядра з негативно зарядженими електронами, що обертаються навколо них.
@@ -171,7 +171,7 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Зв'язок намагніченості з молекулярними струмами}{}
-	\begin{block}{}\justifying\scriptsize
+	\begin{block}{}\justifying
 		Виділимо в речовині досить малий циліндр, так що поле в ньому можна вважати практично однорідним. У його об'ємі молекулярні струми компенсують один
 		одного. Циліндр (ліворуч) і вигляд його торця (праворуч). Кільцеві струми, що циркулюють в об'ємі, компенсують один одного всюди, окрім точок бічної
 		поверхні. У результаті залишається тільки поверхневий струм, що тече бічною поверхнею циліндра.
@@ -184,7 +184,7 @@
 			\input{tikz/cylindertop.tikz}
 		\end{column}
 	\end{columns}
-	\begin{block}{}\small
+	\begin{block}{}
 		Знайдемо магнітний момент такого циліндрика:
 		\begin{equation*}
 			\vect{p}_m = \vect{J}V = \frac1c I_mS\ \vect{n} \Rightarrow\ \vect{J}S\ell\cos\theta = \frac1c I_m S\ \vect{n}
@@ -318,7 +318,7 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Лінійні ізотропні магнітні середовища}{}
-	\begin{block}{}
+	\begin{block}{}\justifying
 		Якщо магнітне поле слабке і в середовищі немає початкової намагніченості, то можна покласти:
 		\begin{equation*}
 			\vect{J} = \chi_m\Hfield.
@@ -340,7 +340,7 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Магнетики}{}\small
+\begin{frame}{Магнетики}{}
 	\begin{block}{}\justifying
 		Залежно від значення магнітної проникності виділяють такі основні класи середовищ:
 		\begin{enumerate}
@@ -363,7 +363,7 @@
 		парамагнетиків становлять $|\mu| = 10^{-5} \div 10^{-5}$.
 	\end{block}
 	\vspace*{-1em}
-	\begin{block}{}\justifying\footnotesize
+	\begin{block}{}\justifying\small
 		Деякі речовини можуть зберігати намагніченість $\vect{J}$ за відсутності зовнішнього магнітного поля. Для них не виконується просте співвідношення
 		$\vect{J} = \chi_m\Hfield$ при всіх значеннях $\Hfield$. Такі речовини називаються \alert{феромагнетиками}. До їх числа належать, наприклад, \ce{Fe},
 		\ce{Co}, \ce{Ni}. В діапазоні, де таке співвідношення формально виконується, магнітна проникність феромагнетиків сягає значень порядку $\mu
@@ -376,45 +376,45 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Задачі}{}
-\begin{onlyenv}<1>
-\begin{exampleblock}{\scriptsize Задача 1}\justifying\scriptsize
-    Знайти індукцію магнітного поля в середині нескінченного  соленоїда з густиною намотки $n$, по виткам якого тече струм $I$. Об'єм в середині
-    соленоїда заповнено парамагнетиком з магнітною проникністю $\mu$.
-\begin{center}
-\includegraphics[width=0.5\linewidth]{solenoidField}
-\end{center}
-Відповідь: $B = \frac{4\pi}{c} \mu n I$
-\end{exampleblock}
-\end{onlyenv}
-\begin{onlyenv}<2>
-	\begin{exampleblock}{\scriptsize Задача 2}
-		\begin{columns}
-			\begin{column}{0.75\linewidth}\justifying\scriptsize
-				Постійний струм $I$ тече вздовж довгого циліндричного дроту круглого перерізу. Дріт виготовлений з парамагнетика сприйнятливістю $\chi$.
-				Знайти:
-				\begin{enumerate}
-					\item поверхневий молекулярний струм;
-					\item об'ємний молекулярний струм.
-				\end{enumerate}
-				Як ці струми напрямлені один відносно одного?
-				\bigskip
+\begin{frame}{Задачі}{}\small
+	\begin{onlyenv}<1>
+		\begin{exampleblock}{Задача 1}\justifying
+			Знайти індукцію магнітного поля в середині нескінченного  соленоїда з густиною намотки $n$, по виткам якого тече струм $I$. Об'єм в середині
+			соленоїда заповнено парамагнетиком з магнітною проникністю $\mu$.
+			\begin{center}
+				\includegraphics[width=0.75\linewidth]{solenoidField}
+			\end{center}
+			Відповідь: $B = \frac{4\pi}{c} \mu n I$
+		\end{exampleblock}
+	\end{onlyenv}
+	\begin{onlyenv}<2>
+		\begin{exampleblock}{Задача 2}
+			\begin{columns}
+				\begin{column}{0.75\linewidth}\justifying
+					Постійний струм $I$ тече вздовж довгого циліндричного дроту круглого перерізу. Дріт виготовлений з парамагнетика сприйнятливістю $\chi$.
+					Знайти:
+					\begin{enumerate}
+						\item поверхневий молекулярний струм;
+						\item об'ємний молекулярний струм.
+					\end{enumerate}
+					Як ці струми напрямлені один відносно одного?
+					\bigskip
 
-				\textit{Відповіді}:
+					\textit{Відповіді}:
 
-				\begin{enumerate}
-					\item $I'_\text{пов} = 4\pi\chi I$;
-					\item $I'_\text{об} = 4\pi\chi I$.
-				\end{enumerate}
-				Струми напрямлені протилежно один відносно одного.
+					\begin{enumerate}
+						\item $I'_\text{пов} = 4\pi\chi I$;
+						\item $I'_\text{об} = 4\pi\chi I$.
+					\end{enumerate}
+					Струми напрямлені протилежно один відносно одного.
 
-			\end{column}
-			\begin{column}{0.25\linewidth}\centering
-				\input{tikz/current_in_magnetic.tikz}
-			\end{column}
-		\end{columns}
-	\end{exampleblock}
-\end{onlyenv}
+				\end{column}
+				\begin{column}{0.25\linewidth}\centering
+					\input{tikz/current_in_magnetic.tikz}
+				\end{column}
+			\end{columns}
+		\end{exampleblock}
+	\end{onlyenv}
 \end{frame}
 % ===========================================================================
 
@@ -437,7 +437,7 @@
 	\begin{onlyenv}<1>
 		\begin{columns}
 			\begin{column}{0.6\linewidth}
-				\begin{block}{}\scriptsize\justifying
+				\begin{block}{}\justifying
 					Застосуємо теорему Гауса до нескінченно малого циліндра, що охоплює частину межі
 					розділу двох
 					середовищ. Вважаючи $d\vect{S}_1 = - d\vect{S}_2$, $q = \sigma dS$,
@@ -450,7 +450,7 @@
 				\input{tikz/bc1.tikz}
 			\end{column}
 		\end{columns}
-		\begin{block}{}\scriptsize
+		\begin{block}{}
 			\begin{equation*}
 				\oiint_S \Bfield_1\cdot d\vect{S} = 0\ \Rightarrow  \Bfield_2\cdot
 				d\vect{S}_1 +
@@ -465,7 +465,7 @@
 				}
 			\end{equation*}
 		\end{block}
-		\begin{alertblock}{}\justifying\scriptsize
+		\begin{alertblock}{}\centering
 			Нормальна складова вектора $\Bfield$ не зазнає стрибка при
 			переході через границю розділу середовищ.
 		\end{alertblock}
@@ -473,7 +473,7 @@
 	\begin{onlyenv}<2>
 		\begin{columns}
 			\begin{column}{0.6\linewidth}
-				\begin{block}{}\scriptsize\justifying
+				\begin{block}{}\justifying
 					Застосуємо теорему про циркуляцію до нескінченно малого прямокутного
 					контуру $L$, що проходить на нескінченно малій відстані над і під поверхнею
 					розділу середовищ. Вважаючи, що $d\vect{r}_1 = -d\vect{r}_2$, маємо
@@ -483,7 +483,7 @@
 				\input{tikz/bc2.tikz}
 			\end{column}
 		\end{columns}
-		\begin{block}{}\scriptsize
+		\begin{block}{}
 			\begin{equation*}
 				\oint\limits_L \Hfield\cdot d\vect{r} = \frac{4\pi}cI \Rightarrow \Hfield_1 d\vect{r}_1 +
 				\Hfield_2 d\vect{r}_2 = \frac{4\pi}c i_b d\ell
@@ -497,17 +497,15 @@
 			}
 			\)
 		\end{block}
-		\begin{block}{}\justifying\scriptsize
+		\begin{block}{}\justifying\small
 			Останню умову можна можна записати у векторному вигляді: Оскільки $ \vect{\tau} = \vect{b}\times\vect{n} $. То $(\Hfield_2 - \Hfield_1)\vect{\tau} =
 				\frac{4\pi}c i_b $, або $(\Hfield_2 - \Hfield_1)[\vect{b}\times\vect{n}] = \frac{4\pi}c i_b $. Зробивши циклічний зсув співмножників у змішаному
 			добутку векторів, отримаємо:
 			\(
-			\tcbhighmath{
-				\vect{n}\times (\Hfield_2 - \Hfield_1) = \frac{4\pi}c \vect{i}.
-			}
+            	\vect{n}\times (\Hfield_2 - \Hfield_1) = \frac{4\pi}c \vect{i}.
 			\)
 		\end{block}
-		\begin{alertblock}{}\centering\scriptsize
+		\begin{alertblock}{}\centering
 			Тангенціальна складова $\Hfield$ зазнає розриву, якщо по поверхні розділу середовищ течуть \alert{струми провідності}.
 		\end{alertblock}
 	\end{onlyenv}
@@ -519,16 +517,17 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Заломлення силових ліній на границі магнетиків}{}\small
+\begin{frame}{Заломлення силових ліній на границі магнетиків}{}
 	\begin{block}{}\justifying
 		Лінії векторів $\Bfield$ і $\Hfield$ на границі розділу двох
 		магнетиків заломлюються.
 	\end{block}
 	\begin{columns}
 		\begin{column}{0.55\linewidth}\centering
-            \input{tikz/refraction.tikz}
+			\input{tikz/refraction.tikz}
 		\end{column}
-		\begin{column}{0.45\linewidth}\scriptsize
+        \
+		\begin{column}{0.45\linewidth}\small
 			Граничні умови для вектора $\Hfield$
 			\begin{equation*}
 				\begin{cases}
@@ -600,7 +599,7 @@
 	\end{block}
 	\begin{columns}
 		\begin{column}{0.65\linewidth}
-			\begin{block}{}\justifying\small
+			\begin{block}{}\justifying
 				\alert{Домен} --- це локальна область усередині феромагнетика, де дипольні моменти
 				орієнтовані в одному й тому самому напрямку. У кожному домені намагніченість постійна і спрямована
 				в один бік.
@@ -618,14 +617,14 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Гістерезис в феромагнетиках}{}\small
+\begin{frame}{Гістерезис в феромагнетиках}{}
 	\begin{block}{}\justifying
 		\alert{Гістерезис} --- неоднозначна петлеподібна залежність поляризації сегнетоелектриків від
 		зовнішнього магнітного поля $\Hfield$ за його циклічної зміни.
 	\end{block}
 	\begin{columns}
 		\begin{column}{0.5\linewidth}\centering
-            \input{tikz/hysteresis.tikz}
+			\input{tikz/hysteresis.tikz}
 		\end{column}
 		\begin{column}{0.5\linewidth}
 			\begin{figure}
@@ -634,7 +633,7 @@
 			\end{figure}
 		\end{column}
 	\end{columns}
-	\begin{enumerate}\justifying\scriptsize
+	\begin{enumerate}\justifying\small
 		\item За високого поля $ H $, намагніченість досягає насичення і поводить себе як
 		      парамагнетик у якого $J \propto H$.
 		\item  Поле зменшується до нуля $H = 0$, але намагніченість $ J_r $ залишається.
@@ -652,11 +651,11 @@
 \begin{frame}{Магнітно-м'які та магнітно-жорсткі феромагнетики}{}
 	\begin{columns}
 		\begin{column}{0.75\linewidth}
-			\begin{block}{}\justifying\small
+			\begin{block}{}\justifying
 				\alert{Магнітом'який} матеріал, який застосовують як осердя в трансформаторах, електромагнітах та інших приладах і машинах,
 				характерний дуже вузькою петлею гістерезису. Вузькість петлі (мала коерцитивна сила) означає малі втрати на перемагнічування. У
 				ділянці до насичення петля близька до прямої лінії, рівняння якої можна записати, як для неферомагнітних речовин, у вигляді $\Bfield
-				= \mu\Hfield$.
+					= \mu\Hfield$.
 			\end{block}
 		\end{column}
 		\begin{column}{0.25\linewidth}\centering
@@ -683,20 +682,20 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Підсумки}{}\small
-\begin{tblr}{
-colspec={Q[c,l]Q[mode=dmath]}
-}
-Вектор намагнічення & \vect{J} = \frac1V\sum \vect{p}_i \\
-Теорема про циркуляцію для вектора $\vect{J}$ & c \oint\limits_L \vect{P}d\vect{\ell} = I_m\\
-в диференціальній формі & c\Rot\vect{J} = \vect{j}_m \\
-Вектор напруженості & \Hfield = \Bfield  - 4\pi\vect{J}\\
-Для лінійних магнетиків & \vect{J} = \chi_m \Hfield \\
-{Зв'язок проникності і сприйнятливості \\ (для лінійних магнетиків)} & \mu = 1+ 4\pi\chi_m \\
-Для лінійних магнетиків & \Bfield = \mu\Hfield \\
-Теорема про циркуляцію в магнетиках & \oint\limits_L \Hfield d\vect{\ell} = \frac{4\pi}c \iint\limits_S\vect{j} dS \\
-в диференціальній формі & \Rot\Hfield = \frac{4\pi}c \vect{j}
-\end{tblr}
+\begin{frame}{Підсумки}{}
+	\begin{tblr}{
+		colspec={X[c,l]Q[mode=dmath]}
+		}
+		Вектор намагнічення                           & \vect{J} = \frac1V\sum \vect{p}_i                                            \\
+		Теорема про циркуляцію для вектора $\vect{J}$ & c \oint\limits_L \vect{P}d\vect{\ell} = I_m                                  \\
+		в диференціальній формі                       & c\Rot\vect{J} = \vect{j}_m                                                   \\
+		Вектор напруженості                           & \Hfield = \Bfield  - 4\pi\vect{J}                                            \\
+		Для лінійних магнетиків                       & \vect{J} = \chi_m \Hfield                                                    \\
+		{Зв'язок проникності і сприйнятливості                                                                                       \\ (для лінійних магнетиків)} & \mu = 1+ 4\pi\chi_m \\
+		Для лінійних магнетиків                       & \Bfield = \mu\Hfield                                                         \\
+		Теорема про циркуляцію в магнетиках           & \oint\limits_L \Hfield d\vect{\ell} = \frac{4\pi}c \iint\limits_S\vect{j} dS \\
+		в диференціальній формі                       & \Rot\Hfield = \frac{4\pi}c \vect{j}
+	\end{tblr}
 \end{frame}
 % ===========================================================================
 
