@@ -34,7 +34,7 @@
 %% --------------------------------------------------------
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Ємність провідника}{}\small
+\begin{frame}{Ємність провідника}{}
 	\begin{block}{}\justifying
 		Якщо провідник має заряд $q$, то його потенціал дорівнює $\phi$.
 
@@ -93,12 +93,12 @@
 \begin{frame}{З'єднання конденсаторів}{}
 	\begin{columns}\centering
 		\begin{column}{0.5\linewidth}\centering
-			\begin{block}{}\small\centering
+			\begin{block}{}\centering
 				Послідовне з'єднання
 			\end{block}
 		\end{column}
 		\begin{column}{0.5\linewidth}\centering
-			\begin{block}{}\small\centering
+			\begin{block}{}\centering
 				Паралельне з'єднання
 			\end{block}
 		\end{column}
@@ -184,11 +184,11 @@
 % ===========================================================================
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Задачі}{}\scriptsize
-	\begin{exampleblock}{\scriptsize Задача 1}
+\begin{frame}{Задачі}{}\small
+	\begin{exampleblock}{Задача 1}
 		Знайдіть ємність сферичного провідника радіусом $R$.
 	\end{exampleblock}
-	\begin{exampleblock}{\scriptsize Задача 2}
+	\begin{exampleblock}{Задача 2}
 		Знайдіть ємність плоского конденсатора, відстань між обкладками якого дорівнює $d$,
 		площа пластин $S$, простір заповнено діелектриком з проникністю $\epsilon$.
 
@@ -196,7 +196,7 @@
 
 		Відповідь: $C = \frac{\epsilon S}{4\pi d}$.
 	\end{exampleblock}
-	\begin{exampleblock}{\scriptsize Задача 3}
+	\begin{exampleblock}{Задача 3}
 		Знайдіть ємність сферичного конденсатора, радіуси обкладок $R_1$ та $R_2$, простір
 		заповнено діелектриком з проникністю $\epsilon$.
 
@@ -204,7 +204,7 @@
 
 		Відповідь: $C = \frac{\epsilon R_1R_2}{R_2 - R_1}$.
 	\end{exampleblock}
-	\begin{exampleblock}{\scriptsize Задача 4}
+	\begin{exampleblock}{Задача 4}
 		Знайдіть ємність циліндричного конденсатора висотою $\ell$, радіуси обкладок $R_1$ та
 		$R_2$, простір
 		заповнено діелектриком з проникністю $\epsilon$.
@@ -220,8 +220,8 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Взаємна ємність двох куль}{}
-	\begin{exampleblock}{\scriptsize Задача 5}\scriptsize\justifying
+\begin{frame}{Взаємна ємність двох куль}{}\small
+	\begin{exampleblock}{Задача 5}\justifying
 		Знайдемо (взаємну) ємність системи з двох металевих тіл (куль), що мають власні ємності
 		$C_1$ і $C_2$ і перебувають на відстані $b$ одна від одної, вважаючи $b \gg C_1,C_2$.
 		Останнє означає, що одна відносно одної кулі можна вважати точковими.
@@ -235,7 +235,7 @@
 			\draw (+q) -- node[below] {$b$} (-q);
 		\end{tikzpicture}
 	\end{center}
-	\begin{block}{\scriptsize Розв'язок}\scriptsize\justifying
+	\begin{block}{Розв'язок}\justifying
 		Нанесемо заряд $+q$ на кулю ємністю $C_1$ і заряд $-q$ на кулю ємністю $C_2$. Запишемо
 		потенціали кульок з урахуванням їхнього взаємного впливу:
 		\begin{equation*}
@@ -260,7 +260,7 @@
 %% --------------------------------------------------------
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Взаємна енергія системи зарядів}\small
+\begin{frame}{Взаємна енергія системи зарядів}
 	\begin{columns}
 		\begin{column}{0.8\linewidth}
 			\begin{block}{}\justifying
@@ -312,8 +312,9 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Електростатична енергія тіл}
-	\begin{center}
-		\begin{tikzpicture}[>=latex,
+\begin{columns}
+	\begin{column}{0.3\linewidth}\centering
+\begin{tikzpicture}[>=latex,
 				charge/.style = {ball color=red!50, font=\scriptsize, inner sep=1pt},
 				surface/.style = {draw, opacity=0.5, smooth cycle, tension=.7},
 				filled_surface/.style = {red, fill=red!50, smooth cycle, tension=.7},
@@ -340,7 +341,8 @@
 				(\x,{rnd*4});
 			\end{scope}
 		\end{tikzpicture}
-	\end{center}
+	\end{column}
+	\begin{column}{0.7\linewidth}
 	\begin{block}{}\justifying
 		Якщо заряди розподілені в просторі з об'ємною густиною $\rho(\vect{r})$, а також на
 		поверхнях
@@ -355,17 +357,19 @@
 				\sigma(\vect{r})\phi(\vect{r}) dS.}
 		\end{equation*}
 	\end{block}
+	\end{column}
+\end{columns}
 \end{frame}
 % ===========================================================================
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Задачі}{}
-	\begin{exampleblock}{\scriptsize Задача 1}\justifying\scriptsize
+\begin{frame}{Задачі}{}\small
+	\begin{exampleblock}{ Задача 1}\justifying
 		Нехай куля радіуса $R$ несе повний заряд $Q$, що рівномірно розподілений по поверхні.
 		Знайти електростатичну енергію кулі.
 	\end{exampleblock}
-	\begin{block}{\scriptsize Розв'язок}\justifying\scriptsize
+	\begin{block}{Розв'язок}\justifying
 		Енерргію знайдемо як:
 		\begin{equation*}
 			W =  \frac12 \iint\limits_S \sigma(\vect{r})\phi(\vect{r}) dS =
@@ -374,7 +378,7 @@
 		\end{equation*}
 	\end{block}
 
-	\begin{exampleblock}{\scriptsize Задача 2}\justifying\scriptsize
+	\begin{exampleblock}{Задача 2}\justifying
 		Нехай куля радіуса $R$ несе повний заряд $Q$, що рівномірно розподілений по об'єму.
 		Знайти електростатичну енергію кулі.
 
@@ -391,7 +395,7 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Енергія електричного поля в конденсаторі}{}\small
+\begin{frame}{Енергія електричного поля в конденсаторі}{}
 	\begin{columns}
 		\begin{column}{0.8\linewidth}
 			\begin{block}{}\justifying
@@ -445,12 +449,12 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Енергія електричного поля (загальне виведення)}{}\scriptsize
+\begin{frame}{Енергія електричного поля (загальне виведення)}{}\small
 	\begin{block}{}\justifying
 		Отримана формула для енергії електричного поля для окремого випадку, коли поле однорідне і
 		локалізоване в конденсаторі. Наведемо тепер більш загальний висновок.
 	\end{block}
-	\begin{block}{}
+	\begin{block}{}\small
 		При зміні заряду системи на $\delta\rho$, енергія змінюється на величину
 		\begin{equation*}
 			\delta W = \frac12 \iiint\limits_V \delta\rho(\vect{r})\phi(\vect{r}) dV.
@@ -462,7 +466,7 @@
 			\delta\Dfield\cdot\vect{\nabla}\phi\right) .
 		\end{equation*}
 	\end{block}
-	\begin{alertblock}{}\tiny
+	\begin{alertblock}{}\justifying\small
 		Інтегрування поширене на весь нескінченний простір. Але на великій відстані від системи зарядів
 		поле обертається в нуль. Тому,перший доданок у правій частині $\iiiint\limits_V \left(
 			\Div(\delta\Dfield \phi\right) dV = \oiint\limits_{S\to\infty} (\phi\delta\Dfield)\cdot
@@ -488,7 +492,7 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Власна та взаємна енергія зарядів}{}\small
+\begin{frame}{Власна та взаємна енергія зарядів}{}
 	\begin{columns}
 		\begin{column}{0.5\linewidth}\centering
 			Взаємна енергія зарядів:
@@ -564,7 +568,7 @@
 			силові взаємодії (електричні та механічні).
 		\end{block}
 	\end{onlyenv}
-	\begin{onlyenv}<2>\small
+	\begin{onlyenv}<2>
 		\begin{block}{}\justifying
 			Нехай на провідниках підтримуються постійними заряди, $q = \const$, тобто немає зовнішніх
 			джерел енергії.
@@ -576,7 +580,7 @@
 				\delta A = - \left( dW\right)_{q=\const}.
 			$
 		\end{block}
-		\begin{block}{}\scriptsize
+		\begin{block}{}\small\justifying
 			Нехай нас цікавить сила, що діє на дане тіло (провідник або діелектрик). Зробимо нескінченно
 			мале поступальне переміщення $dx$ цього тіла в цікавому для нас напрямку $x$. Тоді робота
 			шуканої сили $F_x$ визначиться як $\delta A = F_x dx$, звідки:
@@ -584,15 +588,15 @@
 				\tcbhighmath{F_x = -\left.\frac{dW}{dx}\right|_{q=\const}.}
 			\end{equation*}
 		\end{block}
-		\begin{alertblock}{}\scriptsize
+		\begin{alertblock}{}\small\justifying
 			Для обчислення сили за цією формулою не треба підбирати такий режим, за якого обов'язково всі
 			заряди провідників залишалися б постійними. Треба просто знайти приріст $dW$ за умови, що $q =
 				\const$ --- це суто математична операція.
 		\end{alertblock}
 	\end{onlyenv}
-	\begin{onlyenv}<3>\small
+	\begin{onlyenv}<3>
 		\begin{columns}
-			\begin{column}{0.6\linewidth}
+			\begin{column}{0.7\linewidth}
 				\begin{block}{}\justifying
 					Нехай тепер на провідниках підтримуються постійними потенціали $\phi=\const$.
 					Для цього всистемі є \alert{джерело, що постачає заряди і витрачають енергію на
@@ -603,7 +607,7 @@
 					\end{equation*}
 				\end{block}
 			\end{column}
-			\begin{column}{0.4\linewidth}
+			\begin{column}{0.3\linewidth}\centering
 				\begin{circuitikz}[]
 					\draw
 					(0,0) to[battery1, l=$\Delta\phi$] (0,2)
@@ -632,19 +636,19 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Енергетичний метод обчислення сил}{Приклади}\small
+\begin{frame}{Енергетичний метод обчислення сил}{Приклади}
 	\begin{exampleblock}{Приклад 1}\justifying
 		Знайдемо силу тяжіння пластин зарядженого конденсатора.
 	\end{exampleblock}
 
 	\begin{columns}
-		\begin{column}{0.8\linewidth}
+		\begin{column}{0.79\linewidth}
 			\begin{block}{}\justifying
 				За умов, коли пластини конденсатора нерухомі, сила їхнього притягання не залежить
 				від способу обчислення.
 			\end{block}
 		\end{column}
-		\begin{column}{0.2\linewidth}
+		\begin{column}{0.2\linewidth}\centering
 			\input{tikz/virtual.tikz}
 		\end{column}
 	\end{columns}
@@ -662,7 +666,7 @@
 					\cancel{d}} dx,
 				\quad F_x = -\frac{dW}{dx} = -\frac{\epsilon E^2}{8\pi} S
 			\end{equation*}
-			\alert{\scriptsize Знак <<мінус>> свідчить про те, що пластини притягуються одна до одної.}
+			\alert{\small Знак <<мінус>> свідчить про те, що пластини притягуються одна до одної.}
 		\end{block}
 	\end{onlyenv}
 	\begin{onlyenv}<2>
@@ -680,7 +684,7 @@
 					\cancel{d}} dx,
 				\quad F_x = \frac{dW}{dx} = -\frac{\epsilon E^2}{8\pi} S
 			\end{equation*}
-			\alert{\scriptsize Знак <<мінус>> свідчить про те, що пластини притягуються одна до одної.}
+			\alert{\small Знак <<мінус>> свідчить про те, що пластини притягуються одна до одної.}
 		\end{block}
 	\end{onlyenv}
 \end{frame}
@@ -696,7 +700,7 @@
 	\end{exampleblock}
 	\begin{columns}
 		\begin{column}{0.6\linewidth}
-			\begin{block}{\scriptsize Модель}\justifying\scriptsize
+			\begin{block}{Модель}\justifying
 				Замінимо конденсатор із частково всунутою в нього пластиною діелектрика двома
 				паралельно з'єднаними конденсаторами, з яких один --- вакуумний, а інший заповнений
 				діелектриком.
@@ -740,7 +744,7 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Підсумки}{}\small
+\begin{frame}{Підсумки}{}
 \begin{onlyenv}<1>
 \begin{block}{1. Електрична ємність}
         \begin{itemize}

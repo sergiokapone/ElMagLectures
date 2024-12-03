@@ -3,7 +3,7 @@
 % !TeX spellcheck = uk_UA
 % !BIB program = bibler
 
-\documentclass[]{beamer}
+\documentclass[onlytextwidth]{beamer}
 \usetheme{Electromagnetism}
 
 
@@ -49,7 +49,7 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Основні поняття}{}\small
+\begin{frame}{Основні поняття}{}
 
 	\begin{block}{}\justifying
 		\alert{Вільні заряди} --- це заряди, які можуть переміщатися на великі відстані в речовині
@@ -66,10 +66,8 @@
 
 		\alert{Діелектриками} називають речовини, в структурі яких є зв'язані заряди, вільних зарядів дуже
 		мало, або зовсім нема.
-
 	\end{block}
-
-	\begin{block}{}\justifying\scriptsize
+	\begin{block}{}\justifying
 		\alert{Мікрополе} $\Efield_\text{micro}$ --- це результат додавання полів багатьох
 		зарядів. Це поле
 		швидко змінюється від точки до точки і в часі.
@@ -95,13 +93,12 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Дипольні моменти деяких полярних молекул}
-
-	\begin{block}{}\justifying\small
+	\begin{block}{}\justifying
 		Дипольний момент виникає внаслідок різної електронегативності атомів, що складають
 		молекулу, та
 		розташуванню їх в просторі.
 	\end{block}
-	\begin{block}{}\justifying\scriptsize
+	\begin{exampleblock}{}\justifying\small
 		Дебай (позначається як \textit{Д} або \textit{D}) --- позасистемна одиниця вимірювання
 		електричного дипольного моменту молекул. Одиниця виміру названа на честь фізика П. Дебая.
 		\begin{equation*}
@@ -109,9 +106,8 @@
 		\end{equation*}
 		Більшість полярних молекул має дипольний момент порядку $1$ Д. Одиниця застосовується у
 		фізичній хімії, атомній і молекулярній фізиці.
-	\end{block}
-
-	\begin{overprint}\centering\small
+	\end{exampleblock}
+	\begin{overprint}\centering
 		\onslide<1>
 		\input{tikz/moleculedipole.tikz}
 		\onslide<2>
@@ -136,13 +132,12 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Виникнення дипольного моменту неполярних молекул}
-	\begin{block}{}\justifying\small
+	\begin{block}{}\justifying
 		\alert{Неполярні молекули} --- це молекули, в яких електричні заряди розподілені
 		рівномірно, і
 		відсутній постійний дипольний момент. У таких молекулах атоми зазвичай мають однакову або
 		близьку електронегативність, тому електрони діляться рівномірно між атомами.
 	\end{block}
-
 	\begin{columns}
 		\begin{column}{0.5\linewidth}\centering
 			\begin{tikzpicture}
@@ -151,7 +146,7 @@
 				\draw[ball color=blue!50, opacity=0.5] (O) circle (1);
 				\node[text=blue] at (135:0.6) {$-$};
 			\end{tikzpicture}
-			\begin{block}{}\centering\scriptsize
+			\begin{block}{}\centering
 				Дипольний момент без зовнішнього поля $p = 0$.
 			\end{block}
 		\end{column}
@@ -167,12 +162,12 @@
 						\draw[->, red, opacity=0.3] (-3, \y) -- ++(5, 0);
 					}
 			\end{tikzpicture}
-			\begin{block}{}\centering\scriptsize
+			\begin{block}{}\centering
 				Дипольний момент виник під дією зовнішнього поля $p \neq 0$.
 			\end{block}
 		\end{column}
 	\end{columns}
-	\begin{block}{} \justifying\small
+	\begin{block}{} \justifying
 		Прикладом неполярних молекул є кисень (\ce{O2}), азот (\ce{N2}), метан (\ce{CH4}) атоми
 		інертних газів.
 	\end{block}
@@ -182,14 +177,14 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Поляризація діелектриків}{}\small%
+\begin{frame}{Поляризація діелектриків}{}%
 	\framesubtitle<1,2>{Полярні діелектрики}%
 	\framesubtitle<3,4>{Неполярні діелектрики}%
 	\framesubtitle<5,6>{Вектор поляризації}%
 	\vspace*{-2em}
 	\begin{overprint}
 		\onslide<1-6>
-		\begin{block}{}\justifying\small
+		\begin{block}{}\justifying
 			\alert{Поляризація} --- це просторовий \alert{перерозподіл зв'язаних зарядів}, що
 			призводить до виникнення об'ємного дипольного моменту середовища. Поляризація може виникати
 			як під дією електричних полів, так і під впливом інших зовнішніх чинників.
@@ -332,7 +327,7 @@
 		електрострикція.
 	\end{block}
 
-	\begin{block}{}\justifying\footnotesize
+	\begin{block}{}\justifying
 		Особливості електрострикції:
 		\begin{enumerate}
 			\item Електрострикція не розрізняє напрямку поля --- якщо змінити напрям електричного поля,
@@ -359,7 +354,7 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Вектор поляризації (поляризованість)}{}\small
+\begin{frame}{Вектор поляризації (поляризованість)}{}
 	\begin{block}{}\justifying
 		\alert{Вектор поляризації (поляризованість)} --- це дипольний момент одиниці об'єму
 		речовини (густина дипольного моменту):
@@ -383,7 +378,7 @@
 	\end{block}
 
 
-	\begin{alertblock}{}\justifying\scriptsize
+	\begin{alertblock}{}\justifying
 		Є діелектрики, для яких $\vect{P} \neq \chi \Efield$. Це деякі іонні кристали й
 		електрети, а також сегнетоелектрики.
 	\end{alertblock}
@@ -394,13 +389,13 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Властивості вектора поляризації}{}
-	\begin{block}{}
+	\begin{block}{}\justifying
 		Поляризація називається \alert{однорідною}, якщо вектор поляризації $\vect{P}$ є
 		постійним за об'ємом речовини: $\vect{P} = \const$, і \alert{неоднорідною}, якщо
 		$\vect{P}$ змінюється від точки до точки.
 	\end{block}
 	\begin{onlyenv}<1>
-		\begin{block}{}\justifying\small
+		\begin{block}{}\justifying
 			Нехай поляризація \alert{однорідна}. Розглянемо косокутний паралелепіпед, вирізаний із
 			поляризованої речовини. Якщо $S$ --- площа бічної грані, а $\ell$ ---  довжина паралелепіпеда,
 			то його об'єм
@@ -411,11 +406,9 @@
 			На гранях паралелепіпеда розташовані поверхневі заряди з густиною $\sigma$, його дипольний
 			момент  $\vect{p} = \sigma S \vect{\ell}$.
 		\end{block}
-
-		\vspace*{1em}
 		\begin{columns}
-			\begin{column}{0.4\linewidth}\centering
-				\begin{tikzpicture}[>=latex, scale=0.7, transform shape]
+			\begin{column}{0.45\linewidth}\centering
+				\begin{tikzpicture}[>=latex, scale=0.65, transform shape]
 					\path (0, 0) pic{parallelepiped={a=3, phi=70, xz face={fill=white}, xy face={fill=white},
 									yz face={fill=blue!50}}};
 
@@ -433,7 +426,8 @@
 					\draw (C) ++(0:1.2) arc(0:-20:1.2) node[pos=0.5, right] {$\theta$};
 				\end{tikzpicture}
 			\end{column}
-			\begin{column}{0.6\linewidth}
+            \quad
+			\begin{column}{0.55\linewidth}
 				Вектор поляризації дорівнює:
 				\begin{equation*}
 					\vect{P} = \frac{\vect{p}}{V} = \frac{\sigma S \vect{\ell}}{S\ell\cos\theta}, \quad
@@ -443,7 +437,7 @@
 		\end{columns}
 	\end{onlyenv}
 	\begin{onlyenv}<2-4>
-		\begin{block}{}
+		\begin{block}{}\justifying
 			Нехай тепер поляризація \alert{неоднорідна}. Розглянемо в речовині деякий об'єм
 			довільної форми.
 		\end{block}
@@ -459,6 +453,7 @@
 						}
 				\end{tikzpicture}
 			\end{column}
+            \quad
 			\begin{column}{0.6\linewidth}
 				\begin{overprint}
 					\onslide<2>
@@ -505,7 +500,7 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Вектор електричної індукції $\vect{D}$}{}\small
+\begin{frame}{Вектор електричної індукції $\vect{D}$}{}
 	\begin{onlyenv}<1>
 		\begin{block}{}\justifying
 			Електричне поле в створюють не лише вільні, а і поляризаційні заряди. У загальному випадку в
@@ -587,7 +582,7 @@
 		виявляється $\chi > 0$, а тому і $\epsilon > 0$.
 	\end{block}
 	\begin{columns}
-		\begin{column}{0.25\linewidth}\centering
+		\begin{column}{0.45\linewidth}\centering
 			\begin{tikzpicture}[>=latex]
 				\fill[gray!50] (0, 0) circle (1.5);
 				\node[circle, ball color=red!50, inner sep=1pt, text=white, font=\scriptsize] (Q) at (0,0)
@@ -597,8 +592,8 @@
 					}
 			\end{tikzpicture}
 		\end{column}
-		\begin{column}{0.75\linewidth}
-			\begin{block}{}\justifying\footnotesize
+		\begin{column}{0.55\linewidth}
+			\begin{block}{}\justifying\small
 				Розглянемо точковий заряд $Q$ вміщений в нескінченний діелектрик з проникністю
 				$\epsilon$.
 				Скориставшись теоремою Гаусса для вектора $\Dfield$ знайдемо поле в діелектрику:
@@ -621,7 +616,7 @@
 	\begin{onlyenv}<1>
 		\begin{columns}
 			\begin{column}{0.6\linewidth}
-				\begin{block}{}\scriptsize\justifying
+				\begin{block}{}\justifying
 					Застосуємо теорему Гауса до нескінченно малого циліндра, що охоплює частину межі
 					розділу двох
 					середовищ. Вважаючи $d\vect{S}_1 = - d\vect{S}_2$, $q = \sigma dS$,
@@ -634,7 +629,7 @@
 				\input{tikz/bc1.tikz}
 			\end{column}
 		\end{columns}
-		\begin{block}{}\scriptsize
+		\begin{block}{}
 			\begin{equation*}
 				\oiint_S \Dfield\cdot d\vect{S} = 4\pi\sigma\ \Rightarrow  \Dfield\cdot
 				d\vect{S}_1 +
@@ -649,7 +644,7 @@
 				}
 			\end{equation*}
 		\end{block}
-		\begin{alertblock}{}\justifying\scriptsize
+		\begin{alertblock}{}\justifying
 			Нормальна складова вектора $\Dfield$ зазнає стрибка при
 			переході через границю розділу діелектриків, якщо на ній є вільні заряди. Якщо вільних
 			зарядів на границі розділу нема, то $D_{1n} = D_{2n}$ і стрибка не буде.
@@ -658,7 +653,7 @@
 	\begin{onlyenv}<2>
 		\begin{columns}
 			\begin{column}{0.6\linewidth}
-				\begin{block}{}\scriptsize\justifying
+				\begin{block}{}\justifying
 					Застосуємо теорему про циркуляцію до нескінченно малого прямокутного
 					контуру $L$, що проходить на нескінченно малій відстані над і під поверхнею
 					розділу середовищ. Вважаючи, що $d\vect{r}_1 = -d\vect{r}_2$, маємо
@@ -668,7 +663,7 @@
 				\input{tikz/bc2.tikz}
 			\end{column}
 		\end{columns}
-		\begin{block}{}\scriptsize
+		\begin{block}{}
 			\begin{equation*}
 				\oint\limits_L \Efield\cdot d\vect{r} = 0 \Rightarrow \Efield_1 d\vect{r}_1 +
 				\Efield_2 d\vect{r}_2 = 0
@@ -682,7 +677,7 @@
 				}
 			\end{equation*}
 		\end{block}
-		\begin{alertblock}{}\justifying\scriptsize
+		\begin{alertblock}{}\justifying
 			Тангенціальна складова $\Efield$ виявляється однаковою по обидва боки границі розділу
 			(не
 			зазнає стрибка).
@@ -693,7 +688,7 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Заломлення силових ліній на границі діелектрика}{}\small
+\begin{frame}{Заломлення силових ліній на границі діелектрика}{}
 	\begin{block}{}\justifying
 		Лінії векторів $\Efield$ і $\Dfield$ на границі розділу двох
 		діелектриків заломлюються.
@@ -701,7 +696,7 @@
 	\begin{columns}
 		\begin{column}{0.55\linewidth}\centering
 			\begin{tikzpicture}[>=latex,
-					scale=0.75,
+					scale=0.7,
 					transform shape,
 					pencildraw/.style={ %
 							decorate,
@@ -766,7 +761,7 @@
 
 			\end{tikzpicture}
 		\end{column}
-		\begin{column}{0.45\linewidth}\scriptsize
+		\begin{column}{0.45\linewidth}
 			Граничні умови для вектора $\Efield$
 			\begin{equation*}
 				\begin{cases}
@@ -852,7 +847,7 @@
 	\vspace*{-2em}
 	\begin{overprint}
 		\onslide<1>
-		\begin{block}{}\justifying\small
+		\begin{block}{}\justifying
 			За розподілом Больцмана, число молекул в одиничному тілесному куті, які напрямлені під кутом
 			$\theta$ до поля $\Efield$:
 			\begin{equation*}
@@ -988,7 +983,7 @@
 				поляризацію}.
 		\end{block}
 
-		\begin{block}{}\justifying\scriptsize
+		\begin{block}{}\justifying\small
 			Кварц та інші форми діоксиду кремнію є природними електретами. Сьогодні більшість
 			електретів виготовляють із синтетичних полімерів, наприклад, фторопластів,
 			поліпропілену,
@@ -1010,19 +1005,20 @@
 
 	\begin{columns}
 		\begin{column}{0.7\linewidth}
-			\begin{block}{}\justifying\small
+			\begin{block}{}\justifying
 				\alert{Домен} --- це локальна область усередині сегнетоелектрика, де дипольні моменти
 				орієнтовані в одному й тому самому напрямку. У кожному домені поляризація постійна і спрямована
 				в один бік. Розміри від кількох до сотень мікрометрів.
 			\end{block}
 		\end{column}
+        \quad
 		\begin{column}{0.3\linewidth}\centering
 			\includegraphics[width=1\linewidth]{domains}
 		\end{column}
 	\end{columns}
 
 
-	\begin{block}{}\scriptsize\justifying
+	\begin{block}{}\small\justifying
 		Відомі сегнетоелектрики.
 		\begin{itemize}
 			\item Титанат барію (\ce{BaTiO3}).
@@ -1058,7 +1054,7 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Гістерезис в сегнетоелектриках}{}\small
+\begin{frame}{Гістерезис в сегнетоелектриках}{}
 	\begin{block}{}\justifying
 		\alert{Гістерезис} --- неоднозначна петлеподібна залежність поляризації сегнетоелектриків від
 		зовнішнього електричного поля $\Efield$ за його циклічної зміни.
@@ -1091,14 +1087,14 @@
 				\node[below right, text=red] at (Ed) {$E_c$};
 			\end{tikzpicture}
 		\end{column}
-		\begin{column}{0.8\linewidth}
+		\begin{column}{0.5\linewidth}
 			\begin{figure}
 				\includegraphics[width=0.5\linewidth]{domains}
 				\caption{\centering\scriptsize Доменна структура сегнетоелектрика}
 			\end{figure}
 		\end{column}
 	\end{columns}
-	\begin{enumerate}\justifying\scriptsize
+	\begin{enumerate}\justifying\small
 		\item За високого електричного поля $ E $, поляризація досягає насичення і поводить себе як
 		      діелектрик у якого $P \propto E$.
 		\item  Поле зменшується до нуля $E = 0$, але поляризація $ P_r $ залишається.
@@ -1133,7 +1129,7 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Підсумки}{}\small
+\begin{frame}{Підсумки}{}
 \begin{tblr}{
 colspec={Q[c,l]Q[mode=dmath]}
 }

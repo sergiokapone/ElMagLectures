@@ -265,33 +265,29 @@
 			\end{tikzpicture}
 		\end{column}
 		\begin{column}{0.65\linewidth}
-			\begin{onlyenv}<1>
-				\begin{block}{}\justifying
-					Якщо в просторі, де розташований контур зі
-					струмом $I$, немає феромагнетиків, поле $\Bfield$, а отже, і повний
-					магнітний потік $\Phi$ через контур будуть пропорційні силі
-					струму $I$:
-					\begin{equation*}
-						\Phi = \frac1c L I
-					\end{equation*}
-				\end{block}
-			\end{onlyenv}
-			\begin{onlyenv}<2>
-				\begin{block}{}\justifying
-					При зміні сили струму в контурі згідно закону Фарадея виникає ЕРС самоіндукції:
-					\begin{equation*}
-						\mathcal{E}_\text{si} = - L\frac{dI}{dt}
-					\end{equation*}
-					{\scriptsize Тут знак мінус показує, що $\mathcal{E}$ завжди спрямована так, щоб перешкоджати зміні сили струму відповідно до
-					правила Ленца. Ця ЕРС прагне зберегти струм незмінним: вона протидіє струму, коли він збільшується, і підтримує струм, коли він
-					зменшується.}
-				\end{block}
-			\end{onlyenv}
+			\begin{block}{}\justifying
+				Якщо в просторі, де розташований контур зі
+				струмом $I$, немає феромагнетиків, поле $\Bfield$, а отже, і повний
+				магнітний потік $\Phi$ через контур будуть пропорційні силі
+				струму~$I$:
+				\begin{equation*}
+					\Phi = \frac1c L I
+				\end{equation*}
+				$L$ --- називається \alert{індуктивністю контуру}.
+			\end{block}
 		\end{column}
 	\end{columns}
-	\begin{block}{}
-		Коефіцієнт $L$ називається \alert{індуктивністю контуру}.
+	\begin{block}{}\justifying
+		При зміні сили струму в контурі згідно закону Фарадея виникає ЕРС самоіндукції:
+		\begin{equation*}
+			\mathcal{E}_\text{si} = - L\frac{dI}{dt}
+		\end{equation*}
 	\end{block}
+	\begin{alertblock}{}\justifying\scriptsize
+		Знак мінус показує, що $\mathcal{E}$ завжди спрямована так, щоб перешкоджати зміні сили струму відповідно до
+		правила Ленца. Ця ЕРС прагне зберегти струм незмінним: вона протидіє струму, коли він збільшується, і підтримує струм, коли він
+		зменшується.
+	\end{alertblock}
 \end{frame}
 % ===========================================================================
 
@@ -406,7 +402,7 @@
 				\end{block}
 			\end{column}
 		\end{columns}
-		\begin{block}{}\justifying\footnotesize
+		\begin{block}{}\justifying\small
 			Якщо $R \gg r$, то $\mathcal{E}_\text{si} = \frac{R}{r}\mathcal{E}e^{-\frac{R}{L}t}$.  При розмиканні ця величина може
 			значно перевершити ЕРС батареї, тобто може статись пробій, що спостерігається під час вимкнення струму в колах з великими
 			індуктивностями.
@@ -474,15 +470,15 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Розрахунок коефіцієнтів взаємної індуктивності}{}
-	\begin{exampleblock}{\small Приклад}\justifying\scriptsize
+\begin{frame}{Розрахунок коефіцієнтів взаємної індуктивності}{}\small
+	\begin{exampleblock}{Приклад}\justifying
 		Довгий парамагнітний циліндр об'ємом $V$ має дві обмотки (одна на іншій). Одна обмотка містить $n_1$ витків на одиницю довжини, інша ---
 		$n_2$. Знайдемо їхню взаємну індуктивність, нехтуючи крайовими ефектами.
 	\end{exampleblock}
 
 	\begin{overprint}
 		\onslide<1>
-		\begin{block}{\small Розв'язок}\justifying\scriptsize
+		\begin{block}{Розв'язок}\justifying
 			Оскільки $L_{21} = \Phi_2 / I_1$. Це означає, що ми повинні створити струм $I_1$ в обмотці $1$ і обчислити повний магнітний потік через всі витки
 			обмотки $2$. Якщо в обмотці $2$ міститься $N_2$ витків, то
 			\[
@@ -502,7 +498,7 @@
 			\]
 		\end{block}
 		\onslide<2>
-		\begin{block}{\small Зауваження}\justifying\scriptsize
+		\begin{block}{Зауваження}\justifying
 			В розглянутому прикладі коефіцієнти індуктивності задовольняють співвідношенням:
 			\begin{equation*}
 				L_{21} = L_{12} = \sqrt{L_1L_2}
@@ -543,12 +539,12 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Задачі на застосування теореми взаємності}{}\scriptsize
-	\begin{exampleblock}{\small Задача 1}\justifying
+\begin{frame}{Задачі на застосування теореми взаємності}{}\small
+	\begin{exampleblock}{Задача 1}\justifying
 		Два тонкі колові провідники, осі яких співпадають, лежать в одній площині. Радіус зовнішнього провідника $R_1$ внутрішнього $R_2$ ($R_2 \ll
 			R_1$). Знайдіть магнітний потік, що пронизує площу зовнішнього провідника, якщо по внутрішньому провіднику тече струм~$I$.
 	\end{exampleblock}
-	\begin{exampleblock}{\small Задача 2}\justifying
+	\begin{exampleblock}{Задача 2}\justifying
 		Магнітний диполь з моментом $p_m$ обертається з частотою $\omega$ навколо осі, яка проходить через його центр і перпендикулярна магнітному моменту
 		(див. рис.). Знайти струм в плоскому нерухомому кільці радіусом $a$ з опором $R$, яке знаходиться на відстані $l \gg a$ від
 		диполя. Нормаль $\vect{n}$ до площини кільця перпендикулярна осі обертання диполя. Самоіндукцією рамки знехтувати.
@@ -607,13 +603,13 @@
 				\begin{block}{}\justifying
 					Первинна і вторинна обмотки з $N_1$ і $N_2$ витками укріплені на замкнутому залізному осерді. Змінна напруга $\mathcal{E}_1$ у первинній
 					обмотці створює струм $I_1$ і змінний магнітний потік $\Phi$, локалізований в осерді. Потік пронизує витки вторинної обмотки, викликаючи ЕРС
-					взаємної індукції, а в первинній — ЕРС самоіндукції.
+					взаємної індукції, а в первинній --- ЕРС самоіндукції.
 				\end{block}
 			\end{column}
 		\end{columns}
 	\end{onlyenv}
 	\begin{onlyenv}<2>
-		\begin{block}{}\small\justifying
+		\begin{block}{}\justifying
 			Струм $I_1$ у первинній обмотці визначається за законом Ома:
 			\begin{equation*}
 				\mathcal{E}_1 - \frac{d}{dt}(N_1\Phi) = I_1R_1.
@@ -629,7 +625,7 @@
 			\end{equation*}
 			Відношення $\eta = \frac{N_2}{N_1}$ називається \alert{коефіцієнтом трансформації}.
 		\end{block}
-		\begin{block}{}\justifying\scriptsize
+		\begin{block}{}\justifying
 			Якщо $\eta > 1$, то це підвищувальний трансформатор, що збільшує ЕРС і зменшує струм.
 
 			\smallskip
@@ -653,7 +649,7 @@
 	\begin{onlyenv}<1>
 		\begin{block}{}\justifying
 			Провідник зі струмом створює магнітне поле, яке з'являється та зникає разом зі струмом. \alert{Магнітне поле є носієм енергії}, що дорівнює
-			роботі струму на його створення. Розглянемо роботу, яку виконує джерело при замиканні ключа в колі по переміщенню заряду $dq = Idt$:
+			роботі струму на його створення.
 		\end{block}
 		\begin{columns}
 			\begin{column}{0.3\linewidth}\centering
@@ -667,6 +663,7 @@
 			\end{column}
 			\begin{column}{0.7\linewidth}
 				\begin{block}{}\justifying
+                    Розглянемо роботу, яку виконує джерело при замиканні ключа в колі по переміщенню заряду\\ $dq = Idt$:
 					\begin{multline*}
 						\delta A = \mathcal{E} dq = I^2Rdt - \mathcal{E}_\text{si}Idt = \\
 						= \underbrace{I^2Rdt}_\text{Теплота} +
@@ -678,17 +675,16 @@
 		\end{columns}
 		\begin{block}{}\justifying
 			Енергія магнітного поля:
-			\(
-			W = \frac1{c^2}\int\limits_0^I LIdI = \frac1{c^2}\frac{LI^2}{2} = \frac1c I\Phi = \frac{\Phi^2}{2L}.
-			\)
+            \begin{equation*}
+    			W = \frac1{c^2}\int\limits_0^I LIdI = \frac1{c^2}\frac{LI^2}{2} = \frac1c I\Phi = \frac{\Phi^2}{2L}.
+            \end{equation*}
 		\end{block}
 	\end{onlyenv}
 	\begin{onlyenv}<2-3>
 		\begin{block}{}
 			Енергію магнітного поля визначається через характеристики поля.
 		\end{block}
-		\vspace*{-2ex}
-		\begin{columns}\small
+		\begin{columns}
 			\begin{column}{0.25\linewidth}\centering
 				\includegraphics[width=0.75\linewidth]{tikz/Solenoid.pdf}
 			\end{column}
@@ -708,7 +704,6 @@
 			\end{column}
 		\end{columns}
 	\end{onlyenv}
-	\vspace*{-2ex}
 	\begin{overprint}
 		\onslide<2>
 		\begin{block}{}\justifying
@@ -724,7 +719,6 @@
 			\(
 			\tcbhighmath{w =  \frac{BH}{8\pi}.}
 			\)\\[1ex]
-
 			\alert{Магнітна енергія зосереджена в об'ємі соленоїда --- в тій області простору, де присутнє магнітне поле}.
 		\end{block}
 	\end{overprint}
@@ -795,7 +789,7 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Пондеромоторні сили в магнітному полі}{}\small
+\begin{frame}{Пондеромоторні сили в магнітному полі}{}
 	\framesubtitle<1>{Закон збереження енергії}
 	\begin{center}
 		\begin{tikzpicture}[]
@@ -866,7 +860,7 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Підйомна сила електромагніта}{}\small
+\begin{frame}{Підйомна сила електромагніта}{}
 	\begin{columns}
 		\begin{column}{0.25\linewidth}
 			\includegraphics[width=\linewidth]{electromagnet_force}
