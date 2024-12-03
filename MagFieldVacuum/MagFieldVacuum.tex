@@ -528,13 +528,13 @@
 		\end{column}
 		\begin{column}{0.5\linewidth}\centering
 			\begin{tikzpicture}[>=latex, scale=0.7, transform shape]
-				\draw [in=-105, out=75, looseness=1.25, line width=4pt, gray!50] (-1, -1) coordinate (A) to (2, 2) coordinate (B);
-				\draw[fill=gray!50, ultra thin, rotate around={-10:(B)}] (B) circle(2pt and 0.75pt);
-				\draw[fill=gray!50, ultra thin, rotate around={-10:(A)}] (A) circle(2pt and 0.75pt);
+				\draw [in=-105, out=75, looseness=1.25, line width=12pt, gray!50] (-1, -1) coordinate (A) to (2, 2) coordinate (B);
+				\draw[fill=gray!50, ultra thin, rotate around={-10:(B)}] (B) circle(8.5pt and 2pt);
+				\draw[fill=gray!50, ultra thin, rotate around={-10:(A)}] (A) circle(8.5pt and 2pt);
 				\draw[thick, green!50!black] (0, 0) circle(1 and 0.3);
 				\begin{scope}
-					\clip (0,0) rectangle (1,1);
-					\draw [in=-105, out=75, looseness=1.25, line width=4pt, gray!50] (-1, -1) coordinate (A) to (2, 2) coordinate (B);
+					\clip (-1,0) rectangle (1,1);
+					\draw [in=-105, out=75, looseness=1.25, line width=12pt, gray!50] (-1, -1) to (2, 2) ;
 				\end{scope}
 				\draw[red!20, pattern=crosshatch, pattern color=red!20] (-1,0) to[out=85, in=45, looseness=3] node[pos=0.2, above, text=red]
 				{$S$} (1, 0) arc(0:-180:1 and 0.3) ;
