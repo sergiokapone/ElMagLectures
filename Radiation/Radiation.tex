@@ -3,7 +3,7 @@
 % !TeX spellcheck = uk_UA
 % !BIB program = bibler
 
-\documentclass[9pt]{beamer}
+\documentclass[onlytextwidth]{beamer}
 \usetheme{Electromagnetism}
 \usepackage{Electromagnetism}
 \usepackage{physics}
@@ -18,6 +18,7 @@
 \title[Лекції електрики та магнетизму]{\huge\bfseries Випромінювання електромагнітних хвиль}
 \subtitle{Лекції з електрики та магнетизму}
 \author{Пономаренко С. М.}
+\date{}
 %============================================================================
 \graphicspath{{pictures/}}
 \begin{document}
@@ -30,6 +31,7 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Потенціали електромагнітного поля}{Калібрувальні перетворення}
+\begin{block}{}\justifying
 	Задачу про випромінювання електромагнітних хвиль зручно розглядати за допомогою електромагнітних потенціалів $ \phi $ та $ \vect{A} $.
 	\begin{align*}
 		\divg\Bfield = 0                            & \Rightarrow \Bfield = \rot\vect{A},                                     \\
@@ -41,7 +43,9 @@
 		\vect{A}' & = \vect{A} + \vect{\nabla} f,  \\
 		\phi'     & = \phi - \frac1c \parttime{f},
 	\end{align*}
-	де $ f (x,y,z,t)$ --- довільна функція координат та часу, то спостережувані величини --- поля $ \Efield $ та $ \Bfield $ при таких перетвореннях не зміняться. Такі перетворення називаються \emph{калібрувальними перетвореннями}.
+	де $ f (x,y,z,t)$ --- довільна функція координат та часу, то спостережувані величини --- поля $ \Efield $ та $ \Bfield $ при таких перетвореннях не
+	зміняться. Такі перетворення називаються \alert{калібрувальними перетвореннями}.
+\end{block}
 \end{frame}
 % ===========================================================================
 
@@ -62,7 +66,6 @@
 	\begin{equation*}
 		\nabla^2\vect{A} - \frac{ \epsilon\mu }{c^2} \pparttime{\vect{A}} = - \frac{4\pi\mu}{c}\vect{j} + \vect{\nabla}\left( \divg\vect{A} + \frac{\epsilon\mu}{c} \parttime\phi\right)
 	\end{equation*}
-
 	\begin{overprint}
 		\onslide<1>
 		Користуючись неоднозначністю потенціалів, визначених з
@@ -151,28 +154,30 @@
 		\end{equation*}}
 	%---------------------------------------------------------
 	\begin{center}
-		\begin{tikzpicture}[scale=0.65, every node/.style={transform shape}]
-			\pgfmathsetseed{90}
-			\fill[gray!20] plot [smooth cycle, samples=8,domain={1:8}] (\x*360/8+6*rnd:1cm+2cm*rnd);
-			\coordinate (O) at (0,0);
-			\draw[-latex] (O) -- +(3,0) node[below] {$y$};
-			\draw[-latex] (O) -- +(0,3) node[left] {$z$};
-			\draw[-latex] (O) -- +(225:2.5) node[left] {$x$};
-			\node[below] at (O) {$O$};
+		\begin{pict}
+			\begin{tikzpicture}[scale=0.65, every node/.style={transform shape}]
+				\pgfmathsetseed{90}
+				\fill[gray!20] plot [smooth cycle, samples=8,domain={1:8}] (\x*360/8+6*rnd:1cm+2cm*rnd);
+				\coordinate (O) at (0,0);
+				\draw[-latex] (O) -- +(3,0) node[below] {$y$};
+				\draw[-latex] (O) -- +(0,3) node[left] {$z$};
+				\draw[-latex] (O) -- +(225:2.5) node[left] {$x$};
+				\node[below] at (O) {$O$};
 
-			\node[circle, fill=black, inner sep=0.025cm] (P) at (25:10) {};
-			\node[right=10pt, font=\small, text width=2.5cm, align=center] at (P) {Поля в момент часу $ t $};
-			\node[below] at (P) {$ P $};
+				\node[circle, fill=black, inner sep=0.025cm] (P) at (25:10) {};
+				\node[right=10pt, font=\small, text width=2.5cm, align=center] at (P) {Поля в момент часу $ t $};
+				\node[below] at (P) {$ P $};
 
-			\node[ball color=gray!50, opacity=0.5, minimum size=0.1] (V) at (125:1.5) {};
-			\node[above=10pt, opacity=1] at (V) {$dV'$};
-			\draw[-latex] (O) --  node[pos=0.5, anchor=north east] {$\vect{r'}(t - \tau)$} (V);
-			\draw[-latex] (O) -- node[pos=0.5, below] {$\vect{r}$} (P);
-			\draw[-latex] (V) -- (P) node[pos=0.45, above, sloped] {$\vect{r} - \vect{r'}(t - \tau)$};
+				\node[ball color=gray!50, opacity=0.5, minimum size=0.1] (V) at (125:1.5) {};
+				\node[above=10pt, opacity=1] at (V) {$dV'$};
+				\draw[-latex] (O) --  node[pos=0.5, anchor=north east] {$\vect{r'}(t - \tau)$} (V);
+				\draw[-latex] (O) -- node[pos=0.5, below] {$\vect{r}$} (P);
+				\draw[-latex] (V) -- (P) node[pos=0.45, above, sloped] {$\vect{r} - \vect{r'}(t - \tau)$};
 
-			\draw[decorate, decoration=snake, red, ultra thin] (V) -- (P);
+				\draw[decorate, decoration=snake, red, ultra thin] (V) -- (P);
 
-		\end{tikzpicture}
+			\end{tikzpicture}
+		\end{pict}
 
 		\begin{block}{}\justifying\small
 			Поля у точці спостереження $ P $ в момент $ t $ залежать від того положення, яке заряди $ dV' $ займали у раніший момент часу $ t' = t - \frac{|\vect{r} - \vect{r}'|}{v} $. Де $ \tau =  \frac{|\vect{r} - \vect{r}'|}{v}$ --- час, необхідний. щоб збурення поля дійшло до точки $ P $.
@@ -307,7 +312,7 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Зауваження після виведення}{}\scriptsize
+\begin{frame}{Зауваження після виведення}{}\small
 	\begin{block}{}
 		В формулі
 		\begin{equation*}
@@ -342,10 +347,14 @@
 
 	Розглянемо електронейтральну систему --- електричний диполь, який є елементарним вимпромінювачем електромагнітних хвиль.
 	\begin{center}
+\begin{pict}
 		\begin{tikzpicture}
-			\draw[thick, red, double, -stealth] (0,-0.5) node[right, font=\scriptsize] {диполь в момент часу $ t' =  t - \frac{r}{c} $} -- ++(0,1) node[left] {$\vect{p}_0$};
-			\draw[-latex] (0,0) -- node[anchor=south east] {$\vect{r}$} node[below, sloped] {$ \Delta t = r/c $} (25:4) node[right, font=\scriptsize] {Поля в момент часу $ t $};
+			\draw[thick, red, double, -stealth] (0,-0.5) node[right, font=\scriptsize] {диполь в момент часу $ t' =  t - \frac{r}{c} $} -- ++(0,1)
+			node[left] {$\vect{p}_0$};
+			\draw[-latex] (0,0) -- node[anchor=south east] {$\vect{r}$} node[below, sloped] {$ \Delta t = r/c $} (25:4) node[right, font=\scriptsize]
+			{Поля в момент часу $ t $};
 		\end{tikzpicture}
+\end{pict}
 	\end{center}
 
 	Дипольний момент $ \vect{p} $ змінюється за гармонічним законом:
@@ -401,7 +410,7 @@
 		$ \vect{P} = \frac{\vect{p}_0 e^{i\omega (t - r/c)}}{r} $, а поля змінюватимуться за законами (в сферичних координатах):
 	\end{block}
 	%---------------------------------------------------------
-	\begin{minipage}{0.7\linewidth}\centering
+	\begin{minipage}{0.6\linewidth}\centering
 		\begin{align*}\small
 			B_{\phi}   & = \frac{i\omega}{c}\sin\theta\left( \frac1r + \frac{i\omega}{c}\right) P,                \\
 			E_r        & = 2\cos\theta\left( \frac{1}{r^2} + \frac{i\omega}{cr}\right) P,                         \\
@@ -409,7 +418,8 @@
 		\end{align*}
 	\end{minipage}%
 	%---------------------------------------------------------
-	\begin{minipage}{0.3\linewidth}\centering
+	\begin{minipage}{0.4\linewidth}\centering
+\begin{pict}
 		\tdplotsetmaincoords{60}{110}
 		%
 		\pgfmathsetmacro{\rvec}{.8}
@@ -440,6 +450,7 @@
 			\draw[thick,tdplot_rotated_coords,->, green!50!black] (0,0,0)
 			-- (0,0,.25) node[anchor=south]{$\vec{e}_{r}$};
 		\end{tikzpicture}
+\end{pict}
 	\end{minipage}
 	%---------------------------------------------------------
 \end{frame}
@@ -460,7 +471,7 @@
 
 	\begin{overprint}
 		\onslide<1>
-		\begin{block}{}
+		\begin{block}{}\justifying
 			В кожен момент часу $ t $ електричне поле поблизу
 			зі осцилятора збігається з полем статичного диполя, дипольний момент якого дорівнює миттєвого значення моменту осцилятора $  p(t) $:
 			\begin{align*}
@@ -498,83 +509,90 @@
 		\begin{equation*}
 			\frac1r \ll \frac{\omega}c, \quad r \gg \frac{\lambda}{2\pi}
 		\end{equation*}
-		називається \emph{хвильовою зоною}.
+		називається \alert{хвильовою зоною}.
 	\end{block}
-	\vspace*{-1em}
 	\begin{columns}
-		\begin{column}{0.7\linewidth}
+		\begin{column}{0.59\linewidth}
+            \begin{block}{}
 			\begin{align*}
 				E_{\theta} & = B_{\phi} = -\frac{\omega^2\sin\theta}{c^2 r}p_0\cos\omega\left(t - \frac{r}{c} \right) = \\
 				           & = \frac{\sin\theta}{rc^2}  \ddot{p}\left(t - \frac{r}{c}\right),                           \\
 				E_r        & = E_{\phi} = B_r = B_{\theta} = 0 .
 			\end{align*}
+            \end{block}
 		\end{column}
-		\begin{column}{0.3\linewidth}
+		\begin{column}{0.4\linewidth}
 			\begin{overprint}
 				\onslide<1>
 				\begin{center}
-					\tdplotsetmaincoords{60}{110}
-					%
-					\pgfmathsetmacro{\rvec}{.8}
-					\pgfmathsetmacro{\thetavec}{30}
-					\pgfmathsetmacro{\phivec}{60}
-					%
-					\begin{tikzpicture}[scale=2.2,tdplot_main_coords, >=latex]
-						\coordinate (O) at (0,0,0);
-						\draw[thick,->] (0,0,0) -- (1,0,0) node[anchor=north east]{$x$};
-						\draw[thick,->] (0,0,0) -- (0,1,0) node[anchor=north west]{$y$};
-						\draw[thick,->] (0,0,0) -- (0,0,1) node[anchor=south]{$z$};
+					\begin{pict}
+						\tdplotsetmaincoords{60}{110}
+						%
+						\pgfmathsetmacro{\rvec}{.8}
+						\pgfmathsetmacro{\thetavec}{30}
+						\pgfmathsetmacro{\phivec}{60}
+						%
+						\begin{tikzpicture}[scale=2.0,tdplot_main_coords, >=latex]
+							\coordinate (O) at (0,0,0);
+							\draw[thick,->] (0,0,0) -- (1,0,0) node[anchor=north east]{$x$};
+							\draw[thick,->] (0,0,0) -- (0,1,0) node[anchor=north west]{$y$};
+							\draw[thick,->] (0,0,0) -- (0,0,1) node[anchor=south]{$z$};
 
-						\tdplotsetcoord{P}{\rvec}{\thetavec}{\phivec}
-						\draw[-stealth, green!50!black] (O) -- (P);
-						\draw[ultra thick, -stealth, red] (0,0,-0.15) -- (0,0,0.15) node[anchor=east]{$\vec{p}_0$};
-						\draw[dashed, color=red] (O) -- (Pxy);
-						\draw[dashed, color=red] (P) -- (Pxy);
-						\tdplotdrawarc{(O)}{0.2}{0}{\phivec}{anchor=north}{$\phi$}
-						\tdplotsetthetaplanecoords{\phivec}
-						\tdplotdrawarc[tdplot_rotated_coords]{(0,0,0)}{0.5}{0}%
-						{\thetavec}{anchor=south}{$\theta$}
-						\draw[dashed,tdplot_rotated_coords] (\rvec,0,0) arc (0:90:\rvec);
-						\draw[dashed] (\rvec,0,0) arc (0:90:\rvec);
-						\tdplotsetrotatedcoords{\phivec}{\thetavec}{0}
-						\tdplotsetrotatedcoordsorigin{(P)}
-						\draw[thick,tdplot_rotated_coords,->, red] (0,0,0)
-						-- (.25,0,0) node[anchor=north west, inner sep=0]{${E}_{\theta}$};
-						\draw[thick,tdplot_rotated_coords,->,blue] (0,0,0)
-						-- (0,.25,0) node[anchor=west, inner sep=0]{${B}_{\phi}$};
-						%                \draw[thick,tdplot_rotated_coords,->, green!50!black] (0,0,0)
-						%                -- (0,0,.25) node[anchor=south]{$\vec{e}_{r}$};
-					\end{tikzpicture}
+							\tdplotsetcoord{P}{\rvec}{\thetavec}{\phivec}
+							\draw[-stealth, green!50!black] (O) -- (P);
+							\draw[ultra thick, -stealth, red] (0,0,-0.15) -- (0,0,0.15) node[anchor=east]{$\vec{p}_0$};
+							\draw[dashed, color=red] (O) -- (Pxy);
+							\draw[dashed, color=red] (P) -- (Pxy);
+							\tdplotdrawarc{(O)}{0.2}{0}{\phivec}{anchor=north}{$\phi$}
+							\tdplotsetthetaplanecoords{\phivec}
+							\tdplotdrawarc[tdplot_rotated_coords]{(0,0,0)}{0.5}{0}%
+							{\thetavec}{anchor=south}{$\theta$}
+							\draw[dashed,tdplot_rotated_coords] (\rvec,0,0) arc (0:90:\rvec);
+							\draw[dashed] (\rvec,0,0) arc (0:90:\rvec);
+							\tdplotsetrotatedcoords{\phivec}{\thetavec}{0}
+							\tdplotsetrotatedcoordsorigin{(P)}
+							\draw[thick,tdplot_rotated_coords,->, red] (0,0,0)
+							-- (.25,0,0) node[anchor=north west, inner sep=0]{${E}_{\theta}$};
+							\draw[thick,tdplot_rotated_coords,->,blue] (0,0,0)
+							-- (0,.25,0) node[anchor=west, inner sep=0]{${B}_{\phi}$};
+							%                \draw[thick,tdplot_rotated_coords,->, green!50!black] (0,0,0)
+							%                -- (0,0,.25) node[anchor=south]{$\vec{e}_{r}$};
+						\end{tikzpicture}
+					\end{pict}
 				\end{center}
 				\onslide<2>
 				\begin{center}
-					\begin{tikzpicture}[>=stealth]
-						\draw[thick,color=blue,domain=0:2*pi,samples=200,smooth, name path=leaf] plot (xy polar cs:angle=\x r,radius= {1.5*abs(cos(\x r))});
-						\draw[->, red, ultra thick] (0,-1) -- (0,1) node[left] {$ \vec{p} $};
+					\begin{pict}
+						\begin{tikzpicture}[>=stealth]
+							\draw[thick,color=blue,domain=0:2*pi,samples=200,smooth, name path=leaf] plot (xy polar cs:angle=\x r,radius= {1.5*abs(cos(\x
+									r))});
+							\draw[->, red, ultra thick] (0,-1) -- (0,1) node[left] {$ \vec{p} $};
 
-                        \def\a{20}
-						\draw (0,0) ++ (0,0.5) arc[start angle=90, end angle=\a, radius=0.5] node[pos=0.6, anchor=south west] {$ \theta $};
-						\draw[name path=rule] (0,0) -- (\a:2);
+							\def\a{20}
+							\draw (0,0) ++ (0,0.5) arc[start angle=90, end angle=\a, radius=0.5] node[pos=0.6, anchor=south west] {$ \theta $};
+							\draw[name path=rule] (0,0) -- (\a:2);
 
 
-						\node[text width=2cm, font=\tiny, align=center, inner sep=0, gray] (TEXT) at (0.5,-1.6) {Довжина відрізка\\ дорівнює\\ величині поля};
+							\node[text width=2cm, font=\tiny, align=center, inner sep=0, gray] (TEXT) at (0.5,-1.6) {Довжина відрізка\\ дорівнює\\ величині
+								поля};
 
-						\path[name intersections={of=leaf and rule}] (intersection-1) coordinate (E);
+							\path[name intersections={of=leaf and rule}] (intersection-1) coordinate (E);
 
-						\draw[->, gray] (TEXT.100) to[out=90, in=-15] (0,0);
-						\draw[->, gray] (TEXT.80) to[out=90, in=270] (E);
-					\end{tikzpicture}
+							\draw[->, gray] (TEXT.100) to[out=90, in=-15] (0,0);
+							\draw[->, gray] (TEXT.80) to[out=90, in=270] (E);
+						\end{tikzpicture}
+					\end{pict}
 				\end{center}
 			\end{overprint}
 		\end{column}
 	\end{columns}
 	\begin{overprint}
 		\onslide<1>
-		\begin{alertblock}{}\scriptsize\justifying
+		\begin{alertblock}{}\justifying
 			У хвильовій зоні осцилятора електричне та магнітне полія чисельно дорівнюють один одному і спадають обернено пропорційно першій степені відстані від осцилятора.
 		\end{alertblock}
 		\onslide<2>
-		\begin{alertblock}{}\scriptsize\justifying
+		\begin{alertblock}{}\justifying
 			Напруженість поля також залежить від полярного
 			кута $\theta$ точки спостереження: на продовженні осі осцилятора ($ \theta = 0 $ і $ \theta = \pi $) поле дорівнює нулю, максимального ж
 			значення воно досягає в екваторіальній площині осцилятора ($ \theta = \pi/2 $). У кожній точці хвильової зони вектори $ \Efield $, $ \Bfield $ та $ \vect{r} $ взаємно перпендикулярні та утворюють правогвинтову систему.
@@ -591,7 +609,9 @@
 % ============================== Слайд ## ===================================
 \begin{frame}{Ближня та хвильова зони}{}
 	\begin{center}
-		\includegraphics[width=0.5\linewidth]{dipole_radiation}
+		\begin{pict}
+			\includegraphics[width=0.5\linewidth]{dipole_radiation}
+		\end{pict}
 	\end{center}
 	\begin{block}{}\justifying
 		В ближній зоні поле ніби <<причеплене>> до диполя, а у хвильовій зоні поле <<відривається>> від нього --- випромінюється.
@@ -608,7 +628,7 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Потужність, що випромінюється осцилятором}{}
-	\begin{block}{}\justifying\small
+	\begin{block}{}\justifying
 		Густина потоку електромагнітної енергії характеризується вектором Пойнтінга $ \vect{S} $. Тому потік електромагнітної, енергії крізь поверхню сфери радіусом $ r $, що оточує осцилятор, називається \emph{потужністю випромінювання}.
 	\end{block}
 	\vspace*{-1em}
@@ -632,95 +652,100 @@
 					\contourlength{1.3pt}
 					% 3D AXIS with spherical coordinates, dA
 					\tdplotsetmaincoords{60}{103}
-					\begin{tikzpicture}[scale=3,tdplot_main_coords, every node/.style={font=\scriptsize}]
+					\begin{pict}
+						\begin{tikzpicture}[scale=3,tdplot_main_coords, every node/.style={font=\scriptsize}]
 
-						% VARIABLE
-						\def\rvec{1.0}
-						\def\thetavec{35}
-						\def\phivec{45}
-						\def\dtheta{10}
-						\def\dphi{16}
-						%  \def\sphere#1#2#3{plot[domain=#1]({\rvec*sin(#2)*cos(#3)},{\rvec*sin(#2)*sin(#3)},{\rvec*cos(#2)})}
-						\contourlength{0.8pt}
+							% VARIABLE
+							\def\rvec{1.0}
+							\def\thetavec{35}
+							\def\phivec{45}
+							\def\dtheta{10}
+							\def\dphi{16}
+							%  \def\sphere#1#2#3{plot[domain=#1]({\rvec*sin(#2)*cos(#3)},{\rvec*sin(#2)*sin(#3)},{\rvec*cos(#2)})}
+							\contourlength{0.8pt}
 
-						% AXES
-						\coordinate (O) at (0,0,0);
+							% AXES
+							\coordinate (O) at (0,0,0);
 
-						\draw[thick,->] (0,0,0) -- (1.16*\rvec,0,0) node[left,below]{$x$};
-						\draw[thick,->] (0,0,0) -- (0,1.1*\rvec,0) node[below,right=0]{$y$};
-						\draw[thick,->] (0,0,0) -- (0,0,1.1*\rvec) node[above]{$z$};
+							\draw[thick,->] (0,0,0) -- (1.16*\rvec,0,0) node[left,below]{$x$};
+							\draw[thick,->] (0,0,0) -- (0,1.1*\rvec,0) node[below,right=0]{$y$};
+							\draw[thick,->] (0,0,0) -- (0,0,1.1*\rvec) node[above]{$z$};
 
-   						\draw[ultra thick, -latex, red] (0,0,-0.1) -- (0,0,0.1) node[left] {$ \vect{p}_0 $};
+							\draw[ultra thick, -latex, red] (0,0,-0.1) -- (0,0,0.1) node[left] {$ \vect{p}_0 $};
 
-						% COORDINATES
-						\tdplotsetcoord{P}{\rvec}{\thetavec}{\phivec}
-						\tdplotsetcoord{PB}{\rvec}{\thetavec+\dtheta}{\phivec}
-						\tdplotsetcoord{PR}{\rvec}{\thetavec}{\phivec+\dphi}
-						\tdplotsetcoord{PBR}{\rvec}{\thetavec+\dtheta}{\phivec+\dphi}
+							% COORDINATES
+							\tdplotsetcoord{P}{\rvec}{\thetavec}{\phivec}
+							\tdplotsetcoord{PB}{\rvec}{\thetavec+\dtheta}{\phivec}
+							\tdplotsetcoord{PR}{\rvec}{\thetavec}{\phivec+\dphi}
+							\tdplotsetcoord{PBR}{\rvec}{\thetavec+\dtheta}{\phivec+\dphi}
 
 
-						% CONE
-						\draw[veccol!20,very thin] (O)  -- (PBR);
-						\draw[veccol!20,very thin] (O)  -- (PR);
-						\draw[->,veccol] (O)  -- (P) node[below,left, text=black] {$\vect{r}$};
-						\draw[veccol,very thin] (O)  -- (PB);
+							% CONE
+							\draw[veccol!20,very thin] (O)  -- (PBR);
+							\draw[veccol!20,very thin] (O)  -- (PR);
+							\draw[->,veccol] (O)  -- (P) node[below,left, text=black] {$\vect{r}$};
+							\draw[veccol,very thin] (O)  -- (PB);
 
-						% PROJECTIONS
-						\draw[proj] %\thetavec+\dtheta
-						plot[domain=0:90]({\rvec*sin(\x)*cos(\phivec)},{\rvec*sin(\x)*sin(\phivec)},{\rvec*cos(\x)}) coordinate (BL);
-						\draw[proj]
-						plot[domain=0:90]({\rvec*sin(\x)*cos(\phivec+\dphi)},{\rvec*sin(\x)*sin(\phivec+\dphi)},{\rvec*cos(\x)}) coordinate (BR);
-						\draw[proj]
-						plot[domain=0:90]({\rvec*cos(\x)},{\rvec*sin(\x)},0);
-						\draw[proj] (O)  -- (BL); % PBxy
-						\draw[proj] (O)  -- (BR); % PBRxy
-						\draw[proj] (P)  -- (Pz);
-						\draw[gray] (PR)  -- (Pz) node[midway,above,rotate=-24] {\contour{white}{$r\sin\theta$}};
-						%\draw[proj,projcol!15,dashed] (P) -- (Pxy);
-						%\draw[proj,projcol!15,dashed] (PR) -- (PRxy);
-						%\draw[proj,projcol!15,dashed] (PB) -- (PBxy);
-						%\draw[proj,projcol!15,dashed] (PBR) -- (PBRxy);
+							% PROJECTIONS
+							\draw[proj] %\thetavec+\dtheta
+							plot[domain=0:90]({\rvec*sin(\x)*cos(\phivec)},{\rvec*sin(\x)*sin(\phivec)},{\rvec*cos(\x)}) coordinate (BL);
+							\draw[proj]
+							plot[domain=0:90]({\rvec*sin(\x)*cos(\phivec+\dphi)},{\rvec*sin(\x)*sin(\phivec+\dphi)},{\rvec*cos(\x)}) coordinate (BR);
+							\draw[proj]
+							plot[domain=0:90]({\rvec*cos(\x)},{\rvec*sin(\x)},0);
+							\draw[proj] (O)  -- (BL); % PBxy
+							\draw[proj] (O)  -- (BR); % PBRxy
+							\draw[proj] (P)  -- (Pz);
+							\draw[gray] (PR)  -- (Pz) node[midway,above,rotate=-24] {\contour{white}{$r\sin\theta$}};
+							%\draw[proj,projcol!15,dashed] (P) -- (Pxy);
+							%\draw[proj,projcol!15,dashed] (PR) -- (PRxy);
+							%\draw[proj,projcol!15,dashed] (PB) -- (PBxy);
+							%\draw[proj,projcol!15,dashed] (PBR) -- (PBRxy);
 
-						% AREA
-						\draw[area]
-						plot[domain=0:.99*\dphi]({\rvec*sin(\thetavec)*cos(\phivec+\x)},{\rvec*sin(\thetavec)*sin(\phivec+\x)},{\rvec*cos(\thetavec)}) --
-						plot[domain=0:.99*\dtheta]({\rvec*sin(\thetavec+\x)*cos(\phivec+\dphi)},{\rvec*sin(\thetavec+\x)*sin(\phivec+\dphi)},{\rvec*cos(\thetavec+\x)}) --
-						plot[domain=.99*\dphi:0]({\rvec*sin(\thetavec+\dtheta)*cos(\phivec+\x)},{\rvec*sin(\thetavec+\dtheta)*sin(\phivec+\x)},{\rvec*cos(\thetavec+\dtheta)}) --
-						plot[domain=.99*\dtheta:0]({\rvec*sin(\thetavec+\x)*cos(\phivec)},{\rvec*sin(\thetavec+\x)*sin(\phivec)},{\rvec*cos(\thetavec+\x)}) --
-						cycle;
+							% AREA
+							\draw[area]
+							plot[domain=0:.99*\dphi]({\rvec*sin(\thetavec)*cos(\phivec+\x)},{\rvec*sin(\thetavec)*sin(\phivec+\x)},{\rvec*cos(\thetavec)}) --
+							plot[domain=0:.99*\dtheta]({\rvec*sin(\thetavec+\x)*cos(\phivec+\dphi)},{\rvec*sin(\thetavec+\x)*sin(\phivec+\dphi)},{\rvec*cos(\thetavec+\x)})
+							--
+							plot[domain=.99*\dphi:0]({\rvec*sin(\thetavec+\dtheta)*cos(\phivec+\x)},{\rvec*sin(\thetavec+\dtheta)*sin(\phivec+\x)},{\rvec*cos(\thetavec+\dtheta)})
+							--
+							plot[domain=.99*\dtheta:0]({\rvec*sin(\thetavec+\x)*cos(\phivec)},{\rvec*sin(\thetavec+\x)*sin(\phivec)},{\rvec*cos(\thetavec+\x)})
+							--
+							cycle;
 
-						% MEASURES
-						%\node[right=3,below right=-2] at (PB) {$r\sin\theta\dd{\phi}$};
-						%\node[right=5,below right=-2] at (PR) {$r\dd{\theta}$};
-						\draw[<->,gray,thin]
-						plot[domain=0:\dphi]({\rvec*sin(\thetavec+1.11*\dtheta)*cos(\phivec+\x)},{\rvec*sin(\thetavec+1.11*\dtheta)*sin(\phivec+\x)},{\rvec*cos(\thetavec+1.11*\dtheta)})
-						node[right=0.6,below] {\contour{white}{$r\sin\theta\dd{\phi}$}};
-						\draw[<->,gray,thin]
-						plot[domain=0:\dtheta]({\rvec*sin(\thetavec+\x)*cos(\phivec+1.15*\dphi)},{\rvec*sin(\thetavec+\x)*sin(\phivec+1.15*\dphi)},{\rvec*cos(\thetavec+\x)})
-						node[above=-0.2,right] {$r\dd{\theta}$};
+							% MEASURES
+							%\node[right=3,below right=-2] at (PB) {$r\sin\theta\dd{\phi}$};
+							%\node[right=5,below right=-2] at (PR) {$r\dd{\theta}$};
+							\draw[<->,gray,thin]
+							plot[domain=0:\dphi]({\rvec*sin(\thetavec+1.11*\dtheta)*cos(\phivec+\x)},{\rvec*sin(\thetavec+1.11*\dtheta)*sin(\phivec+\x)},{\rvec*cos(\thetavec+1.11*\dtheta)})
+							node[right=0.6,below] {\contour{white}{$r\sin\theta\dd{\phi}$}};
+							\draw[<->,gray,thin]
+							plot[domain=0:\dtheta]({\rvec*sin(\thetavec+\x)*cos(\phivec+1.15*\dphi)},{\rvec*sin(\thetavec+\x)*sin(\phivec+1.15*\dphi)},{\rvec*cos(\thetavec+\x)})
+							node[above=-0.2,right] {$r\dd{\theta}$};
 
-						% ANGLES
-						\tdplotdrawarc[->]{(O)}{0.35*\rvec}{0}{\phivec}
-						{below}{$\phi$}
-						\tdplotdrawarc[->]{(O)}{0.45*\rvec}{\phivec}{\phivec+\dphi}
-						{anchor=145,inner sep=1}{\contour{white}{$\dd{\phi}$}}
-						\tdplotsetthetaplanecoords{\phivec}
-						\tdplotdrawarc[->,tdplot_rotated_coords]{(0,0,0)}{0.36*\rvec}{0}{\thetavec}
-						{right,above}{$\theta$}
-						\tdplotdrawarc[->,tdplot_rotated_coords]{(0,0,0)}{0.54*\rvec}{\thetavec}{\thetavec+\dtheta}
-						{left=0.2,above right}{\contour{white}{$\dd{\theta}$}}
+							% ANGLES
+							\tdplotdrawarc[->]{(O)}{0.35*\rvec}{0}{\phivec}
+							{below}{$\phi$}
+							\tdplotdrawarc[->]{(O)}{0.45*\rvec}{\phivec}{\phivec+\dphi}
+							{anchor=145,inner sep=1}{\contour{white}{$\dd{\phi}$}}
+							\tdplotsetthetaplanecoords{\phivec}
+							\tdplotdrawarc[->,tdplot_rotated_coords]{(0,0,0)}{0.36*\rvec}{0}{\thetavec}
+							{right,above}{$\theta$}
+							\tdplotdrawarc[->,tdplot_rotated_coords]{(0,0,0)}{0.54*\rvec}{\thetavec}{\thetavec+\dtheta}
+							{left=0.2,above right}{\contour{white}{$\dd{\theta}$}}
 
-                        % rotated coords
-  						\tdplotsetcoord{F}{1}{40}{53}
-                        \tdplotsetrotatedcoords{\phivec}{\thetavec}{0}
-						\tdplotsetrotatedcoordsorigin{(F)}
+							% rotated coords
+							\tdplotsetcoord{F}{1}{40}{53}
+							\tdplotsetrotatedcoords{\phivec}{\thetavec}{0}
+							\tdplotsetrotatedcoordsorigin{(F)}
 
-  						\draw[tdplot_rotated_coords, ->] (0,0,0) -- (0,0,0.75) node[above, inner sep=0] {$ \vect{S} $};
-  						\draw[tdplot_rotated_coords, ->, red] (0,0,0) -- (0.25,0,0) node[below, inner sep=0] {$ \Efield $};
-  						\draw[tdplot_rotated_coords, ->, blue] (0,0,0) -- (0,0.25,0) node[anchor=south west, inner sep=0] {$ \Bfield $};
-  						\draw[tdplot_rotated_coords, ->, green!50!black] (0,0,0) -- (0,0,0.4) node[anchor=south east, inner sep=1pt] {$ \vect{n} $};
+							\draw[tdplot_rotated_coords, ->] (0,0,0) -- (0,0,0.75) node[above, inner sep=0] {$ \vect{S} $};
+							\draw[tdplot_rotated_coords, ->, red] (0,0,0) -- (0.25,0,0) node[below, inner sep=0] {$ \Efield $};
+							\draw[tdplot_rotated_coords, ->, blue] (0,0,0) -- (0,0.25,0) node[anchor=south west, inner sep=0] {$ \Bfield $};
+							\draw[tdplot_rotated_coords, ->, green!50!black] (0,0,0) -- (0,0,0.4) node[anchor=south east, inner sep=1pt] {$ \vect{n} $};
 
-					\end{tikzpicture}
+						\end{tikzpicture}
+					\end{pict}
 				\end{center}
 			\end{column}
 			\begin{column}{0.5\linewidth}
@@ -753,7 +778,7 @@
 			\left\langle \frac{d W}{dt} \right\rangle = \frac1T\int\limits_0^T \frac{dW}{dt} dt = \frac{\omega^4p_0^2}{3c^3}
 		\end{equation*}
 		\onslide<3>
-		\begin{block}{}\scriptsize\justifying
+		\begin{block}{}\small\justifying
 			Таким чином, осцилятор неперервно випромінює енергію в навколишній простір, причому, середня швидкість випромінювання енергії
 			\begin{equation*}
 				\left\langle \frac{d W}{dt} \right\rangle = \frac1T\int\limits_0^T \frac{dW}{dt} dt = \frac{\omega^4p_0^2}{3c^3}
@@ -767,10 +792,10 @@
 
 		\end{block}
 		\onslide<4>
-        \vspace*{1em}
-        \begin{tcolorbox}[enhanced,title={Колір неба},watermark graphics=BlueSky,
-        watermark opacity=0.5,watermark color=blue,watermark stretch=1]
-        \scriptsize\justifying
+		\vspace*{1em}
+		\begin{tcolorbox}[enhanced,title={Колір неба},watermark graphics=BlueSky,
+				watermark opacity=0.5,watermark color=blue,watermark stretch=1]
+			\justifying\small
 			Тим же характером залежності випромінювання осцилятора від
 			частоти пояснюється, наприклад, блакитний колір неба. Сонячне світло, що пронизує атмосферу, розсіюється молекулами повітря, які можна вважати елементарним осциляторами. Розсіювання світла обумовлюється тим, що під впливом світлових хвиль ці осцилятори здійснюють <<вимушені>>
 			коливання. Так як період власних коливань осциляторів, відповідних молекул повітря, істотно відрізняється від періоду видимого світла (відсутність резонансу), то амплітуда вимушених коливань осциляторів слабо залежить від частоти (або довжини) світлової хвилі. Тому інтенсивність
@@ -795,12 +820,14 @@
 		\end{block}
 		\onslide<2>
 		\begin{block}{}\centering
-			\begin{tikzpicture}
-				\node[circle, inner sep=0pt, minimum  size=1cm, ball color=red, text=white] (+q) at (0,0) {$ +q $};
-				\node[circle, inner sep=0pt, minimum  size=0.25cm, ball color=blue, text=white] (-q) at (5:4) {};
-				\node[above] at (-q) {$ -q $};
-				\draw[-latex] (+q) -- node[anchor=south east] {$ \vect{r}' $} (-q);
-			\end{tikzpicture}
+			\begin{pict}
+				\begin{tikzpicture}
+					\node[circle, inner sep=0pt, minimum  size=1cm, ball color=red, text=white] (+q) at (0,0) {$ +q $};
+					\node[circle, inner sep=0pt, minimum  size=0.25cm, ball color=blue, text=white] (-q) at (5:4) {};
+					\node[above] at (-q) {$ -q $};
+					\draw[-latex] (+q) -- node[anchor=south east] {$ \vect{r}' $} (-q);
+				\end{tikzpicture}
+			\end{pict}
 		\end{block}
 	\end{overprint}
 
@@ -828,22 +855,18 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}[t]{Приклади}{}
-	\begin{overprint}\scriptsize
-		\onslide<1>
-		\begin{block}{}\justifying
-			Електромагнітна хвиля, що випромінюється диполем, поширюється у вакуумі так, що у хвильовій зоні на промені, перпендикулярному до осі диполя, на відстані $ r $ від нього середнє значення густини потоку енергії дорівнює $ \left\langle S \right\rangle $. Знайти середню потужність випромінювання диполя.
-		\end{block}
-		\onslide<2>
-		\begin{block}{}\justifying
-			Постійний за модулем електричний диполь моментом $ \vect{p} $ обертають з кутовою швидкістю $ \omega $ навколо осі, що перпендикулярна до осі диполя та проходить через його середину. Знайти потужність випромінювання диполя.
-		\end{block}
-		\onslide<3>
-		\begin{block}{}\justifying
-			Знайти потужність випромінювання нерелятивістської
-			частинки з зарядом $ e $ і масою $ m $, що рухається круговою орбітою радіуса $ R $ у полі нерухомого точкового заряду $ q $.
-		\end{block}
-	\end{overprint}
+\begin{frame}[t]{Задачі}{}
+	\begin{exampleblock}{Задача 1}\justifying
+		Електромагнітна хвиля, що випромінюється диполем, поширюється у вакуумі так, що у хвильовій зоні на промені, перпендикулярному до осі диполя, на відстані $ r $ від нього середнє значення густини потоку енергії дорівнює $ \left\langle S \right\rangle $. Знайти середню потужність випромінювання диполя.
+	\end{exampleblock}
+	\begin{exampleblock}{Задача 2}\justifying
+		Постійний за модулем електричний диполь моментом $ \vect{p} $ обертають з кутовою швидкістю $ \omega $ навколо осі, що перпендикулярна до
+		осі диполя та проходить через його середину. Знайти потужність випромінювання диполя.
+	\end{exampleblock}
+	\begin{exampleblock}{Задача 3}\justifying
+		Знайти потужність випромінювання нерелятивістської
+		частинки з зарядом $ e $ і масою $ m $, що рухається круговою орбітою радіуса $ R $ у полі нерухомого точкового заряду $ q $.
+	\end{exampleblock}
 \end{frame}
 % ===========================================================================
 
