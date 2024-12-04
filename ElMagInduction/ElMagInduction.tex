@@ -57,7 +57,9 @@
 		\end{center}
 		\onslide<2>
 		\begin{center}
-			\includegraphics[width=0.6\linewidth]{Faraday_experiments}\\
+			\begin{pict}
+                \includegraphics[width=0.6\linewidth]{Faraday_experiments}
+            \end{pict}
 			\href{https://youtu.be/GrBYG8NIUoU}{\color{blue}\small Досліди Фарадея}
 		\end{center}
 	\end{overprint}
@@ -102,7 +104,9 @@
 	\end{block}
 	\begin{columns}
 		\begin{column}{0.4\linewidth}\centering
-			\includegraphics[width=0.85\linewidth]{Area_change}
+			\begin{pict}
+                \includegraphics[width=0.85\linewidth]{Area_change}
+            \end{pict}
 		\end{column}
 		\begin{column}{0.6\linewidth}
 			\begin{block}{}\justifying
@@ -138,29 +142,31 @@
 	\end{block}
 	\begin{columns}
 		\begin{column}{0.4\linewidth}\centering
-			\includegraphics[width=0.9\linewidth]{AC-Generator}
+			\begin{pict}
+                \includegraphics[width=0.9\linewidth]{AC-Generator}
+            \end{pict}
 		\end{column}
 		\begin{column}{0.6\linewidth}
 			\begin{block}{}\justifying
 				Простий генератор складається з рамки, яка  кінцями рамка кріпиться до кілець, що обертаються разом з нею. До кілець також щільно
-                прилягають щітки, які виконують роль контактів. Якщо обертати рамку в магнітному полі, то швидкість зміни потоку, що пронизує рамку:
+				прилягають щітки, які виконують роль контактів. Якщо обертати рамку в магнітному полі, то швидкість зміни потоку, що пронизує рамку:
 				\begin{equation*}
 					\frac{d\Phi}{dt} = \frac{d}{dt}\left( BS\cos(\omega t)\right)  = -BS\sin(\omega t).
 				\end{equation*}
 			\end{block}
 		\end{column}
 	\end{columns}
-    \begin{block}{}\justifying
-				В результаті виникне ЕРС індукції:
-				\(
-					\EMF_\text{інд} = \frac1c BS\sin(\omega t).
-				\)
-        І якщо на щітки  подати навантаження, то в рамці виникає змінний індукційний струм:
-        \(
-        I = \frac{\EMF_\text{інд}}{R} = \frac1c \frac{BS}{R}\sin(\omega t).
-        \)
-        Цей струм змінюється за законом синуса з частотою $\omega$, тобто з частотою обертання рамки.
-    \end{block}
+	\begin{block}{}\justifying
+		В результаті виникне ЕРС індукції:
+		\(
+		\EMF_\text{інд} = \frac1c BS\sin(\omega t).
+		\)
+		І якщо на щітки  подати навантаження, то в рамці виникає змінний індукційний струм:
+		\(
+		I = \frac{\EMF_\text{інд}}{R} = \frac1c \frac{BS}{R}\sin(\omega t).
+		\)
+		Цей струм змінюється за законом синуса з частотою $\omega$, тобто з частотою обертання рамки.
+	\end{block}
 \end{frame}
 % ===========================================================================
 
@@ -175,7 +181,9 @@
 		\end{equation*}
 	\end{block}
 	\begin{center}
-		\includegraphics[width=0.5\linewidth]{Field_change}
+		\begin{pict}
+            \includegraphics[width=0.5\linewidth]{Field_change}
+        \end{pict}
 	\end{center}
 	\begin{alertblock}{}
 		Яка причина виникнення ЕРС? Адже магнітне поле не діє на нерухомі заряди, то за рахунок чого вони прискорюються?
@@ -195,46 +203,50 @@
 	\end{block}
 	\begin{columns}
 		\begin{column}{0.5\linewidth}\centering
-			\begin{tikzpicture}[scale=0.9, >=latex, midarrow/.style={%
-							postaction={ decorate,
-									decoration={ markings, mark=at position .7 with {\arrow{latex}}}}}]
-				\begin{scope}[yscale=-1]
+			\begin{pict}
+				\begin{tikzpicture}[scale=0.9, >=latex, midarrow/.style={%
+								postaction={ decorate,
+										decoration={ markings, mark=at position .7 with {\arrow{latex}}}}}]
+					\begin{scope}[yscale=-1]
+						\draw[red!40, ultra thick] (0,0) circle(1 and 0.3);
+						\draw[thick, densely dashed, cyan, ->] (0, -2) -- (0, 2);
+						\draw[thick, densely dashed, cyan, arrowpos={0.15}{4pt}{6pt}] (-0.8, 0) circle(0.3 and 1);
+						\draw[thick, densely dashed, cyan,->] (-0.8, 0) [partial ellipse=-60:60:0.6 and 2];
+						\draw[thick, densely dashed, cyan,->, xscale=-1] (-0.8, 0) [partial ellipse=-60:60:0.6 and 2];
+						\draw[thick, densely dashed, cyan, arrowpos={0.15}{4pt}{6pt}, xscale=-1] (-0.8, 0) circle(0.3 and 1);
+					\end{scope}
+
+					\begin{scope}[yshift=-1.2cm]
+						\foreach \y in {-3,...,3}{
+								\draw[blue, midarrow] plot[domain=1:3] ({0.2*\y+0.05*\y*\x^2}, \x)
+								\ifnum\y=0 node[above] {$\parttime{\Bfield} > 0$}\fi;
+							}
+					\end{scope}
+					\draw[red!40, ultra thick, arrowpos={0.5}{2pt}{7pt}] (1, 0) arc(0:-180:1 and 0.3);
+				\end{tikzpicture}
+			\end{pict}
+		\end{column}
+		\begin{column}{0.5\linewidth}\centering
+			\begin{pict}
+				\begin{tikzpicture}[scale=0.9, >=latex, midarrow/.style={%
+								postaction={ decorate,
+										decoration={ markings, mark=at position .7 with {\arrow{latex}}}}}]
 					\draw[red!40, ultra thick] (0,0) circle(1 and 0.3);
 					\draw[thick, densely dashed, cyan, ->] (0, -2) -- (0, 2);
 					\draw[thick, densely dashed, cyan, arrowpos={0.15}{4pt}{6pt}] (-0.8, 0) circle(0.3 and 1);
 					\draw[thick, densely dashed, cyan,->] (-0.8, 0) [partial ellipse=-60:60:0.6 and 2];
 					\draw[thick, densely dashed, cyan,->, xscale=-1] (-0.8, 0) [partial ellipse=-60:60:0.6 and 2];
 					\draw[thick, densely dashed, cyan, arrowpos={0.15}{4pt}{6pt}, xscale=-1] (-0.8, 0) circle(0.3 and 1);
-				\end{scope}
 
-				\begin{scope}[yshift=-1.2cm]
-					\foreach \y in {-3,...,3}{
-							\draw[blue, midarrow] plot[domain=1:3] ({0.2*\y+0.05*\y*\x^2}, \x)
-							\ifnum\y=0 node[above] {$\parttime{\Bfield} > 0$}\fi;
-						}
-				\end{scope}
-				\draw[red!40, ultra thick, arrowpos={0.5}{2pt}{7pt}] (1, 0) arc(0:-180:1 and 0.3);
-			\end{tikzpicture}
-		\end{column}
-		\begin{column}{0.5\linewidth}\centering
-			\begin{tikzpicture}[scale=0.9, >=latex, midarrow/.style={%
-							postaction={ decorate,
-									decoration={ markings, mark=at position .7 with {\arrow{latex}}}}}]
-				\draw[red!40, ultra thick] (0,0) circle(1 and 0.3);
-				\draw[thick, densely dashed, cyan, ->] (0, -2) -- (0, 2);
-				\draw[thick, densely dashed, cyan, arrowpos={0.15}{4pt}{6pt}] (-0.8, 0) circle(0.3 and 1);
-				\draw[thick, densely dashed, cyan,->] (-0.8, 0) [partial ellipse=-60:60:0.6 and 2];
-				\draw[thick, densely dashed, cyan,->, xscale=-1] (-0.8, 0) [partial ellipse=-60:60:0.6 and 2];
-				\draw[thick, densely dashed, cyan, arrowpos={0.15}{4pt}{6pt}, xscale=-1] (-0.8, 0) circle(0.3 and 1);
-
-				\begin{scope}[yshift=-1.2cm]
-					\foreach \y in {-3,...,3}{
-							\draw[blue, midarrow] plot[domain=1:3] ({0.2*\y+0.05*\y*\x^2}, \x)
-							\ifnum\y=0 node[above] {$\parttime{\Bfield} < 0$}\fi;
-						}
-				\end{scope}
-				\draw[red!40, ultra thick, arrowpos={0.5}{2pt}{7pt}] (-1, 0) arc(180:360:1 and 0.3);
-			\end{tikzpicture}
+					\begin{scope}[yshift=-1.2cm]
+						\foreach \y in {-3,...,3}{
+								\draw[blue, midarrow] plot[domain=1:3] ({0.2*\y+0.05*\y*\x^2}, \x)
+								\ifnum\y=0 node[above] {$\parttime{\Bfield} < 0$}\fi;
+							}
+					\end{scope}
+					\draw[red!40, ultra thick, arrowpos={0.5}{2pt}{7pt}] (-1, 0) arc(180:360:1 and 0.3);
+				\end{tikzpicture}
+			\end{pict}
 		\end{column}
 	\end{columns}
 	\begin{block}{}\justifying\small
@@ -249,10 +261,11 @@
 	\begin{block}{}\justifying
 		Струми Фуко --- вихрові індукційні струми, які виникають у провіднику під час зміни магнітного потоку через поверхню провідника.
 	\end{block}
-	\begin{center}
-		\includegraphics[width=.5\linewidth]{Fuko_currents}
-	\end{center}
-
+    \begin{center}
+       	\begin{pict}
+       		\includegraphics[width=.5\linewidth]{Fuko_currents}
+       	\end{pict}
+    \end{center}
 	\begin{block}{}\justifying
 		Струми Фуко, як і індукційні струми в лінійних провідниках, підпорядковані правилу Ленца: їх магнітне поле направлене так, щоб протидіяти змінам
 		магнітного потоку, що індукували ці струми.
@@ -355,20 +368,22 @@
 	\begin{onlyenv}<2>
 		\begin{columns}
 			\begin{column}{0.4\linewidth}\centering
-				\begin{tikzpicture}[rotate=90, scale=0.9, >=latex, midarrow/.style={%
-								postaction={ decorate,
-										decoration={ markings, mark=at position .7 with {\arrow{latex}}}}}]
-					\begin{scope}[xshift=0.3cm]
-						\draw[arrowpos={0.5}{2pt}{4pt}, red] (1.1,0) [partial ellipse=360:0:0.15 and 0.5];
-						\draw[arrowpos={0.5}{2pt}{4pt}, red] (1.1,0) [partial ellipse=360:0:0.3 and 1];
-						\draw[arrowpos={0.5}{2pt}{4pt}, red] (1.1,0) [partial ellipse=360:0:0.6 and 2] node[pos=0.5, below] {$\Efield$};
-					\end{scope}
+                \begin{pict}
+    				\begin{tikzpicture}[rotate=90, scale=0.9, >=latex, midarrow/.style={%
+    								postaction={ decorate,
+    										decoration={ markings, mark=at position .7 with {\arrow{latex}}}}}]
+    					\begin{scope}[xshift=0.3cm]
+    						\draw[arrowpos={0.5}{2pt}{4pt}, red] (1.1,0) [partial ellipse=360:0:0.15 and 0.5];
+    						\draw[arrowpos={0.5}{2pt}{4pt}, red] (1.1,0) [partial ellipse=360:0:0.3 and 1];
+    						\draw[arrowpos={0.5}{2pt}{4pt}, red] (1.1,0) [partial ellipse=360:0:0.6 and 2] node[pos=0.5, below] {$\Efield$};
+    					\end{scope}
 
-					\foreach \y in {-3,...,3}{
-							\draw[blue, midarrow] plot[domain=1:3] (\x, 0.2*\y+0.05*\y*\x^2);
-						}
-					\node[blue, font=\small] at (3.5, 0) {$\frac{\partial\Bfield}{\partial t}>0$};
-				\end{tikzpicture}
+    					\foreach \y in {-3,...,3}{
+    							\draw[blue, midarrow] plot[domain=1:3] (\x, 0.2*\y+0.05*\y*\x^2);
+    						}
+    					\node[blue, font=\small] at (3.5, 0) {$\frac{\partial\Bfield}{\partial t}>0$};
+    				\end{tikzpicture}
+                \end{pict}
 			\end{column}
 			\begin{column}{0.6\linewidth}
 				\begin{block}{}\justifying\small
@@ -402,7 +417,8 @@
 	\end{block}
 	\begin{columns}
 		\begin{column}{0.35\linewidth}\centering
-			\begin{tikzpicture}[rotate=90, scale=0.9, >=latex, midarrow/.style={%
+			\begin{pict}
+            \begin{tikzpicture}[rotate=90, scale=0.9, >=latex, midarrow/.style={%
 							postaction={ decorate,
 									decoration={ markings, mark=at position .7 with {\arrow{latex}}}}}]
 				\begin{scope}%[rotate around={45:(0,1)}]
@@ -412,8 +428,9 @@
 						\draw[blue, midarrow] plot[domain=1:3] (\x, 0.2*\y+0.05*\y*\x^2);
 					}
 			\end{tikzpicture}
+            \end{pict}
 		\end{column}
-		\begin{column}{0.65\linewidth}
+		\begin{column}{0.64\linewidth}
 			\begin{block}{}\justifying
 				Якщо в просторі, де розташований контур зі
 				струмом $I$, немає феромагнетиків, поле $\Bfield$, а отже, і повний
@@ -570,9 +587,11 @@
 \begin{frame}{Взаємна індукція}{}
 	\begin{columns}
 		\begin{column}{0.4\linewidth}\centering
-			\input{tikz/12contours.tikz}
+			\begin{pict}\centering
+                \input{tikz/12contours.tikz}
+            \end{pict}
 		\end{column}
-		\begin{column}{0.6\linewidth}
+		\begin{column}{0.59\linewidth}
 			\begin{overprint}
 				\onslide<1>
 				\begin{block}{}\justifying
@@ -941,9 +960,11 @@
 \begin{frame}{Пондеромоторні сили в магнітному полі}{}
 	\framesubtitle<1>{Закон збереження енергії}
 	\begin{center}
+        \begin{pict}
 		\begin{tikzpicture}[]
 			\node[anchor=center, opacity=0.75, ] at (0, 0) {\includegraphics[width=6cm]{pull_in_solenoid}};
 		\end{tikzpicture}
+        \end{pict}
 	\end{center}
 	\begin{overprint}
 		\onslide<1>
@@ -998,9 +1019,11 @@
 	\begin{tblr}{
 		colspec = {X[c,m, font=\small]X[c,m, font=\small]}
 		}
-		\includegraphics[width=0.5\linewidth]{amplula_FeCl}                 & \includegraphics[width=0.5\linewidth]{probirka_FeCl}   \\
+		\begin{pict}\includegraphics[width=0.5\linewidth]{amplula_FeCl}\end{pict}  &
+		\begin{pict}\includegraphics[width=0.5\linewidth]{probirka_FeCl}\end{pict}   \\
 		Ампула з парамагнітним розчином хлористого заліза в магнітному полі & Втягування розчину хлористого заліза в магнітне поле   \\
-		\includegraphics[width=0.5\linewidth]{palochka_Bi}                  & \includegraphics[width=0.5\linewidth]{Flame_diamagnet} \\
+		\begin{pict}\includegraphics[width=0.5\linewidth]{palochka_Bi}\end{pict}                  &
+		\begin{pict}\includegraphics[width=0.5\linewidth]{Flame_diamagnet}\end{pict} \\
 		Діамагнітна паличка вісмута в магнітному полі                       & Діамагнетизм полум'я
 	\end{tblr}
 \end{frame}
