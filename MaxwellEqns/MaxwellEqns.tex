@@ -320,18 +320,96 @@
 			\end{block}
 		\end{column}
 	\end{columns}
-	\begin{overprint}
-		\onslide<1>
 		\begin{block}{}\justifying\small
 			Оскільки різні поверхні спираються на один і той же контур $L$, то циркуляція $\oint\limits_L \Hfield\cdot d\vect{r}$ не повинна залежати вибору
 			поверхні. А, отже, $I = I_\text{зм}$, тобто в середині конденсатора <<протікає>> струм зміщення, який замикає коло.
 		\end{block}
-		\onslide<2>
-		\begin{block}{}\justifying\small
-			Як видно з теореми про циркуляцію, \alert{струми зміщення} замикають струми провідності і \alert{створюють магнітне поле точно так само}, як і
+\end{frame}
+% ===========================================================================
+
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Струм зміщення в конденсаторі та магнітне поле}{}
+\begin{center}
+		\begin{tikzpicture}[>=latex, scale=1.2, transform shape]
+			%                \node[anchor = center] at (0,0) {\includegraphics[width=2cm]{Pictures/condensator}};
+			\draw[thick, red] (-1.5, 0) --  (-0.6, 0) node[pos=0.1, below] {$+$};
+			\draw[fill=red!50] (-0.6, -1) -- (-0.6, 0.4) -- (-0.1, 0.9) -- (-0.1, -0.5) -- cycle;
+
+
+			\foreach \x in {-1, 0, +1} {
+					\begin{scope}[xshift=\x cm]
+						\draw[blue, arrowpos={0.4}{2pt}{2pt}] (0,0) circle (0.2 and 0.6);
+						\draw[blue, arrowpos={0.4}{2pt}{2pt}] (0,0) circle (0.14 and 0.4);
+						\draw[blue, arrowpos={0.4}{2pt}{2pt}] (0,0) circle (0.05 and 0.2);
+					\end{scope}
+
+				}
+
+			\draw[thick, red] (-1, 0) --  (-0.6, 0) ;
+
+
+			\foreach \y in {0, -0.5, -1} {
+					\begin{scope}[yshift=\y cm]
+						\draw[arrowpos={0.4}{2pt}{2pt}, red, thin] (-0.2, 0.6) -- ++(0.8,0);
+						\draw[arrowpos={0.4}{2pt}{2pt}, red, thin] (-0.3, 0.5) -- ++(0.8,0);
+						\draw[arrowpos={0.4}{2pt}{2pt}, red, thin] (-0.4, 0.4) -- ++(0.8,0);
+					\end{scope}
+				}
+
+			\begin{scope}[xshift=0.83cm]
+				\draw[fill=blue!50] (-0.6, -1) -- (-0.6, 0.4) -- (-0.1, 0.9) -- (-0.1, -0.5) -- cycle;
+			\end{scope}
+			\draw[thick, blue] (0.5, 0) --  (1.5, 0) node[pos=0.9, below] {$-$};
+
+			\draw[->] (-1.4, -1.2) -- node[below] {$I$} ++(0.6, 0);
+			\draw[->] (-0.4, -1.2) -- node[below] {$\parttime\Dfield$} ++(0.6, 0);
+			\draw[->] (1, -1.2) -- node[below] {$I$} ++(0.6, 0);
+
+			\begin{scope}[xshift=4cm]
+				%                \node[anchor = center] at (0,0) {\includegraphics[width=2cm]{Pictures/condensator}};
+				\draw[thick, red] (-1.5, 0) --  (-0.6, 0) node[pos=0.1, below] {$+$};
+				\draw[fill=red!50] (-0.6, -1) -- (-0.6, 0.4) -- (-0.1, 0.9) -- (-0.1, -0.5) -- cycle;
+
+
+				\foreach \x in {-1, 0, +1} {
+						\begin{scope}[xshift=\x cm, xscale=-1]
+							\draw[blue, arrowpos={0.4}{2pt}{2pt}] (0,0) circle (0.2 and 0.6);
+							\draw[blue, arrowpos={0.4}{2pt}{2pt}] (0,0) circle (0.14 and 0.4);
+							\draw[blue, arrowpos={0.4}{2pt}{2pt}] (0,0) circle (0.05 and 0.2);
+						\end{scope}
+
+					}
+
+				\draw[thick, red] (-1, 0) --  (-0.6, 0) ;
+
+
+				\foreach \y in {0, -0.5, -1} {
+						\begin{scope}[yshift=\y cm]
+							\draw[arrowpos={0.4}{2pt}{2pt}, red, thin] (-0.2, 0.6) -- ++(0.8,0);
+							\draw[arrowpos={0.4}{2pt}{2pt}, red, thin] (-0.3, 0.5) -- ++(0.8,0);
+							\draw[arrowpos={0.4}{2pt}{2pt}, red, thin] (-0.4, 0.4) -- ++(0.8,0);
+						\end{scope}
+					}
+
+				\begin{scope}[xshift=0.83cm]
+					\draw[fill=blue!50] (-0.6, -1) -- (-0.6, 0.4) -- (-0.1, 0.9) -- (-0.1, -0.5) -- cycle;
+				\end{scope}
+				\draw[thick, blue] (0.5, 0) --  (1.5, 0) node[pos=0.9, below] {$-$};
+
+				\draw[<-] (-1.4, -1.2) -- node[below] {$I$} ++(0.6, 0);
+				\draw[<-] (-0.4, -1.2) -- node[below] {$\parttime\Dfield$} ++(0.6, 0);
+				\draw[<-] (1, -1.2) -- node[below] {$I$} ++(0.6, 0);
+			\end{scope}
+			%
+			%                \draw (-2, -2) to[grid with coordinates] (3,3);
+		\end{tikzpicture}
+\end{center}
+		\begin{block}{}\justifying
+			\alert{Струми зміщення} замикають струми провідності і \alert{створюють магнітне поле точно так само}, як і
 			струми провідності. Вони, однак, не створюють прямо теплового ефекту, до них незастосовні закон Ома і закон Джоуля-Ленца.
 		\end{block}
-	\end{overprint}
 \end{frame}
 % ===========================================================================
 
