@@ -3,7 +3,7 @@
 % !TeX spellcheck = uk_UA
 % !BIB program = bibler
 
-\documentclass{beamer}
+\documentclass[onlytextwidth]{beamer}
 \usetheme{Electromagnetism}
 \usepackage{Electromagnetism}
 
@@ -37,10 +37,10 @@
 	\end{block}
 
 	\begin{tblr}{
-		colspec={X[c,m]X[c,m]},
+		colspec={X[c,m, 0.4\linewidth]X[c,m, 0.6\linewidth]},
 		row{2} = {c,m, font=\small}
 		}
-		\includegraphics[height=0.75\linewidth]{Faraday} & \includegraphics[height=0.75\linewidth]{Maxwell} \\
+		\includegraphics[height=3cm]{Faraday} & \includegraphics[height=3cm]{james-clerk-maxwell} \\
 		\href{https://en.wikipedia.org/wiki/Michael_Faraday}{Майкл Фарадей} (1791 -- 1867) --- англійський фізик і хімік.
 		                                                 &
 		{\href{https://en.wikipedia.org/wiki/James_Clerk_Maxwell}{Джеймс Клерк Максвелл}\\ (1831 -- 1879) --- шотландський вчений.}
@@ -51,18 +51,38 @@
 % ============================== Слайд ## ===================================
 \begin{frame}[t]{Цитати із книги <<Еволюція фізики>>}{А. Ейнштейн, Л. Інфельд}
 	\tikz[remember picture,overlay] \node[opacity=0.85,inner sep=0pt,
-		anchor=south east] at (current page.south east){\includegraphics[width=2cm]{Evolution}};
-	\begin{block}{}\justifying\itshape
-		Кількісне, математичне формулювання законів поля дано в так званих рівняннях Максвелла. \alert{[Експериментальні] факти призвели до формулювання
-		цих рівнянь},
-		але зміст їх значно багатший [\ldots]. Їхня проста форма приховує глибину, що виявляється тільки при ретельному вивченні.
-
-		\bigskip
-
-		Формулювання цих рівнянь є найважливішою подією з часу Ньютона не тільки важливою подією з часу Ньютона не тільки внаслідок цінності їхнього змісту, а й
-		тому, що вони дають зразок нового типу законів. Характерну особливість рівнянь Максвелла, яка проявляється і в усіх інших рівняннях сучасної фізики,
+		anchor=south east] at (current page.south east){\includegraphics[width=1.2cm]{Evolution}};
+ \begin{block}{}\centering
+   \begin{tikzpicture}[pencildraw/.style={ %
+    			decorate,
+    			decoration={random steps,segment length=2pt,amplitude=1pt}
+    		} %
+    ]
+    \node[align=justify,
+    	preaction={fill=black,opacity=.5},
+    	pencildraw,draw,fill=white,text width=0.9\linewidth,inner sep=2mm]
+    {Кількісне, математичне формулювання законів поля дано в так званих рівняннях Максвелла.
+    \alert{[Експериментальні] факти призвели до формулювання цих рівнянь}, але зміст їх значно багатший [\ldots]. Їхня проста форма приховує глибину, що
+    виявляється тільки при ретельному вивченні.};
+    \end{tikzpicture}
+    \vspace{1ex}
+    \begin{tikzpicture}[pencildraw/.style={ %
+    			decorate,
+    			decoration={random steps,segment length=2pt,amplitude=1pt}
+    		} %
+    ]
+    \node[align=justify,
+    	preaction={fill=black,opacity=.5},
+    	pencildraw,draw,fill=white,text width=0.9\linewidth,inner sep=2mm]
+    {
+		Формулювання цих рівнянь є найважливішою подією з часу Ньютона не тільки важливою подією з часу Ньютона не тільки внаслідок цінності їхнього
+		змісту, а й
+		тому, що вони дають зразок нового типу законів. Характерну особливість рівнянь Максвелла, яка проявляється і в усіх інших рівняннях сучасної
+		фізики,
 		можна виразити в одному реченні: \alert{рівняння Максвелла суть закони, що виражають структуру поля}.
-	\end{block}
+    };
+    \end{tikzpicture}
+\end{block}
 \end{frame}
 %
 
@@ -73,16 +93,26 @@
 % ============================== Слайд ## ===================================
 \begin{frame}{Струм зміщення і закон збереження заряду}
 	\framesubtitle<1>{Протиріччя в законах магнетизму}
-	\begin{onlyenv}<1>
+\begin{onlyenv}<1>
+\begin{columns}
+	\begin{column}{0.69\linewidth}
 		\begin{block}{}\justifying
 			Теорема про циркуляцію для постійного магнітного поля:
+                \begin{equation*}
+    				\oint\limits_L \Hfield\cdot d\vect{r} = \frac{4\pi}{c} \oiint\limits_S \vect{j}\cdot d\vect{S},
+    			\end{equation*}
+            або в диференціальній формі
 			\begin{equation*}
 				\Rot\Hfield = \frac{4\pi}{c}\vect{j}
 			\end{equation*}
-			виявляється невірною у випадку змінного електричного поля.
-
-			\bigskip
-
+			виявляється неправильною у випадку змінного електричного поля.
+        \end{block}
+	\end{column}
+	\begin{column}{0.3\linewidth}\centering
+            \input{tikz/circ_thm.tikz}
+	\end{column}
+\end{columns}
+            \begin{block}{}\justifying
 			Застосовуючи операцію $\Div$ до цього рівняння і
 			враховуючи тотожність $\Div\Rot\Hfield = 0$, отримуємо $\Div\vect{j} = 0$. З іншого
 			боку, якщо густина заряду змінюється з часом, $\frac{\partial\rho}{\partial t} \neq 0$ то в силу
@@ -136,6 +166,8 @@
 		\begin{block}{}\justifying
 			Порівняємо закон електромагнітної індукції Фарадея, та <<оновлену>> теорему про циркуляцію за відсутності струмів провідності ($\vect{j} = 0$) у
 			вакуумі ($\epsilon = \mu = 1$ $\Rightarrow$ {\color{red}$\Efield = \Dfield$}, {\color{blue}$\Hfield = \Bfield$}).
+   		\end{block}
+        \vspace*{-3ex}
 			\begin{center}\small
 				\begin{tblr}%
 					{
@@ -144,7 +176,8 @@
 					}
 					Закон електромагнітної індукції                          & Закон магнітоелектричної індукції                        \\
 					\Rot\Efield = -\frac1c\frac{\partial\Bfield}{\partial t} & \Rot\Bfield = +\frac1c\frac{\partial\Efield}{\partial t} \\
-					\tikz[rotate=90, scale=0.9, >=latex, midarrow/.style={%
+                    \begin{pict}
+					\tikz[rotate=90, scale=0.75, >=latex, midarrow/.style={%
 								postaction={ decorate,
 										decoration={ markings, mark=at position .7 with {\arrow{latex}}}}}]{
 						\begin{scope}[xshift=0.25cm]
@@ -158,8 +191,10 @@
 							}
 						\node[blue, font=\small] at (3.5, 0) {$\frac{\partial\Bfield}{\partial t}>0$};
 					}
-					                                                         &
-					\tikz[rotate=90, scale=0.9, >=latex, midarrow/.style={%
+					\end{pict}
+                     &
+                    \begin{pict}
+					\tikz[rotate=90, scale=0.75, >=latex, midarrow/.style={%
 								postaction={ decorate,
 										decoration={ markings, mark=at position .7 with {\arrow{latex}}}}}]{
 						\begin{scope}[xshift=0.25cm]
@@ -173,12 +208,13 @@
 							}
 						\node[red, font=\small] at (3.5, 0) {$\frac{\partial\Efield}{\partial t}>0$};
 					}
+                \end{pict}
 				\end{tblr}
 			\end{center}
-		\end{block}
-		\begin{alertblock}{}\centering
-			Змінне в часі магнітне поле породжує вихрове електричне поле, а змінне в часі електричне поле породжує магнітне поле.
-		\end{alertblock}
+            \vspace*{-3ex}
+       		\begin{alertblock}{}\centering
+       			Змінне в часі магнітне поле породжує вихрове електричне поле, а змінне в часі електричне поле породжує магнітне поле.
+       		\end{alertblock}
 	\end{onlyenv}
 \end{frame}
 % ===========================================================================
@@ -205,7 +241,8 @@
 					}
 			\end{tikzpicture}
 		\end{column}
-		\begin{column}{0.75\linewidth}
+        \quad
+		\begin{column}{0.70\linewidth}
 			\begin{block}{}\justifying
 				Стікання заряду з кулі створює струм провідності, який дорівнює:
 				\begin{equation*}
@@ -548,7 +585,7 @@
 				(\x*360/10+5*rnd:1cm+1cm*rnd);
 			\end{tikzpicture}
 		\end{column}
-		\begin{column}{0.6\linewidth}
+		\begin{column}{0.59\linewidth}
 			\begin{block}{}\justifying
 				Якщо  у деякій області простору присутнє електромагнітне поле та заряджені частинки, які взаємодіють з цим полем, то енергія
 				такої системи має
@@ -712,17 +749,18 @@
 
 				\draw [blue, ->] (0:2) coordinate (S) -- ++(70:0.5) node[right] {$\Hfield$};
 				\node[left, red] at (2, 1) {$\Efield$};
-				\draw [orange!60!black, ->] (S) -- ++(-0.75,0) node[below] {$\vect{\Pi}$};
+				\uncover<2>{\draw [orange!60!black, ->] (S) -- ++(-0.75,0) node[below] {$\vect{\Pi}$};}
 			\end{tikzpicture}
 
 		\end{column}
-		\begin{column}{0.65\linewidth}
+        \
+		\begin{column}{0.6\linewidth}
 			\begin{overprint}
 				\onslide<1>
 				\begin{block}{}\justifying
 					Плоский конденсатор із пластинами радіуса \( R \) заряджається струмом \( I \) від зовнішнього джерела енергії . Якщо в
 					деякий момент
-					заряд на нижній пластині дорівнює \( q \), то індукція поля всередині конденсатора дорівнює:
+					заряд на нижній пластині дорівнює \( q \), то вектор індукції поля всередині конденсатора дорівнює:
 					\(
 					D = 4 \pi \sigma = \frac{4 \pi q}{\pi R^2},
 					\)
@@ -732,7 +770,7 @@
 					j_{\text{зм}} = \frac{\dot{D}}{4 \pi} = \frac{\dot{q}}{\pi R^2}.
 					\)
 				\end{block}
-				\onslide<2-3>
+				\onslide<2>
 				\begin{block}{}\justifying
 					Вектор Пойнтінга
 					\(
@@ -751,7 +789,7 @@
 		\end{column}
 	\end{columns}
 	\begin{overprint}
-		\onslide<1-2>
+		\onslide<1>
 		\begin{block}{}\justifying
 			Цей струм породжує в конденсаторі магнітне поле, яке можна знайти за допомогою теореми про циркуляцію:
 			\[
@@ -765,7 +803,7 @@
 			магнітного поля
 			спрямовані, як 	показано на рис.
 		\end{block}
-		\onslide<3>
+		\onslide<2>
 		\begin{block}{}\justifying
 			Якщо відстань між пластинами дорівнює \( h \), то енергія, що втікає в конденсатор за одиницю часу, дорівнює:
 			\[
@@ -795,7 +833,7 @@
 				\draw[->, orange!60!black, thick] (2.1, 1) -- ++(-0.5, 0) node[above] {$\vect{\Pi}$};
 			\end{tikzpicture}
 		\end{column}
-		\begin{column}{0.7\linewidth}
+		\begin{column}{0.69\linewidth}
 			\begin{block}{}\justifying
 				Розглянемо довгий прямий дріт радіуса $R$ і довжини $\ell$, яким тече струм $I$ . На зовнішній поверхні дроту
 				присутнє магнітне поле $H = \frac{2I}{cR}$. Струм у дроті виникає
