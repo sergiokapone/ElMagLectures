@@ -540,51 +540,6 @@
 				(\x*360/10+5*rnd:1cm+1cm*rnd);
 			\end{tikzpicture}
 		\end{column}
-		\begin{column}{0.6\linewidth}
-			\begin{block}{}\justifying
-				Якщо  у деякій області простору присутнє електромагнітне поле та заряджені частинки, які взаємодіють з цим полем, то енергія такої
-				системи має
-				зберігатись, якщо система замкнена. Якщо ж система незамкнена, то енергія може як втікати в цю область, так і витікати з неї.
-			\end{block}
-		\end{column}
-	\end{columns}
-	\begin{block}{}\centering\small
-		(Зміна енергії в об'ємі) = (Рух частинок) + (Потік енергії на зовні).
-	\end{block}
-
-	\begin{block}{}\centering\small
-		(Рух частинок) = (Зміна енергії в об'ємі) -- (Потік енергії на зовні).
-	\end{block}
-
-	\begin{block}{}
-		Рухати частинки може лише електричне поле. Енергія, яка витрачається полем на розгін частинок в одиниці об'єму за одиницю часу ---
-		джоулеве тепло
-		$\vect{j}\cdot\Efield$.
-	\end{block}
-\end{frame}
-% ===========================================================================
-
-
-
-
-% ============================== Слайд ## ===================================
-\begin{frame}{Закон збереження енергії електромагнітного поля}{}
-	\begin{columns}
-		\begin{column}{0.4\linewidth}\centering
-			\begin{tikzpicture}[>=latex, scale=0.75]
-				\pgfmathsetseed{55}
-				\foreach \a in {0,10,...,350}
-					{
-						\pgfmathparse{1.2*abs(rand)}
-						\node[inner sep=1pt, circle, ball color=red!50] at (\a:{\pgfmathresult}) {};
-						\draw[->] (0,0) ++(\a:2) -- ++(\a:0.5);
-					}
-				\draw[ball color=gray!5, name path=metall, smooth, opacity=0.5] plot
-					[smooth cycle,
-						samples=8,domain={1:10}]
-				(\x*360/10+5*rnd:1cm+1cm*rnd);
-			\end{tikzpicture}
-		\end{column}
 		\begin{column}{0.59\linewidth}
 			\begin{block}{}\justifying
 				Якщо  у деякій області простору присутнє електромагнітне поле та заряджені частинки, які взаємодіють з цим полем, то енергія
