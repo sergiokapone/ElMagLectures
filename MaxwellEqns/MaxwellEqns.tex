@@ -493,58 +493,113 @@
 % ============================== Слайд ## ===================================
 \begin{frame}{Стаціонарні поля}{}
 	\begin{block}{}\justifying
-		У стаціонарному випадку часткові похідні за часом від полів дорівнюють нулю, тому рівняння максвела розпадається на дві окремі
-		системи для електростатики і магнітостатики.
+		У стаціонарному випадку часткові похідні за часом від полів дорівнюють нулю $\parttime{} = 0$, тому рівняння максвела розпадається на дві окремі
+		системи для \textcolor{red}{електростатики} і \textcolor{blue}{магнітостатики}.
 	\end{block}
-	\begin{center}
-		\begin{tblr}%
-			{
-			colspec={|X[l,m, bg=yellow!10, font=\scriptsize]|[1pt, white]X[c,m, bg=red!10]|},
-			row{1}={c, fg=white, bg=cyan, font=\bfseries},
-			cell{2-5}{1-Z}={c, m, mode=dmath, font=},
-			%hlines,
-			}
-			\hline
-			Рівняння електростатики & Рівняння магнітостатики \\
-			\hline
-			\begin{cases}
-				\Div\Dfield = 4\pi\rho, \\
-				\Rot\Efield = 0.
-			\end{cases}
-			                        &
-			\begin{cases}
-				\Div\Bfield = 0, \\
-				\Rot\Hfield = \frac{4\pi}{c} \vect{j}.
-			\end{cases}
-			\\
-			\begin{tikzpicture}[>=latex, scale=0.75]
-				\foreach \i in {20,40,...,360}
-					{
-						\draw[->, red!50] (0,0)  ++(\i:0.1) -- ++(\i:2);
-					}
-                    \node[circle, inner sep=1pt, ball color=red, text=white] at (0, 0) {$+$};
-			\end{tikzpicture}
-            &
-            \begin{tikzpicture}[>=latex]
-            	\draw [in=-105, out=75, looseness=1.25, line width=0.1cm, gray!50] (-1, -1) coordinate (A) to (1, 1.5) coordinate (B);
+	\begin{columns}[t]
+		\begin{column}{0.5\linewidth}
+			\begin{block}{}\centering\color{red}
+				Рівняння електростатики
+				\begin{equation*}
+					\begin{cases}
+						\Div\Dfield = 4\pi\rho, \\
+						\Rot\Efield = 0.
+					\end{cases}
+				\end{equation*}
+				\begin{center}
+					\begin{pict}
+						\begin{tikzpicture}[>=latex, scale=0.75]
+							\foreach \i in {20,40,...,360}
+								{
+									\draw[->, red!50] (0,0)  ++(\i:0.1) -- ++(\i:2);
+								}
+							\node[circle, inner sep=1pt, ball color=red, text=white] at (0, 0) {$+$};
+						\end{tikzpicture}
+					\end{pict}
+				\end{center}
+			\end{block}
+		\end{column}
+		\begin{column}{0.5\linewidth}
+			\begin{block}{}\centering\color{blue}
+				Рівняння магнітостатики
+				\begin{equation*}
+					\begin{cases}
+						\Div\Bfield = 0, \\
+						\Rot\Hfield = \frac{4\pi}{c} \vect{j}.
+					\end{cases}
+				\end{equation*}
+			\end{block}
+			\begin{center}
+				\begin{pict}
+					\begin{tikzpicture}[>=latex]
+						\draw [in=-105, out=75, looseness=1.25, line width=0.1cm, gray!50] (-1, -1) coordinate (A) to (1, 1.5) coordinate (B);
 
-            	\draw[fill=gray!50, ultra thin, rotate around={-10:(B)}] (B) circle(0.05 and 0.015);
-            	\draw[fill=gray!50, ultra thin, rotate around={-10:(A)}] (A) circle(0.05 and 0.015);
-                % Bfield
+						\draw[fill=gray!50, ultra thin, rotate around={-10:(B)}] (B) circle(0.05 and 0.015);
+						\draw[fill=gray!50, ultra thin, rotate around={-10:(A)}] (A) circle(0.05 and 0.015);
+						% Bfield
 
-                \draw[thin, blue, rotate around={-15:(-0.25:0)}, arrowpos={0.85}{2pt}{4pt}] (-0.25, 0) circle(0.5 and 0.15);
-                \draw[thin, blue, rotate around={-15:(-0.25:0)}, arrowpos={0.85}{2pt}{4pt}] (-0.25, 0) circle(2 and 0.7);
-            	\draw[thin, blue, rotate around={-15:(-0.25:0)}, arrowpos={0.85}{2pt}{4pt}] (-0.25, 0) circle(1 and 0.3);
-            	\begin{scope}
-            		\clip (-1,0) rectangle (1,1);
-            		\draw [in=-105, out=75, looseness=1.25, line width=0.1cm, gray!50] (A) to (B) ;
-            	\end{scope}
-                \draw [in=-105, out=75, looseness=1.25, gray, arrowpos={0.85}{2pt}{4pt}] (-1, -1) coordinate (A) to (1, 1.5) coordinate (B);
-            \end{tikzpicture}
-            \\
-			\hline
-		\end{tblr}
-	\end{center}
+						\draw[thin, blue, rotate around={-15:(-0.25:0)}, arrowpos={0.85}{2pt}{4pt}] (-0.25, 0) circle(0.5 and 0.15);
+						\draw[thin, blue, rotate around={-15:(-0.25:0)}, arrowpos={0.85}{2pt}{4pt}] (-0.25, 0) circle(2 and 0.7);
+						\draw[thin, blue, rotate around={-15:(-0.25:0)}, arrowpos={0.85}{2pt}{4pt}] (-0.25, 0) circle(1 and 0.3);
+						\begin{scope}
+							\clip (-1,0) rectangle (1,1);
+							\draw [in=-105, out=75, looseness=1.25, line width=0.1cm, gray!50] (A) to (B) ;
+						\end{scope}
+						\draw [in=-105, out=75, looseness=1.25, gray, arrowpos={0.85}{2pt}{4pt}] (-1, -1) coordinate (A) to (1, 1.5) coordinate (B);
+					\end{tikzpicture}
+				\end{pict}
+			\end{center}
+		\end{column}
+	\end{columns}
+	%	\begin{center}
+	%		\begin{tblr}%
+	%			{
+	%			colspec={|X[l,m, bg=yellow!10, font=\scriptsize]|[1pt, white]X[c,m, bg=red!10]|},
+	%			row{1}={c, fg=white, bg=cyan, font=\bfseries},
+	%			cell{2-5}{1-Z}={c, m, mode=dmath, font=},
+	%			%hlines,
+	%			}
+	%			\hline
+	%			Рівняння електростатики & Рівняння магнітостатики \\
+	%			\hline
+	%			\begin{cases}
+	%				\Div\Dfield = 4\pi\rho, \\
+	%				\Rot\Efield = 0.
+	%			\end{cases}
+	%			                        &
+	%			\begin{cases}
+	%				\Div\Bfield = 0, \\
+	%				\Rot\Hfield = \frac{4\pi}{c} \vect{j}.
+	%			\end{cases}
+	%			\\
+	%			\begin{tikzpicture}[>=latex, scale=0.75]
+	%				\foreach \i in {20,40,...,360}
+	%					{
+	%						\draw[->, red!50] (0,0)  ++(\i:0.1) -- ++(\i:2);
+	%					}
+	%				\node[circle, inner sep=1pt, ball color=red, text=white] at (0, 0) {$+$};
+	%			\end{tikzpicture}
+	%			                        &
+	%			\begin{tikzpicture}[>=latex]
+	%				\draw [in=-105, out=75, looseness=1.25, line width=0.1cm, gray!50] (-1, -1) coordinate (A) to (1, 1.5) coordinate (B);
+	%
+	%				\draw[fill=gray!50, ultra thin, rotate around={-10:(B)}] (B) circle(0.05 and 0.015);
+	%				\draw[fill=gray!50, ultra thin, rotate around={-10:(A)}] (A) circle(0.05 and 0.015);
+	%				% Bfield
+	%
+	%				\draw[thin, blue, rotate around={-15:(-0.25:0)}, arrowpos={0.85}{2pt}{4pt}] (-0.25, 0) circle(0.5 and 0.15);
+	%				\draw[thin, blue, rotate around={-15:(-0.25:0)}, arrowpos={0.85}{2pt}{4pt}] (-0.25, 0) circle(2 and 0.7);
+	%				\draw[thin, blue, rotate around={-15:(-0.25:0)}, arrowpos={0.85}{2pt}{4pt}] (-0.25, 0) circle(1 and 0.3);
+	%				\begin{scope}
+	%					\clip (-1,0) rectangle (1,1);
+	%					\draw [in=-105, out=75, looseness=1.25, line width=0.1cm, gray!50] (A) to (B) ;
+	%				\end{scope}
+	%				\draw [in=-105, out=75, looseness=1.25, gray, arrowpos={0.85}{2pt}{4pt}] (-1, -1) coordinate (A) to (1, 1.5) coordinate (B);
+	%			\end{tikzpicture}
+	%			\\
+	%			\hline
+	%		\end{tblr}
+	%	\end{center}
 \end{frame}
 % ===========================================================================
 
