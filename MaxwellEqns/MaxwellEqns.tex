@@ -42,8 +42,8 @@
 		}
 		\includegraphics[height=3cm]{Faraday} & \includegraphics[height=3cm]{james-clerk-maxwell} \\
 		\href{https://en.wikipedia.org/wiki/Michael_Faraday}{Майкл Фарадей} (1791 -- 1867) --- англійський фізик і хімік.
-		                                                 &
-		{\href{https://en.wikipedia.org/wiki/James_Clerk_Maxwell}{Джеймс Клерк Максвелл}\\ (1831 -- 1879) --- шотландський вчений.}
+		                                      &
+		{\href{https://en.wikipedia.org/wiki/James_Clerk_Maxwell}{Джеймс Клерк Максвелл}          \\ (1831 -- 1879) --- шотландський вчений.}
 	\end{tblr}
 \end{frame}
 % ===========================================================================
@@ -52,37 +52,37 @@
 \begin{frame}[t]{Цитати із книги <<Еволюція фізики>>}{А. Ейнштейн, Л. Інфельд}
 	\tikz[remember picture,overlay] \node[opacity=0.85,inner sep=0pt,
 		anchor=south east] at (current page.south east){\includegraphics[width=1.2cm]{Evolution}};
- \begin{block}{}\centering
-   \begin{tikzpicture}[pencildraw/.style={ %
-    			decorate,
-    			decoration={random steps,segment length=2pt,amplitude=1pt}
-    		} %
-    ]
-    \node[align=justify,
-    	preaction={fill=black,opacity=.5},
-    	pencildraw,draw,fill=white,text width=0.9\linewidth,inner sep=2mm]
-    {Кількісне, математичне формулювання законів поля дано в так званих рівняннях Максвелла.
-    \alert{[Експериментальні] факти призвели до формулювання цих рівнянь}, але зміст їх значно багатший [\ldots]. Їхня проста форма приховує глибину, що
-    виявляється тільки при ретельному вивченні.};
-    \end{tikzpicture}
-    \vspace{1ex}
-    \begin{tikzpicture}[pencildraw/.style={ %
-    			decorate,
-    			decoration={random steps,segment length=2pt,amplitude=1pt}
-    		} %
-    ]
-    \node[align=justify,
-    	preaction={fill=black,opacity=.5},
-    	pencildraw,draw,fill=white,text width=0.9\linewidth,inner sep=2mm]
-    {
-		Формулювання цих рівнянь є найважливішою подією з часу Ньютона не тільки важливою подією з часу Ньютона не тільки внаслідок цінності їхнього
-		змісту, а й
-		тому, що вони дають зразок нового типу законів. Характерну особливість рівнянь Максвелла, яка проявляється і в усіх інших рівняннях сучасної
-		фізики,
-		можна виразити в одному реченні: \alert{рівняння Максвелла суть закони, що виражають структуру поля}.
-    };
-    \end{tikzpicture}
-\end{block}
+	\begin{block}{}\centering
+		\begin{tikzpicture}[pencildraw/.style={ %
+						decorate,
+						decoration={random steps,segment length=2pt,amplitude=1pt}
+					} %
+			]
+			\node[align=justify,
+			preaction={fill=black,opacity=.5},
+			pencildraw,draw,fill=white,text width=0.9\linewidth,inner sep=2mm]
+			{Кількісне, математичне формулювання законів поля дано в так званих рівняннях Максвелла.
+			\alert{[Експериментальні] факти призвели до формулювання цих рівнянь}, але зміст їх значно багатший [\ldots]. Їхня проста форма приховує глибину, що
+			виявляється тільки при ретельному вивченні.};
+		\end{tikzpicture}
+		\vspace{1ex}
+		\begin{tikzpicture}[pencildraw/.style={ %
+						decorate,
+						decoration={random steps,segment length=2pt,amplitude=1pt}
+					} %
+			]
+			\node[align=justify,
+				preaction={fill=black,opacity=.5},
+				pencildraw,draw,fill=white,text width=0.9\linewidth,inner sep=2mm]
+			{
+				Формулювання цих рівнянь є найважливішою подією з часу Ньютона не тільки важливою подією з часу Ньютона не тільки внаслідок цінності їхнього
+				змісту, а й
+				тому, що вони дають зразок нового типу законів. Характерну особливість рівнянь Максвелла, яка проявляється і в усіх інших рівняннях сучасної
+				фізики,
+				можна виразити в одному реченні: \alert{рівняння Максвелла суть закони, що виражають структуру поля}.
+			};
+		\end{tikzpicture}
+	\end{block}
 \end{frame}
 %
 
@@ -93,26 +93,26 @@
 % ============================== Слайд ## ===================================
 \begin{frame}{Струм зміщення і закон збереження заряду}
 	\framesubtitle<1>{Протиріччя в законах магнетизму}
-\begin{onlyenv}<1>
-\begin{columns}
-	\begin{column}{0.69\linewidth}
+	\begin{onlyenv}<1>
+		\begin{columns}
+			\begin{column}{0.69\linewidth}
+				\begin{block}{}\justifying
+					Теорема про циркуляцію для постійного магнітного поля:
+					\begin{equation*}
+						\oint\limits_L \Hfield\cdot d\vect{r} = \frac{4\pi}{c} \oiint\limits_S \vect{j}\cdot d\vect{S},
+					\end{equation*}
+					або в диференціальній формі
+					\begin{equation*}
+						\Rot\Hfield = \frac{4\pi}{c}\vect{j}
+					\end{equation*}
+					виявляється неправильною у випадку змінного електричного поля.
+				\end{block}
+			\end{column}
+			\begin{column}{0.3\linewidth}\centering
+				\input{tikz/circ_thm.tikz}
+			\end{column}
+		\end{columns}
 		\begin{block}{}\justifying
-			Теорема про циркуляцію для постійного магнітного поля:
-                \begin{equation*}
-    				\oint\limits_L \Hfield\cdot d\vect{r} = \frac{4\pi}{c} \oiint\limits_S \vect{j}\cdot d\vect{S},
-    			\end{equation*}
-            або в диференціальній формі
-			\begin{equation*}
-				\Rot\Hfield = \frac{4\pi}{c}\vect{j}
-			\end{equation*}
-			виявляється неправильною у випадку змінного електричного поля.
-        \end{block}
-	\end{column}
-	\begin{column}{0.3\linewidth}\centering
-            \input{tikz/circ_thm.tikz}
-	\end{column}
-\end{columns}
-            \begin{block}{}\justifying
 			Застосовуючи операцію $\Div$ до цього рівняння і
 			враховуючи тотожність $\Div\Rot\Hfield = 0$, отримуємо $\Div\vect{j} = 0$. З іншого
 			боку, якщо густина заряду змінюється з часом, $\frac{\partial\rho}{\partial t} \neq 0$ то в силу
@@ -166,17 +166,17 @@
 		\begin{block}{}\justifying
 			Порівняємо закон електромагнітної індукції Фарадея, та <<оновлену>> теорему про циркуляцію за відсутності струмів провідності ($\vect{j} = 0$) у
 			вакуумі ($\epsilon = \mu = 1$ $\Rightarrow$ {\color{red}$\Efield = \Dfield$}, {\color{blue}$\Hfield = \Bfield$}).
-   		\end{block}
-        \vspace*{-3ex}
-			\begin{center}\small
-				\begin{tblr}%
-					{
-					colspec={X[c,m]X[c,m]},
-					row{2}={c,m,mode=dmath},
-					}
-					Закон електромагнітної індукції                          & Закон магнітоелектричної індукції                        \\
-					\Rot\Efield = -\frac1c\frac{\partial\Bfield}{\partial t} & \Rot\Bfield = +\frac1c\frac{\partial\Efield}{\partial t} \\
-                    \begin{pict}
+		\end{block}
+		\vspace*{-3ex}
+		\begin{center}\small
+			\begin{tblr}%
+				{
+				colspec={X[c,m]X[c,m]},
+				row{2}={c,m,mode=dmath},
+				}
+				Закон електромагнітної індукції                          & Закон магнітоелектричної індукції                        \\
+				\Rot\Efield = -\frac1c\frac{\partial\Bfield}{\partial t} & \Rot\Bfield = +\frac1c\frac{\partial\Efield}{\partial t} \\
+				\begin{pict}
 					\tikz[rotate=90, scale=0.75, >=latex, midarrow/.style={%
 								postaction={ decorate,
 										decoration={ markings, mark=at position .7 with {\arrow{latex}}}}}]{
@@ -191,9 +191,9 @@
 							}
 						\node[blue, font=\small] at (3.5, 0) {$\frac{\partial\Bfield}{\partial t}>0$};
 					}
-					\end{pict}
-                     &
-                    \begin{pict}
+				\end{pict}
+				                                                         &
+				\begin{pict}
 					\tikz[rotate=90, scale=0.75, >=latex, midarrow/.style={%
 								postaction={ decorate,
 										decoration={ markings, mark=at position .7 with {\arrow{latex}}}}}]{
@@ -208,13 +208,13 @@
 							}
 						\node[red, font=\small] at (3.5, 0) {$\frac{\partial\Efield}{\partial t}>0$};
 					}
-                \end{pict}
-				\end{tblr}
-			\end{center}
-            \vspace*{-3ex}
-       		\begin{alertblock}{}\centering
-       			Змінне в часі магнітне поле породжує вихрове електричне поле, а змінне в часі електричне поле породжує магнітне поле.
-       		\end{alertblock}
+				\end{pict}
+			\end{tblr}
+		\end{center}
+		\vspace*{-3ex}
+		\begin{alertblock}{}\centering
+			Змінне в часі магнітне поле породжує вихрове електричне поле, а змінне в часі електричне поле породжує магнітне поле.
+		\end{alertblock}
 	\end{onlyenv}
 \end{frame}
 % ===========================================================================
@@ -241,7 +241,7 @@
 					}
 			\end{tikzpicture}
 		\end{column}
-        \quad
+		\quad
 		\begin{column}{0.70\linewidth}
 			\begin{block}{}\justifying
 				Стікання заряду з кулі створює струм провідності, який дорівнює:
@@ -275,7 +275,7 @@
 				colspec={X[c, m]X[c,m]},
 				row{2} = {c,m, font=\scriptsize}
 				}
-                \begin{tikzpicture}[scale=0.6]
+				\begin{tikzpicture}[scale=0.6]
 					\clip (-1.5, -2.5) rectangle ++(4, 5.5);
 					\draw[line width=2pt, gray!50, arrowpos={0.7}{0pt}{7pt}] (0, -2) coordinate (A) -- ++(0, 2);
 					\draw[line width=3pt, red!50] (-1, 0) -- (1, 0);
@@ -320,10 +320,10 @@
 			\end{block}
 		\end{column}
 	\end{columns}
-		\begin{block}{}\justifying\small
-			Оскільки різні поверхні спираються на один і той же контур $L$, то циркуляція $\oint\limits_L \Hfield\cdot d\vect{r}$ не повинна залежати вибору
-			поверхні. А, отже, $I = I_\text{зм}$, тобто в середині конденсатора <<протікає>> струм зміщення, який замикає коло.
-		\end{block}
+	\begin{block}{}\justifying\small
+		Оскільки різні поверхні спираються на один і той же контур $L$, то циркуляція $\oint\limits_L \Hfield\cdot d\vect{r}$ не повинна залежати вибору
+		поверхні. А, отже, $I = I_\text{зм}$, тобто в середині конденсатора <<протікає>> струм зміщення, який замикає коло.
+	\end{block}
 \end{frame}
 % ===========================================================================
 
@@ -331,85 +331,93 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Струм зміщення в конденсаторі та магнітне поле}{}
-\begin{center}
-		\begin{tikzpicture}[>=latex, scale=1.2, transform shape]
-			%                \node[anchor = center] at (0,0) {\includegraphics[width=2cm]{Pictures/condensator}};
-			\draw[thick, red] (-1.5, 0) --  (-0.6, 0) node[pos=0.1, below] {$+$};
-			\draw[fill=red!50] (-0.6, -1) -- (-0.6, 0.4) -- (-0.1, 0.9) -- (-0.1, -0.5) -- cycle;
+	\begin{columns}
+		\begin{column}{0.5\linewidth}\centering
+			\begin{pict}
+				\begin{tikzpicture}[>=latex, scale=1.2, transform shape]
+					%                \node[anchor = center] at (0,0) {\includegraphics[width=2cm]{Pictures/condensator}};
+					\draw[thick, red] (-1.5, 0) --  (-0.6, 0) node[pos=0.1, below] {$+$};
+					\draw[fill=red!50] (-0.6, -1) -- (-0.6, 0.4) -- (-0.1, 0.9) -- (-0.1, -0.5) -- cycle;
 
 
-			\foreach \x in {-1, 0, +1} {
-					\begin{scope}[xshift=\x cm]
-						\draw[blue, arrowpos={0.4}{2pt}{2pt}] (0,0) circle (0.2 and 0.6);
-						\draw[blue, arrowpos={0.4}{2pt}{2pt}] (0,0) circle (0.14 and 0.4);
-						\draw[blue, arrowpos={0.4}{2pt}{2pt}] (0,0) circle (0.05 and 0.2);
+					\foreach \x in {-1, 0, +1} {
+							\begin{scope}[xshift=\x cm]
+								\draw[dash pattern=on 2pt off 0.7pt, blue, arrowpos={0.4}{2pt}{2pt}] (0,0) circle (0.2 and 0.6);
+								\draw[dash pattern=on 2pt off 0.7pt, blue, arrowpos={0.4}{2pt}{2pt}] (0,0) circle (0.14 and 0.4);
+								\draw[dash pattern=on 2pt off 0.7pt, blue, arrowpos={0.4}{2pt}{2pt}] (0,0) circle (0.05 and 0.2);
+							\end{scope}
+
+						}
+
+					\draw[thick, red] (-1, 0) --  (-0.6, 0) ;
+
+
+					\foreach \y in {0, -0.5, -1} {
+							\begin{scope}[yshift=\y cm]
+								\draw[arrowpos={0.4}{2pt}{2pt}, red, thin] (-0.2, 0.6) -- ++(0.8,0);
+								\draw[arrowpos={0.4}{2pt}{2pt}, red, thin] (-0.3, 0.5) -- ++(0.8,0);
+								\draw[arrowpos={0.4}{2pt}{2pt}, red, thin] (-0.4, 0.4) -- ++(0.8,0);
+							\end{scope}
+						}
+
+					\begin{scope}[xshift=0.83cm]
+						\draw[fill=blue!50] (-0.6, -1) -- (-0.6, 0.4) -- (-0.1, 0.9) -- (-0.1, -0.5) -- cycle;
 					\end{scope}
+					\draw[thick, blue] (0.5, 0) --  (1.5, 0) node[pos=0.9, below] {$-$};
 
-				}
+					\draw[->] (-1.4, -1.2) -- node[below] {$I$} ++(0.6, 0);
+					\draw[->] (-0.4, -1.2) -- node[below] {$\parttime\Dfield$} ++(0.6, 0);
+					\draw[->] (1, -1.2) -- node[below] {$I$} ++(0.6, 0);
+					%
+					%                \draw (-2, -2) to[grid with coordinates] (3,3);
+				\end{tikzpicture}
+			\end{pict}
+		\end{column}
+		\begin{column}{0.5\linewidth}\centering
+			\begin{pict}
+				\begin{tikzpicture}[>=latex, scale=1.2, transform shape]
+					%                \node[anchor = center] at (0,0) {\includegraphics[width=2cm]{Pictures/condensator}};
+					\draw[thick, red] (-1.5, 0) --  (-0.6, 0) node[pos=0.1, below] {$+$};
+					\draw[fill=red!50] (-0.6, -1) -- (-0.6, 0.4) -- (-0.1, 0.9) -- (-0.1, -0.5) -- cycle;
 
-			\draw[thick, red] (-1, 0) --  (-0.6, 0) ;
+
+					\foreach \x in {-1, 0, +1} {
+							\begin{scope}[xshift=\x cm, xscale=-1]
+								\draw[dash pattern=on 2pt off 0.7pt, blue, arrowpos={0.4}{2pt}{2pt}] (0,0) circle (0.2 and 0.6);
+								\draw[dash pattern=on 2pt off 0.7pt, blue, arrowpos={0.4}{2pt}{2pt}] (0,0) circle (0.14 and 0.4);
+								\draw[dash pattern=on 2pt off 0.7pt, blue, arrowpos={0.4}{2pt}{2pt}] (0,0) circle (0.05 and 0.2);
+							\end{scope}
+
+						}
+
+					\draw[thick, red] (-1, 0) --  (-0.6, 0) ;
 
 
-			\foreach \y in {0, -0.5, -1} {
-					\begin{scope}[yshift=\y cm]
-						\draw[arrowpos={0.4}{2pt}{2pt}, red, thin] (-0.2, 0.6) -- ++(0.8,0);
-						\draw[arrowpos={0.4}{2pt}{2pt}, red, thin] (-0.3, 0.5) -- ++(0.8,0);
-						\draw[arrowpos={0.4}{2pt}{2pt}, red, thin] (-0.4, 0.4) -- ++(0.8,0);
+					\foreach \y in {0, -0.5, -1} {
+							\begin{scope}[yshift=\y cm]
+								\draw[arrowpos={0.4}{2pt}{2pt}, red, thin] (-0.2, 0.6) -- ++(0.8,0);
+								\draw[arrowpos={0.4}{2pt}{2pt}, red, thin] (-0.3, 0.5) -- ++(0.8,0);
+								\draw[arrowpos={0.4}{2pt}{2pt}, red, thin] (-0.4, 0.4) -- ++(0.8,0);
+							\end{scope}
+						}
+
+					\begin{scope}[xshift=0.83cm]
+						\draw[fill=blue!50] (-0.6, -1) -- (-0.6, 0.4) -- (-0.1, 0.9) -- (-0.1, -0.5) -- cycle;
 					\end{scope}
-				}
+					\draw[thick, blue] (0.5, 0) --  (1.5, 0) node[pos=0.9, below] {$-$};
 
-			\begin{scope}[xshift=0.83cm]
-				\draw[fill=blue!50] (-0.6, -1) -- (-0.6, 0.4) -- (-0.1, 0.9) -- (-0.1, -0.5) -- cycle;
-			\end{scope}
-			\draw[thick, blue] (0.5, 0) --  (1.5, 0) node[pos=0.9, below] {$-$};
+					\draw[<-] (-1.4, -1.2) -- node[below] {$I$} ++(0.6, 0);
+					\draw[<-] (-0.4, -1.2) -- node[below] {$\parttime\Dfield$} ++(0.6, 0);
+					\draw[<-] (1, -1.2) -- node[below] {$I$} ++(0.6, 0);
+				\end{tikzpicture}
+			\end{pict}
+		\end{column}
+	\end{columns}
 
-			\draw[->] (-1.4, -1.2) -- node[below] {$I$} ++(0.6, 0);
-			\draw[->] (-0.4, -1.2) -- node[below] {$\parttime\Dfield$} ++(0.6, 0);
-			\draw[->] (1, -1.2) -- node[below] {$I$} ++(0.6, 0);
-
-			\begin{scope}[xshift=4cm]
-				%                \node[anchor = center] at (0,0) {\includegraphics[width=2cm]{Pictures/condensator}};
-				\draw[thick, red] (-1.5, 0) --  (-0.6, 0) node[pos=0.1, below] {$+$};
-				\draw[fill=red!50] (-0.6, -1) -- (-0.6, 0.4) -- (-0.1, 0.9) -- (-0.1, -0.5) -- cycle;
-
-
-				\foreach \x in {-1, 0, +1} {
-						\begin{scope}[xshift=\x cm, xscale=-1]
-							\draw[blue, arrowpos={0.4}{2pt}{2pt}] (0,0) circle (0.2 and 0.6);
-							\draw[blue, arrowpos={0.4}{2pt}{2pt}] (0,0) circle (0.14 and 0.4);
-							\draw[blue, arrowpos={0.4}{2pt}{2pt}] (0,0) circle (0.05 and 0.2);
-						\end{scope}
-
-					}
-
-				\draw[thick, red] (-1, 0) --  (-0.6, 0) ;
-
-
-				\foreach \y in {0, -0.5, -1} {
-						\begin{scope}[yshift=\y cm]
-							\draw[arrowpos={0.4}{2pt}{2pt}, red, thin] (-0.2, 0.6) -- ++(0.8,0);
-							\draw[arrowpos={0.4}{2pt}{2pt}, red, thin] (-0.3, 0.5) -- ++(0.8,0);
-							\draw[arrowpos={0.4}{2pt}{2pt}, red, thin] (-0.4, 0.4) -- ++(0.8,0);
-						\end{scope}
-					}
-
-				\begin{scope}[xshift=0.83cm]
-					\draw[fill=blue!50] (-0.6, -1) -- (-0.6, 0.4) -- (-0.1, 0.9) -- (-0.1, -0.5) -- cycle;
-				\end{scope}
-				\draw[thick, blue] (0.5, 0) --  (1.5, 0) node[pos=0.9, below] {$-$};
-
-				\draw[<-] (-1.4, -1.2) -- node[below] {$I$} ++(0.6, 0);
-				\draw[<-] (-0.4, -1.2) -- node[below] {$\parttime\Dfield$} ++(0.6, 0);
-				\draw[<-] (1, -1.2) -- node[below] {$I$} ++(0.6, 0);
-			\end{scope}
-			%
-			%                \draw (-2, -2) to[grid with coordinates] (3,3);
-		\end{tikzpicture}
-\end{center}
-		\begin{block}{}\justifying
-			\alert{Струми зміщення} замикають струми провідності і \alert{створюють магнітне поле точно так само}, як і
-			струми провідності. Вони, однак, не створюють прямо теплового ефекту, до них незастосовні закон Ома і закон Джоуля-Ленца.
-		\end{block}
+	\begin{block}{}\justifying
+		\alert{Струми зміщення} замикають струми провідності і \alert{створюють магнітне поле точно так само}, як і
+		струми провідності. Вони, однак, не створюють прямо теплового ефекту, до них незастосовні закон Ома і закон Джоуля-Ленца.
+	\end{block}
 \end{frame}
 % ===========================================================================
 
@@ -634,7 +642,7 @@
 		(Рух частинок) = (Зміна енергії в об'ємі) -- (Потік енергії на зовні).
 	\end{block}
 
-	\begin{block}{}
+	\begin{block}{}\justifying
 		Рухати частинки може лише електричне поле. Енергія, яка витрачається полем на розгін частинок в одиниці об'єму за одиницю часу ---
 		джоулеве тепло $\vect{j}\cdot\Efield$.
 	\end{block}
@@ -786,7 +794,7 @@
 			\end{tikzpicture}
 
 		\end{column}
-        \
+		\
 		\begin{column}{0.6\linewidth}
 			\begin{overprint}
 				\onslide<1>

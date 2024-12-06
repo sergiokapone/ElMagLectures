@@ -53,6 +53,13 @@
 \usepackage{cancel}
 \usetikzlibrary{shapes.geometric,calc}
 
+
+\tikzset{
+        custom dash/.style={
+            dash pattern=on 2pt off 0.7pt
+        }
+    }
+
 \begin{document}
 
 
@@ -67,9 +74,9 @@
 
 			\foreach \x in {-1, 0, +1} {
 					\begin{scope}[xshift=\x cm]
-						\draw[blue, arrowpos={0.4}{2pt}{2pt}] (0,0) circle (0.2 and 0.6);
-						\draw[blue, arrowpos={0.4}{2pt}{2pt}] (0,0) circle (0.14 and 0.4);
-						\draw[blue, arrowpos={0.4}{2pt}{2pt}] (0,0) circle (0.05 and 0.2);
+						\draw[dash pattern=on 2pt off 0.7pt, blue, arrowpos={0.4}{2pt}{2pt}] (0,0) circle (0.2 and 0.6);
+						\draw[dash pattern=on 2pt off 0.7pt, blue, arrowpos={0.4}{2pt}{2pt}] (0,0) circle (0.14 and 0.4);
+						\draw[dash pattern=on 2pt off 0.7pt, blue, arrowpos={0.4}{2pt}{2pt}] (0,0) circle (0.05 and 0.2);
 					\end{scope}
 
 				}
@@ -102,9 +109,9 @@
 
 				\foreach \x in {-1, 0, +1} {
 						\begin{scope}[xshift=\x cm, xscale=-1]
-							\draw[blue, arrowpos={0.4}{2pt}{2pt}] (0,0) circle (0.2 and 0.6);
-							\draw[blue, arrowpos={0.4}{2pt}{2pt}] (0,0) circle (0.14 and 0.4);
-							\draw[blue, arrowpos={0.4}{2pt}{2pt}] (0,0) circle (0.05 and 0.2);
+							\draw[dash pattern=on 2pt off 0.7pt, blue, arrowpos={0.4}{2pt}{2pt}] (0,0) circle (0.2 and 0.6);
+							\draw[dash pattern=on 2pt off 0.7pt, blue, arrowpos={0.4}{2pt}{2pt}] (0,0) circle (0.14 and 0.4);
+							\draw[dash pattern=on 2pt off 0.7pt, blue, arrowpos={0.4}{2pt}{2pt}] (0,0) circle (0.05 and 0.2);
 						\end{scope}
 
 					}
