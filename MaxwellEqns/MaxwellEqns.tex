@@ -50,28 +50,29 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}[t]{Цитати із книги <<Еволюція фізики>>}{А. Ейнштейн, Л. Інфельд}
-	\tikz[remember picture,overlay] \node[opacity=0.85,inner sep=0pt,
-		anchor=south east] at (current page.south east){\includegraphics[width=1.2cm]{Evolution}};
+	\tikz[remember picture,overlay] \node[opacity=1,inner sep=0pt,
+		anchor=north west] at (current page.north west){\includegraphics[width=1.2cm]{Evolution}};
 	\begin{block}{}\centering
 		\begin{tikzpicture}[pencildraw/.style={ %
 						decorate,
 						decoration={random steps,segment length=2pt,amplitude=1pt}
 					} %
 			]
-			\node[align=justify,
+			\node[align=justify, drop shadow,
 			preaction={fill=black,opacity=.5},
 			pencildraw,draw,fill=white,text width=0.9\linewidth,inner sep=2mm]
 			{Кількісне, математичне формулювання законів поля дано в так званих рівняннях Максвелла.
 			\alert{[Експериментальні] факти призвели до формулювання цих рівнянь}, але зміст їх значно багатший [\ldots]. Їхня проста форма приховує глибину, що
 			виявляється тільки при ретельному вивченні.};
 		\end{tikzpicture}
-		\vspace{1ex}
+  	\end{block}
+   	\begin{block}{}\centering
 		\begin{tikzpicture}[pencildraw/.style={ %
 						decorate,
 						decoration={random steps,segment length=2pt,amplitude=1pt}
 					} %
 			]
-			\node[align=justify,
+			\node[align=justify, drop shadow,
 				preaction={fill=black,opacity=.5},
 				pencildraw,draw,fill=white,text width=0.9\linewidth,inner sep=2mm]
 			{

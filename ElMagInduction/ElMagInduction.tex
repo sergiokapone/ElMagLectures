@@ -49,21 +49,30 @@
 		\onslide<1>
 		\begin{center}
 			\begin{block}{}\centering\itshape\small
-				Восени 1831 року Майкл Фарадей виконав завдання,\\ яке ще в 1822 року записав собі в пам'ятній книжці, --- \\ \alert{<<перетворити магнетизм
-					на
-					електрику>>}.
+				\tikz[pencildraw/.style={ %
+							decorate,
+							decoration={random steps,segment length=2pt,amplitude=1pt}
+						} %
+				]{
+					\node[align=center,
+						preaction={fill=black,opacity=.5},
+						pencildraw,draw,fill=white,text width = \linewidth,inner sep=2mm, drop shadow]
+					{Восени 1831 року Майкл Фарадей виконав завдання, яке ще в 1822 року записав собі в пам'ятній книжці,
+                    \alert{<<перетворити магнетизм на електрику>>}.
+					}
+				}
 			\end{block}
 			\includegraphics[width=0.7\linewidth]{Faraday_in_lab}
 		\end{center}
 		\onslide<2>
 		\begin{center}
 			\begin{pict}
-                \includegraphics[width=0.6\linewidth]{Faraday_experiments}
-            \end{pict}
+				\includegraphics[width=0.6\linewidth]{Faraday_experiments}
+			\end{pict}
 			\href{https://youtu.be/GrBYG8NIUoU}{\color{blue}\small Досліди Фарадея}
 		\end{center}
 	\end{overprint}
-\end{frame}
+        \end{frame}
 % ===========================================================================
 
 
@@ -105,8 +114,8 @@
 	\begin{columns}
 		\begin{column}{0.4\linewidth}\centering
 			\begin{pict}
-                \includegraphics[width=0.85\linewidth]{Area_change}
-            \end{pict}
+				\includegraphics[width=0.85\linewidth]{Area_change}
+			\end{pict}
 		\end{column}
 		\begin{column}{0.6\linewidth}
 			\begin{block}{}\justifying
@@ -143,8 +152,8 @@
 	\begin{columns}
 		\begin{column}{0.4\linewidth}\centering
 			\begin{pict}
-                \includegraphics[width=0.9\linewidth]{AC-Generator}
-            \end{pict}
+				\includegraphics[width=0.9\linewidth]{AC-Generator}
+			\end{pict}
 		\end{column}
 		\begin{column}{0.6\linewidth}
 			\begin{block}{}\justifying
@@ -182,8 +191,8 @@
 	\end{block}
 	\begin{center}
 		\begin{pict}
-            \includegraphics[width=0.5\linewidth]{Field_change}
-        \end{pict}
+			\includegraphics[width=0.5\linewidth]{Field_change}
+		\end{pict}
 	\end{center}
 	\begin{alertblock}{}
 		Яка причина виникнення ЕРС? Адже магнітне поле не діє на нерухомі заряди, то за рахунок чого вони прискорюються?
@@ -261,11 +270,11 @@
 	\begin{block}{}\justifying
 		Струми Фуко --- вихрові індукційні струми, які виникають у провіднику під час зміни магнітного потоку через поверхню провідника.
 	\end{block}
-    \begin{center}
-       	\begin{pict}
-       		\includegraphics[width=.5\linewidth]{Fuko_currents}
-       	\end{pict}
-    \end{center}
+	\begin{center}
+		\begin{pict}
+			\includegraphics[width=.5\linewidth]{Fuko_currents}
+		\end{pict}
+	\end{center}
 	\begin{block}{}\justifying
 		Струми Фуко, як і індукційні струми в лінійних провідниках, підпорядковані правилу Ленца: їх магнітне поле направлене так, щоб протидіяти змінам
 		магнітного потоку, що індукували ці струми.
@@ -278,7 +287,7 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Закон збереження магнітного потока}{}\small
+\begin{frame}{Закон збереження магнітного потоку}{}\small
 	\begin{block}{}
 		Нехай замкнутий виток з опором $R$ перебуває в зовнішньому магнітному полі.
 	\end{block}
@@ -343,6 +352,8 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Вихрове електричне поле}{}
+%	\tikz[remember picture,overlay] \node[opacity=1,inner sep=0pt,
+%		anchor=east] at ([yshift=1.5cm]current page.east){\includegraphics[width=2cm]{Maxwell}};
 	\begin{onlyenv}<1>
 		\begin{block}{}\justifying
 			Оскільки магнітний потік дорівнює $\Phi = \iint\limits_S \Bfield\cdot d\vect{S}$, а ЕРС індукції $\mathcal{E} = \oint\limits_L \vect{E}\cdot
@@ -368,22 +379,22 @@
 	\begin{onlyenv}<2>
 		\begin{columns}
 			\begin{column}{0.4\linewidth}\centering
-                \begin{pict}
-    				\begin{tikzpicture}[rotate=90, scale=0.9, >=latex, midarrow/.style={%
-    								postaction={ decorate,
-    										decoration={ markings, mark=at position .7 with {\arrow{latex}}}}}]
-    					\begin{scope}[xshift=0.3cm]
-    						\draw[arrowpos={0.5}{2pt}{4pt}, red] (1.1,0) [partial ellipse=360:0:0.15 and 0.5];
-    						\draw[arrowpos={0.5}{2pt}{4pt}, red] (1.1,0) [partial ellipse=360:0:0.3 and 1];
-    						\draw[arrowpos={0.5}{2pt}{4pt}, red] (1.1,0) [partial ellipse=360:0:0.6 and 2] node[pos=0.5, below] {$\Efield$};
-    					\end{scope}
+				\begin{pict}
+					\begin{tikzpicture}[rotate=90, scale=0.9, >=latex, midarrow/.style={%
+									postaction={ decorate,
+											decoration={ markings, mark=at position .7 with {\arrow{latex}}}}}]
+						\begin{scope}[xshift=0.3cm]
+							\draw[arrowpos={0.5}{2pt}{4pt}, red] (1.1,0) [partial ellipse=360:0:0.15 and 0.5];
+							\draw[arrowpos={0.5}{2pt}{4pt}, red] (1.1,0) [partial ellipse=360:0:0.3 and 1];
+							\draw[arrowpos={0.5}{2pt}{4pt}, red] (1.1,0) [partial ellipse=360:0:0.6 and 2] node[pos=0.5, below] {$\Efield$};
+						\end{scope}
 
-    					\foreach \y in {-3,...,3}{
-    							\draw[blue, midarrow] plot[domain=1:3] (\x, 0.2*\y+0.05*\y*\x^2);
-    						}
-    					\node[blue, font=\small] at (3.5, 0) {$\frac{\partial\Bfield}{\partial t}>0$};
-    				\end{tikzpicture}
-                \end{pict}
+						\foreach \y in {-3,...,3}{
+								\draw[blue, midarrow] plot[domain=1:3] (\x, 0.2*\y+0.05*\y*\x^2);
+							}
+						\node[blue, font=\small] at (3.5, 0) {$\frac{\partial\Bfield}{\partial t}>0$};
+					\end{tikzpicture}
+				\end{pict}
 			\end{column}
 			\begin{column}{0.6\linewidth}
 				\begin{block}{}\justifying\small
@@ -418,17 +429,17 @@
 	\begin{columns}
 		\begin{column}{0.35\linewidth}\centering
 			\begin{pict}
-            \begin{tikzpicture}[rotate=90, scale=0.9, >=latex, midarrow/.style={%
-							postaction={ decorate,
-									decoration={ markings, mark=at position .7 with {\arrow{latex}}}}}]
-				\begin{scope}%[rotate around={45:(0,1)}]
-					\draw[arrowpos={0.5}{2pt}{7pt}, red!40, ultra thick] (1.1,0) [partial ellipse=0:360:0.3 and 1] node[pos=0.5, below] {$I$};
-				\end{scope}
-				\foreach \y in {-3,...,3}{
-						\draw[blue, midarrow] plot[domain=1:3] (\x, 0.2*\y+0.05*\y*\x^2);
-					}
-			\end{tikzpicture}
-            \end{pict}
+				\begin{tikzpicture}[rotate=90, scale=0.9, >=latex, midarrow/.style={%
+								postaction={ decorate,
+										decoration={ markings, mark=at position .7 with {\arrow{latex}}}}}]
+					\begin{scope}%[rotate around={45:(0,1)}]
+						\draw[arrowpos={0.5}{2pt}{7pt}, red!40, ultra thick] (1.1,0) [partial ellipse=0:360:0.3 and 1] node[pos=0.5, below] {$I$};
+					\end{scope}
+					\foreach \y in {-3,...,3}{
+							\draw[blue, midarrow] plot[domain=1:3] (\x, 0.2*\y+0.05*\y*\x^2);
+						}
+				\end{tikzpicture}
+			\end{pict}
 		\end{column}
 		\begin{column}{0.64\linewidth}
 			\begin{block}{}\justifying
@@ -588,8 +599,8 @@
 	\begin{columns}
 		\begin{column}{0.4\linewidth}\centering
 			\begin{pict}\centering
-                \input{tikz/12contours.tikz}
-            \end{pict}
+				\input{tikz/12contours.tikz}
+			\end{pict}
 		\end{column}
 		\begin{column}{0.59\linewidth}
 			\begin{overprint}
@@ -960,11 +971,11 @@
 \begin{frame}{Пондеромоторні сили в магнітному полі}{}
 	\framesubtitle<1>{Закон збереження енергії}
 	\begin{center}
-        \begin{pict}
-		\begin{tikzpicture}[]
-			\node[anchor=center, opacity=0.75, ] at (0, 0) {\includegraphics[width=6cm]{pull_in_solenoid}};
-		\end{tikzpicture}
-        \end{pict}
+		\begin{pict}
+			\begin{tikzpicture}[]
+				\node[anchor=center, opacity=0.75, ] at (0, 0) {\includegraphics[width=6cm]{pull_in_solenoid}};
+			\end{tikzpicture}
+		\end{pict}
 	\end{center}
 	\begin{overprint}
 		\onslide<1>
@@ -994,7 +1005,7 @@
 		\end{equation*}
 		При цьому, зміна магнітної енергії $dW = \frac{I^2}{2c^2} dL$. Отже, $\delta A_\text{мех} = + dW$, а сила втягування:
 		\begin{equation*}
-			F_x = + \left( \frac{d W}{dx} \right)_{I}
+			\tcbhighmath{F_x = + \left( \frac{d W}{dx} \right)_{I}}
 		\end{equation*}
 		\framesubtitle<3>{Випадок $\Phi = \const$}
 		\onslide<3>
@@ -1007,7 +1018,7 @@
 		\end{equation*}
 		Отже, $\delta A_\text{мех} = - dW$, а сила втягування:
 		\begin{equation*}
-			F_x = - \left( \frac{dW}{dx} \right)_{\Phi}
+			\tcbhighmath{F_x = - \left( \frac{dW}{dx} \right)_{\Phi}}
 		\end{equation*}
 	\end{overprint}
 \end{frame}
@@ -1019,12 +1030,12 @@
 	\begin{tblr}{
 		colspec = {X[c,m, font=\small]X[c,m, font=\small]}
 		}
-		\begin{pict}\includegraphics[width=0.5\linewidth]{amplula_FeCl}\end{pict}  &
-		\begin{pict}\includegraphics[width=0.5\linewidth]{probirka_FeCl}\end{pict}   \\
-		Ампула з парамагнітним розчином хлористого заліза в магнітному полі & Втягування розчину хлористого заліза в магнітне поле   \\
-		\begin{pict}\includegraphics[width=0.5\linewidth]{palochka_Bi}\end{pict}                  &
-		\begin{pict}\includegraphics[width=0.5\linewidth]{Flame_diamagnet}\end{pict} \\
-		Діамагнітна паличка вісмута в магнітному полі                       & Діамагнетизм полум'я
+		\begin{pict}\includegraphics[width=0.5\linewidth]{amplula_FeCl}\end{pict} &
+		\begin{pict}\includegraphics[width=0.5\linewidth]{probirka_FeCl}\end{pict}                                                       \\
+		Ампула з парамагнітним розчином хлористого заліза в магнітному полі       & Втягування розчину хлористого заліза в магнітне поле \\
+		\begin{pict}\includegraphics[width=0.5\linewidth]{palochka_Bi}\end{pict}  &
+		\begin{pict}\includegraphics[width=0.5\linewidth]{Flame_diamagnet}\end{pict}                                                     \\
+		Діамагнітна паличка вісмута в магнітному полі                             & Діамагнетизм полум'я
 	\end{tblr}
 \end{frame}
 % ===========================================================================

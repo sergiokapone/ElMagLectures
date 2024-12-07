@@ -1,6 +1,6 @@
 \begin{tikzpicture}[>=latex, scale=1.5]
-	\node [circle, ball color=red, inner sep=2pt] (q1) at (-1,0) {};
-	\node [circle, ball color=red, inner sep=2pt] (q2) at (1,0) {};
+	\node [circle, ball color=red, inner sep=2pt] (q1) at (-1,0) {$+$};
+	\node [circle, ball color=red, inner sep=2pt] (q2) at (1,0) {$+$};
 
 	\node[below] at (q1) {$q_1$};
 	\node[below] at (q2) {$q_2$};

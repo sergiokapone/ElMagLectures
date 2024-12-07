@@ -35,7 +35,7 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Зміст лекції}{}
-       \tableofcontents
+	\tableofcontents
 \end{frame}
 % ===========================================================================
 
@@ -87,17 +87,14 @@
 			взаємодіючих тіл, і передається за допомогою особливого носія ---
 			\alert{електромагнітного поля}.
 		\end{block}
-
 		\begin{block}{}
 			\alert{Електромагнітним полем} називається область простору, де діють
 			електричні та магнітні сили.
 		\end{block}
-
 		\begin{block}{}
 			Поле \alert{створюється} електричними \textit{зарядами} і \alert{діє}
 			на \textit{заряди}.
 		\end{block}
-
 		\begin{block}{}\justifying
 			\alert{Електричний заряд} --- це міра взаємодії \alert{зарядженого
 				тіла з полем}. Фактично, заряд визначає інтенсивність взаємодії
@@ -105,25 +102,26 @@
 		\end{block}
 	\end{onlyenv}
 	\begin{onlyenv}<2>
-		\begin{fancyquotes}
-			Якби у вашому тілі або в тілі вашого сусіда (який стоїть від вас на
-			відстані витягнутої руки) електронів виявилося б всього на 1\% більше, ніж
-			протонів, то сила вашого відштовхування була б неймовірно великою.
-
-			\medskip
-
-			Наскільки великою? Достатньою, щоб підняти хмарочос? Більше! Достатньою,
-			щоб підняти гору Еверест? Більше!
-
-			\medskip
-
-			Сили відштовхування вистачило б, щоб
-			підняти «вагу», що дорівнює вазі нашої Землі!
-
-			\bigskip
-
-			\hfill Р. Фейнман в книзі <<Фейнманівські лекції з фізики>>.
-		\end{fancyquotes}
+		\begin{block}{}
+			\begin{tikzpicture}[pencildraw/.style={ %
+							decorate,
+							decoration={random steps,segment length=2pt,amplitude=1pt}
+						} %
+				]
+				\node[align=justify, drop shadow,
+					preaction={fill=black,opacity=.5},
+					pencildraw,draw,fill=white,text width=1\linewidth,inner sep=2mm]
+				{Якби у вашому тілі або в тілі вашого сусіда (який стоїть від вас на
+					відстані витягнутої руки) електронів виявилося б всього на 1\% більше, ніж
+					протонів, то сила вашого відштовхування була б неймовірно великою.\\[1ex]
+					Наскільки великою? Достатньою, щоб підняти хмарочос? Більше! Достатньою,
+					щоб підняти гору Еверест? Більше!\\[1ex]
+					Сили відштовхування вистачило б, щоб
+					підняти «вагу», що дорівнює вазі нашої Землі!\\[1em]
+					\hfill{ Р. Фейнман в книзі <<Фейнманівські лекції з фізики>>}.
+				};
+			\end{tikzpicture}
+		\end{block}
 		\tikz[remember picture,overlay] \node[opacity=0.5,inner sep=0pt,
 			anchor=south west] at (current page.south
 		west){\includegraphics[width=2cm]{Fey}};
@@ -259,7 +257,7 @@
 			\item Релятивістська інваріантність заряду.
 
 			      \begin{flushleft}\small
-				      Величина електричного заряду однакова відносно різних систем відліку.
+				      Величина електричного заряду однакова відносно різних систем відліку. Іншими словами, величина заряду не залежить від швидкості.
 			      \end{flushleft}
 		\end{enumerate}
 	\end{onlyenv}
@@ -842,12 +840,12 @@
 		\end{column}
 		\begin{column}{0.3\linewidth}
 			\begin{tikzpicture}[>=latex, every node/.style={font=\scriptsize}, scale=0.7, transform
-			shape]
+					shape]
 				\draw[red!40, line width=3pt] plot[domain=0.4:0.8*pi] ({\x}, {sin(\x r)});
 				\draw[red, line width=3pt] plot[domain=1:1.4] ({\x}, {sin(\x r)});
 				\node[font=\scriptsize, anchor=south west, inner sep=1pt, text width=2.5cm,
-				align=center, text=blue] (div1) at (2.2,1) {Елемент довжини \\ $dl$};
-                \draw[<-, gray, thick] (1.2, {sin(1.2 r)}) to[out=65, in = 135] (div1.north west);
+					align=center, text=blue] (div1) at (2.2,1) {Елемент довжини \\ $dl$};
+				\draw[<-, gray, thick] (1.2, {sin(1.2 r)}) to[out=65, in = 135] (div1.north west);
 			\end{tikzpicture}
 		\end{column}
 	\end{columns}
@@ -934,7 +932,7 @@
 				\draw[dashed, thick] (2, 0.85) -- ++(3,0);
 				\draw[dashed, thick] (2, -0.85) -- node[below] {$dl$} ++(3,0);
 				\draw[dashed, thick] (5,0) circle (0.5 and 0.85);
-                \node[opacity=0.3] at (3.2, 0) {\includegraphics[width=\linewidth]{fishes}};
+				\node[opacity=0.3] at (3.2, 0) {\includegraphics[width=\linewidth]{fishes}};
 			\end{tikzpicture}
 		\end{column}
 		\begin{column}{0.45\linewidth}\centering
@@ -956,7 +954,7 @@
 				\draw[dashed, thick] (2.4, 0) ++(-135:1) -- node[below] {$dl$} ++(3,0);
 				\draw[dashed, thick, rotate around={-45:(5,0)}] (5,0) circle (0.5
 				and 0.85);
-                \node[opacity=0.3] at (3.2, 0) {\includegraphics[width=\linewidth]{fishes}};
+				\node[opacity=0.3] at (3.2, 0) {\includegraphics[width=\linewidth]{fishes}};
 			\end{tikzpicture}
 		\end{column}
 	\end{columns}
@@ -1116,7 +1114,7 @@
 	\end{columns}
 
 	\begin{block}{}\justifying\small
-		\alert{Для розрахунку електричних полів системи зарядів теореми Гауса
+		\alert{Для розрахунку електричних полів системи зарядів теореми Гаусса
 			недостатньо, бо вона є скалярним співвідношенням}, чого
 		замало для визначення трьох невідомих --- складових $E_x$, $E_y$, $E_z$
 		вектора $\vec{E}$. \alert{Необхідна відома симетрія задачі}, щоб остання
@@ -1227,7 +1225,7 @@
 		\end{block}
 	\end{onlyenv}
 	\begin{onlyenv}<2>
-		За теоремою Гауса той самий потік дорівнює $4\pi\rho dV$. Прирівнюючи обидва
+		За теоремою Гаусса той самий потік дорівнює $4\pi\rho dV$. Прирівнюючи обидва
 		вирази, отримаємо
 		\begin{equation*}
 			\Div\Efield = \tcbhighmath{
@@ -1307,7 +1305,7 @@
 	\begin{overprint}
 		\onslide<1>
 		\begin{block}{}\justifying
-			У диференціальній формі теорема Гауса є \alert{локальною теоремою}:
+			У диференціальній формі теорема Гаусса є \alert{локальною теоремою}:
 			дивергенція поля $\Efield$ у даній точці залежить тільки від густини
 			електричного заряду $\rho$ у тій самій точці і більше ні від чого.
 			\begin{center}
@@ -1337,14 +1335,14 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Задачі}{}
-       \begin{exampleblock}{Задача 1}\justifying
-            Знайти дивергенцію вектора напруженості поля точкового заряду
-            \begin{equation*}
-                \Efield = \frac{q}{r^2} \frac{\vect{r}}{r}
-        \end{equation*}
-            в області $r >0$ шляхом взяття часткових похідних.
-            Спробуйте взяти дивергенцію в декартових та сферичних координатах.
-        \end{exampleblock}
+	\begin{exampleblock}{Задача 1}\justifying
+		Знайти дивергенцію вектора напруженості поля точкового заряду
+		\begin{equation*}
+			\Efield = \frac{q}{r^2} \frac{\vect{r}}{r}
+		\end{equation*}
+		в області $r >0$ шляхом взяття часткових похідних.
+		Спробуйте взяти дивергенцію в декартових та сферичних координатах.
+	\end{exampleblock}
 \end{frame}
 % ===========================================================================
 
@@ -1408,64 +1406,64 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Циркуляція вектора $\Efield$}
-\begin{columns}
-	\begin{column}{0.25\linewidth}\centering
-      \begin{tikzpicture}[scale=0.75, transform shape, >=latex]
-            \node [circle, ball color=red, inner sep=0pt, text=white,
-    		font=\scriptsize] (qp) at (0,0) {$+$};
-    		\foreach \i in {20,40,...,360}
-			{
-				\draw[->, red!50] (qp) -- ++(\i:2);
-			}
-            \node[circle, inner sep=0.75pt, fill] (1) at (140:1) {};
-            \node[circle, inner sep=0.75pt, fill] (2) at (20:1) {};
-            \draw [green!60!black, thick] (1) node[above, text=black] {$\phi_1$}  ..  controls
-            (80:2) and
-            (40:0.5) .. (2) node[above, text=black] {$\phi_2$};
-    \end{tikzpicture}
-	\end{column}
-	\begin{column}{0.75\linewidth}
-	\begin{block}{}\justifying
-		Різницю потенціалів поля між точками $1$ і $2$ можна виразити через
-		напруженість:
-		\begin{equation*}
-			\int\limits_{(1)}^{(2)} \Efield\cdot d\vect{r} = \phi_1 - \phi_2 = -\Delta\phi.
-		\end{equation*}
-	\end{block}
-	\end{column}
-\end{columns}
-\begin{columns}
-	\begin{column}{0.25\linewidth}\centering
-      \begin{tikzpicture}[scale=0.7, transform shape,>=latex]
-            \node [circle, ball color=red, inner sep=0pt, text=white,
-    		font=\scriptsize] (qp) at (0,0) {$+$};
-    		\foreach \i in {20,40,...,360}
-			{
-				\draw[->, red!50] (qp) -- ++(\i:2);
-			}
-            % distrorted sphere
-        \pgfmathsetseed{2}
-        \draw[green!60!black, thick] plot[domain=45:395,smooth cycle]
-        (\x:{1+rnd*0.3});
-    \end{tikzpicture}
-	\end{column}
-	\begin{column}{0.75\linewidth}
- 	\begin{block}{}\justifying
-		Оскільки робота поля над зарядом не залежить від форми траєкторії ---
-		то для \alert{довільної замкненої траєкторії $L$} маємо
-		\begin{equation*}
-			\tcbhighmath{
-				\oint\limits_L \Efield\cdot d\vect{r}
-				% \oint\limits_L \left( E_x dx + 	E_ydy + E_zdz \right)
-				= 0
-			}
-		\end{equation*}
-		Цей інтеграл називається \alert{циркуляцією вектора $\Efield$ по
-			контуру $L$}, а рівність називається \alert{теоремою про
-			циркуляцію в інтегральній формі}.
-	\end{block}
-	\end{column}
-\end{columns}
+	\begin{columns}
+		\begin{column}{0.25\linewidth}\centering
+			\begin{tikzpicture}[scale=0.75, transform shape, >=latex]
+				\node [circle, ball color=red, inner sep=0pt, text=white,
+					font=\scriptsize] (qp) at (0,0) {$+$};
+				\foreach \i in {20,40,...,360}
+					{
+						\draw[->, red!50] (qp) -- ++(\i:2);
+					}
+				\node[circle, inner sep=0.75pt, fill] (1) at (140:1) {};
+				\node[circle, inner sep=0.75pt, fill] (2) at (20:1) {};
+				\draw [green!60!black, thick] (1) node[above, text=black] {$\phi_1$}  ..  controls
+				(80:2) and
+				(40:0.5) .. (2) node[above, text=black] {$\phi_2$};
+			\end{tikzpicture}
+		\end{column}
+		\begin{column}{0.75\linewidth}
+			\begin{block}{}\justifying
+				Різницю потенціалів поля між точками $1$ і $2$ можна виразити через
+				напруженість:
+				\begin{equation*}
+					\int\limits_{(1)}^{(2)} \Efield\cdot d\vect{r} = \phi_1 - \phi_2 = -\Delta\phi.
+				\end{equation*}
+			\end{block}
+		\end{column}
+	\end{columns}
+	\begin{columns}
+		\begin{column}{0.25\linewidth}\centering
+			\begin{tikzpicture}[scale=0.7, transform shape,>=latex]
+				\node [circle, ball color=red, inner sep=0pt, text=white,
+					font=\scriptsize] (qp) at (0,0) {$+$};
+				\foreach \i in {20,40,...,360}
+					{
+						\draw[->, red!50] (qp) -- ++(\i:2);
+					}
+				% distrorted sphere
+				\pgfmathsetseed{2}
+				\draw[green!60!black, thick] plot[domain=45:395,smooth cycle]
+				(\x:{1+rnd*0.3});
+			\end{tikzpicture}
+		\end{column}
+		\begin{column}{0.75\linewidth}
+			\begin{block}{}\justifying
+				Оскільки робота поля над зарядом не залежить від форми траєкторії ---
+				то для \alert{довільної замкненої траєкторії $L$} маємо
+				\begin{equation*}
+					\tcbhighmath{
+						\oint\limits_L \Efield\cdot d\vect{r}
+						% \oint\limits_L \left( E_x dx + 	E_ydy + E_zdz \right)
+						= 0
+					}
+				\end{equation*}
+				Цей інтеграл називається \alert{циркуляцією вектора $\Efield$ по
+					контуру $L$}, а рівність називається \alert{теоремою про
+					циркуляцію в інтегральній формі}.
+			\end{block}
+		\end{column}
+	\end{columns}
 
 
 
@@ -1599,26 +1597,26 @@
 
 	\begin{block}{Ротор вектора в різних системах}
 		\begin{align*}
-	\rot\vect{A}      & = \left( \frac{\partial A_z}{\partial y}  - \frac{\partial A_y}{\partial
-	z}\right)  \vect{i} +
-	\left( \frac{\partial A_x}{\partial z}  - \frac{\partial A_z}{\partial x}\right)  \vect{j} +
-	\left( \frac{\partial A_y}{\partial x}  - \frac{\partial A_x}{\partial y}\right)  \vect{k} \\
-	\rot\vect{A}      & =\left({\frac {1}{\rho }}{\frac {\partial A_{z}}{\partial \varphi }}-{\frac
-	{\partial A_{\varphi }}{\partial z}}\right)\vect{e}_{\rho}+\left({\frac {\partial A_{\rho
-	}}{\partial z}}-{\frac {\partial A_{z}}{\partial \rho }}\right)\vect{e}_{\phi} +
-	{\frac {1}{\rho }}\left({\frac {\partial (\rho A_{\varphi })}{\partial \rho }}-{\frac {\partial
-	A_{\rho }}{\partial \varphi }}\right)\vect{k} \\
-	\rot\vect{A}      & = \frac{1}{r\sin \theta }\left(\frac{\partial}{\partial \theta
-	}\left(A_{\varphi }\sin \theta \right)-\frac{\partial A_{\theta }}{\partial \varphi
-	}\right)\vect{e}_{r}
-	+
-	\frac{1}{r}\left(\frac{1}{\sin \theta }\frac{\partial A_{r}}{\partial \varphi
-	}-\frac{\partial}{\partial r}\left(rA_{\varphi }\right)\right)\vect{e}_{\theta}
-	+
-	\nonumber
-	                                                                                   \\
-	                  & + \frac{1}{r}\left(\frac{\partial}{\partial r}\left(rA_{\theta
-	                  }\right)-\frac{\partial A_{r}}{\partial \theta }\right)\vect{e}_{\phi}
+			\rot\vect{A} & = \left( \frac{\partial A_z}{\partial y}  - \frac{\partial A_y}{\partial
+				z}\right)  \vect{i} +
+			\left( \frac{\partial A_x}{\partial z}  - \frac{\partial A_z}{\partial x}\right)  \vect{j} +
+			\left( \frac{\partial A_y}{\partial x}  - \frac{\partial A_x}{\partial y}\right)  \vect{k} \\
+			\rot\vect{A} & =\left({\frac {1}{\rho }}{\frac {\partial A_{z}}{\partial \varphi }}-{\frac
+				{\partial A_{\varphi }}{\partial z}}\right)\vect{e}_{\rho}+\left({\frac {\partial A_{\rho
+					}}{\partial z}}-{\frac {\partial A_{z}}{\partial \rho }}\right)\vect{e}_{\phi} +
+			{\frac {1}{\rho }}\left({\frac {\partial (\rho A_{\varphi })}{\partial \rho }}-{\frac {\partial
+			A_{\rho }}{\partial \varphi }}\right)\vect{k}                                              \\
+			\rot\vect{A} & = \frac{1}{r\sin \theta }\left(\frac{\partial}{\partial \theta
+			}\left(A_{\varphi }\sin \theta \right)-\frac{\partial A_{\theta }}{\partial \varphi
+			}\right)\vect{e}_{r}
+			+
+			\frac{1}{r}\left(\frac{1}{\sin \theta }\frac{\partial A_{r}}{\partial \varphi
+			}-\frac{\partial}{\partial r}\left(rA_{\varphi }\right)\right)\vect{e}_{\theta}
+			+
+			\nonumber
+			\\
+			             & + \frac{1}{r}\left(\frac{\partial}{\partial r}\left(rA_{\theta
+			}\right)-\frac{\partial A_{r}}{\partial \theta }\right)\vect{e}_{\phi}
 		\end{align*}
 	\end{block}
 \end{frame}
@@ -1983,14 +1981,14 @@
 			\begin{block}{}\justifying\small
 				Мінімальну енергію диполь має в положенні $\vect{p}
 					\uparrow\uparrow \Efield$ (положення стійкої рівноваги). У разі відхилення з
-					цього
+				цього
 				положення
 				виникає момент зовнішніх сил, що повертає диполь до положення рівноваги.
 			\end{block}
 		\end{column}
 		\begin{column}{0.25\linewidth}\centering
-            \input{tikz/dipoleenergy.tikz}
-   		\end{column}
+			\input{tikz/dipoleenergy.tikz}
+		\end{column}
 	\end{columns}
 \end{frame}
 % ===========================================================================
@@ -2090,7 +2088,7 @@
 		\begin{columns}
 			\begin{column}{0.6\linewidth}
 				\begin{block}{}\small\justifying
-					Застосуємо теорему Гауса до нескінченно малого циліндра, що охоплює частину межі
+					Застосуємо теорему Гаусса до нескінченно малого циліндра, що охоплює частину межі
 					розділу двох
 					середовищ. Вважаючи $d\vect{S}_1 = - d\vect{S}_2$, $q = \sigma dS$,
 					$d\vect{S}_1 =
