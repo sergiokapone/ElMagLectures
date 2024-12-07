@@ -1,11 +1,9 @@
 \begin{tikzpicture}[>=latex, scale=1.5]
-	\node [circle, ball color=red, inner sep=2pt] (q1) at (-1,0) {$+$};
-	\node [circle, ball color=red, inner sep=2pt] (q2) at (1,0) {$+$};
-
-	\node[below] at (q1) {$q_1$};
-	\node[below] at (q2) {$q_2$};
+	\node [circle, ball color=red, inner sep=1pt, text=white, font=\bfseries] (q1) at (-1,0) {$+$};
+	\node [circle, ball color=red, inner sep=1pt, text=white, font=\bfseries] (q2) at (1,0) {$+$};
+	\node[below=5pt] at (q1) {$q_1$};
+	\node[below=5pt] at (q2) {$q_2$};
 	\draw[->] (q1) -- node[below] {$\vec{r}_{12}$} (q2);
-
 	\draw[->, blue] (q2) -- ++(0.5,0) node[above, text=black]
 	{$\vec{F}_{12}$};
 \end{tikzpicture}

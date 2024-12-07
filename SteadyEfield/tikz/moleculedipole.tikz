@@ -24,7 +24,7 @@
 			\draw[->, red, ultra thick] (0,0) -- ++(0, 1.5) node[right] {$\vect{p}$};
 		\end{tikzpicture}
         \begin{block}{}\footnotesize\centering
-            Дипольний момент молекули \ce{H2O} $p = 1.84$ D
+            Дипольний момент\\ молекули \ce{H2O} $p = 1.84$ D
         \end{block}
 	\end{column}
 	\begin{column}{0.5\linewidth}\centering
@@ -43,7 +43,7 @@
        	\draw[->, red, ultra thick] (0,0) -- ++(0, -1.2) node[left] {$\vect{p}$};
     \end{tikzpicture}
         \begin{block}{}\footnotesize\centering
-            Дипольний момент молекули \ce{NH3} $p = 1.46$ D
+            Дипольний момент\\ молекули \ce{NH3} $p = 1.46$ D
         \end{block}
 	\end{column}
 \end{columns}
