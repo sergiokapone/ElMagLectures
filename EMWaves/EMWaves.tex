@@ -6,6 +6,7 @@
 \documentclass[onlytextwidth]{beamer}
 \usetheme{Electromagnetism}
 \usepackage{Electromagnetism}
+\addbibresource{d:/Projects/LaTeX/MyPackage/MyBase.bib}
 
 %============================================================================
 \title[Лекції електрики та магнетизму]{\huge\bfseries Електромагнітні хвилі}
@@ -19,6 +20,114 @@
 	\maketitle
 \end{frame}
 
+
+
+% =================================================
+\begin{frame}{Електромагнітна хвиля}
+\begin{block}{}\justifying
+    	\alert{Електромагнітна хвиля} --- процес розповсюдження коливань електромагнітних полів в просторі.
+\end{block}
+
+\begin{block}{}\justifying
+    	Прикладами \href{https://www.youtube.com/watch?v=QpQhn_yzIb8&t=391s}{електромагнітних хвиль} є світло, радіохвилі, рентгенівські промені,
+    	гамма-промені. Загальні властивості електромагнітних хвиль вивчаються в розділі фізики, що називається класичною електродинамікою, специфічні
+    	--- в інших розділах фізики, таких як радіофізика, оптика, спектроскопія, атомна фізика, ядерна фізика тощо.
+\end{block}
+\end{frame}
+% =================================================
+
+
+% =================================================
+\begin{frame}{Спектр електромагнітних хвиль}
+\begin{block}{}\justifying
+    Електромагнітні хвилі класифікуються за довжиною хвилі $\lambda$ або пов'язаною з нею частотою хвилі.
+ \alert{Спектром електромагнітних хвиль} називається смуга частот електромагнітних хвиль, що існують у природі.
+\end{block}
+	\begin{center}
+		\includegraphics[width=\linewidth]{scale.png}
+	\end{center}
+
+	\begin{block}{}\justifying
+		\alert{Світло} (у вузькому сенсі) --- електромагнітні хвилі, що сприймаються людським оком. До таких хвиль належать електромагнітні хвилі в
+		інтервалі частот $7.5 \cdot 10^{14} - 4 \cdot 10^{14}$~Гц, тобто із довжиною хвилі від $390$ до $750$~нм.
+	\end{block}
+
+\end{frame}
+
+% =================================================
+
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Визначення швидкості світла}
+\framesubtitle<1>{Спостереження Ремера}
+\begin{onlyenv}<1>
+	\begin{center}
+		\includegraphics[width=0.95\linewidth]{ole}
+	\end{center}
+\begin{block}{}\centering\small
+		О́ле Крі́стенсен Ре́мер (дан. Ole Christensen Rømer 1644 -- 1710, Копенгаґен) --- датський астроном, який першим
+		\href{https://www.youtube.com/watch?v=ustuvwHpxYk}{виміряв швидкість світла} (1676).
+\end{block}
+\begin{block}{}\justifying\small
+ Вивчаючи затемнення Іо, одного з супутників Юпітера, Ремер виявив, що час між затемненнями змінюється залежно від відстані Землі від Юпітера. Він
+ зробив висновок, що ці зміни часу пов'язані з часом, який потрібен світлу для долання додаткової відстані, коли Земля віддаляється від Юпітера. Ремер
+ оцінив швидкість світла приблизно в $227\ 000$ км/c, що було першим кількісним вимірюванням цієї величини.
+\end{block}
+\end{onlyenv}
+\begin{onlyenv}<2>
+\framesubtitle<2>{Дослід Фізо}
+\begin{columns}
+	\begin{column}{0.2\linewidth}\centering
+         \includegraphics[width=\linewidth]{Fizo}
+	\end{column}
+	\begin{column}{0.8\linewidth}
+        \begin{block}{}\justifying\small
+            У 1849 році французький фізик Арман Фізо розробив метод, який використовував зубчасте колесо в якості затвора. Світло від джерела проходило
+            через зубчасте колесо, що оберталось і, відбившись від дзеркала, поверталося знову до зубчастого колеса. Знаючи частоту обертання дзеркала і
+            відстань, що проходить світло, Фізо отримав значення близько $313\ 000$~км/с.
+        \end{block}
+	\end{column}
+\end{columns}
+\begin{center}
+\includegraphics[width=\linewidth]{Fizo_exp}
+\end{center}
+\end{onlyenv}
+\end{frame}
+% ===========================================================================
+
+
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Електродинамічна стала в рівняннях Максвелла}{}\small
+\begin{block}{}\justifying
+    Ще до початку роботи Максвелла над проблемами електромагнетизму, фізикам був відомий експериментальний факт, що якщо виразити величину одного і того
+    ж заряду за допомогою двох різних систем одиниць, а потім знайти відношення отриманих значень, то це відношення --- \alert{електродинамічна стала}
+    $c$ --- матиме розмірність швидкості. Однак більшість учених вважали цей факт незрозумілим фізичним курйозом.
+\end{block}
+
+\begin{block}{}\justifying
+Вебером і Кольраушем було виміряно значення цієї константи, яке виявилось рівним $310\ 740$~км/с.
+\end{block}
+
+\begin{block}{}\justifying
+    Максвелл також провів експерименти з визначення величини цієї константи. Ідея досліду полягала в порівнянні сили електростатичного притягування, що
+    виникає між двома зарядженими дисками із силою відштовхування, що виникає між котушками зі струмом, розміщеними поблизу дисків. Тобто, ніяких
+    вимірювань швидкості світла не проводилось. Максвелл отримав значення  значення $c = 2.88\cdot 10^{10}$~см/с.
+\end{block}
+
+\begin{alertblock}{}\justifying
+    Про історію вимірювання швидкості світла, яку можна назвати <<малою історією фізики>>, і розповідається в книзі \fullcite{Filonovich1983}.
+\end{alertblock}
+
+
+\end{frame}
+% ===========================================================================
+
+
+
+
 % ============================== Слайд ## ===================================
 \begin{frame}{Хвильові рівняння}{Виведення}\small
 	\begin{block}{}\justifying
@@ -29,9 +138,9 @@
 			\begin{block}{}\justifying
 				\begin{equation*}
 					\begin{cases}
-						\Div\Bfield = 0,                          \\
+						\Div\Bfield = 0,                                     \\
 						\alert<1>{\Rot\Efield = -\frac1c\parttime{\Bfield}}, \\
-						\Div\Dfield = 0,                          \\
+						\Div\Dfield = 0,                                     \\
 						\alert<2>{\Rot\Hfield = \frac1c\parttime{\Dfield}}.
 					\end{cases}
 				\end{equation*}
@@ -75,22 +184,24 @@
 		\begin{block}{}
 			Приходимо до рівняння для електричного поля:
 			\begin{equation*}
-				\nabla^2\Efield = \frac{1}{v^2}\pparttime{\Efield}, \quad \text{де}\ \frac{c}{\sqrt{\epsilon\mu}}.
+				\nabla^2\Efield = \frac{1}{v^2}\pparttime{\Efield}, \quad \text{де}\ v = \frac{c}{\sqrt{\epsilon\mu}}.
 			\end{equation*}
 		\end{block}
 		\onslide<2>
 		\begin{block}{}
 			Рівняння для магнітного поля:
 			\begin{equation*}
-				\nabla^2\Hfield = \frac{1}{v^2}\pparttime{\Hfield}, \quad \text{де}\ \frac{c}{\sqrt{\epsilon\mu}}.
+				\nabla^2\Hfield = \frac{1}{v^2}\pparttime{\Hfield}, \quad \text{де}\ v = \frac{c}{\sqrt{\epsilon\mu}}.
 			\end{equation*}
 		\end{block}
 	\end{overprint}
 \end{frame}
 % ===========================================================================
 
+
+
 % ============================== Слайд ## ===================================
-\begin{frame}{Хвильові рівняння}{}\small
+\begin{frame}{Хвильові рівняння}{}
 	\begin{block}{}\justifying
 		Рівняння вигляду:
 		\begin{equation*}
@@ -279,38 +390,38 @@
 				Електричне поле хвилі збуджує електричний струм густиною $ \vect{j} = \sigma\Efield $ ($ \vect{F} = e\Efield $). Внаслідок цього на
 				об'єму середовища діє сила Ампера $ d\vect{F} = \frac1c[\vect{j}\times\Bfield] dV$, спрямована убік поширення хвилі. Ця сила та викликає
 				тиск електромагнітної хвилі.
-        	\end{block}
+			\end{block}
 		\end{column}
 	\end{columns}
-            \begin{block}{}\justifying\small
-				\begin{overprint}
-					\onslide<1>
-					У випадку поглинання вся енергія, яка падає за секунду на поверхню $wv dS$ тіла, перетворюється на теплову $ jE dV $:
-					\begin{equation*}
-						dF = \frac1c j \frac{c}{v}E = \frac1vjE = \frac1v wvdS = w dS,
-					\end{equation*}
-					звідки тиск $ p = \frac{dF}{dS} = w $
-					\onslide<2>
-					У випадку часткового відбивання, тиск дорівнює
-					\begin{equation*}
-						p = w (1 + \rho),
-					\end{equation*}
-					де $ \rho = 0 \ldots 1$ --- коефіцієнт відбивання.
-				\end{overprint}
-			\end{block}
+	\begin{block}{}\justifying\small
+		\begin{overprint}
+			\onslide<1>
+			У випадку поглинання вся енергія, яка падає за секунду на поверхню $wv dS$ тіла, перетворюється на теплову $ jE dV $:
+			\begin{equation*}
+				dF = \frac1c j \frac{c}{v}E = \frac1vjE = \frac1v wvdS = w dS,
+			\end{equation*}
+			звідки тиск $ p = \frac{dF}{dS} = w $
+			\onslide<2>
+			У випадку часткового відбивання, тиск дорівнює
+			\begin{equation*}
+				p = w (1 + \rho),
+			\end{equation*}
+			де $ \rho = 0 \ldots 1$ --- коефіцієнт відбивання.
+		\end{overprint}
+	\end{block}
 \end{frame}
 
 \begin{frame}{Тиск світла}{Дослід Лебедєва}\small
-\begin{block}{}\justifying
-    Петро Миколайович Лебедєв в 1899 р. вперше виміряв світловий тиск.
-\end{block}
+	\begin{block}{}\justifying
+		Петро Миколайович Лебедєв в 1899 р. вперше виміряв світловий тиск.
+	\end{block}
 	\begin{columns}
 		\begin{column}{0.6\linewidth}
-            \begin{block}{}\justifying
-			Він підвісив на тонкій нитці коромисло з парою крилець на кінцях:
-			поверхня в одного з них була зачорненою, забезпечуючи майже повне поглинання, а в іншого --- дзеркальною, забезпечуючи повне відбивання.
-			Підвіс з крильцями утворив чутливі крутильні терези, що поміщаються в посудину, повітря в якому було відкачано.
-            \end{block}
+			\begin{block}{}\justifying
+				Він підвісив на тонкій нитці коромисло з парою крилець на кінцях:
+				поверхня в одного з них була зачорненою, забезпечуючи майже повне поглинання, а в іншого --- дзеркальною, забезпечуючи повне відбивання.
+				Підвіс з крильцями утворив чутливі крутильні терези, що поміщаються в посудину, повітря в якому було відкачано.
+			\end{block}
 		\end{column}
 		\begin{column}{0.4\linewidth}\centering
 			\includegraphics[width=\linewidth]{LebedevExp}
@@ -377,8 +488,8 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Імпульс електромагнітного поля}{}
-	\begin{block}{}\justifying\small
+\begin{frame}{Імпульс електромагнітного поля}{}\small
+	\begin{block}{}\justifying
 		Поле має енергію; так само в одиниці об'єму воно має якийсь імпульс. Оскільки електромагнітна хвиля чинить тиск на речовину, остання набуває певного імпульсу. Але в замкнутій системі, що складається з речовини та електромагнітної хвилі, виникло б порушення закону збереження імпульсу, якби імпульс мала лише речовина.
 	\end{block}
 
@@ -403,8 +514,8 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Момент імпульсу поля}{}\scriptsize
-	\begin{exampleblock}{\scriptsize Задача}\justifying
+\begin{frame}{Момент імпульсу поля}{}\small
+	\begin{exampleblock}{Задача}\justifying
 		Заряджений циліндричний конденсатор вміщений в зовнішнє однорідне магнітне поле з індукцією $ \Bfield $, що напрямлене вздовж його осі.
 		Конденсатор має змогу вільно обертатись навколо своєї осі. Заряд конденсатора $ q $, радіус зовнішньої обкладки $ R $, радіусом внутрішньої
 		можна знехтувати.  Маса конденсатора $ m $. Знайдіть вектор моменту імпульсу електромагнітного поля конденсатора. Знайдіть кутову швидкість, з
@@ -470,7 +581,7 @@
 		\end{column}
 	\end{columns}
 	\begin{block}{}\justifying
-		При вимиканні магнітного поля момент імпульсу має зберегтися, тому він перейде в обертання самого циліндра $ \vect{L} = mR^2\vec\omega
+		При вимиканні магнітного поля момент імпульсу поля перейде в обертання самого циліндра $ \vect{L} = mR^2\vec\omega
 		$, а тому кутова швидкість:
 		\(
 		\displaystyle	\vec{\omega} = -\frac{q}{2mc}\vect{B}.
@@ -478,5 +589,357 @@
 	\end{block}
 \end{frame}
 % ===========================================================================
+
+
+\section{Відбивання хвиль від поверхні двох діелектриків}
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Поляризація хвиль}{}
+       \begin{block}{}\justifying
+    \alert{Поляризація хвиль} --- характеристика поперечних хвиль, що описує поведінку вектора величини, яка коливається, у площині, перпендикулярній
+    напрямку поширення хвилі.
+\end{block}
+\begin{block}{}\justifying
+    Для \alert{$s$-поляризації} напруженість електричного поля електромагнітної хвилі перпендикулярна до площини падіння та паралельна до площини межі
+    розділу середовищ.
+\end{block}
+\begin{block}{}\justifying
+    \alert{$p$-поляризація} характеризується тим, що
+    вектор напруженості електричного поля лежить у площині падіння.
+\end{block}
+\end{frame}
+% ===========================================================================
+
+
+% =================================================
+\begin{frame}[t]{Відбивання хвиль від поверхні двох діелектриків}%
+	{$s$-Поляризована хвиля}
+	\begin{columns}
+		\begin{column}{0.5\linewidth}
+			\begin{center}
+				\begin{tikzpicture}[scale=1]
+					\fill[cyan!50, opacity=0.5] (-3, -3) rectangle (0, 3);
+					\draw[->] (0, -3) to (0,3.25) node[above] {$y$};
+					\draw[->] (-3, 0) to (2,0) node[below] {$x$};
+					%        \node[circle, draw, anchor=north west, fill=cyan, font=\scriptsize, inner sep=1pt] at (-1, 3) {1};
+					%        \node[circle, draw, anchor=north west, fill=cyan, font=\scriptsize, inner sep=1pt] at (1, 3) {2};
+					\draw<1-> (-3, -3) -- node[pos = 0.5, inner sep=2pt] (A) {} (0, 0) ;
+					\node<1->[circle, draw, inner sep=2pt, fill=red] at (A) {};
+					\node<1->[left] at (A) {$\vect{E}$};
+					\draw<1->[->, red, double] (A) -- ++(45:1) node[left=5pt] {$\vect{k}$};
+					\draw<2->[->] (-0.5, 0) arc (180:225:0.5) node[left, pos=0.5] {$i$};
+					\draw<3->[->] (A) -- ++(0:{cos(45)}) node[right] {$k_x$};
+					\draw<3->[->] (A) -- ++(90:{sin(45)}) node[left] {$k_y$};
+					\draw<4->[blue, ->, double, text=black] (A) -- ++(({atan(3/3) - 90}:1) node[below] {$\vect{B}$};
+
+					\draw<1-> (0, 0) -- node[pos = 0.5, inner sep=2pt] (B) {} (-3, 3);
+					\node<1->[circle, draw, inner sep=2pt, fill=red] at (B) {};
+					\node<1->[below=2pt] at (B) {$\vect{E}'$};
+					\draw<1->[->, red, double] (B) -- ++(135:1) node[right=5pt] {$\vect{k}'$};
+					\draw<2->[->] (-0.5, 0) arc (180:135:0.5) node[left, pos=0.5] {$i'$};
+					\draw<3->[->] (B) -- ++(0:-{cos(45)}) node[left] {$k'_x$};
+					\draw<3->[->] (B) -- ++(90:{sin(45)}) node[right] {$k'_y$};
+					\draw<4->[blue, ->, double, text=black] (B) -- ++(({-atan(3/3) + 90}:1) node[above right] {$\vect{B}'$};
+
+					\pgfmathsetmacro{\angle}{atan(3/2)}
+					\draw<1-> (0, 0) -- node[pos = 0.5, inner sep=2pt] (C) {} (2, 3);
+					\node<1->[circle, draw, inner sep=2pt, fill=red] at (C) {};
+					\node<1->[left] at (C) {$\vect{E}''$};
+					\draw<1->[->, red, double] (C) -- ++({atan(3/2)}:1) node[right] {$\vect{k}''$};
+					\draw<2->[->] (0.5, 0) arc (0:\angle:0.5) node[right, pos=0.5] {$r$};
+					\draw<3->[->] (C) -- ++(0:{cos{\angle}}) node[right] {$k''_x$};
+					\draw<3->[->] (C) -- ++(90:{sin(\angle)}) node[left] {$k''_y$};
+					\draw<4->[blue, ->, double, text=black] (C) -- ++(({\angle - 90}:1) node[below] {$\vect{B}''$};
+
+					\path (0,-4) ++ (1,0);
+				\end{tikzpicture}
+
+			\end{center}
+		\end{column}
+		\begin{column}{0.5\linewidth}
+			\only<1-4>
+			{
+				\begin{block}{}
+					Падаюча плоска хвиля:
+					\begin{equation*}
+						E = E_0 e^{i(\omega t - k_xx - k_yy)}
+					\end{equation*}
+
+					Відбита плоска хвиля:
+					\begin{equation*}
+						E' = E'_0 e^{i(\omega' t - k'_xx-k'_yy)}
+					\end{equation*}
+
+					Заломлена плоска хвиля:
+					\begin{equation*}
+						E'' = E''_0 e^{i(\omega'' t - k''_xx-k''_yy)}
+					\end{equation*}
+					Гранична умова ($E_{\tau_1} = E_{\tau_2}$):
+					\begin{equation*}
+						E_0 e^{i(\omega t -k_yy)} + E'_0 e^{i(\omega' t - k'_yy)} =E''_0 e^{i(\omega'' t - k''_yy)}.
+					\end{equation*}
+				\end{block}
+			}
+			\only<5>{
+				\begin{block}{}
+					Продиференціюємо граничні умови
+					\begin{enumerate}
+						\item 	за часом $t$, отримаємо
+						      \begin{equation*}\label{ww}
+							      \omega = \omega' = \omega''
+						      \end{equation*}
+						\item 	за координатою $y$, отримаємо
+						      \begin{equation*}\label{ky=ky}
+							      k_y = k'_y = k''_y
+						      \end{equation*}
+					\end{enumerate}
+					З виразу $k = \frac{\omega n}{c}$ і $\omega = \omega' = \omega''$ отримуємо:
+					\begin{equation*}
+						\frac{k}{n_1} = \frac{k'}{n_1} = \frac{k''}{n_2}.
+					\end{equation*}
+				\end{block}
+			}
+            \begin{onlyenv}<6>
+				\begin{block}{}\justifying
+                    З рівняння:
+    				\begin{equation*}
+   						\frac{k}{n_1} = \frac{k'}{n_1}
+                    \end{equation*}
+                    \begin{equation*}
+       					k^2 = {k'}^2 \Rightarrow {k_x^2 + k_y^2 = {k'}_x^2 + {k'}_y^2}
+                    \end{equation*}
+					\[
+						\Rightarrow k_x^2 = {k'}_x^2
+					\]
+					\[
+						k_x = - {k'}_x,  \quad k_y = k'_y.
+					\]
+                    Звідки випливає закон відбивання, відомий з геометричної оптики:
+					\[
+						 \tcbhighmath{i = i'.}
+					\]
+				\end{block}
+        \end{onlyenv}
+			\only<7>{
+				\begin{block}{}\justifying
+                    З рівняння:
+					\[
+						\frac{k}{n_1} = \frac{k''}{n_2}
+					\]
+					\[
+						\frac{k_y}{n_1\sin{i}} = \frac{k''_y}{n_2\sin{r}}
+					\]
+                    Випливає закон заломлення, відомий з геометричної оптики:
+					\begin{equation*}
+						\tcbhighmath{n_1\sin{i} = n_2\sin{r}}
+					\end{equation*}
+					або
+					\begin{equation*}
+						\frac{\sin i}{\sin r} = \frac{n_2}{n_1} = n_{21},
+					\end{equation*}
+					$n_{21} = \dfrac{n_2}{n_1}$~--- відносний показник заломлення двох середовищ.
+				\end{block}
+			}
+			\only<8>{
+				\begin{block}{}\justifying
+					Більшість діелектриків не проявляють магнітних властивостей:
+                    \[
+                        \mu_1 = \mu_2 \approx 1.
+                    \]
+
+					Тому, відносний поразник заломлення
+					\[
+						n_{21} = \frac{n_2}{n_1} = \sqrt{\frac{\epsilon_2}{\epsilon_1}} = \frac{v_1}{v_2}.
+					\]
+				\end{block}
+			}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+
+% =================================================
+\begin{frame}{Формули Френеля для $s$-поляризації}
+	\only<1>{Граничні умови для вектора $\Efield$ дають:
+		\begin{equation*}
+			\tcbhighmath{E_0 + E'_0 = E''_0}
+		\end{equation*}
+		а для вектора $\Hfield$ ($H_{\tau_1} = H_{\tau_2}$):
+		\begin{equation*}
+			H_{0_y} + H'_{0_y} = H''_{0_y} \quad \frac{B_{0_y}}{\mu_1} + \frac{B'_{0_y}}{\mu_1} = \frac{B''_{0_y}}{\mu_2}
+		\end{equation*}
+		Більшість діелектриків не проявляють магнітних властивостей $\mu_1 = \mu_2 \approx 1$.
+		\begin{equation*}
+			B_{0_y} + B'_{0_y} = B''_{0_y}
+		\end{equation*}
+		\[
+			\Bfield  = \frac{c}{\omega} \vect{k}\times\Efield  \Rightarrow B_x = \frac{c}{\omega} k_y E, \quad B_y = - \frac{c}{\omega} k_x E, \quad B_z
+			= 0.
+		\]
+
+		\begin{equation*}
+			\tcbhighmath{k_x E_0 + k'_x E'_0 = k''_x E''_0}
+		\end{equation*}
+	}
+	\only<2>{
+		\[
+			E_0 + E'_0 = E''_0
+		\]
+		\[
+			k_xE_0 + k'_xE'_0 = k''_xE''_0
+		\]
+		\[
+			k_x = -k'_x =k\cos i, \quad k'' = n_{21} k, \quad k''_x = k''\cos r = n_{21} k\cos r
+		\]
+		\[
+			E_{0} \cos i - E'_0 \cos i = n_{21} E''_0 \cos r
+		\]
+		\[
+			E_0 \cos i - E'_0 \cos i = n_{21} (E_0 + E'_0) \cos r
+		\]
+		\begin{equation*}\label{Frenel_s_rl}
+			\tcbhighmath{E'_{\perp} = - \frac{\sin(i - r)}{\sin(i + r)} E_{\perp}}
+		\end{equation*}
+		\begin{equation*}\label{Frenel_s_rr}
+			\tcbhighmath{E''_{\perp} = \frac{2\sin r \cos i}{\sin(i + r)} E_{\perp}}
+		\end{equation*}
+	}
+\end{frame}
+
+
+
+% =================================================
+\begin{frame}[t]{Формули Френеля для $p$-поляризації}%
+	\begin{columns}
+		\begin{column}{0.5\linewidth}
+			\begin{center}
+				\begin{tikzpicture}[scale=1]
+					\fill[cyan!50, opacity=0.5] (-3, -3) rectangle (0, 3);
+					\draw[->] (0, -3) to (0,3.25) node[above] {$y$};
+					\draw[->] (-3, 0) to (2,0) node[below] {$x$};
+					%        \node[circle, draw, anchor=north west, fill=cyan, font=\scriptsize, inner sep=1pt] at (-1, 3) {1};
+					%        \node[circle, draw, anchor=north west, fill=cyan, font=\scriptsize, inner sep=1pt] at (1, 3) {2};
+					\draw (-3, -3) -- node[pos = 0.5, inner sep=2pt] (A) {} (0, 0) ;
+					\node[circle, draw, inner sep=2pt, fill=blue] at (A) {};
+					\node[below] at (A) {$\Bfield$};
+					\draw[->, red, double] (A) -- ++(45:1) node[left=5pt] {$\vect{k}$};
+					\draw[->] (-0.5, 0) arc (180:225:0.5) node[left, pos=0.5] {$i$};
+					\draw[->] (A) -- ++(0:{cos(45)}) node[right] {$k_x$};
+					\draw[->] (A) -- ++(90:{sin(45)}) node[above] {$k_y$};
+					\draw[red, ->, double, text=black] (A) -- ++(({atan(3/3) + 90}:1) node[above left] {$\vect{E}$};
+
+					\draw (0, 0) -- node[pos = 0.5, inner sep=2pt] (B) {} (-3, 3);
+					\node[circle, draw, inner sep=2pt, fill=blue] at (B) {};
+					\node[below=2pt] at (B) {$\vect{B}'$};
+					\draw[->, red, double] (B) -- ++(135:1) node[right=5pt] {$\vect{k}'$};
+					\draw[->] (-0.5, 0) arc (180:135:0.5) node[left, pos=0.5] {$i'$};
+					\draw[->] (B) -- ++(0:-{cos(45)}) node[left] {$k'_x$};
+					\draw[->] (B) -- ++(90:{sin(45)}) node[above] {$k'_y$};
+					\draw[red, ->, double, text=black] (B) -- ++(({-atan(3/3) - 90}:1) node[below left] {$\vect{E}'$};
+
+					\pgfmathsetmacro{\angle}{atan(3/2)}
+					\draw (0, 0) -- node[pos = 0.5, inner sep=2pt] (C) {} (2, 3);
+					\node[circle, draw, inner sep=2pt, fill=blue] at (C) {};
+					\node[below=5pt] at (C) {$\vect{B}''$};
+					\draw[->, red, double] (C) -- ++({atan(3/2)}:1) node[right] {$\vect{k}''$};
+					\draw[->] (0.5, 0) arc (0:\angle:0.5) node[right, pos=0.5] {$r$};
+					\draw[->] (C) -- ++(0:{cos{\angle}}) node[right] {$k''_x$};
+					\draw[->] (C) -- ++(90:{sin(\angle)}) node[above] {$k''_y$};
+					\draw[red, ->, double, text=black] (C) -- ++(({\angle + 90}:1) node[above] {$\vect{E}''$};
+				\end{tikzpicture}
+			\end{center}
+		\end{column}
+		\begin{column}{0.5\linewidth}
+			\only<1>{
+				Граничні умови дають:
+				\begin{equation*}
+					B_0 + B'_0 = B''_0
+				\end{equation*}
+				\begin{equation*}
+					E_y + E'_{y_0} = E''_{y_0}
+				\end{equation*}
+				З рівності  $E_{y_0} = \frac{c k_x}{\epsilon \omega} B$ друга умова приймає вигляд:
+				\begin{equation*}
+					\frac{k_x}{\epsilon_1}\left( B_0 - B'_0\right)  = \frac{k''_x}{\epsilon_2} B''_0
+				\end{equation*}
+				або
+				\begin{equation*}
+					n_{21} \cos i \left( B_0 - B'_0\right)  = \cos r B''_0
+				\end{equation*}
+			}
+			\only<2>{
+				\begin{equation*}\label{Frenel_p_rl}
+					\tcbhighmath{E'_{\parallel} = \frac{\tg(i - r)}{\tg(i + r)} E_{\parallel}}
+				\end{equation*}
+				\begin{equation*}\label{Frenel_p_rr}
+					\tcbhighmath{E''_{\parallel} = \frac{2\sin r \cos i}{\sin(i + r)\cos(i - r)} E_{\parallel}}
+				\end{equation*}
+			}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Повне внутрішнє відбивання}
+	\only<1>{
+		Якщо світло йде з матеріалу з показником заломлення з оптично більш густого в оптично менш густе $n_2 < n_1$, то згідно закону відбивання
+		$\dfrac{\sin i}{\sin r} = \frac{n_2}{n_1} = n_{21} < 1 \Rightarrow i < r$.
+		\begin{columns}
+			\begin{column}{0.4\linewidth}
+				\begin{center}
+					\includegraphics[width=\textwidth]{totrefr}
+				\end{center}
+			\end{column}
+			\begin{column}{0.6\linewidth}
+				Коли кут заломлення $r = 90^\circ$ при при куті падіння $i = i_b$, який називається граничним і визначається рівністю:
+				\begin{multline*}
+					\sin i_b = \frac{n_2}{n_1} = n_{21}, \text{або}\, n\sin i_b = 1,\\ \text{де}\, n = \frac{n_1}{n_2} > 1
+				\end{multline*}
+				виникає \href{https://www.youtube.com/watch?v=HN37Jz8DHYg}{повне внутрішнє відбивання}.
+			\end{column}
+		\end{columns}
+		Що відбувається із заломленим променем при $i > i_b$, тобто при кутах падіння. що більші ніж граничний кут?
+	}
+	\only<2>{
+	\[
+		\Efield'' = \Efield''_0 e^{i(\omega t - {k''_x} - {k''_y})}
+	\]
+	\[
+		\frac{k^2}{n^2}  = {k''_x}^2 + {k''_y}^2
+	\]
+	\[
+		\sin i =\frac{k_y}{k}, \quad k_y = {k''_y}
+	\]
+	\[
+		{k''_x}^2 =  \frac{k^2}{n^2} (1 - n^2\sin^2 i)  = \frac{\omega^2}{c^2}(1 - n^2\sin^2 i)
+	\]
+	Оскільки при $i > i_b$, $1 - n^2\sin^2 i < 0$,
+
+	то ${k''_x}^2 < 0 \Rightarrow k''_x = i K, \quad K =   \frac{\omega^2}{c^2}(1 - n^2\sin^2 i) > 0$.
+
+	Тоді розв'язок рівнянь Максвелла буде мати вигляд:
+
+	\[
+		\Efield'' = \Efield''_0e^{-Kx} e^{i(\omega t - {k''_y})}
+	\]
+	\alert{В $2$-му середовищі буде поле при $i > i_b$, однак його амплітуда буде експоненційно спадати вздовж $x$}.
+	}
+%	\only<3>{
+%
+%		$K$ за порядком величини дорівнює $\frac{\omega}{c}$, дорівнює довжині хвилі світла в вакуумі $\lambda_0$.
+%
+%		Коли світло повністю відбивається від внутрішньої поверхні скло --- повітря, то в повітрі виникають поля, але вони виходять за границю розділу
+%		межі на відстань порядку довжини хвилі світла. Тепер нам зрозуміло, як потрібно відповідати на таке запитання: якщо світлова хвиля у склі падає
+%		на поверхню під досить великим кутом, вона повністю відбивається; якщо ж присунути до поверхні інший шматок скла (так що поверхня фактично
+%		зникає), то світло буде проходити. В який момент відбувається цей перехід? Адже, напевно, має існувати неперервний перехід від повного
+%		відбивання до повного його відсутності! Відповідь, полягає у тому, що прошарок повітря настільки малий, що експоненційний <<хвіст>>
+%		$\Efield_0e^{-Kx}$ хвилі в повітрі має ще відчутну величину у другому шматку скла, він <<трясе>> електрони і породжує нову хвилю.
+%
+%		Для звичайного світла цей ефект проходження можна спостерігати, тільки якщо щілина дуже мала (порядку довжини хвилі, тобто $10^{5}$ см), але для
+%		$3$ сантиметрових хвиль він демонструється дуже легко.
+%
+%		\href{https://www.feynmanlectures.caltech.edu/II_33.html}{The Feynman Lectures on Physics, Volume II, 33 Reflection from Surfaces}
+%	}
+\end{frame}
+
 
 \end{document}
