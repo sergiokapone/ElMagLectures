@@ -675,11 +675,11 @@
 			\]
 			Отже
 			\[
-				L_{21} = \frac{4\pi}{c} \mu \frac{N_2 N_1}{l} S.
+				L_{21} = 4\pi \mu \frac{N_2 N_1}{l} S.
 			\]
 			Аналогічно знаходимо і $L_{12}$:
 			\[
-				L_{12} = \frac{4\pi}{c} \mu \frac{N_1 N_2}{l} S.
+				L_{12} = 4\pi \mu \frac{N_1 N_2}{l} S.
 			\]
 		\end{block}
 		\onslide<2>
@@ -861,7 +861,7 @@
 		\begin{block}{}\justifying
 			Енергія магнітного поля:
 			\begin{equation*}
-				W = \frac1{c^2}\int\limits_0^I LIdI = \frac1{c^2}\frac{LI^2}{2} = \frac1c I\Phi = \frac{\Phi^2}{2L}.
+				W = \frac1{c^2}\int\limits_0^I LIdI = \frac1{c^2}\frac{LI^2}{2} = \frac1c \frac{I\Phi}2 = \frac{\Phi^2}{2L}.
 			\end{equation*}
 		\end{block}
 	\end{onlyenv}
@@ -993,21 +993,21 @@
 			\end{equation*}
 			З іншого боку, та ж робота визначається як:
 			\begin{equation*}
-				\delta A_\text{дж} = \delta Q - \mathcal{E}_\text{in} I dt,
+				\delta A_\text{дж} = \delta Q - \mathcal{E}_\text{si} I dt,
 			\end{equation*}
 			Звідки
 			\begin{equation*}
-				- \mathcal{E}_\text{in} I dt = dW + \delta A_\text{мех}
+				- \mathcal{E}_\text{si} I dt = dW + \delta A_\text{мех}
 			\end{equation*}
 		\end{block}
 		\framesubtitle<2>{Випадок $I = \const$}
 		\onslide<2>
 		\begin{equation*}
-			-\mathcal{E}_\text{in} I dt = dW + \delta A_\text{мех}
+			-\mathcal{E}_\text{si} I dt = dW + \delta A_\text{мех}
 		\end{equation*}
 		Розглянемо умову, коли в колі підтримується постійним струм.
 		\begin{equation*}
-			- \mathcal{E}_\text{in} I dt = + \frac{I^2}{c^2} dL.
+			- \mathcal{E}_\text{si} I dt = + \frac{I^2}{c^2} dL.
 		\end{equation*}
 		При цьому, зміна магнітної енергії $dW = \frac{I^2}{2c^2} dL$. Отже, $\delta A_\text{мех} = + dW$, а сила втягування:
 		\begin{equation*}
@@ -1016,11 +1016,11 @@
 		\framesubtitle<3>{Випадок $\Phi = \const$}
 		\onslide<3>
 		\begin{equation*}
-			-\mathcal{E}_\text{in} I dt = dW + \delta A_\text{мех}
+			-\mathcal{E}_\text{si} I dt = dW + \delta A_\text{мех}
 		\end{equation*}
 		Розглянемо умову, коли в колі підтримується потік, що пронизує котушку (наприклад якщо котушка із надпровідника).
 		\begin{equation*}
-			- \mathcal{E}_\text{in} I dt = 0.
+			- \mathcal{E}_\text{si} I dt = 0.
 		\end{equation*}
 		Отже, $\delta A_\text{мех} = - dW$, а сила втягування:
 		\begin{equation*}
