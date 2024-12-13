@@ -6,6 +6,7 @@
 \documentclass[onlytextwidth]{beamer}
 \usetheme{Electromagnetism}
 \usepackage{Electromagnetism}
+\usepackage{cancel}
 
 
 %============================================================================
@@ -16,6 +17,8 @@
 %============================================================================
 \graphicspath{{pictures/}}
 \begin{document}
+
+
 \begin{frame}[plain]
 	\maketitle
 \end{frame}
@@ -65,8 +68,8 @@
 			\alert{[Експериментальні] факти призвели до формулювання цих рівнянь}, але зміст їх значно багатший [\ldots]. Їхня проста форма приховує глибину, що
 			виявляється тільки при ретельному вивченні.};
 		\end{tikzpicture}
-  	\end{block}
-   	\begin{block}{}\centering
+	\end{block}
+	\begin{block}{}\centering
 		\begin{tikzpicture}[pencildraw/.style={ %
 						decorate,
 						decoration={random steps,segment length=2pt,amplitude=1pt}
@@ -981,7 +984,164 @@
 % ===========================================================================
 
 
+%% --------------------------------------------------------
+\section{Скін-ефект}
+%% --------------------------------------------------------
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Скін-ефект}{Якісне пояснення}
+	\begin{block}{}\justifying
+		Скін-ефект (термін походить від англ. слова skin -- шкіра.) --- це протікання струмів високої частоти в тонкому
+		поверхневому шарі провідника.
+	\end{block}
+
+	\begin{columns}
+		\begin{column}{0.3\linewidth}\centering
+			\input{tikz/skin-effect.tikz}
+		\end{column}
+		\begin{column}{0.7\linewidth}
+			\begin{block}{}\justifying
+				Змінний струм у провіднику породжує змінне \textcolor{blue}{вихрове магнітне поле}, силові лінії якого перпендикулярні до осі провідника. Змінне
+				магнітне поле породжує \textcolor{red}{вихрове електричне поле}, що спричиняє виникнення струмів Фуко,
+				причому на поверхні провідника вихровий
+				струм спрямований у напрямку струму провідника, а всередині провідника --- протилежно. Це явище знижує струм у серцевині провідника і збільшує
+				поверхневий струм.
+			\end{block}
+		\end{column}
+	\end{columns}
+\begin{center}
+    \includegraphics[width=0.5\linewidth]{skin2}
+\end{center}
+\end{frame}
+% ===========================================================================
 
 
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Скін-ефект}{Рівняння скін-ефекту}
+	\framesubtitle<1>{Чому у металах нехтують струмами зміщення?}
+	\framesubtitle<2>{Рівняння Максвелла для провідників у швидкозмінних полях}
+	\framesubtitle<3>{Глибина проникнення поля (струму) в провідник}
+	\begin{onlyenv}<1>
+		\begin{block}{}\justifying
+			У провіднику густина струму провідності і напруженість електричного поля пов'язані законом Ома: $
+				\vect{j} = \lambda\Efield. $
+			Якщо електричне поле в провіднику змінюється з часом, наприклад, за гармонічним законом $ \Efield=\Efield_0\cos(\omega t)$,
+			то поряд зі струмом провідності виникне ще й струм зміщення:
+			\begin{equation*}
+				\vect{j}_\text{зм} = \frac{\epsilon}{4\pi} \parttime{\Efield} = \frac{\epsilon\omega}{4\pi} E_0\sin(\omega t + \pi/2).
+			\end{equation*}
+			Де величину $\frac{\epsilon\omega}{4\pi}$ можна формально трактувати як <<питому провідність>> для струмів зміщення.
+			Для типових металів провідність $\lambda = 10^{15} - 10^{17}$~с$^{-1}$. Це означає,
+			що аж до частот порядку $10^{13}$~Гц виконується нерівність:
+			\begin{equation*}
+				\frac{\epsilon\omega}{4\pi} \ll \lambda.
+			\end{equation*}
+			(для металів типові значення діелектричної проникності становлять $10-100$). Отже, у широкому діапазоні
+			частот виявляється що струми зміщення не відіграють істотної ролі у металах.
+		\end{block}
+	\end{onlyenv}
+	\begin{onlyenv}<2>\small
+		\begin{block}{}\justifying
+			Нехай $\epsilon = \const$, $\mu = \const$.
+			У цих припущеннях запишемо рівняння Максвелла для
+			електромагнітного поля в металі:
+			\begin{columns}
+				\begin{column}{0.4\linewidth}
+					\begin{equation*}
+						\begin{cases}
+							\Rot\Efield = - \frac{\mu}{c}\parttime{\Hfield},\quad \Rot\Hfield = \frac{4\pi}{c}\vect{j}, \\
+							\Div\Efield= 0, \quad \Div\Hfield = 0.
+						\end{cases}
+					\end{equation*}
+				\end{column}
+				\begin{column}{0.6\linewidth}
+					\begin{block}{}\justifying\footnotesize
+						У середовищі немає некомпенсованих зарядів ($\sum q_i = 0$), унаслідок чого у формулі для теореми Гауса
+						$\Div\Dfield = \epsilon\Div\Efield =  4\pi\rho = 0$ у правій частині стоїть нуль.
+					\end{block}
+				\end{column}
+			\end{columns}
+		\end{block}
+
+		\begin{block}{}\justifying
+			Використовуючи закон
+			Ома, запишемо два перших рівняння:
+			\begin{equation*}
+				\Rot\Efield = - \frac{\mu}{c}\parttime{\Hfield},\quad \Rot\Hfield = \frac{4\pi\lambda}{c}\Efield,
+			\end{equation*}
+			Виключимо звідси магнітне поле. Для цього застосуємо операцію $\Rot$ до
+			обох частин першого рівняння і врахуємо друге рівняння:
+			\begin{equation*}
+				\Rot\Rot\Efield = - \frac{\mu}{c}\parttime{}\Rot\Hfield, \quad \Rot\Rot\Efield = \Grad\Div\Efield - \nabla^2\Efield = -
+				\nabla^2\Efield.
+			\end{equation*}
+			Приходимо наступного рівняння для поля $\Efield$:
+			\(
+				\tcbhighmath{\nabla^2\Efield = \frac{4\pi\mu\lambda}{c^2}\parttime{\Efield}.}
+			\)
+		\end{block}
+	\end{onlyenv}
+	\begin{onlyenv}<3>
+		\begin{block}{}\justifying\small
+			Рівняння для скін-ефекту має математичну форму, подібну до рівняння дифузії:
+			\(
+				\nabla^2 F = D \parttime{F}
+			\)
+			з коефіцієнтом дифузії $D = \frac{c^2}{4\pi\mu\lambda}$. Якщо на
+			поверхні речовини діє джерело, то за час $\tau$ хвиля дифузії
+			проникає в речовину на глибину $\delta = \sqrt{D\tau}$. Якщо джерело діє
+			періодично з періодом $T$ за час $\tau$ слід прийняти
+			$\tau \approx T$.
+			Нарешті, маючи на увазі, що $T = 2\pi/\omega$, отримуємо для глибини проникнення
+            \begin{equation*}
+            	\delta =\frac{c}{\sqrt{2\lambda\mu\omega}}.
+            \end{equation*}
+		\end{block}
+
+			\begin{columns}
+				\begin{column}{0.5\linewidth}\scriptsize
+					\begin{tblr}{
+						colspec= {Q[c ,m]|Q[c,m]},
+						hlines, vlines,
+						}
+						{Метал}       & {Глибина \\ скін-шару (мкм)\\ для $10$~ГГц} \\
+						Мідь (Cu)     & 0.652    \\
+						Срібло (Ag)   & 0.634    \\
+						Золото (Au)   & 0.753    \\
+						Алюміній (Al) & 0.652    \\
+					\end{tblr}
+				\end{column}
+				\begin{column}{0.5\linewidth}\scriptsize
+							\centering
+							\begin{tikzpicture}[]
+								\begin{loglogaxis}[
+                                        trim axis right,
+										title={Глибина скін-шару міді в залежності від частоти},
+										xlabel={Частота (Гц)},
+										ylabel={Глибина (мкм)},
+										grid=both,
+										legend pos=south west,
+                                        width=\linewidth,
+                                        height=0.7\linewidth,
+									]
+									\addplot[mark=o, color=blue] coordinates {
+											(50, 9220)
+											(60, 8420)
+											(10000, 652)
+											(100000, 206)
+											(1000000, 65.2)
+											(10000000, 20.6)
+											(100000000, 6.52)
+											(1000000000, 2.06)
+										};
+								\end{loglogaxis}
+                                \node[anchor=north] at (2, -0.5) {\includegraphics[width=0.75\linewidth]{skin2}};
+							\end{tikzpicture}
+				\end{column}
+			\end{columns}
+	\end{onlyenv}
+\end{frame}
+% ===========================================================================
 
 \end{document}
