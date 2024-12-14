@@ -58,7 +58,7 @@
 						preaction={fill=black,opacity=.5},
 						pencildraw,draw,fill=white,text width = \linewidth,inner sep=2mm, drop shadow]
 					{Восени 1831 року Майкл Фарадей виконав завдання, яке ще в 1822 року записав собі в пам'ятній книжці,
-                    \alert{<<перетворити магнетизм на електрику>>}.
+						\alert{<<перетворити магнетизм на електрику>>}.
 					}
 				}
 			\end{block}
@@ -72,7 +72,7 @@
 			\href{https://youtu.be/GrBYG8NIUoU}{\color{blue}\small Досліди Фарадея}
 		\end{center}
 	\end{overprint}
-        \end{frame}
+\end{frame}
 % ===========================================================================
 
 
@@ -358,8 +358,8 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Вихрове електричне поле}{}
-%	\tikz[remember picture,overlay] \node[opacity=1,inner sep=0pt,
-%		anchor=east] at ([yshift=1.5cm]current page.east){\includegraphics[width=2cm]{Maxwell}};
+	%	\tikz[remember picture,overlay] \node[opacity=1,inner sep=0pt,
+	%		anchor=east] at ([yshift=1.5cm]current page.east){\includegraphics[width=2cm]{Maxwell}};
 	\begin{onlyenv}<1>
 		\begin{block}{}\justifying
 			Оскільки магнітний потік дорівнює $\Phi = \iint\limits_S \Bfield\cdot d\vect{S}$, а ЕРС індукції $\mathcal{E} = \oint\limits_L \vect{E}\cdot
@@ -415,6 +415,38 @@
 			електричне поле, індукується (виникає) за рахунок зміни магнітного поля і не є потенційним, а вихровим.
 		\end{block}
 	\end{onlyenv}
+\end{frame}
+% ===========================================================================
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}[t]{Чому вихрове поле --- електричне?}{}
+	\tikz[remember picture,overlay] \node[opacity=0.75,inner sep=0pt,
+		anchor=south west] at (current page.south west){\includegraphics[width=2cm]{Grigorev}};
+	\begin{block}{}\centering\itshape\small
+		\tikz[pencildraw/.style={ %
+					decorate,
+					decoration={random steps,segment length=2pt,amplitude=1pt}
+				} %
+		]{
+			\node[align=justify,
+				preaction={fill=black,opacity=.5},
+				pencildraw,draw,fill=white,text width = \linewidth,inner sep=2mm, drop shadow]
+			{
+				\alert{Електричне поле, що виникає при зміні магнітного поля, має зовсім іншу структуру, ніж електростатичне}. Воно не пов'язане безпосередньо з
+				електричними зарядами, і його силові лінії не можуть на них починатися і закінчуватися. Вони взагалі ніде не починаються і ніде не закінчуються, являючи
+				собою замкнуті лінії, подібні до силових ліній магнітного поля. Це так зване вихрове поле.
+
+				\bigskip
+
+				При зміні поля сильного електромагніту з'являються потужні вихори електричного поля, які можна використовувати для прискорення електронів до швидкостей,
+				близьких до швидкості світла. На цьому принципі ґрунтується пристрій прискорювача електронів --- бетатрона. Електричний струм у бетатроні виникає
+				безпосередньо у вакуумній камері без введення будь-яких металевих провідників. Може виникнути запитання: \alert{а чому, власне, це поле називається
+					електричним}? Адже воно має інше походження та іншу конфігурацію, ніж статичне електричне поле. Відповідь проста: \alert{вихрове
+					поле діє на заряд точно так само, як і електростатичне, а це ми вважали і вважаємо головною властивістю поля}.
+			}
+		}
+	\end{block}
 \end{frame}
 % ===========================================================================
 
