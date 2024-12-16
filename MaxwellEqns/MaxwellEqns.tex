@@ -480,12 +480,12 @@
 		\end{equation*}
 		Тоді теорема про циркуляцію для електричного поля записується як:
 		\begin{equation*}
-			\Rot\left(\Efield  + \frac{\partial\vect{A}}{\partial t}\right) = 0
+			\Rot\left(\Efield  + \frac1c\frac{\partial\vect{A}}{\partial t}\right) = 0
 		\end{equation*}
 		Ця рівність означає, що це
 		поле може бути представлене як градієнт скалярної функції, тоді отримуємо:
 		\begin{equation*}
-			\Efield = -\vect{\nabla}\phi - \frac{\partial\vect{A}}{\partial t}
+			\Efield = -\vect{\nabla}\phi - \frac1c\frac{\partial\vect{A}}{\partial t}
 		\end{equation*}
 		У випадку постійних у часі полів: $\Efield = -\vect{\nabla}\phi $, тобто, що введена тут функція $\phi$
 		збігається зі скалярним потенціалом.
@@ -838,7 +838,7 @@
 
 	Густина енергії
 	\begin{equation*}
-		w = \frac{\Efield\cdot\Dfield}{8\pi} + \frac{\Bfield\cdot\Hfield}{8\pi}, \quad [w] = \frac{\text{ерг}}{\text{см}^2}\, (\text{СГС}),\
+		w = \frac{\Efield\cdot\Dfield}{8\pi} + \frac{\Bfield\cdot\Hfield}{8\pi}, \quad [w] = \frac{\text{ерг}}{\text{см}^3}\, (\text{СГС}),\
 		[w] = \frac{\text{Дж}}{\text{м}^3}\, (\text{SI})
 	\end{equation*}
 \end{frame}
@@ -1054,7 +1054,7 @@
 		то поряд зі струмом провідності виникне ще й струм зміщення:
 		\begin{equation*}
 			\vect{j}_\text{зм} = \frac{\epsilon}{4\pi} \parttime{\Efield} = \frac{\epsilon\omega}{4\pi}
-			E_0\sin(\omega t + \pi/2).
+			E_0\cos(\omega t + \pi/2).
 		\end{equation*}
 		Де величину $\frac{\epsilon\omega}{4\pi}$ можна формально трактувати як <<питому провідність>> для струмів
 		зміщення.
