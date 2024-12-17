@@ -138,140 +138,200 @@
 % ============================== Слайд ## ===================================
 \begin{frame}{Хвильове рівняння}{}\small
 	\begin{block}{}\justifying
-		Хвиля --- це процес поширення коливань в часі та в просторі.
+		Хвиля --- процес поширення коливань в часі та в просторі.
 		Хвиля характеризується деякою величиною $u$. Наприклад, у
 		випадку хвилі, що поширюється вздовж ланцюжка осциляторів $u$ -- це відхилення від їхнього положення в стані рівноваги.
 	\end{block}
-	\begin{onlyenv}<1>
-		\begin{center}
-			\begin{tikzpicture}[>=latex, scale=0.8,
-					bord/.style = {rectangle, fill=blue,
-							pattern = north east lines,
-							minimum width=5mm, minimum height=25mm,
-							yshift=15mm,
-							node contents={}},
-					mass/.style = {circle, minimum width=2*0.05, fill=red},
-					spring/.style = {thick,decorate,decoration={zigzag,
-									segment length = 1mm,
-									amplitude=0.7mm,
-									pre length=1mm, post length=1mm}
-						},
-				]
+	\begin{center}
+		\begin{tikzpicture}[>=latex, scale=0.75,
+				bord/.style = {rectangle, fill=blue,
+						pattern = north east lines,
+						minimum width=5mm, minimum height=25mm,
+						yshift=15mm,
+						node contents={}},
+				mass/.style = {circle, minimum width=2*0.05, fill=red},
+				spring/.style = {thick,decorate,decoration={zigzag,
+								segment length = 1mm,
+								amplitude=0.7mm,
+								pre length=1mm, post length=1mm}
+					},
+			]
 
-				% Начальная точка
-				\coordinate (m0) at (0,0);
+			% Начальная точка
+			\coordinate (m0) at (0,0);
 
-				% Создаём узлы и соединяем их
-				\foreach \i [evaluate=\i as \x using \i*pi/2, evaluate=\i as \y using sin(deg(\x)), count=\j from -1] in {0,...,6} {
-						% Создаём массы на синусоиде
-						\node[mass] (m\i) at (\x, 0) {};
-						\node[mass, opacity=0.1] (um\i) at (\x, \y) {};
+			% Создаём узлы и соединяем их
+			\foreach \i [evaluate=\i as \x using \i*pi/2, evaluate=\i as \y using sin(deg(\x)), count=\j from -1] in {0,...,6} {
+					% Создаём массы на синусоиде
+					\node[mass] (m\i) at (\x, 0) {};
+					\node[mass, opacity=0.1] (um\i) at (\x, \y) {};
 
-						% Рисуем стрелки вверх/вниз для нечётных узлов
-						\ifodd\i
-							\draw[->] (m\i) --++(0, {(-1)^((\i-1)/2)}) node[left, pos=0.5] {$u$};
-						\fi
+					% Рисуем стрелки вверх/вниз для нечётных узлов
+					\ifodd\i
+						\draw[->] (m\i) --++(0, {(-1)^((\i-1)/2)}) node[left, pos=0.5] {$u$};
+					\fi
 
-						% Соединяем соседние узлы пружинами
-						\ifnum\i>0
-							\draw[spring, opacity=0.1] (um\j) -- (um\i);
-							\draw[spring] (m\j) -- (m\i);
-						\fi
+					% Соединяем соседние узлы пружинами
+					\ifnum\i>0
+						\draw[spring, opacity=0.1] (um\j) -- (um\i);
+						\draw[spring] (m\j) -- (m\i);
+					\fi
 
-						\ifnum\i=1
-							\draw[->, blue] (um\i) --++(1, 0) node[above] {$\vect{v}$};
-						\fi
-					}
+					\ifnum\i=1
+						\draw[->, blue] (um\i) --++(1, 0) node[above] {$\vect{v}$};
+					\fi
+				}
 
-				% Рисуем синусоиду
-				\draw[samples=100, domain=0:6*pi/2, smooth] plot(\x, {sin(deg(\x))});
-				\draw[->] (0, -1.2) -- (6*pi/2, -1.2) node[below] {$x$};
+			% Рисуем синусоиду
+			\draw[samples=100, domain=0:6*pi/2, smooth] plot(\x, {sin(deg(\x))});
+			\draw[->] (0, -1.2) -- (6*pi/2, -1.2) node[below] {$x$};
 
-			\end{tikzpicture}
-		\end{center}
-	\end{onlyenv}
+		\end{tikzpicture}
+	\end{center}
+	\begin{block}{}\justifying
+		Диференціальне рівняння (яке називається \alert{хвильовим рівнянням}), що описує процес поширення хвилі вздовж осі $x$ має вигляд:
+		\begin{equation*}
+			\frac{\partial^2 u}{\partial x^2} = \frac1{v^2}\pparttime{u}
+		\end{equation*}
+		Загальний розв'язок цього рівняння можна подати у вигляді
+		\begin{equation*}
+			u(x, t) =  \textcolor{red}{f(t - x/v)} + \textcolor{blue}{g(t + x/v)},
+		\end{equation*}
+		Цей розв'язок є суперпозицією хвиль,  що поширюються як у додатному  напрямку $x$ напрямку (функція $\textcolor{red}{f(t - x/v)}$), так і в
+		зворотному (функція $\textcolor{blue}{g(t + x/v)}$).
+	\end{block}
+
+
+\end{frame}
+% ===========================================================================
+
+
+
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Тривимірний випадок}{}
 
 	\begin{block}{}\justifying
-		Диференціальне рівняння, яке описує процес поширення хвилі:
+		В тривимірному випадку \alert{хвильове рівняння} має вигляд:
 		\begin{equation*}
-			\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial z^2}= \frac1{v^2}\pparttime{u}
+			\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial z^2} = \frac1{v^2}\pparttime{u},
 		\end{equation*}
-		і називається \alert{хвильовим рівнянням}.
+		або використовуючи лапласіан: $\nabla^2 = \ddiff{}x + \ddiff{}y +\ddiff{}z$:
+		\begin{equation*}
+			\tcbhighmath{\nabla^2 u = \frac1{v^2}\pparttime{u}.}
+		\end{equation*}
 	\end{block}
 	\begin{alertblock}{}\centering
 		Якщо закони фізики приводять до такого типу рівняння --- то ці закони описують процес поширення хвиль.
 	\end{alertblock}
-	\begin{onlyenv}<2>
-		\begin{block}{}
-			Загальним розв'язком такого рівняння є функція:
-			\begin{equation*}
-				u = f(\vect{r} - \vect{v}t) + g(\vect{r} + \vect{v}t).
-			\end{equation*}
-		\end{block}
-	\end{onlyenv}
-
 \end{frame}
 % ===========================================================================
+
+
+
 
 
 % ===========================================================================
 \begin{frame}{Плоска хвиля}
 	\begin{columns}
-		\begin{column}{0.6\linewidth}
+		\begin{column}{0.59\linewidth}
 			\begin{block}{}\justifying
-				\alert{Хвиля називається плоскою}, якщо $u$ має одну й ту саму величину в усіх точках будь-якої площини, що
-				перпендикулярна до напрямку поширення хвилі. Від площини до площини $u$, звісно, змінюється. \alert{Поверхнями постійної фази} в плоскій хвилі є
-				площини,
-				перпендикулярні напрямку поширення.
+				\alert{Плоскою хвилею} називається хвиля, яка має однакове значення $u$ в усіх точках площин, перпендикулярних до напрямку її поширення.
+				Хвиля називається \alert{монохроматичною}, якщо $u$ змінюється з часом за \alert{гармонічним законом} із певною частотою. Для плоскої
+				монохроматичної хвилі маємо:
+				\begin{equation*}
+					u = u_m\cos(\omega t -\vect{k}\vect{r}).
+				\end{equation*}
 			\end{block}
 		\end{column}
-		\begin{column}{0.4\linewidth}\centering
-			\begin{tikzpicture}[scale=0.6, >=latex]
-				\clip (-1,-1) rectangle (6,5);
-				\draw[->] (0, -1) to (0,5) node[below left] {$y$};
-				\draw[->] (-1, 0) to (6,0) node[below left] {$x$};
-				\foreach \i in {0,1,...,5} {
-						‎\draw[domain=-1:30, smooth, variable=\x, blue] plot ({\x}, {-\x + \i}) ;
-					}
-				\coordinate (K) at (1.5, {-1.5 + 4});
-				\draw[->] (0,0) -- node[left=1pt] {$\vect{r}$} (K);
-				\draw[->, red, double] (K) -- ++(45:1) node[right] {$\k$};
-			\end{tikzpicture}
+		\begin{column}{0.4\linewidth}
+			\begin{overprint}
+				\onslide<1>
+				\begin{center}
+					\begin{tikzpicture}[scale=0.6, >=latex]
+						\clip (-0.5,-0.5) rectangle (6,5);
+						\draw[->] (0, -1) to (0,5) node[below left] {$y$};
+						\draw[->] (-1, 0) to (6,0) node[below left] {$x$};
+						\foreach \i in {0,1,...,5} {
+								‎\draw[domain=-1:30, smooth, variable=\x, blue] plot ({\x}, {-\x + \i}) ;
+							}
+						\coordinate (K) at (1.5, {-1.5 + 4});
+						\coordinate (K1) at (0.5, {-0.5 + 3});
+						\coordinate (K2) at (0.6, {-0.6 + 4});
+						\coordinate (K3) at (0.6, {-0.6 + 5});
+						\draw[->] (0,0) -- node[left=1pt] {$\vect{r}$} (K);
+						\draw[->, red, double] (K) -- ++(45:1) node[right] (B) {$\k$};
+
+						\node[font=\tiny, align=center] (k) at (4.5, 2) {Хвильовий вектор\\ --- задає напрям \\ поширення хвилі};
+						\draw[-stealth, dash pattern={on 1pt off 0.5pt}] (k.90) to[bend right] (B);
+
+						\node[font=\tiny, align=center] (P) at (4,4.5) {Хвильові\\ площини};
+						\draw[-stealth, dash pattern={on 1pt off 0.5pt}] (P.180) coordinate (k1) to[] (K1);
+						\draw[-stealth, dash pattern={on 1pt off 0.5pt}] (P.180) coordinate (k1) to[] (K2);
+						\draw[-stealth, dash pattern={on 1pt off 0.5pt}] (P.180) coordinate (k1) to[] (K3);
+					\end{tikzpicture}
+				\end{center}
+				\onslide<2>
+				\begin{center}
+					\includegraphics[width=\linewidth]{plane_wave}
+				\end{center}
+			\end{overprint}
 		\end{column}
 	\end{columns}
 	\begin{block}{}\justifying
-		Хвиля називається \alert{монохроматичною}, якщо $u$ змінюється з часом за \alert{гармонічним законом} із певною частотою. Для плоскої
-		монохроматичної хвилі:
+		Для зручності плоску монохроматичну хвилю зручно представити у комплексному вигляді:
 		\begin{equation*}
-			u = u_m\cos(\omega t -\vect{k}\vect{r}).
+			u = u_m e^{i(\omega t -\vect{k}\vect{r})}.
 		\end{equation*}
 	\end{block}
-	\begin{overprint}\small
-		\onslide<1>
-		\begin{block}{}\justifying
-			Будь-які дві точки, віддалені одна від одної на відстань $\lambda$ коливаються однаково, синхронно: $u(\vect{k}\vect{r}, \omega t) =
-				u(\vect{k}\vect{r} + k\lambda , \omega t)$. Величина
-			$\lambda = \frac{2\pi}{k}$ називається \alert{довжиною хвилі}, $\vect{k}$ --- називається \alert{хвильовим вектором}, який напрямлений у напрямку
-			поширення
-			хвилі і перпендикулярний хвильовій поверхні,  $k = |\vect{k}|$ --- називається \alert{хвильовим числом}.
-		\end{block}
-		\onslide<2>
-		\begin{block}{}\justifying
-			Така як $u(\vect{k}\vect{r}, \omega t) =  u(\vect{k}\vect{r}, \omega t + \omega T)$, величина $\omega$ називається коловою \alert{частотою
-				хвилі}, а $T$ --- \alert{періодом хвилі}.
-		\end{block}
-		\onslide<3>
-		\begin{block}{}\justifying
-			\alert{Фазовою швидкістю хвилі} називається швидкість, з якою поширюється точки з фіксованою фазою:
-			\begin{equation*}
-				v = \frac{\omega}{k}.
-			\end{equation*}
-		\end{block}
-	\end{overprint}
+	\begin{alertblock}{}\justifying\scriptsize
+		Комплексна експоненціальна форма використовується для представлення синусоїдальних хвиль, тому що вона компактно поєднує синус і косинус через
+		формулу Ейлера
+		\begin{equation*}
+			e^{i\theta} = \cos\theta + i\sin\theta,
+		\end{equation*}
+		спрощує диференціювання та інтегрування (замінюючи операції на множення), дає змогу зручно працювати з фазою і розв'язувати диференціальні рівняння,
+		при цьому фізична хвиля залишається дійсною як її реальна частина.
+	\end{alertblock}
 \end{frame}
 % ===========================================================================
 
 
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Характеристики монохроматичної хвилі}{}
+	\begin{block}{Довжина хвилі}\justifying
+		Будь-які дві точки, віддалені одна від одної на відстань $\lambda$ коливаються однаково, синхронно: $u(\vect{k}\vect{r}, \omega t) =
+			u(\vect{k}\vect{r} + k\lambda , \omega t)$. Величина
+		\begin{equation*}
+			\lambda = \frac{2\pi}{k}. \quad
+            \tikz[]{
+                \draw[domain=0:1, smooth, samples=50] plot ({\x}, {0.2*sin(2*pi*\x r)});
+                }
+		\end{equation*}
+		називається \alert{довжиною хвилі}, $\vect{k}$ --- називається \alert{хвильовим вектором}, який напрямлений у
+		напрямку
+		поширення
+		хвилі і перпендикулярний хвильовій поверхні,  $k = |\vect{k}|$ --- називається \alert{хвильовим числом}.
+	\end{block}
+	\begin{block}{Частота хвилі}\justifying
+		Така як $u(\vect{k}\vect{r}, \omega t) =  u(\vect{k}\vect{r}, \omega t + \omega T)$, величина $\omega$ називається коловою \alert{частотою
+			хвилі}, а $T$ --- \alert{періодом хвилі}.
+	\end{block}
+	\begin{block}{Фазова швидкість хвилі}\justifying
+		\alert{Фазовою швидкістю хвилі} називається швидкість, з якою поширюється точки з фіксованою фазою:
+		\begin{equation*}
+			v = \frac{\omega}{k}, \quad \vect{v} = \frac{\omega}{k}\frac{\k}{k}. \quad
+            \tikz[>=latex]{
+                \draw[domain=0:1, smooth, samples=50] plot ({\x}, {0.2*sin(2*pi*\x r)});
+                \draw[->, red] (0.25, 0.2) -- ++(0.5, 0) node[right] {$\vect{v}$};
+                }
+		\end{equation*}
+	\end{block}
+\end{frame}
+% ===========================================================================
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Хвильові рівняння для електромагнітного поля}{Виведення}
@@ -390,29 +450,29 @@
 		Тоді рівняння Максвелла приймуть вигляд:
 		\begin{align*}
 			\k\cdot\Efield = 0,
-            &\quad
-            \k\cdot\Bfield = 0, \\
+			 & \quad
+			\k\cdot\Bfield = 0, \\
 			\k\times\Efield    = \frac\omega{c}  \Bfield,
-            &\quad
+			 & \quad
 			-\k\times \Hfield =  \frac\omega{c} \epsilon\Efield
 		\end{align*}
 
 	\end{block}
-    \begin{onlyenv}<1>
-    \begin{block}{}\justifying
-        Перші два рівняння показують, що $\Efield\perp\k$ ьа $\Hfield\perp\k$ перпендикулярні напряму поширення, що задається хвильовим векго-
-        $\k$. Ця властивість називається \alert{поперечністю електромагнітних хвиль}.
-    \end{block}
-    \end{onlyenv}
-    \begin{onlyenv}<2>
-        \begin{block}{}\justifying
-    Два інші рівняння дають співвідношення для амплітуд:
-    \begin{equation*}
-        n E_m = B_m, \quad \sqrt{\epsilon} E_m = \sqrt{\mu}
-        H_m
-    \end{equation*}
-        \end{block}
-    \end{onlyenv}
+	\begin{onlyenv}<1>
+		\begin{block}{}\justifying
+			Перші два рівняння показують, що $\Efield\perp\k$ ьа $\Hfield\perp\k$ перпендикулярні напряму поширення, що задається хвильовим векго-
+			$\k$. Ця властивість називається \alert{поперечністю електромагнітних хвиль}.
+		\end{block}
+	\end{onlyenv}
+	\begin{onlyenv}<2>
+		\begin{block}{}\justifying
+			Два інші рівняння дають співвідношення для амплітуд:
+			\begin{equation*}
+				n E_m = B_m, \quad \sqrt{\epsilon} E_m = \sqrt{\mu}
+				H_m
+			\end{equation*}
+		\end{block}
+	\end{onlyenv}
 \end{frame}
 % ============================== Слайд ## ===================================
 
@@ -420,35 +480,35 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Енергія та вектор Пойнтінга для хвилі}{}
-\begin{block}{}\justifying
+	\begin{block}{}\justifying
 
-			Густина енергії (амплітуда)
-			\begin{equation*}
-				w_m = \frac{\epsilon E_m^2}{8\pi} + \frac{\mu H_m^2}{8\pi}, \quad  \sqrt{\frac{\epsilon}{\mu}} E_m = H_m, \quad w_m = \frac{\epsilon
-	E_m^2}{4\pi} = \frac{\mu H_m^2}{4\pi}.
-			\end{equation*}
-\end{block}
-\begin{block}{}\justifying
-	Вектор Пойнтінга показує напрямок поширення енергії хвилі:
-\begin{equation*}
-    \vect{\Pi} = \frac{c}{4\pi}[\Efield\times\Hfield]
-\end{equation*}
-Для хвилі маємо:
-\begin{equation*}
-	\vect{\Pi} =  \frac{c^2}{4\pi\epsilon \omega} \Hfield\times\vect{k}\times\Hfield = \frac{c^2}{4\pi\epsilon \omega} H^2 \vect{k} =
-	\frac{c}{\omega} \frac{1}{\epsilon\mu}\left( \frac{\mu H^2}{4\pi}\right)   c \vect{k} = w \frac{c}{\sqrt{\epsilon\mu}}
-	\frac{\vect{k}}{k}= w
-	\vec{v}.
-\end{equation*}
-\end{block}
-\begin{block}{}\justifying\small
-    Електромагнітна хвиля --- це електромагнітне поле, що періодично змінюються. У разі високочастотних полів зручно розглядати не миттєві значення
-    таких величин, як густина енергії, а значення, усереднені за період коливань. Усереднене в такий спосіб значення вектора Пойнтинга називається
-    \alert{інтенсивністю випромінювання}:
-\begin{equation*}
-    \left\langle |\vect{\Pi}| \right\rangle = I
-\end{equation*}
-\end{block}
+		Густина енергії (амплітуда)
+		\begin{equation*}
+			w_m = \frac{\epsilon E_m^2}{8\pi} + \frac{\mu H_m^2}{8\pi}, \quad  \sqrt{\frac{\epsilon}{\mu}} E_m = H_m, \quad w_m = \frac{\epsilon
+				E_m^2}{4\pi} = \frac{\mu H_m^2}{4\pi}.
+		\end{equation*}
+	\end{block}
+	\begin{block}{}\justifying
+		Вектор Пойнтінга показує напрямок поширення енергії хвилі:
+		\begin{equation*}
+			\vect{\Pi} = \frac{c}{4\pi}[\Efield\times\Hfield]
+		\end{equation*}
+		Для хвилі маємо:
+		\begin{equation*}
+			\vect{\Pi} =  \frac{c^2}{4\pi\epsilon \omega} \Hfield\times\vect{k}\times\Hfield = \frac{c^2}{4\pi\epsilon \omega} H^2 \vect{k} =
+			\frac{c}{\omega} \frac{1}{\epsilon\mu}\left( \frac{\mu H^2}{4\pi}\right)   c \vect{k} = w \frac{c}{\sqrt{\epsilon\mu}}
+			\frac{\vect{k}}{k}= w
+			\vec{v}.
+		\end{equation*}
+	\end{block}
+	\begin{block}{}\justifying\small
+		Електромагнітна хвиля --- це електромагнітне поле, що періодично змінюються. У разі високочастотних полів зручно розглядати не миттєві значення
+		таких величин, як густина енергії, а значення, усереднені за період коливань. Усереднене в такий спосіб значення вектора Пойнтинга називається
+		\alert{інтенсивністю випромінювання}:
+		\begin{equation*}
+			\left\langle |\vect{\Pi}| \right\rangle = I
+		\end{equation*}
+	\end{block}
 \end{frame}
 % ===========================================================================
 
@@ -456,9 +516,9 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Плоска монохроматична електромагнітна хвиля}{}
-\begin{center}
-    \input{tikz/emwave.tikz}
-\end{center}
+	\begin{center}
+		\input{tikz/emwave.tikz}
+	\end{center}
 \end{frame}
 % ===========================================================================
 
@@ -494,9 +554,9 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Імпульс та тиск світла}{}
-\begin{block}{}
-    Розглянемо такий процес: електромагнітна хвиля поглинається тілом і передає йому свій імпульс.
-\end{block}
+	\begin{block}{}
+		Розглянемо такий процес: електромагнітна хвиля поглинається тілом і передає йому свій імпульс.
+	\end{block}
 	\begin{columns}
 		\begin{column}{0.4\linewidth}\centering
 			\input{tikz/empresure.tikz}
@@ -505,26 +565,26 @@
 			\begin{block}{}\justifying\small
 				Електричне поле хвилі збуджує електричний струм густиною $ \vect{j} = \sigma\Efield $ ($ \vect{F} = e\Efield $). Внаслідок цього на
 				об'єму середовища діє сила Ампера
-                \begin{equation*}
-                    d\vect{f} = \frac1c[\vect{j}\times\Bfield],
-                \end{equation*}
-        яка спрямована убік поширення хвилі. Ця сила за час $dt$ змінює імпульс одиниці об'єму тіла на величину:
+				\begin{equation*}
+					d\vect{f} = \frac1c[\vect{j}\times\Bfield],
+				\end{equation*}
+				яка спрямована убік поширення хвилі. Ця сила за час $dt$ змінює імпульс одиниці об'єму тіла на величину:
 
 			\end{block}
 		\end{column}
 	\end{columns}
-\begin{block}{}\justifying
-\begin{equation*}
-    d\vect{g} = \vect{f} dt =  \frac1c[\vect{j}\times\Bfield] dt = \frac{\lambda}{c}[\Efield \times\Bfield]dt = \frac{4\pi\lambda}{c^2}\vect{\Pi}dt
-    =
-    \frac{4\pi\lambda}{c} w \vect{n} dt.
-\end{equation*}
-    За той самий час в одиниці об'єму середовища поглинається (передається від поля речовині) енергія:
-\begin{equation*}
-    dw = \vect{j}\cdot\Efield dt = \lambda E^2dt = 4\pi\lambda \frac{E^2}{4\pi} dt = 4\pi\lambda w dt
-\end{equation*}
-Звідки $d\vect{g} = \frac{dw}c \vect{n}$, або за весь час дії $\vect{g} = \frac{w}{c} \vect{n} = \frac{\vect{\Pi}}{c^2}$.
-\end{block}
+	\begin{block}{}\justifying
+		\begin{equation*}
+			d\vect{g} = \vect{f} dt =  \frac1c[\vect{j}\times\Bfield] dt = \frac{\lambda}{c}[\Efield \times\Bfield]dt = \frac{4\pi\lambda}{c^2}\vect{\Pi}dt
+			=
+			\frac{4\pi\lambda}{c} w \vect{n} dt.
+		\end{equation*}
+		За той самий час в одиниці об'єму середовища поглинається (передається від поля речовині) енергія:
+		\begin{equation*}
+			dw = \vect{j}\cdot\Efield dt = \lambda E^2dt = 4\pi\lambda \frac{E^2}{4\pi} dt = 4\pi\lambda w dt
+		\end{equation*}
+		Звідки $d\vect{g} = \frac{dw}c \vect{n}$, або за весь час дії $\vect{g} = \frac{w}{c} \vect{n} = \frac{\vect{\Pi}}{c^2}$.
+	\end{block}
 \end{frame}
 % ===========================================================================
 
@@ -804,10 +864,10 @@
 						E'' = E''_0 e^{i(\omega'' t - k''_xx-k''_yy)}
 					\end{equation*}
 					Гранична умова ($E_{\tau_1} = E_{\tau_2}$), тобто при $x = 0$:
-                    \begin{equation*}
-                        E(x=0) + E'(x=0) = E''(x=0),
-                    \end{equation*}
-                    або
+					\begin{equation*}
+						E(x=0) + E'(x=0) = E''(x=0),
+					\end{equation*}
+					або
 					\begin{equation*}
 						E_0 e^{i(\omega t -k_yy)} + E'_0 e^{i(\omega' t - k'_yy)} =E''_0 e^{i(\omega'' t - k''_yy)}.
 					\end{equation*}
@@ -826,28 +886,32 @@
 							      k_y = k'_y = k''_y
 						      \end{equation*}
 					\end{enumerate}
-%					З виразу $k = \frac{\omega n}{c}$ і $\omega = \omega' = \omega''$ отримуємо:
-%					\begin{equation*}
-%						\frac{k}{n_1} = \frac{k'}{n_1} = \frac{k''}{n_2}.
-%					\end{equation*}
+					Тому, гранична умова прийме вигляд:
+					\begin{equation*}
+						E_0  + E'_0  =E''_0 .
+					\end{equation*}
+					%					З виразу $k = \frac{\omega n}{c}$ і $\omega = \omega' = \omega''$ отримуємо:
+					%					\begin{equation*}
+					%						\frac{k}{n_1} = \frac{k'}{n_1} = \frac{k''}{n_2}.
+					%					\end{equation*}
 				\end{block}
 			}
 			\begin{onlyenv}<6>
 				\begin{block}{}\justifying
 					З рівняння:
 					\begin{equation*}
-%						\frac{k}{n_1} = \frac{k'}{n_1}
-                        k_y = k'_y
+						%						\frac{k}{n_1} = \frac{k'}{n_1}
+						k_y = k'_y
 					\end{equation*}
 					\begin{equation*}
 						k\sin i = k'\sin i'
 					\end{equation*}
 					\begin{equation*}
 						\Rightarrow \frac{\omega n_1}{c} \sin i = \frac{\omega n_1}{c} \sin i'
-                    \end{equation*}
-%					\[
-%						k_x = - {k'}_x,  \quad k_y = k'_y.
-%					\]
+					\end{equation*}
+					%					\[
+					%						k_x = - {k'}_x,  \quad k_y = k'_y.
+					%					\]
 					Звідки випливає закон відбивання, відомий з геометричної оптики:
 					\[
 						\tcbhighmath{i = i'.}
@@ -859,10 +923,10 @@
 					З рівняння:
 					\begin{equation*}
 						k'_y = k''_y
-                    \end{equation*}
-                    \begin{equation*}
+					\end{equation*}
+					\begin{equation*}
 						\frac{\omega n_1}{c}\sin i  = \frac{\omega n_2}{c}\sin r
-                    \end{equation*}
+					\end{equation*}
 					Випливає закон заломлення, відомий з геометричної оптики:
 					\begin{equation*}
 						\tcbhighmath{n_1\sin{i} = n_2\sin{r}}
@@ -923,10 +987,10 @@
 			k_xE_0 + k'_xE'_0 = k''_xE''_0
 		\]
 		\[
-			k_x = -k'_x =k\cos i, \quad k'' = n_{21} k, \quad k''_x = k''\cos r = n_{21} k\cos r
+			k_x = -k'_x =\frac{\omega n_1}{c}\cos i, \quad k''_x = +\frac{\omega n_2}{c}\cos r
 		\]
 		\[
-			E_{0} \cos i - E'_0 \cos i = n_{21} E''_0 \cos r
+			n_1 E_{0} \cos i - n_1 E'_0\cos i = n_{2} E''_0 \cos r
 		\]
 		\[
 			E_0 \cos i - E'_0 \cos i = n_{21} (E_0 + E'_0) \cos r
