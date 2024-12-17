@@ -498,12 +498,10 @@
     Розглянемо такий процес: електромагнітна хвиля поглинається тілом і передає йому свій імпульс.
 \end{block}
 	\begin{columns}
-		\begin{column}{0.3\linewidth}
-			\begin{center}
-				\includegraphics[width=1\linewidth]{pictures/elmagpresure}
-			\end{center}
+		\begin{column}{0.4\linewidth}\centering
+			\input{tikz/empresure.tikz}
 		\end{column}
-		\begin{column}{0.7\linewidth}
+		\begin{column}{0.6\linewidth}
 			\begin{block}{}\justifying\small
 				Електричне поле хвилі збуджує електричний струм густиною $ \vect{j} = \sigma\Efield $ ($ \vect{F} = e\Efield $). Внаслідок цього на
 				об'єму середовища діє сила Ампера
@@ -539,12 +537,10 @@
 		Максвел теоретично показав, що електромагнітні хвилі, відбиваючись чи поглинаючись тілами, на які  вони падають, чинять на них тиск. Цей тиск виникає внаслідок впливу магнітного поля хвилі на електричні струми, що збуджуються електричним полем тієї самої хвилі.
 	\end{block}
 	\begin{columns}
-		\begin{column}{0.3\linewidth}
-			\begin{center}
-				\includegraphics[width=1\linewidth]{pictures/elmagpresure}
-			\end{center}
+		\begin{column}{0.4\linewidth}\centering
+			\input{tikz/empresure.tikz}
 		\end{column}
-		\begin{column}{0.7\linewidth}
+		\begin{column}{0.6\linewidth}
 			\begin{block}{}\justifying\small
 				Електричне поле хвилі збуджує електричний струм густиною $ \vect{j} = \sigma\Efield $ ($ \vect{F} = e\Efield $). Внаслідок цього на
 				об'єму середовища діє сила Ампера $ d\vect{F} = \frac1c[\vect{j}\times\Bfield] dV$, спрямована убік поширення хвилі. Ця сила та викликає
@@ -555,9 +551,9 @@
 	\begin{block}{}\justifying\small
 		\begin{overprint}
 			\onslide<1>
-			У випадку поглинання вся енергія, яка падає за секунду на поверхню $wv dS$ тіла, перетворюється на теплову $ jE dV $:
+			У випадку поглинання вся енергія, яка падає за секунду на поверхню $\Pi dS = wv dS$ тіла, перетворюється на теплову $ jE dV $:
 			\begin{equation*}
-				dF = \frac1c j \frac{c}{v}E = \frac1vjE = \frac1v wvdS = w dS,
+				dF = \frac1c j \frac{c}{v}E dV = \frac1vjE dV = \frac1v wvdS = w dS,
 			\end{equation*}
 			звідки тиск $ p = \frac{dF}{dS} = w $
 			\onslide<2>
@@ -575,14 +571,14 @@
 		Петро Миколайович Лебедєв в 1899 р. вперше виміряв світловий тиск.
 	\end{block}
 	\begin{columns}
-		\begin{column}{0.6\linewidth}
+		\begin{column}{0.5\linewidth}
 			\begin{block}{}\justifying
 				Він підвісив на тонкій нитці коромисло з парою крилець на кінцях:
 				поверхня в одного з них була зачорненою, забезпечуючи майже повне поглинання, а в іншого --- дзеркальною, забезпечуючи повне відбивання.
 				Підвіс з крильцями утворив чутливі крутильні терези, що поміщаються в посудину, повітря в якому було відкачано.
 			\end{block}
 		\end{column}
-		\begin{column}{0.4\linewidth}\centering
+		\begin{column}{0.5\linewidth}\centering
 			\includegraphics[width=\linewidth]{LebedevExp}
 		\end{column}
 	\end{columns}

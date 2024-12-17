@@ -1,0 +1,170 @@
+
+\documentclass{beamer}
+\usetheme{Electromagnetism}
+\usepackage{Electromagnetism}
+\graphicspath{{pictures/}}
+% -------------------------------------- Grid
+%-------------------------------------------------------
+\makeatletter
+\def\grd@save@target#1{%
+  \def\grd@target{#1}}
+\def\grd@save@start#1{%
+  \def\grd@start{#1}}
+\tikzset{
+  grid with coordinates/.style={
+    to path={%
+      \pgfextra{%
+        \edef\grd@@target{(\tikztotarget)}%
+        \tikz@scan@one@point\grd@save@target\grd@@target\relax
+        \edef\grd@@start{(\tikztostart)}%
+        \tikz@scan@one@point\grd@save@start\grd@@start\relax
+        \draw[minor help lines] (\tikztostart) grid (\tikztotarget);
+        \draw[major help lines] (\tikztostart) grid (\tikztotarget);
+        \grd@start
+        \pgfmathsetmacro{\grd@xa}{\the\pgf@x/1cm}
+        \pgfmathsetmacro{\grd@ya}{\the\pgf@y/1cm}
+        \grd@target
+        \pgfmathsetmacro{\grd@xb}{\the\pgf@x/1cm}
+        \pgfmathsetmacro{\grd@yb}{\the\pgf@y/1cm}
+        \pgfmathsetmacro{\grd@xc}{\grd@xa + \pgfkeysvalueof{/tikz/grid with coordinates/major step}}
+        \pgfmathsetmacro{\grd@yc}{\grd@ya + \pgfkeysvalueof{/tikz/grid with coordinates/major step}}
+        \foreach \x in {\grd@xa,\grd@xc,...,\grd@xb}
+        \node[anchor=north] at (\x,\grd@ya) {\pgfmathprintnumber{\x}};
+        \foreach \y in {\grd@ya,\grd@yc,...,\grd@yb}
+        \node[anchor=east] at (\grd@xa,\y) {\pgfmathprintnumber{\y}};
+      }
+    }
+  },
+  minor help lines/.style={
+    help lines,
+    step=\pgfkeysvalueof{/tikz/grid with coordinates/minor step}
+  },
+  major help lines/.style={
+    help lines,
+    line width= 0.5pt,
+    step=\pgfkeysvalueof{/tikz/grid with coordinates/major step}
+  },
+  grid with coordinates/.cd,
+  minor step/.initial=.2,
+  major step/.initial=1,
+  major line width/.initial=2pt,
+}
+\makeatother
+\usepackage{cancel}
+
+\usetikzlibrary{decorations.pathmorphing,
+                patterns, positioning,
+                quotes,
+                shapes.geometric}
+\begin{document}
+
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Диференціальні операції}{$\Div\Efield$}
+\begin{block}{}
+\begin{equation*}
+    \Div\Efield = \divg\Efield =  \diff{E_x}{x} + \diff{E_y}{y} + \diff{E_z}{z}
+\end{equation*}
+\begin{equation*}
+    \Efield = \Efield_me^{i(\omega t - k_xx - k_yy - k_zz)},
+\end{equation*}
+\begin{equation*}
+    E_x = E_{x_m}e^{i(\omega t - k_xx - k_yy - k_zz)}, \quad
+    E_y = E_{y_m}e^{i(\omega t - k_xx - k_yy - k_zz)}, \quad
+    E_z = E_{z_m}e^{i(\omega t - k_xx - k_yy - k_zz)}
+\end{equation*}
+\begin{multline*}
+    \diff{E_x}{x} = \diff{}{x} E_{x_m}e^{i(\omega t - k_xx - k_yy - k_zz)} = \\ = E_{x_m} e^{i(\omega t - k_xx - k_yy - k_zz)}  \diff{}{x}\left(
+    i(\omega t -
+    k_xx - k_yy - k_zz) \right) =
+    -i k_xE_x
+\end{multline*}
+\begin{equation*}
+    \diff{E_y}{y} = -i k_yE_y, \quad  \diff{E_z}{z} = -i k_zE_z.
+\end{equation*}
+\begin{equation*}
+    \Div\Efield = \divg\Efield =  \diff{E_x}{x} + \diff{E_y}{y} + \diff{E_z}{z} = -ik_xE_x - ik_yE_y - i k_zE_z = -i\k\cdot\Efield
+\end{equation*}
+\end{block}
+\begin{block}{}
+    \begin{equation*}
+    \divg\Efield = -i\k\cdot\Efield.
+\end{equation*}
+\end{block}
+\end{frame}
+% ===========================================================================
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Диференціальні операції}{$\Rot\Efield$}
+\begin{block}{}
+    \begin{equation*}
+    \Rot\Efield = \rot\Efield =  \left(\diff{E_z}{y} - \diff{E_y}{z} \right)\e_x + \left(\diff{E_x}{z} - \diff{E_z}{x} \right)\e_y + \left(\diff{E_y}{x}
+    -
+    \diff{E_x}{y} \right)\e_z
+\end{equation*}
+\begin{equation*}
+    \Efield = \Efield_me^{i(\omega t - k_xx - k_yy - k_zz)},
+\end{equation*}
+\begin{equation*}
+    E_x = E_{x_m}e^{i(\omega t - k_xx - k_yy - k_zz)}, \quad
+    E_y = E_{y_m}e^{i(\omega t - k_xx - k_yy - k_zz)}, \quad
+    E_z = E_{z_m}e^{i(\omega t - k_xx - k_yy - k_zz)}
+\end{equation*}
+\begin{multline*}
+    \diff{E_z}{y} = \diff{}{y} E_{x_m}e^{i(\omega t - k_xx - k_yy - k_zz)} = \\ = E_{z_m} e^{i(\omega t - k_xx - k_yy - k_zz)}  \diff{}{y}\left(
+    i(\omega t -
+    k_xx - k_yy - k_zz) \right) =
+    -i k_yE_z
+\end{multline*}
+\begin{equation*}
+    \Rot\Efield =  \left(  -i k_yE_z + i k_zE_y\right) \e_x + \left(  -i k_zE_x + i k_xE_z\right) \e_y + \left(  -i k_xE_y + i k_yE_x\right) \e_z =
+    -i\k\times\Efield.
+\end{equation*}
+\begin{equation*}
+    \Rot\Efield =  -i\k\times\Efield.
+\end{equation*}
+\end{block}
+\begin{block}{}
+    \begin{equation*}
+    \tcbhighmath{\vect{\nabla} \to  -i\k.}
+\end{equation*}
+\end{block}
+\end{frame}
+% ===========================================================================
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Диференціальні операції}{$\parttime\Efield$}
+       \begin{block}{}
+        \begin{equation*}
+    \parttime{\Efield} = \parttime{E_x}\e_x + \parttime{E_y}\e_y + \parttime{E_z}\e_z.
+\end{equation*}
+\begin{equation*}
+    \Efield = \Efield_me^{i(\omega t - k_xx - k_yy - k_zz)},
+\end{equation*}
+\begin{equation*}
+    E_x = E_{x_m}e^{i(\omega t - k_xx - k_yy - k_zz)}, \quad
+    E_y = E_{y_m}e^{i(\omega t - k_xx - k_yy - k_zz)}, \quad
+    E_z = E_{z_m}e^{i(\omega t - k_xx - k_yy - k_zz)}
+\end{equation*}
+\begin{equation*}
+    \parttime{E_x} = E_{x_m} e^{i(\omega t - k_xx - k_yy - k_zz)} \parttime{} \left(
+    i(\omega t -
+    k_xx - k_yy - k_zz) \right) = i\omega E_x
+\end{equation*}
+        \begin{equation*}
+    \parttime{\Efield} = \parttime{E_x}\e_x + \parttime{E_y}\e_y + \parttime{E_z}\e_z = i\omega E_x\e_x + i\omega E_y\e_y + i\omega E_z\e_z =
+    i\omega\Efield.
+\end{equation*}
+\end{block}
+\begin{block}{}
+    \begin{equation*}
+    \tcbhighmath{\parttime{}  \to  i\omega.}
+\end{equation*}
+\end{block}
+\end{frame}
+% ===========================================================================
+
+\end{document}
