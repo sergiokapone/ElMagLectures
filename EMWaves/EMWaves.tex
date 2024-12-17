@@ -803,7 +803,11 @@
 					\begin{equation*}
 						E'' = E''_0 e^{i(\omega'' t - k''_xx-k''_yy)}
 					\end{equation*}
-					Гранична умова ($E_{\tau_1} = E_{\tau_2}$):
+					Гранична умова ($E_{\tau_1} = E_{\tau_2}$), тобто при $x = 0$:
+                    \begin{equation*}
+                        E(x=0) + E'(x=0) = E''(x=0),
+                    \end{equation*}
+                    або
 					\begin{equation*}
 						E_0 e^{i(\omega t -k_yy)} + E'_0 e^{i(\omega' t - k'_yy)} =E''_0 e^{i(\omega'' t - k''_yy)}.
 					\end{equation*}
@@ -822,27 +826,28 @@
 							      k_y = k'_y = k''_y
 						      \end{equation*}
 					\end{enumerate}
-					З виразу $k = \frac{\omega n}{c}$ і $\omega = \omega' = \omega''$ отримуємо:
-					\begin{equation*}
-						\frac{k}{n_1} = \frac{k'}{n_1} = \frac{k''}{n_2}.
-					\end{equation*}
+%					З виразу $k = \frac{\omega n}{c}$ і $\omega = \omega' = \omega''$ отримуємо:
+%					\begin{equation*}
+%						\frac{k}{n_1} = \frac{k'}{n_1} = \frac{k''}{n_2}.
+%					\end{equation*}
 				\end{block}
 			}
 			\begin{onlyenv}<6>
 				\begin{block}{}\justifying
 					З рівняння:
 					\begin{equation*}
-						\frac{k}{n_1} = \frac{k'}{n_1}
+%						\frac{k}{n_1} = \frac{k'}{n_1}
+                        k_y = k'_y
 					\end{equation*}
 					\begin{equation*}
-						k^2 = {k'}^2 \Rightarrow {k_x^2 + k_y^2 = {k'}_x^2 + {k'}_y^2}
+						k\sin i = k'\sin i'
 					\end{equation*}
-					\[
-						\Rightarrow k_x^2 = {k'}_x^2
-					\]
-					\[
-						k_x = - {k'}_x,  \quad k_y = k'_y.
-					\]
+					\begin{equation*}
+						\Rightarrow \frac{\omega n_1}{c} \sin i = \frac{\omega n_1}{c} \sin i'
+                    \end{equation*}
+%					\[
+%						k_x = - {k'}_x,  \quad k_y = k'_y.
+%					\]
 					Звідки випливає закон відбивання, відомий з геометричної оптики:
 					\[
 						\tcbhighmath{i = i'.}
@@ -852,12 +857,12 @@
 			\only<7>{
 				\begin{block}{}\justifying
 					З рівняння:
-					\[
-						\frac{k}{n_1} = \frac{k''}{n_2}
-					\]
-					\[
-						\frac{k_y}{n_1\sin{i}} = \frac{k''_y}{n_2\sin{r}}
-					\]
+					\begin{equation*}
+						k'_y = k''_y
+                    \end{equation*}
+                    \begin{equation*}
+						\frac{\omega n_1}{c}\sin i  = \frac{\omega n_2}{c}\sin r
+                    \end{equation*}
 					Випливає закон заломлення, відомий з геометричної оптики:
 					\begin{equation*}
 						\tcbhighmath{n_1\sin{i} = n_2\sin{r}}
