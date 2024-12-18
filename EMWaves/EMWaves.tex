@@ -135,6 +135,7 @@
 
 
 
+
 % ============================== Слайд ## ===================================
 \begin{frame}{Хвильове рівняння}{}\small
 	\begin{block}{}\justifying
@@ -506,11 +507,13 @@
 		таких величин, як густина енергії, а значення, усереднені за період коливань. Усереднене в такий спосіб значення вектора Пойнтинга називається
 		\alert{інтенсивністю випромінювання}:
 		\begin{equation*}
-			\left\langle |\vect{\Pi}| \right\rangle = I
+			\left\langle |\vect{\Pi}| \right\rangle = I \propto E^2
 		\end{equation*}
 	\end{block}
 \end{frame}
 % ===========================================================================
+
+
 
 
 
@@ -525,76 +528,13 @@
 
 
 
-% ============================== Слайд ## ===================================
-\begin{frame}{Імпульс електромагнітного поля}{}
-	\begin{block}{}\justifying
-		Поле має енергію; так само в одиниці об'єму воно має якийсь імпульс. Оскільки електромагнітна хвиля чинить тиск на речовину, остання набуває
-		певного імпульсу. Але в замкнутій системі, що складається з речовини та електромагнітної хвилі, виникло б порушення закону збереження імпульсу,
-		якби імпульс мала лише речовина.
-	\end{block}
-
-	Для електромагнітної хвилі у вакуумі вектор Пойнтінга.
-	\begin{equation*}
-		\Pi = w c \Rightarrow \frac{\Pi}{c^2} = \frac{w}{c}.
-	\end{equation*}
-
-	З релятивістської механіки $ E^2 = m^2c^4 + p^2c^2 $. Для частинки з нульовою масою (наприклад, фотона) $ m = 0 $, зв'язок енергії та імпульсу:
-	\begin{equation*}
-		E = p c \Rightarrow  p = \frac{E}{c}.
-	\end{equation*}
-
-	Порівнюючи дві останні формули, отримаємо вираз для густини імпульсу:
-	\begin{equation*}
-		\vect{g} = \frac{\vect{\Pi}}{c^2}, \quad [g] = \frac{\text{дин}\cdot\text{с}}{\text{см}^3}\, \text{(СГС)}
-	\end{equation*}
-\end{frame}
-% ===========================================================================
-
-
-
-% ============================== Слайд ## ===================================
-\begin{frame}{Імпульс та тиск світла}{}
-	\begin{block}{}
-		Розглянемо такий процес: електромагнітна хвиля поглинається тілом і передає йому свій імпульс.
-	\end{block}
-	\begin{columns}
-		\begin{column}{0.4\linewidth}\centering
-			\input{tikz/empresure.tikz}
-		\end{column}
-		\begin{column}{0.6\linewidth}
-			\begin{block}{}\justifying\small
-				Електричне поле хвилі збуджує електричний струм густиною $ \vect{j} = \sigma\Efield $ ($ \vect{F} = e\Efield $). Внаслідок цього на
-				об'єму середовища діє сила Ампера
-				\begin{equation*}
-					d\vect{f} = \frac1c[\vect{j}\times\Bfield],
-				\end{equation*}
-				яка спрямована убік поширення хвилі. Ця сила за час $dt$ змінює імпульс одиниці об'єму тіла на величину:
-
-			\end{block}
-		\end{column}
-	\end{columns}
-	\begin{block}{}\justifying
-		\begin{equation*}
-			d\vect{g} = \vect{f} dt =  \frac1c[\vect{j}\times\Bfield] dt = \frac{\lambda}{c}[\Efield \times\Bfield]dt = \frac{4\pi\lambda}{c^2}\vect{\Pi}dt
-			=
-			\frac{4\pi\lambda}{c} w \vect{n} dt.
-		\end{equation*}
-		За той самий час в одиниці об'єму середовища поглинається (передається від поля речовині) енергія:
-		\begin{equation*}
-			dw = \vect{j}\cdot\Efield dt = \lambda E^2dt = 4\pi\lambda \frac{E^2}{4\pi} dt = 4\pi\lambda w dt
-		\end{equation*}
-		Звідки $d\vect{g} = \frac{dw}c \vect{n}$, або за весь час дії $\vect{g} = \frac{w}{c} \vect{n} = \frac{\vect{\Pi}}{c^2}$.
-	\end{block}
-\end{frame}
-% ===========================================================================
-
-
 
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Тиск світла}{}\small
 	\begin{block}{}\justifying
-		Максвел теоретично показав, що електромагнітні хвилі, відбиваючись чи поглинаючись тілами, на які  вони падають, чинять на них тиск. Цей тиск виникає внаслідок впливу магнітного поля хвилі на електричні струми, що збуджуються електричним полем тієї самої хвилі.
+		Електромагнітні хвилі, відбиваючись чи поглинаючись тілами, на які  вони падають, чинять на них тиск. Цей \alert{тиск виникає внаслідок впливу
+		магнітного поля хвилі на електричні струми, що збуджуються електричним полем хвилі}.
 	\end{block}
 	\begin{columns}
 		\begin{column}{0.4\linewidth}\centering
@@ -602,18 +542,22 @@
 		\end{column}
 		\begin{column}{0.6\linewidth}
 			\begin{block}{}\justifying\small
-				Електричне поле хвилі збуджує електричний струм густиною $ \vect{j} = \sigma\Efield $ ($ \vect{F} = e\Efield $). Внаслідок цього на
-				об'єму середовища діє сила Ампера $ d\vect{F} = \frac1c[\vect{j}\times\Bfield] dV$, спрямована убік поширення хвилі. Ця сила та викликає
-				тиск електромагнітної хвилі.
+				Електричне поле хвилі збуджує електричний струм густиною $ \vect{j} = \lambda\Efield $. Внаслідок цього на
+				об'єму середовища діє сила Ампера:
+                \begin{equation*}
+                    d\vect{F} = \frac1c[\vect{j}\times\Bfield] dV,
+                \end{equation*}
+                спрямована убік поширення хвилі. Ця сила викликає тиск електромагнітної хвилі.
 			\end{block}
 		\end{column}
 	\end{columns}
 	\begin{block}{}\justifying\small
 		\begin{overprint}
 			\onslide<1>
-			У випадку поглинання вся енергія, яка падає за секунду на поверхню $\Pi dS = wv dS$ тіла, перетворюється на теплову $ jE dV $:
+            У хвилі магнітне поле $B = nE = \frac{c}{v}E$. Якщо енергія, що падає на поверхню тіла $\Pi dS = wv dS$
+            перетворюється на теплову $ jE dV $, то $  wv dS = jEdV$. Отже, сила. що діє на поверхню тіла:
 			\begin{equation*}
-				dF = \frac1c j \frac{c}{v}E dV = \frac1vjE dV = \frac1v wvdS = w dS,
+				dF = \frac1c j B dV = \frac1c j \frac{c}{v}E dV =  \frac1v jE dV = \frac1v wvdS = w dS,
 			\end{equation*}
 			звідки тиск $ p = \frac{dF}{dS} = w $
 			\onslide<2>
@@ -625,7 +569,13 @@
 		\end{overprint}
 	\end{block}
 \end{frame}
+% ===========================================================================
 
+
+
+
+
+% ===========================================================================
 \begin{frame}{Тиск світла}{Дослід Лебедєва}\small
 	\begin{block}{}\justifying
 		Петро Миколайович Лебедєв в 1899 р. вперше виміряв світловий тиск.
@@ -648,6 +598,10 @@
 	\end{block}
 	{\tiny \url{https://youtu.be/Dr07pTIoue8}}
 \end{frame}
+% ===========================================================================
+
+
+
 
 % ===========================================================================
 \begin{frame}{Тиск світла}{Сонячні вітрила}\small
@@ -697,6 +651,73 @@
 	\end{onlyenv}
 \end{frame}
 % ===========================================================================
+
+
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Імпульс електромагнітного поля}{}
+	\begin{block}{}\justifying
+		\alert{Поле має енергію}; так само в одиниці об'єму \alert{воно має імпульс}. Оскільки електромагнітна хвиля чинить тиск на речовину, остання
+		набуває	певного імпульсу.
+	\end{block}
+
+	Для електромагнітної хвилі у вакуумі вектор Пойнтінга.
+	\begin{equation*}
+		\Pi = w c \Rightarrow \frac{\Pi}{c^2} = \frac{w}{c}.
+	\end{equation*}
+
+	З релятивістської механіки $ E^2 = m^2c^4 + p^2c^2 $. Для частинки з нульовою масою (наприклад, фотона) $ m = 0 $, зв'язок енергії та імпульсу:
+	\begin{equation*}
+		E = p c \Rightarrow  p = \frac{E}{c}.
+	\end{equation*}
+
+	Порівнюючи дві останні формули, отримаємо вираз для густини імпульсу:
+	\begin{equation*}
+		\vect{g} = \frac{\vect{\Pi}}{c^2}, \quad [g] = \frac{\text{дин}\cdot\text{с}}{\text{см}^3}\, \text{(СГС)}
+	\end{equation*}
+\end{frame}
+% ===========================================================================
+
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Імпульс електромагнітної поля}{}
+	\begin{block}{}
+		Розглянемо такий процес: електромагнітна хвиля поглинається тілом і передає йому свій імпульс.
+	\end{block}
+	\begin{columns}
+		\begin{column}{0.4\linewidth}\centering
+			\input{tikz/empresure.tikz}
+		\end{column}
+		\begin{column}{0.6\linewidth}
+			\begin{block}{}\justifying\small
+				Електричне поле хвилі збуджує електричний струм густиною $ \vect{j} = \sigma\Efield $ ($ \vect{F} = e\Efield $). Внаслідок цього на
+				об'єму середовища діє сила Ампера
+				\begin{equation*}
+					d\vect{f} = \frac1c[\vect{j}\times\Bfield],
+				\end{equation*}
+				яка спрямована убік поширення хвилі. Ця сила за час $dt$ змінює імпульс одиниці об'єму тіла на величину:
+
+			\end{block}
+		\end{column}
+	\end{columns}
+	\begin{block}{}\justifying
+		\begin{equation*}
+			d\vect{g} = \vect{f} dt =  \frac1c[\vect{j}\times\Bfield] dt = \frac{\lambda}{c}[\Efield \times\Bfield]dt =
+			\frac{4\pi\lambda}{c^2}\vect{\Pi}dt
+			=
+			\frac{4\pi\lambda}{c} w \vect{n} dt.
+		\end{equation*}
+		За той самий час в одиниці об'єму середовища поглинається (передається від поля речовині) енергія:
+		\begin{equation*}
+			dw = \vect{j}\cdot\Efield dt = \lambda E^2dt = 4\pi\lambda \frac{E^2}{4\pi} dt = 4\pi\lambda w dt
+		\end{equation*}
+		Звідки $d\vect{g} = \frac{dw}c \vect{n}$, або за весь час дії $\vect{g} = \frac{w}{c} \vect{n} = \frac{\vect{\Pi}}{c^2}$.
+	\end{block}
+\end{frame}
+% ===========================================================================
+
 
 
 
@@ -851,17 +872,17 @@
 				\begin{block}{}
 					Падаюча плоска хвиля:
 					\begin{equation*}
-						E = E_0 e^{i(\omega t - k_xx - k_yy)}
+						E = E_m e^{i(\omega t - k_xx - k_yy)}
 					\end{equation*}
 
 					Відбита плоска хвиля:
 					\begin{equation*}
-						E' = E'_0 e^{i(\omega' t - k'_xx-k'_yy)}
+						E' = E'_m e^{i(\omega' t - k'_xx-k'_yy)}
 					\end{equation*}
 
 					Заломлена плоска хвиля:
 					\begin{equation*}
-						E'' = E''_0 e^{i(\omega'' t - k''_xx-k''_yy)}
+						E'' = E''_m e^{i(\omega'' t - k''_xx-k''_yy)}
 					\end{equation*}
 					Гранична умова ($E_{\tau_1} = E_{\tau_2}$), тобто при $x = 0$:
 					\begin{equation*}
@@ -869,7 +890,7 @@
 					\end{equation*}
 					або
 					\begin{equation*}
-						E_0 e^{i(\omega t -k_yy)} + E'_0 e^{i(\omega' t - k'_yy)} =E''_0 e^{i(\omega'' t - k''_yy)}.
+						E_m e^{i(\omega t -k_yy)} + E'_m e^{i(\omega' t - k'_yy)} =E''_m e^{i(\omega'' t - k''_yy)}.
 					\end{equation*}
 				\end{block}
 			}
@@ -888,7 +909,7 @@
 					\end{enumerate}
 					Тому, гранична умова прийме вигляд:
 					\begin{equation*}
-						E_0  + E'_0  =E''_0 .
+						E_m  + E'_m  =E''_m .
 					\end{equation*}
 					%					З виразу $k = \frac{\omega n}{c}$ і $\omega = \omega' = \omega''$ отримуємо:
 					%					\begin{equation*}
@@ -960,7 +981,7 @@
 \begin{frame}{Формули Френеля для $s$-поляризації}
 	\only<1>{Граничні умови для вектора $\Efield$ дають:
 		\begin{equation*}
-			\tcbhighmath{E_0 + E'_0 = E''_0}
+			\tcbhighmath{E_m + E'_m = E''_m}
 		\end{equation*}
 		а для вектора $\Hfield$ ($H_{\tau_1} = H_{\tau_2}$):
 		\begin{equation*}
@@ -976,24 +997,24 @@
 		\]
 
 		\begin{equation*}
-			\tcbhighmath{k_x E_0 + k'_x E'_0 = k''_x E''_0}
+			k_x E_m + k'_x E'_m = k''_x E''_m.
 		\end{equation*}
 	}
 	\only<2>{
 		\[
-			E_0 + E'_0 = E''_0
+			E_m + E'_m = E''_m
 		\]
 		\[
-			k_xE_0 + k'_xE'_0 = k''_xE''_0
+			k_xE_m + k'_xE'_m = k''_xE''_m
 		\]
 		\[
 			k_x = -k'_x =\frac{\omega n_1}{c}\cos i, \quad k''_x = +\frac{\omega n_2}{c}\cos r
 		\]
 		\[
-			n_1 E_{0} \cos i - n_1 E'_0\cos i = n_{2} E''_0 \cos r
+			n_1 E_m \cos i - n_1 E'_m\cos i = n_{2} E''_m \cos r
 		\]
 		\[
-			E_0 \cos i - E'_0 \cos i = n_{21} (E_0 + E'_0) \cos r
+			E_m \cos i - E'_m \cos i = n_{21} (E_m + E'_m) \cos r
 		\]
 		\begin{equation*}\label{Frenel_s_rl}
 			\tcbhighmath{E'_{\perp} = - \frac{\sin(i - r)}{\sin(i + r)} E_{\perp}}
@@ -1051,18 +1072,18 @@
 			\only<1>{
 				Граничні умови дають:
 				\begin{equation*}
-					B_0 + B'_0 = B''_0
+					B_m + B'_m = B''_m
 				\end{equation*}
 				\begin{equation*}
-					E_y + E'_{y_0} = E''_{y_0}
+					E_y + E'_{y_m} = E''_{y_m}
 				\end{equation*}
-				З рівності  $E_{y_0} = \frac{c k_x}{\epsilon \omega} B$ друга умова приймає вигляд:
+				З рівності  $E_{y_m} = \frac{c k_x}{\epsilon \omega} B$ друга умова приймає вигляд:
 				\begin{equation*}
-					\frac{k_x}{\epsilon_1}\left( B_0 - B'_0\right)  = \frac{k''_x}{\epsilon_2} B''_0
+					\frac{k_x}{\epsilon_1}\left( B_m - B'_m\right)  = \frac{k''_x}{\epsilon_2} B''_m
 				\end{equation*}
 				або
 				\begin{equation*}
-					n_{21} \cos i \left( B_0 - B'_0\right)  = \cos r B''_0
+					n_{21} \cos i \left( B_m - B'_m\right)  = \cos r B''_m
 				\end{equation*}
 			}
 			\only<2>{
@@ -1099,7 +1120,7 @@
 	}
 	\only<2>{
 	\[
-		\Efield'' = \Efield''_0 e^{i(\omega t - {k''_x} - {k''_y})}
+		\Efield'' = \Efield''_m e^{i(\omega t - {k''_x} - {k''_y})}
 	\]
 	\[
 		\frac{k^2}{n^2}  = {k''_x}^2 + {k''_y}^2
@@ -1117,7 +1138,7 @@
 	Тоді розв'язок рівнянь Максвелла буде мати вигляд:
 
 	\[
-		\Efield'' = \Efield''_0e^{-Kx} e^{i(\omega t - {k''_y})}
+		\Efield'' = \Efield''_me^{-Kx} e^{i(\omega t - {k''_y})}
 	\]
 	\alert{В $2$-му середовищі буде поле при $i > i_b$, однак його амплітуда буде експоненційно спадати вздовж $x$}.
 	}

@@ -4,9 +4,9 @@
         \fill[glass, draw=blue!10] (A) -- (B) -- ++(15:0.2) coordinate (B1)-- ++(165:1.35) -- cycle;
         \fill[glass, draw=blue!10] (C) -- ++(15:0.2) -- (B1) -- (B) -- cycle;
 
-        \draw[->] (0, 0) -- (0, 2) node[left] {$z$};
-        \draw[->] (0, 0) -- (-15:1.5) node[below] {$x$};
-        \draw[->] (0, 0) -- (+15:2) node[below] {$y$};
+        \draw[->] (0, 0) -- (0, 2) node[left] {$y$};
+        \draw[->] (0, 0) -- (-15:1.5) node[below] {$z$};
+        \draw[->] (0, 0) -- (+15:2) node[below] {$x$};
 
 
 
