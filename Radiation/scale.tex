@@ -1,0 +1,92 @@
+
+% !TeX program = lualatex
+% !TeX encoding = utf8
+% !TeX spellcheck = uk_UA
+
+\documentclass[14pt]{extarticle}
+
+\usepackage{fontspec}
+\setsansfont{CMU Sans Serif}%{Arial}
+\setmainfont{CMU Serif}%{Times New Roman}
+\setmonofont{CMU Typewriter Text}%{Consolas}
+\defaultfontfeatures{Ligatures={TeX}}
+\usepackage[math-style=TeX]{unicode-math}
+\usepackage[english, russian, ukrainian]{babel}
+
+
+\usepackage[%
+	a4paper,%
+	footskip=1cm,%
+	headsep=0.3cm,%
+	top=2cm, %поле сверху
+	bottom=2cm, %поле снизу
+	left=2cm, %поле ліворуч
+	right=2cm, %поле праворуч
+    ]{geometry}
+
+\renewcommand{\baselinestretch}{1}
+
+
+\setlength{\parskip}{0.5ex}%
+\setlength{\parindent}{2.5em}%
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{floatflt}
+
+\usepackage[%colorlinks=true,
+	%urlcolor = blue, %Colour for external hyperlinks
+	%linkcolor  = malina, %Colour of internal links
+	%citecolor  = green, %Colour of citations
+	bookmarks = true,
+	bookmarksnumbered=true,
+	unicode,
+	linktoc = all,
+	hypertexnames=false,
+	pdftoolbar=false,
+	pdfpagelayout=TwoPageRight,
+	pdfauthor={Ponomarenko S.M. aka sergiokapone},
+	pdfdisplaydoctitle=true,
+	pdfencoding=auto
+	]%
+	{hyperref}
+		\makeatletter
+	\AtBeginDocument{
+	\hypersetup{
+		pdfinfo={
+		Title={\@title},
+		}
+	}
+	}
+	\makeatother
+
+\title{}
+\author{}
+
+\usepackage{tabularray}
+
+\begin{document}
+\begin{table}[h!]
+\centering
+\caption{Характеристики электромагнитных волн}
+\begin{tblr}{
+  colspec={Q[l,m, 3cm]Q[c,m]Q[c,m]Q[l,m, 4cm]},
+  hlines,
+  vlines,
+  rowsep=2pt,
+  colsep=4pt
+}
+    Диапазон                            & Длина волны & Частота         & Источник волн                     \\
+    Радиоволны                          & 100--10 км           & 3--30 кГц          & Радиостанции, атмосферные разряды          \\
+    Сверхдлинные волны (СДВ)            & 10--1 км             & 30--300 кГц        & Подводные передатчики, антенны             \\
+    Длинные волны (ДВ)                  & 1 км--100 м          & 0,3--3 МГц         & Радиовещание, природные процессы           \\
+    Короткие волны (КВ)                 & 100--10 м            & 3--30 МГц          & Радиосвязь, передатчики                    \\
+    Ультракороткие волны (УКВ)          & 10 м--1 мм           & 30 МГц--300 ГГц    & Телевещание, мобильная связь               \\
+    Инфракрасное (ИК) излучение         & 1 мм--0,76 мкм       & 300 ГГц--0,39 ПГц  & Тепловое излучение, нагревательные приборы \\
+    Оптическое излучение (видимый свет) & 0,76 мкм--0,4 мкм    & 0,39 ПГц--0,75 ПГц & Солнце, лампы накаливания
+\end{tblr}
+\end{table}
+
+\end{document}
+
+

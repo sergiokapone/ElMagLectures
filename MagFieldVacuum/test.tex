@@ -59,106 +59,65 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Елемент струму}{}
-\begin{onlyenv}<1>
+\begin{frame}{Рух зарядженої частинки в магнітному полі}{}
+\framesubtitle{Циклотронна частота}
+	\begin{block}{}
+		На частинку діє сила Лоренца, так що рівняння руху має вигляд:
+		\begin{equation*}
+			m\dot{\vect{v}} = q\left[\frac{\vect{v}}{c}\times\Bfield\right].
+		\end{equation*}
+		Очевидно, що $\dot{\vect{v}}\perp\vect{v}$ і $\dot{\vect{v}}\perp\Bfield$. Розкладемо вектор швидкості на
+		складові паралельну і перпендикулярну полю:
+		\begin{equation*}
+			\vect{v} = \vect{v}_{\perp} + \vect{v}_{\parallel}
+		\end{equation*}
+		Для цих складових маємо рівняння:
+		\begin{equation*}
+			\begin{cases}
+				m\vect{v}_{\parallel} = 0, \\
+				\vect{v}_{\perp} = q\left[\dfrac{\vect{v}_{\perp}}{c}\times\Bfield\right].
+			\end{cases}
+		\end{equation*}
+		З першого рівняння випливає $\vect{v}_{\parallel} = \const$.
+Друге рівняння перепишемо у вигляді:
+\begin{equation*}
+    \vect{v}_{\perp} = \left[\vect{\omega}\times\dfrac{\vect{v}_{\perp}}{c}\right],\quad \tcbhighmath{\vect{\omega} = - \frac{q\Bfield}{mc}.}
+\end{equation*}
+Рівняння описує обертання навколо напрямку магнітного поля з кутовою швидкістю $\omega$, яка називається \alert{ циклотронною частотою}.
+	\end{block}
+\end{frame}
+% ===========================================================================
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Робота магнітного поля}{}
+	Робота сили Лоренца:
 	\begin{columns}
-		\begin{column}{0.3\linewidth}\centering
-			\begin{tikzpicture}[>=latex,
-					spy using outlines={circle, magnification=3, size=3.2cm, connect spies}
-				]
-				\draw[gray!60, line width=0.21cm] (0,0)  [partial ellipse=90:0:2];
-				\fill[gray!50, draw = gray!70] (0, 2) circle (0.05 and 0.1);
-				\fill[gray!50, rotate=-90, draw = gray!70] (0, 2) circle (0.05 and 0.1);
-
-				\draw[red!40, line width=0.21cm] (0,0) [partial ellipse=55:45:2];
-				\draw[{Latex[scale=0.5]}-{Latex[scale=0.5]}] (55:2.2)  arc(55:45:2.1) node[above=-1pt, sloped, pos=0.7, font=\tiny] {$d\ell$};
-				\fill[red!40, draw = red!60, rotate=-45] (0, 2) coordinate (S1) circle (0.05 and 0.1);
-				\fill[red!40, draw = red!60, rotate=-35] (0, 2)  circle (0.05 and 0.1);
-
-				\node[font=\tiny, right, inner sep=0] (S) at (42:2.2) {$S$};
-
-				\draw[{Latex[scale=0.3]}-, ultra thin] (S1) to[out=0] (S.west);
-
-				\draw[-{Latex[scale=0.5]}, teal] (55:2)  node[below=1pt, text=teal, font=\tiny] {$\vect{j}$} -- ++({55-90}:0.2);
-				\spy [gray] on (50:2.1)
-				in node [] at (1.5,4.5);
-			\end{tikzpicture}
-		\end{column}
-		\begin{column}{0.7\linewidth}
-			\begin{block}{}\justifying
-				Якщо в задачі не цікавляться
-				внутрішньою будовою провідника, та розподілом струму в його товщі, то можна ввести \alert{лінійний елемент струму}.
-			\end{block}
-			\begin{block}{}\justifying\footnotesize
-				Нехай струм тече провідником із площею поперечного перерізу $S$. Уведемо вектор ділянки провідника завдовжки $d\vect{\ell}$
-				за формулою $d\vect{\ell} = \vect{n}\ell$, де $\vect{n}$ --- одиничний вектор уздовж осі провідника. Тоді $\vect{j} = j\vect{n}$,
-				а $I = j S$ і вираз для об'ємного елемента струму можна переписати у вигляді:
+		\begin{column}{0.65\linewidth}
+			\begin{equation*}
+				\delta A = \vect{F}\cdot d\vect{r} = \vect{F}\cdot\vect{v}dt = \left[\frac{q \vect{v}}{c}\times\Bfield\right] \cdot\vect{v}dt.
+			\end{equation*}
+			\begin{block}{}
 				\begin{equation*}
-					\vect{j}dV = j\vect{n} S d\ell  = I d\vect{\ell}.
+					\vect{A}\cdot\vecdot{\vect{B}}{\vect{C}} = \vect{C}\cdot\vecdot{\vect{A}}{\vect{B}}.
 				\end{equation*}
 			\end{block}
+			\begin{equation*}
+				\vect{v}\cdot\left[\vect{v}\times\Bfield\right] = \Bfield\cdot\left[\vect{v}\times\vect{v}\right] = 0.
+			\end{equation*}
+			\begin{equation*}
+				\delta A = 0.
+			\end{equation*}
+		\end{column}
+		\begin{column}{0.35\linewidth}\centering
+			\input{tikz/CycletronicTrajectory.tikz}
 		\end{column}
 	\end{columns}
 	\begin{block}{}
-		Для лінійного елемента струму сила Ампера:
-		\begin{equation*}
-			d\vect{F} = \frac1c \left[ I d\vect{\ell} \times \Bfield\right].
-		\end{equation*}
+		За теоремою про зміну кінетичної енергії $A = \Delta\left(\frac{mv^2}{2}\right) = 0$, кінетична енергія частинки не змінюється.
 	\end{block}
-\end{onlyenv}
-\begin{onlyenv}<2>
-\begin{tblr}{
-colspec={Q[c,h]X[l,m]}
-}
-\tikz[>=latex, baseline]{
-	\draw[gray!60, line width=0.21cm] (0,0)  [partial ellipse=90:0:2];
-	\fill[gray!50, draw = gray!70] (0, 2) circle (0.05 and 0.1);
-	\fill[gray!50, rotate=-90, draw = gray!70] (0, 2) circle (0.05 and 0.1);
-
-	\draw[red!40, line width=0.21cm] (0,0) [partial ellipse=55:45:2];
-	\draw[{Latex[scale=0.5]}-{Latex[scale=0.5]}] (55:2.2)  arc(55:45:2.1) node[above=-1pt, sloped, pos=0.7, font=\tiny] {$d\ell$};
-	\fill[red!40, draw = red!60, rotate=-45] (0, 2) coordinate (S1) circle (0.05 and 0.1);
-	\fill[red!40, draw = red!60, rotate=-35] (0, 2)  circle (0.05 and 0.1);
-	\node[font=\tiny, right, inner sep=0] (S) at (42:2.2) {$S$};
-	\draw[{Latex[scale=0.3]}-, ultra thin] (S1) to[out=0] (S.west);
-	\draw[-{Latex[scale=0.5]}, teal] (55:2)  node[below=1pt, text=teal, font=\tiny] {$\vect{j}$} -- ++({55-90}:0.2);
-}
-&
-Елемент об'ємного струму $\vect{j}dV$
-\\
-\tikz[>=latex, baseline]{
-	\draw[gray!60, line width=0.05cm, arrowpos={0.2}{2pt}{6pt}] (0,0)  [partial ellipse=90:0:2] node[pos=0.2, anchor=north, text=black] {$I$};
-	\draw[red!40, line width=0.05cm] (0,0) [partial ellipse=55:45:2];
-	\draw[-{Latex[scale=0.5]}] (55:2)  arc(55:45:2) node[above, sloped, pos=0.7, font=\tiny] {$d\vect{\ell}$};
-}
-&
-Елемент лінійного струму $Id\vect{\ell}$
-\\
-\tikz[>=latex, baseline,
-                    pencildraw/.style={ %
-							decorate,
-							decoration={random steps,segment length=2pt,amplitude=1pt}
-						},]{
-        \draw[fill=gray!60] (0,0) -- ++(3, 0) decorate [pencildraw]
-          {to ++(1, 1)}
-        -- ++(-3, 0)
-         decorate [pencildraw]  {to cycle};
-        \foreach \s in {0.2,0.4,...,0.8}  {
-            \draw[->, red] ({0.8+\s}, \s) -- ++(1.2, 0);
-        }
-        \draw (1.5, 0) -- node[right, fill=gray!60, circle, inner sep=0] {$l$} ++(1,1) node (S) [above=5pt] {$dS$};
-        \draw[fill=red!50, opacity=0.5] (1.0,0) -- ++(1, 0) -- ++(1, 1) -- ++(-1, 0) -- cycle;
-        \draw[->] (S.east) to[out=0, in=90] (2.7, 0.9);
-
-}
-&
-{
-Поверхнева густина струму $i = \frac{I}{l}$.\\
-Елемент струму $I\ell = il\ell = i S$, де $\ell$ та $l$ --- сторони виділеного елемента, площа якого $S = l\cdot \ell$.
-Елемент поверхневого струму $\vect{i}dS$
-}
-\end{tblr}
-\end{onlyenv}
+	\begin{alertblock}{}\centering
+		Магнітне поле не виконує роботи над частинкою!
+	\end{alertblock}
 \end{frame}
 % ===========================================================================
 
