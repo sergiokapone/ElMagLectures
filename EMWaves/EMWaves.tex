@@ -142,71 +142,71 @@
 
 
 
+% ============================== Слайд ## ===================================
+\begin{frame}{Хвильовий процес}{}
+    \begin{block}{}\justifying
+        Незважаючи на велику різноманітність фізичних процесів, що спричиняють хвилі, їхнє утворення відбувається за загальним принципом. Збурення в
+        деякий момент часу, поширюється з певною швидкістю в просторі. \alert{Хвиля --- процес поширення збурень в просторі}.
+    \end{block}
+
+\begin{block}{}\justifying
+    Хвиля характеризується деякою величиною
+\begin{equation*}
+    u = f(x, y, z, t),
+\end{equation*}
+яка є функцією як просторових змінних $x$, $y$, $z$ та часу $t$.
+
+\bigskip
+
+Наприклад, у випадку хвилі, що поширюється по поверхні води, $u$ -- це
+висота хвилі над положенням <<спокійної>> поверхні. У випадку електромагнітної хвилі $u$ --- це змінна складова електричного та магнітного поля, яка
+накладається на їхні статичні значення.
+\end{block}
+\begin{block}{}\justifying
+
+\end{block}
+\end{frame}
+% ===========================================================================
+
+
+
+
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Хвильове рівняння}{}\small
+\begin{frame}{Хвильове рівняння}{}
+\begin{columns}
+	\begin{column}{0.5\linewidth}\centering
+        \input{tikz/perturbation.tikz}
+	\end{column}
+	\begin{column}{0.5\linewidth}
+        \begin{block}{}\justifying
+            З аналізу рисунка можна зробити висновок, що функція, що описує поширення хвилі в додатному напрямку осі $OX$ має вигляд:
+        \begin{equation*}
+            u = f(x- vt).
+        \end{equation*}
+        Якщо хвиля поширюється у від'ємному напрямі осі $OX$, то $g(x + vt)$. В загальному випадку для обох хвиль можна написати суперпозицію:
+        \begin{equation*}
+            u = f(x - vt) +g(x + vt).
+        \end{equation*}
+        \end{block}
+	\end{column}
+\end{columns}
 	\begin{block}{}\justifying
-		Хвиля --- процес поширення коливань в часі та в просторі.
-		Хвиля характеризується деякою величиною $u$. Наприклад, у
-		випадку хвилі, що поширюється вздовж ланцюжка осциляторів $u$ -- це відхилення від їхнього положення в стані рівноваги.
-	\end{block}
-	\begin{center}
-		\begin{tikzpicture}[>=latex, scale=0.75,
-				bord/.style = {rectangle, fill=blue,
-						pattern = north east lines,
-						minimum width=5mm, minimum height=25mm,
-						yshift=15mm,
-						node contents={}},
-				mass/.style = {circle, minimum width=2*0.05, fill=red},
-				spring/.style = {thick,decorate,decoration={zigzag,
-								segment length = 1mm,
-								amplitude=0.7mm,
-								pre length=1mm, post length=1mm}
-					},
-			]
+        Вигляд функцій $f$ і $g$ визначається початковими умовами, тобто завданням початкової форми шнура і початкового розподілу швидкостей,
+        а тому може бути досить різноманітним.
 
-			% Начальная точка
-			\coordinate (m0) at (0,0);
+        \medskip
 
-			% Создаём узлы и соединяем их
-			\foreach \i [evaluate=\i as \x using \i*pi/2, evaluate=\i as \y using sin(deg(\x)), count=\j from -1] in {0,...,6} {
-					% Создаём массы на синусоиде
-					\node[mass] (m\i) at (\x, 0) {};
-					\node[mass, opacity=0.1] (um\i) at (\x, \y) {};
-
-					% Рисуем стрелки вверх/вниз для нечётных узлов
-					\ifodd\i
-						\draw[->] (m\i) --++(0, {(-1)^((\i-1)/2)}) node[left, pos=0.5] {$u$};
-					\fi
-
-					% Соединяем соседние узлы пружинами
-					\ifnum\i>0
-						\draw[spring, opacity=0.1] (um\j) -- (um\i);
-						\draw[spring] (m\j) -- (m\i);
-					\fi
-
-					\ifnum\i=1
-						\draw[->, blue] (um\i) --++(1, 0) node[above] {$\vect{v}$};
-					\fi
-				}
-
-			% Рисуем синусоиду
-			\draw[samples=100, domain=0:6*pi/2, smooth] plot(\x, {sin(deg(\x))});
-			\draw[->] (0, -1.2) -- (6*pi/2, -1.2) node[below] {$x$};
-
-		\end{tikzpicture}
-	\end{center}
-	\begin{block}{}\justifying
 		Диференціальне рівняння (яке називається \alert{хвильовим рівнянням}), що описує процес поширення хвилі вздовж осі $x$ має вигляд:
 		\begin{equation*}
 			\frac{\partial^2 u}{\partial x^2} = \frac1{v^2}\pparttime{u}
 		\end{equation*}
-		Загальний розв'язок цього рівняння можна подати у вигляді
-		\begin{equation*}
-			u(x, t) =  \textcolor{red}{f(t - x/v)} + \textcolor{blue}{g(t + x/v)},
-		\end{equation*}
-		Цей розв'язок є суперпозицією хвиль,  що поширюються як у додатному  напрямку $x$ напрямку (функція $\textcolor{red}{f(t - x/v)}$), так і в
-		зворотному (функція $\textcolor{blue}{g(t + x/v)}$).
+%		Загальний розв'язок цього рівняння можна подати у вигляді
+%		\begin{equation*}
+%			u(x, t) =  \textcolor{red}{f(t - x/v)} + \textcolor{blue}{g(t + x/v)},
+%		\end{equation*}
+%		Цей розв'язок є суперпозицією хвиль,  що поширюються як у додатному  напрямку $x$ напрямку (функція $\textcolor{red}{f(t - x/v)}$), так і в
+%		зворотному (функція $\textcolor{blue}{g(t + x/v)}$).
 	\end{block}
 
 
