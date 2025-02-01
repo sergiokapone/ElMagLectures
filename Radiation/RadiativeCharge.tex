@@ -1,0 +1,166 @@
+
+\documentclass[onlytextwidth]{beamer}
+\usetheme{Electromagnetism}
+\usepackage{Electromagnetism}
+\graphicspath{{pictures/}}
+% -------------------------------------- Grid
+%-------------------------------------------------------
+\makeatletter
+\def\grd@save@target#1{%
+  \def\grd@target{#1}}
+\def\grd@save@start#1{%
+  \def\grd@start{#1}}
+\tikzset{
+  grid with coordinates/.style={
+    to path={%
+      \pgfextra{%
+        \edef\grd@@target{(\tikztotarget)}%
+        \tikz@scan@one@point\grd@save@target\grd@@target\relax
+        \edef\grd@@start{(\tikztostart)}%
+        \tikz@scan@one@point\grd@save@start\grd@@start\relax
+        \draw[minor help lines] (\tikztostart) grid (\tikztotarget);
+        \draw[major help lines] (\tikztostart) grid (\tikztotarget);
+        \grd@start
+        \pgfmathsetmacro{\grd@xa}{\the\pgf@x/1cm}
+        \pgfmathsetmacro{\grd@ya}{\the\pgf@y/1cm}
+        \grd@target
+        \pgfmathsetmacro{\grd@xb}{\the\pgf@x/1cm}
+        \pgfmathsetmacro{\grd@yb}{\the\pgf@y/1cm}
+        \pgfmathsetmacro{\grd@xc}{\grd@xa + \pgfkeysvalueof{/tikz/grid with coordinates/major step}}
+        \pgfmathsetmacro{\grd@yc}{\grd@ya + \pgfkeysvalueof{/tikz/grid with coordinates/major step}}
+        \foreach \x in {\grd@xa,\grd@xc,...,\grd@xb}
+        \node[anchor=north] at (\x,\grd@ya) {\pgfmathprintnumber{\x}};
+        \foreach \y in {\grd@ya,\grd@yc,...,\grd@yb}
+        \node[anchor=east] at (\grd@xa,\y) {\pgfmathprintnumber{\y}};
+      }
+    }
+  },
+  minor help lines/.style={
+    help lines,
+    step=\pgfkeysvalueof{/tikz/grid with coordinates/minor step}
+  },
+  major help lines/.style={
+    help lines,
+    line width= 0.5pt,
+    step=\pgfkeysvalueof{/tikz/grid with coordinates/major step}
+  },
+  grid with coordinates/.cd,
+  minor step/.initial=.2,
+  major step/.initial=1,
+  major line width/.initial=2pt,
+}
+\makeatother
+
+\begin{document}
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Випромінювання заряду}{}
+
+	\begin{columns}
+		\begin{column}{0.3\linewidth}\centering
+			\begin{tikzpicture}[>=latex]
+				\draw[->] (0,0) -- ++(0, 1) node[left] {$v_q$};
+				\draw[->] (0,0) -- ++(2.5, 0) node[below] {$t$};
+				\draw[red, thick] (0,0) -- ++(0.25, 0.75) coordinate (tau)  -- ++(1.75, 0) coordinate (T) -- ++(0.25,0);
+				\draw[dashed] (tau) -- ++(0,-0.75) node[below] {$\tau$};
+				\draw[dashed] (T) -- ++(0,-0.75) node[below] {$T$};
+				\node[above] at (T) {$v_q \ll c$};
+				\node[below] at ($(0.75,0)!0.3!(2, 0)$) {$\tau \ll T$};
+			\end{tikzpicture}
+		\end{column}
+		\begin{column}{0.7\linewidth}\centering
+			\begin{tikzpicture}[>=latex,
+					chp/.style = {circle, inner sep=1pt, ball color=red,  font=\tiny\mathstrut\bfseries, text=white, inner sep=0pt},
+				]
+				\def\r{1.8}
+				\def\R{2}
+				\def\d{0.5}
+				\node[chp, opacity=0.5] (q) at (0,0) {$+$};
+				\node[chp] (q1) at (0,\d) {$+$};
+				\draw[gray, dash pattern={on 1pt off 0.5pt}, name path=C] (q) circle(\r);
+				\draw[gray, dash pattern={on 1pt off 0.5pt}] (q) circle(\R);
+
+				\def\list{0,22.5,...,340}
+				\begin{scope}
+					\clip (q) circle(\r);
+					\foreach[count=\c from 1] \a in \list {
+						\draw[red, opacity=0.5, name path global=qlines\c] (q1) -- ++(\a:{\R + \d}) ;
+					}
+				\end{scope}
+
+				\foreach[count=\c from 1] \a in \list {
+					\draw[red, midarrow] (q)  ++(\a:\R)coordinate (E2\c) -- ++(\a:1);
+					\draw[red,name intersections={of=C and qlines\c}] (intersection-1) -- (E2\c);
+				}
+
+			\end{tikzpicture}
+		\end{column}
+	\end{columns}
+
+
+\end{frame}
+% ===========================================================================
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Математичні викладки}{}
+
+\begin{columns}
+	\begin{column}{0.4\linewidth}\centering
+			\begin{tikzpicture}[>=latex,
+					chp/.style = {circle, inner sep=1pt, ball color=red,  font=\tiny\mathstrut\bfseries, text=white, inner sep=0pt},
+				]
+				\def\r{1.8}
+				\def\R{2}
+				\def\d{0.5}
+				\node[chp, opacity=0.5] (q) at (0,0) {$+$};
+				\node[chp] (q1) at (0,\d) {$+$};
+				\draw[gray, dash pattern={on 1pt off 0.5pt}, name path=C] (q) circle(\r);
+				\draw[gray, dash pattern={on 1pt off 0.5pt}] (q) circle(\R);
+
+				\def\list{45}
+				\begin{scope}
+					\clip (q) circle(\r);
+					\foreach[count=\c from 1] \a in \list {
+						\draw[red, opacity=0.5, name path global=qlines\c] (q1) -- ++(\a:{\R + \d}) ;
+					}
+				\end{scope}
+
+				\foreach[count=\c from 1] \a in \list {
+					\draw[red, midarrow] (q)  ++(\a:\R)coordinate (E2\c) -- ++(\a:1);
+					\draw[red,name intersections={of=C and qlines\c}] (intersection-1) coordinate (O)-- (E2\c);
+				}
+
+                \draw[dashed] (q) -- ++(45:\R);
+                \draw[->, red!60!black] (O) -- ++(-45:0.5) node[below] {$\Efield_{\perp}$};
+                \draw[->, red!60!black] (O) -- ++(+45:0.5) node[above] {$\Efield_{\parallel}$};
+                \draw[decorate, decoration={brace, amplitude=0.5ex, raise=0.1ex}] (q.west) -- node[left] {$v_qT$} (q1.west);
+                \draw (q1) -- ++(-45:{\d*cos(45)});
+                \draw (q1) -- ++(0, 2);
+                \draw (q1) ++(0, 0.5) arc(90:45:0.5) node[pos=0.5, anchor=south west, inner sep=0] {$\theta$};
+                \draw (q) -- ++(225:\R) node[above, pos=0.5, sloped] {$r = cT$};
+                \draw[->] (-45:{\r - 0.25}) node[above] {$c\tau$} -- (-45:\r) ;
+                \draw[->] (-45:{\R + 0.25}) -- (-45:\R);
+
+			\end{tikzpicture}
+	\end{column}
+	\begin{column}{0.6\linewidth}
+         \begin{equation*}
+             \frac{E_{\perp}}{E_{\parallel}} = \frac{v_q T\sin\theta}{c\tau}
+        \end{equation*}
+        \begin{equation*}
+            E_{\parallel} = \frac{q}{(cT)^2} = \frac{q}{(cT) r}
+        \end{equation*}
+\begin{equation*}
+    a= \frac{v_q}{\tau}
+\end{equation*}
+        \begin{equation*}
+            E_{\perp}(t) = \frac{q}{(cT) r}  \frac{v_q T\sin\theta}{c\tau} = \frac1{c^2} \frac{q}{r} a\left( t - \frac{r}{c}\right) \sin\theta
+        \end{equation*}
+	\end{column}
+\end{columns}
+
+\end{frame}
+% ===========================================================================
+
+\end{document}
