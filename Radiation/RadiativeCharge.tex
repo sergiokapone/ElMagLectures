@@ -52,13 +52,23 @@
 \makeatother
 
 \begin{document}
-
+% Butikov E.I., Kondrat'ev A.S. Fizika.. Ucheb. posobie.. Kn. 2. E'lektrodinamika. Optika (FML, 2004)(ISBN 5922101102)(ru)(K)(T)(335s)_PSch_
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Випромінювання заряду}{}
-
+\begin{frame}[fragile]{Випромінювання заряду}{}
+	\begin{block}{}\justifying
+		Розглянемо електричне поле, точкового заряду \( q \).
+		Якщо заряд перебуває в стані спокою, його електростатичне поле описується
+		радіальними силовими лініями, що виходять із заряду.
+	\end{block}
 	\begin{columns}
-		\begin{column}{0.3\linewidth}\centering
+		\begin{column}{0.4\linewidth}\centering
+			\begin{block}{}\justifying
+				Нехай у момент часу \( t = 0 \) заряд під дією зовнішньої сили
+				починає рухатися з прискоренням \( a \), а через деякий час \( \tau \)
+				дія сили припиняється, після чого заряд рухається рівномірно зі
+				швидкістю \( v = a\tau \). Графік швидкості руху заряду наведено на рис.
+			\end{block}
 			\begin{tikzpicture}[>=latex]
 				\draw[->] (0,0) -- ++(0, 1) node[left] {$v_q$};
 				\draw[->] (0,0) -- ++(2.5, 0) node[below] {$t$};
@@ -69,97 +79,204 @@
 				\node[below] at ($(0.75,0)!0.3!(2, 0)$) {$\tau \ll T$};
 			\end{tikzpicture}
 		\end{column}
-		\begin{column}{0.7\linewidth}\centering
-			\begin{tikzpicture}[>=latex,
-					chp/.style = {circle, inner sep=1pt, ball color=red,  font=\tiny\mathstrut\bfseries, text=white, inner sep=0pt},
+		\begin{column}{0.6\linewidth}\centering
+			\begin{tikzpicture}[
+					>=latex,
+					chp/.style = {
+							circle,
+							inner sep=1pt,
+							ball color=red,
+							font=\tiny\mathstrut\bfseries,
+							text=white,
+							inner sep=0pt
+						},
+					mydash/.style = {
+							dash pattern={on 1pt off 0.5pt}
+						},
+					myarrow/.style = {
+							->,
+							red
+						},
+					mytext/.style = {
+							align=center,
+							text width=#1,
+							font=\scriptsize\itshape,
+							inner sep=0
+						}
 				]
-				\def\r{1.8}
-				\def\R{2}
-				\def\d{0.5}
-				\node[chp, opacity=0.5] (q) at (0,0) {$+$};
-				\node[chp] (q1) at (0,\d) {$+$};
-				\draw[gray, dash pattern={on 1pt off 0.5pt}, name path=C] (q) circle(\r);
-				\draw[gray, dash pattern={on 1pt off 0.5pt}] (q) circle(\R);
 
-				\def\list{0,22.5,...,340}
+				% Основні параметри
+				\def\r{1.8} % Внутрішній радіус
+				\def\R{2}   % Зовнішній радіус
+				\def\d{0.5} % Вертикальне зміщення заряду
+				\def\arrowLength{1}   % Довжина стрілок
+				\def\angles{0,22.5,...,340} % Кути для ліній
+				\uncover<1>{
+					\node[chp] (q) at (0,0) {$+$};
+					% Стрілки та лінії
+					\foreach[count=\i] \angle in \angles {
+						\draw[myarrow] (q) -- ++(\angle:{\R + \arrowLength});
+					}
+				}
+%				\uncover<2>{
+%					\node[chp] (q') at (0,\d) {$+$};
+%					\foreach[count=\i] \angle in \angles {
+%						\draw[red, ->] (q') -- ++(\angle:{\R + \arrowLength});
+%					}}
+				\uncover<2>{
+				% Основні вузли
+				\node[chp, opacity=0.5] (q) at (0,0) {$+$};
+				\node[chp] (q') at (0,\d) {$+$};
+
+				% Кола
+				\draw[gray, mydash, name path=innerCircle] (q) circle(\r);
+				\draw[gray, mydash] (q) circle(\R);
+
+				% Лінії всередині внутрішнього кола
 				\begin{scope}
 					\clip (q) circle(\r);
-					\foreach[count=\c from 1] \a in \list {
-						\draw[red, opacity=0.5, name path global=qlines\c] (q1) -- ++(\a:{\R + \d}) ;
+					\foreach[count=\i] \angle in \angles {
+						\draw[red, opacity=0.5, name path global=line\i] (q') -- ++(\angle:{\R + \d});
 					}
 				\end{scope}
 
-				\foreach[count=\c from 1] \a in \list {
-					\draw[red, midarrow] (q)  ++(\a:\R)coordinate (E2\c) -- ++(\a:1);
-					\draw[red,name intersections={of=C and qlines\c}] (intersection-1) -- (E2\c);
+				% Стрілки та лінії
+				\foreach[count=\i] \angle in \angles {
+					\draw[myarrow] (q) ++(\angle:\R) coordinate (endOfLine\i) -- ++(\angle:\arrowLength);
+					\draw[red, name intersections={of=innerCircle and line\i}] (intersection-1) -- (endOfLine\i);
+				}
+
+				% Координати для спостерігачів
+				\coordinate (innerViewer) at (-40:{\r-0.5});
+				\coordinate (outerViewer) at (220:{\R+0.5});
+				\coordinate (accRegion) at (265:{(\R+\r)/2});
+
+				% Текст та стрілки для спостерігачів
+				\node[mytext=1.2cm] (textOuterViewer) at (220:{\R+1.5}) {Зовнішній\\ спостерігач};
+				\draw[->, gray!80] (textOuterViewer) to[bend left] (outerViewer);
+
+				\node[mytext=1.2cm] (textInnerViewer) at (-45:{\R+1.5}) {Внутрішній\\ спостерігач};
+				\draw[->,  gray!80] (textInnerViewer)  to[bend left] (innerViewer);
+
+				\node[mytext=3cm] (textAccRegionViewer) at (-90:{\R+1.6}) {Область випромінювання \\ під час прискорення};
+				\draw[->,  gray!80] (textAccRegionViewer)  to[bend right] (accRegion);
 				}
 
 			\end{tikzpicture}
 		\end{column}
 	\end{columns}
-
-
 \end{frame}
 % ===========================================================================
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Математичні викладки}{}
 
-\begin{columns}
-	\begin{column}{0.4\linewidth}\centering
-			\begin{tikzpicture}[>=latex,
-					chp/.style = {circle, inner sep=1pt, ball color=red,  font=\tiny\mathstrut\bfseries, text=white, inner sep=0pt},
+	\begin{columns}
+		\begin{column}{0.5\linewidth}\centering
+			\begin{tikzpicture}[
+					>=latex,
+					chp/.style = {
+							circle,
+							inner sep=1pt,
+							ball color=red,
+							font=\tiny\mathstrut\bfseries,
+							text=white,
+							inner sep=0pt
+						},
+					mydash/.style = {
+							dash pattern={on 1pt off 0.5pt}
+						},
+					myarrow/.style = {
+							->,
+							red
+						},
+					mybrace/.style = {
+							decorate,
+							decoration={brace, amplitude=0.5ex, raise=0.1ex}
+						}
 				]
-				\def\r{1.8}
-				\def\R{2}
-				\def\d{0.5}
-				\node[chp, opacity=0.5] (q) at (0,0) {$+$};
-				\node[chp] (q1) at (0,\d) {$+$};
-				\draw[gray, dash pattern={on 1pt off 0.5pt}, name path=C] (q) circle(\r);
-				\draw[gray, dash pattern={on 1pt off 0.5pt}] (q) circle(\R);
 
-				\def\list{45}
+				% Определение параметров
+				\def\r{2} % Внутренний радиус
+				\def\R{2.4} % Внешний радиус
+				\def\d{0.75} % Вертикальное смещение
+				\def\angle{35} % Угол
+				\def\arrowLength{1} % Длина стрелки
+                \pgfmathsetmacro\ctang{(\d*cos(\angle)) / (\R-sqrt(\r^2-\d^2*cos(\angle)))}
+                \pgfmathsetmacro\E{sqrt(1 + \ctang^2}
+
+				% Основные узлы
+				\node[chp, opacity=0.5] (q) at (0,0) {$+$};
+				\node[chp] (q') at (0,\d) {$+$};
+
+				% Окружности
+				\draw[gray, mydash, name path=innerCircle] (q) circle(\r);
+				\draw[gray, mydash] (q) circle(\R);
+
+				% Обрезка и рисование линии
 				\begin{scope}
 					\clip (q) circle(\r);
-					\foreach[count=\c from 1] \a in \list {
-						\draw[red, opacity=0.5, name path global=qlines\c] (q1) -- ++(\a:{\R + \d}) ;
-					}
+					\draw[red, opacity=0.5, name path global=redLine] (q') -- ++(\angle:{\R + \d});
 				\end{scope}
 
-				\foreach[count=\c from 1] \a in \list {
-					\draw[red, midarrow] (q)  ++(\a:\R)coordinate (E2\c) -- ++(\a:1);
-					\draw[red,name intersections={of=C and qlines\c}] (intersection-1) coordinate (O)-- (E2\c);
-				}
+				% Стрелки и линии
+				\draw[myarrow] (q) ++(\angle:\R) coordinate (endOfRedLine) -- ++(\angle:\arrowLength);
+				\draw[red, name intersections={of=innerCircle and redLine}] (intersection-1) coordinate (startOfRedLine) -- (endOfRedLine);
 
-                \draw[dashed] (q) -- ++(45:\R);
-                \draw[->, red!60!black] (O) -- ++(-45:0.5) node[below] {$\Efield_{\perp}$};
-                \draw[->, red!60!black] (O) -- ++(+45:0.5) node[above] {$\Efield_{\parallel}$};
-                \draw[decorate, decoration={brace, amplitude=0.5ex, raise=0.1ex}] (q.west) -- node[left] {$v_qT$} (q1.west);
-                \draw (q1) -- ++(-45:{\d*cos(45)});
-                \draw (q1) -- ++(0, 2);
-                \draw (q1) ++(0, 0.5) arc(90:45:0.5) node[pos=0.5, anchor=south west, inner sep=0] {$\theta$};
-                \draw (q) -- ++(225:\R) node[above, pos=0.5, sloped] {$r = cT$};
-                \draw[->] (-45:{\r - 0.25}) node[above] {$c\tau$} -- (-45:\r) ;
-                \draw[->] (-45:{\R + 0.25}) -- (-45:\R);
+				% Пунктирные линии и углы
+				\draw[dashed] (q) -- ++(\angle:\R);
+				\draw[mybrace] (q.west) -- node[left] {$v_qT$} (q'.west);
+				\draw[mydash] (q') -- coordinate (projectionPoint) ++({\angle-90}:{\d*cos(\angle)});
+				\draw (q') -- ++(0, 2);
+				\draw (q') ++(0, 0.5) arc(90:\angle:0.5) node[pos=0.5, anchor=south west, inner sep=0] {$\theta$};
+
+				% Стрелки и подписи
+				\draw[->] (295:{\r - 0.25}) node[above] (cTauLabel) {$c\tau$} -- (295:\r);
+				\draw[->] (295:{\R + 0.25})                                   -- (295:\R);
+				\draw (q) -- ++(225:\R) node[above, pos=0.5, sloped] {$r = cT$};
+				\draw (q) -- (265:\r) node[above, pos=0.5, sloped] {$c(T-\tau)$};
+                \node[text=black] (vqTSinThetaLabel) at (1, -0.5) {$v_qT\sin\theta$};
+				\draw[thick] (startOfRedLine) -- coordinate (midPoint)  ++({\angle-90}:{\d*sin(90-\angle)});
+				\draw[->, gray!70] (vqTSinThetaLabel.north) to[in=0] (projectionPoint);
+				\draw[->, gray!70] (vqTSinThetaLabel.north) to[in=225] (midPoint);
+				\draw[thick] (\angle:\r) -- coordinate (endPoint) (endOfRedLine);
+				\draw[->, gray!70] (cTauLabel) to[in=-85] (endPoint);
+
+				\draw[->, thick, red] (endOfRedLine) -- ++(\angle:1) coordinate (Epl) node[above]  {$\Efield_{\parallel}$};
+				\draw[->, thick, red] (endOfRedLine) -- ++({\angle-90}:{\ctang}) coordinate (Epr) node[below] {$\Efield_{\perp}$};
+				\draw[->, thick, red] (endOfRedLine) -- ++({\angle-atan(\ctang)}:{\E}) coordinate (E)
+				node[right] {$\Efield$};
+				\draw[mydash] (Epl) -- (E) -- (Epr);
+
 
 			\end{tikzpicture}
-	\end{column}
-	\begin{column}{0.6\linewidth}
-         \begin{equation*}
-             \frac{E_{\perp}}{E_{\parallel}} = \frac{v_q T\sin\theta}{c\tau}
-        \end{equation*}
-        \begin{equation*}
-            E_{\parallel} = \frac{q}{(cT)^2} = \frac{q}{(cT) r}
-        \end{equation*}
-\begin{equation*}
-    a= \frac{v_q}{\tau}
-\end{equation*}
-        \begin{equation*}
-            E_{\perp}(t) = \frac{q}{(cT) r}  \frac{v_q T\sin\theta}{c\tau} = \frac1{c^2} \frac{q}{r} a\left( t - \frac{r}{c}\right) \sin\theta
-        \end{equation*}
-	\end{column}
-\end{columns}
-
+		\end{column}
+		\begin{column}{0.5\linewidth}
+			\begin{equation*}
+				\frac{E_{\perp}}{E_{\parallel}} = \frac{v_q T\sin\theta}{c\tau}
+			\end{equation*}
+			\begin{equation*}
+				E_{\parallel} = \frac{q}{(cT)^2} \stackrel{r = cT}{=} \frac{q}{(cT) r}
+			\end{equation*}
+			\begin{equation*}
+				a= \frac{v_q}{\tau}
+			\end{equation*}
+			\begin{equation*}
+				E_{\perp}(t) = \frac{q}{(cT) r}  \frac{v_q T\sin\theta}{c\tau}
+			\end{equation*}
+			\begin{equation*}
+				E_{\perp}(t) = \frac1{c^2} \frac{q}{r} a\left( t - \frac{r}{c}\right) \sin\theta
+			\end{equation*}
+		\end{column}
+	\end{columns}
+	\begin{block}{}\justifying
+		Напруженість електричного поля хвилі \( E_\perp \) спадає як \( {1}/{r} \),
+		на відміну від електростатичного поля \( E_\parallel \), яке спадає як \( {1}/{r^2} \).
+		Це пояснюється законом збереження енергії: енергія хвилі розподіляється по поверхні сфери (\( \propto r^2 \)),
+		а густина енергії \( \propto E^2 \). Таким чином, \( E_\perp \propto {1}/{r} \).
+		Крім того, \( E_\perp \) у момент часу \( t \) залежить від прискорення заряду \( a \)
+		в момент \( t - {r}/{c} \), оскільки хвиля досягає точки через час \( {r}/{c} \).
+	\end{block}
 \end{frame}
 % ===========================================================================
 
