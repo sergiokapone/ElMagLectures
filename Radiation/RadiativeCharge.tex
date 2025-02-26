@@ -200,11 +200,13 @@
 				\def\r{2} % Внутренний радиус
 				\def\R{2.4} % Внешний радиус
 				\def\d{0.75} % Вертикальное смещение
-				\def\angle{35} % Угол
 				\def\arrowLength{1} % Длина стрелки
+				\def\angle{35} % Угол
+%            \foreach[count=\c from 1] \angle in {0, 10,..., 90} {
                 \pgfmathsetmacro\ctang{(\d*cos(\angle)) / (\R-sqrt(\r^2-\d^2*cos(\angle)))}
                 \pgfmathsetmacro\E{sqrt(1 + \ctang^2}
 
+%                \uncover<\c>{
 				% Основные узлы
 				\node[chp, opacity=0.5] (q) at (0,0) {$+$};
 				\node[chp] (q') at (0,\d) {$+$};
@@ -247,8 +249,8 @@
 				\draw[->, thick, red] (endOfRedLine) -- ++({\angle-atan(\ctang)}:{\E}) coordinate (E)
 				node[right] {$\Efield$};
 				\draw[mydash] (Epl) -- (E) -- (Epr);
-
-
+%                }
+%            }
 			\end{tikzpicture}
 		\end{column}
 		\begin{column}{0.5\linewidth}
