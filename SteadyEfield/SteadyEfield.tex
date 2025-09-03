@@ -303,19 +303,37 @@
 	\end{onlyenv}
 
 	\begin{onlyenv}<2>
+        \vspace*{2em}
 		\begin{block}{}\justifying
 			Матеріали, що виявляють трибоелектричний ефект, прийнято
 			розташовувати в \alert{трибоелектричний ряд}, один кінець якого є
 			позитивним, а інший --- негативним. Під час тертя пари матеріалів
 			з ряду, матеріал, розташований ближче до позитивного кінця ряду,
 			зарядиться позитивно, а інший --- негативно.
-
-			\bigskip
-
-			ряд Фарадея: ($+$) хутро, фланель, слонова кістка, пір'я, гірський
-			кришталь, флінтглас, паперова тканина, шовк, дерево, метали, сірка
-			($-$).
 		\end{block}
+		\begin{center}
+			\begin{tikzpicture}[scale=0.5, transform shape]
+				% Градієнт фону
+				\shade[left color=blue!30, right color=red!30] (-5.5, -.5) rectangle (5.5, -3.5);
+
+				\node[single  arrow, single  arrow head extend=.5cm, left color=blue!50, right color=red!50, text=white, font={\bf \large}, inner sep=0.3cm]
+				(doublearrow)
+				{--\hspace*{10.5cm}+};
+
+				% Трибоелектричний ряд
+				\node[align=center, rotate=90, font=\Large] at (5,  -2) {Хутро};
+				\node[align=center, rotate=90, font=\Large] at (4,  -2) {Фланель};
+				\node[align=center, rotate=90, font=\Large, align=center, text width=2.5cm] at (3,  -2) {Слонова\\ кістка};
+				\node[align=center, rotate=90, font=\Large] at (2,  -2) {Пір'я};
+				\node[align=center, rotate=90, font=\Large] at (1,  -2) {Флінтглас};
+				\node[align=center, rotate=90, font=\Large] at (0,  -2) {Шовк};
+				\node[align=center, rotate=90, font=\Large] at (-1, -2) {Алюміній};
+				\node[align=center, rotate=90, font=\Large] at (-2, -2) {Поліестер};
+				\node[align=center, rotate=90, font=\Large] at (-3, -2) {Папір};
+				\node[align=center, rotate=90, font=\Large] at (-4, -2) {Бурштин};
+				\node[align=center, rotate=90, font=\Large] at (-5, -2) {Ебоніт};
+			\end{tikzpicture}
+		\end{center}
 	\end{onlyenv}
 \end{frame}
 % ===========================================================================
