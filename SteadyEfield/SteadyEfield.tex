@@ -194,7 +194,7 @@
 		Фр                                                                    \\
 		Маса електрона             & $m_e$   & $9.109 382 15 \cdot 10^{-28}$
 		г                                                                     \\
-		Маса протона               & $m_p$   & $1.672 621 9 \cdot 10^{-30}$
+		Маса протона               & $m_p$   & $1.672 621 9 \cdot 10^{-24}$
 		г                                                                     \\
 		Борівський радіус          & $a_0$   & $5.291 772 0859 \cdot 10^{-9}$
 		см                                                                    \\
@@ -570,10 +570,9 @@ F = \frac{q_1 q_2}{r^{2 + \epsilon}},
 \end{frame}
 % ===========================================================================
 
-
 % ============================== Слайд ## ===================================
 \begin{frame}{Дипольний момент системи зарядів}{}
-	\begin{block}{}\justifying
+  	\begin{block}{}\justifying
 		Для довільної системи зарядів дипольний момент визначається формулою:
 		\begin{equation*}
 			\vec{p} = \sum_{i=1}^{n}q_i\vec{r}_i,
@@ -581,18 +580,22 @@ F = \frac{q_1 q_2}{r^{2 + \epsilon}},
 		де $\vec{r}_i$ --- радіус-вектор $i$-го заряду.
 
 	\end{block}
-
-	\begin{exampleblock}{}\justifying\small
+    \begin{center}
+    \input{tikz/far_potential.tikz}
+    \end{center}
+   	\begin{exampleblock}{}\justifying\small
 		У загальному випадку ця
 		величина залежить від вибору початку відліку. Однак якщо система
 		загалом електронейтральна $\sum_{i=1}^{n} q_i = 0$, то
 		дипольний момент $\vec{p}$ визначений однозначно.
 	\end{exampleblock}
+\end{frame}
+% ===========================================================================
 
+% ============================== Слайд ## ===================================
+\begin{frame}{Електричний диполь}{}
 	\begin{columns}
 		\begin{column}{0.7\linewidth}
-			\begin{overprint}
-				\onslide<1>
 				\begin{block}{}\justifying\small
 					\alert{Елементарний диполь} --- система, що складається з
 					двох точкових зарядів $q$, однакових за величиною і
@@ -610,7 +613,6 @@ F = \frac{q_1 q_2}{r^{2 + \epsilon}},
 						\vec{p} = q\vec{\ell}.
 					\end{equation*}
 				\end{block}
-				\onslide<2>
 				\begin{alertblock}{}\centering
 					Диполь --- модель реальних об'єктів!
 				\end{alertblock}
@@ -624,7 +626,6 @@ F = \frac{q_1 q_2}{r^{2 + \epsilon}},
 					\alert{Пружний диполь} --- диполь, де відстань між зарядами змінюється під зовнішніми
 					впливами, і дипольний момент може змінюватися.
 				\end{block}
-			\end{overprint}
 		\end{column}
 		\begin{column}{0.3\linewidth}\centering
 			\input{tikz/elmomentum.tikz}
