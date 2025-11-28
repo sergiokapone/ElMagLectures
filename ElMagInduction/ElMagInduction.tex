@@ -85,7 +85,7 @@
 	\begin{block}{Закон Електромагнітної індукції}\justifying
 		Електрорушійна сила (ЕРС), що виникає в контурі пропорційна швидкості зміни магнітного потоку, що пронизує площу, охоплену даним контуром:
 		\begin{equation*}
-			\tcbhighmath{\mathcal{E}_\text{ind} =  -\frac1c \frac{d\Phi}{dt}} = -\frac1c \frac{d}{dt} \iint\limits_S \Bfield\cdot\vect{S}.
+			\tcbhighmath{\mathcal{E}_\text{ind} =  -\frac1c \frac{d\Phi}{dt}} = -\frac1c \frac{d}{dt} \iint\limits_S \Bfield\cdot d\vect{S}.
 		\end{equation*}
 	\end{block}
 	\begin{block}{}
@@ -735,20 +735,23 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Теорема взаємності}{}
-	\begin{block}{}\justifying
-		Теоремою взаємності стверджує, що коефіцієнтами взаємної індуктивністю контурів однаков:
+    \begin{block}{Теорема взаємності}\justifying
+        ЕРС, що наводиться в контурі $1$, коли струм в контурі $2$ змінюється з певною швидкістю, дорівнює ЕРС, яка наводилася б в контурі $2$, якби той самий змінний струм протікав в контурі $1$:
+            \[\mathcal{E}_1  = -L_{12}\frac{d{\color{red}I}}{dt} {\color{red}=}  \mathcal{E}_2  = -L_{21}\frac{d{\color{red}I}}{dt}\]
+    \end{block}
+	\begin{block}{Наслідок}\justifying
+		Коефіцієнтами взаємної індуктивності контурів однакові:
 		\begin{equation*}
 			\tcbhighmath{L_{12} = L_{21}.}
 		\end{equation*}
 		Завдяки цій теоремі можна не робити різниці між $L_{12}$ і $L_{21}$ і просто говорити про взаємну індуктивність двох контурів.
 	\end{block}
-
 	\begin{block}{Практичне застосування}\justifying
-		Практичне застосування теореми взаємності полягає у тому, що якщо по контурам течуть однакові струми $I$, то
+	Якщо по контурам течуть однакові струми $I$, то
 		\begin{equation*}
 			\Phi_1 = \Phi_2
 		\end{equation*}
-		Ця обставина нерідко дає змогу сильно спрощувати вирішення питання про знаходження, наприклад, магнітних потоків.
+		{\scriptsize Це дає змогу спрощувати задачі.}
 	\end{block}
 \end{frame}
 % ===========================================================================
@@ -1023,9 +1026,9 @@
 			\begin{equation*}
 				\delta A_\text{дж} = \delta Q + dW + \delta A_\text{мех}.
 			\end{equation*}
-			З іншого боку, та ж робота визначається як:
+			З іншого боку, та ж робота визначається як (закон Ома):
 			\begin{equation*}
-				\delta A_\text{дж} = \delta Q - \mathcal{E}_\text{si} I dt,
+				\delta A_\text{дж} = \delta Q - \mathcal{E}_,\text{si} I dt,
 			\end{equation*}
 			Звідки
 			\begin{equation*}

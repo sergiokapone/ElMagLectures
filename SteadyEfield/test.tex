@@ -54,73 +54,47 @@
 \begin{document}
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Як заряджають тіла?}{Трибоелектричний ефект}
-	\tikz[remember picture,overlay] \node[opacity=0.7,inner sep=0pt,
-		anchor=south east] at (current page.south
-	east){\includegraphics[width=3cm]{Tribocat}};
+\begin{frame}{Лекційні задачі \No 3}
 
-	\tikz[remember picture,overlay] \node[opacity=0.7,inner sep=0pt,
-		anchor=north west] at ([yshift=-1.5cm]current page.north
-	west){\includegraphics[width=5cm]{charging-by-friction}};
+\begin{overprint}
+\onslide<1>
+\begin{problem}[Задача 1]
+Однорідно заряджена куля радіусом $R$ має сумарний заряд $Q$.
 
-	\tikz[remember picture,overlay] \node[opacity=0.7,inner sep=0pt,
-		anchor=north east] at ([yshift=-1.7cm]current page.north
-	east){\includegraphics[width=3cm]{Amber}};
+\begin{enumerate}
+  \item Знайдіть вираз для електростатичного потенціалу $\varphi(r)$ як функції відстані $r$ від центра кулі для двох випадків:
+  \begin{itemize}
+    \item всередині кулі ($0 \le r \le R$);
+    \item зовні кулі ($r \ge R$),
+  \end{itemize}
+  при умові $\varphi(\infty)=0$.
 
-	\begin{onlyenv}<1>
-		\begin{block}{}
-			\alert{Трибоелектричний ефект} --- поява електричних зарядів у
-			матеріалі через тертя.
-		\end{block}
+  \item Побудуйте графік залежності $\varphi(r)$ від $r$ на відрізку $0 \le r \le 2R$.
+  На графіку позначте значення потенціалу в центрі ($r=0$) та на поверхні кулі ($r=R$).
+\end{enumerate}
+\end{problem}
 
-		\begin{block}{}\justifying
-			Деякі матеріали стають електрично зарядженими після того, як вони
-			входять у
-			фрикційний контакт з іншим матеріалом.
-		\end{block}
+\onslide<2>
+\begin{problem}[Задача 2]
+Розглянемо електричний диполь з дипольним моментом
+\[
+\vec{p} = p\ \vec{e}_z,
+\]
+розташований у неоднорідному електричному полі
+\[
+\vec{E}(x,y,z) = C \, z \, \vec{e}_z,
+\]
+де $C= \text{const}$.
 
-		\begin{exampleblock}\justifying\small
-			Слово <<\alert{електрика}>> походить від грецького
-			<<$\eta\lambda\varepsilon\kappa\tau\rho o \nu$>>
-			(\alert{електрон}), що означає <<\alert{бурштин}>>. Люди помітили,
-			що бурштин, натертий об хутро, притягує дрібні предмети, і це
-			явище згодом стало основою для дослідження електричних явищ.
-		\end{exampleblock}
-	\end{onlyenv}
+\begin{enumerate}
+  \item Обчисліть силу $\vec{F}$, що діє на диполь, використовуючи вираз
+  \[
+  \vec{F} = (\vec{p}\cdot\nabla)\vec{E}.
+  \]
+  \item Побудуйте якісну схему силових ліній та вкажіть, у який бік рухатиметься диполь.
+\end{enumerate}
+\end{problem}
+\end{overprint}
 
-	\begin{onlyenv}<2>
-        \vspace*{2em}
-		\begin{block}{}\justifying
-			Матеріали, що виявляють трибоелектричний ефект, прийнято
-			розташовувати в \alert{трибоелектричний ряд}, один кінець якого є
-			позитивним, а інший --- негативним. Під час тертя пари матеріалів
-			з ряду, матеріал, розташований ближче до позитивного кінця ряду,
-			зарядиться позитивно, а інший --- негативно.
-		\end{block}
-		\begin{center}
-			\begin{tikzpicture}[scale=0.5, transform shape]
-				% Градієнт фону
-				\shade[left color=blue!30, right color=red!30] (-5.5, -.5) rectangle (5.5, -3.5);
-
-				\node[single  arrow, single  arrow head extend=.5cm, left color=blue!50, right color=red!50, text=white, font={\bf \large}, inner sep=0.3cm]
-				(doublearrow)
-				{--\hspace*{10.5cm}+};
-
-				% Трибоелектричний ряд
-				\node[align=center, rotate=90] at (5,  -2) {Хутро};
-				\node[align=center, rotate=90] at (4,  -2) {Фланель};
-				\node[align=center, rotate=90, align=center, text width=2.5cm] at (3,  -2) {Слонова\\ кістка};
-				\node[align=center, rotate=90] at (2,  -2) {Пір'я};
-				\node[align=center, rotate=90] at (1,  -2) {Флінтглас};
-				\node[align=center, rotate=90] at (0,  -2) {Шовк};
-				\node[align=center, rotate=90] at (-1, -2) {Алюміній};
-				\node[align=center, rotate=90] at (-2, -2) {Поліестер};
-				\node[align=center, rotate=90] at (-3, -2) {Папір};
-				\node[align=center, rotate=90] at (-4, -2) {Бурштин};
-				\node[align=center, rotate=90] at (-5, -2) {Ебоніт};
-			\end{tikzpicture}
-		\end{center}
-	\end{onlyenv}
 \end{frame}
-
 \end{document}
