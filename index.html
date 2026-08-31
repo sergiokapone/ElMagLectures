@@ -123,20 +123,43 @@
         padding: 16px 20px;
     }
 
-    .lecture-index {
+    .lecture-icon-wrap {
+        position: relative;
         flex: 0 0 auto;
-        width: 34px;
-        height: 34px;
+        align-self: flex-start;
+    }
+
+    .lecture-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        background: #eaf1fb;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--accent);
+    }
+
+    .lecture-icon svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .lecture-index {
+        position: absolute;
+        top: -6px;
+        right: -6px;
+        width: 20px;
+        height: 20px;
         border-radius: 50%;
         background: var(--accent);
         color: #fff;
         font-weight: 700;
-        font-size: 0.9rem;
+        font-size: 0.65rem;
         display: flex;
         align-items: center;
         justify-content: center;
-        align-self: flex-start;
-        margin-top: 2px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
     }
 
     .lecture-main {
@@ -206,6 +229,10 @@
             flex-direction: column;
         }
 
+        .lecture-icon-wrap {
+            align-self: center;
+        }
+
         .lecture-preview iframe { height: 60vh; }
 
         main.container { width: 94%; }
@@ -225,6 +252,7 @@
         <ul class="lecture-list">
             <li class="lecture-card">
                 <div class="lecture-content">
+                    <div class="lecture-icon-wrap"><div class="lecture-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l4 4v16H6z"/><path d="M15 2v4h4"/><line x1="8.5" y1="12" x2="15.5" y2="12"/><line x1="8.5" y1="15.5" x2="15.5" y2="15.5"/></svg></div></div>
                     <div class="lecture-main">
                         <a href="./Syllabus_ElMag/Syllabus_ElMag_2026.pdf" target="_blank" rel="noopener">Силабус дисципліни</a>
                         <button class="lecture-toggle" type="button">Переглянути PDF</button>
@@ -236,6 +264,7 @@
             </li>
             <li class="lecture-card">
                 <div class="lecture-content">
+                    <div class="lecture-icon-wrap"><div class="lecture-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 2-2.5 2-2.5 4"/><line x1="12" y1="16.5" x2="12" y2="16.6"/></svg></div></div>
                     <div class="lecture-main">
                         <a href="./Syllabus_ElMag/Questions.pdf" target="_blank" rel="noopener">Перелік екзаменаційних питань</a>
                         <button class="lecture-toggle" type="button">Переглянути PDF</button>
@@ -253,7 +282,7 @@
         <ul class="lecture-list">
             <li class="lecture-card">
                 <div class="lecture-content">
-                    <div class="lecture-index">1</div>
+                    <div class="lecture-icon-wrap"><div class="lecture-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="2.3" fill="currentColor" stroke="none"/><line x1="12" y1="12" x2="12" y2="2"/><line x1="12" y1="12" x2="20" y2="6"/><line x1="12" y1="12" x2="22" y2="14"/><line x1="12" y1="12" x2="17" y2="21"/><line x1="12" y1="12" x2="7" y2="21"/><line x1="12" y1="12" x2="2" y2="14"/><line x1="12" y1="12" x2="4" y2="6"/></svg></div><span class="lecture-index">1</span></div>
                     <div class="lecture-main">
                         <a href="./SteadyEfield/SteadyEfield.pdf" target="_blank" rel="noopener">Постійне електричне поле в вакуумі</a>
                         <p class="lecture-annotation">Закон Кулона, напруженість і потенціал поля точкових зарядів, теорема Гаусса та її застосування для типових конфігурацій заряду.</p>
@@ -266,7 +295,7 @@
             </li>
             <li class="lecture-card">
                 <div class="lecture-content">
-                    <div class="lecture-index">2</div>
+                    <div class="lecture-icon-wrap"><div class="lecture-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="4" y="7" width="16" height="10" rx="1.5"/><path d="M4 9h1M4 12h1M4 15h1M19 9h1M19 12h1M19 15h1M8 7v1M12 7v1M16 7v1M8 16v1M12 16v1M16 16v1"/></svg></div><span class="lecture-index">2</span></div>
                     <div class="lecture-main">
                         <a href="./FileldInMetall/FileldInMetall.pdf" target="_blank" rel="noopener">Електричне поле в металах</a>
                         <p class="lecture-annotation">Провідники в електростатичному полі, розподіл заряду по поверхні, електростатичний захист та ємність провідників.</p>
@@ -279,7 +308,7 @@
             </li>
             <li class="lecture-card">
                 <div class="lecture-content">
-                    <div class="lecture-index">3</div>
+                    <div class="lecture-icon-wrap"><div class="lecture-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="6" width="18" height="12" rx="1.5"/><line x1="7" y1="9" x2="7" y2="15"/><polyline points="5.5,10.5 7,9 8.5,10.5"/><line x1="12" y1="9" x2="12" y2="15"/><polyline points="10.5,10.5 12,9 13.5,10.5"/><line x1="17" y1="9" x2="17" y2="15"/><polyline points="15.5,10.5 17,9 18.5,10.5"/></svg></div><span class="lecture-index">3</span></div>
                     <div class="lecture-main">
                         <a href="./FileldInDielectrics/FileldInDielectrics.pdf" target="_blank" rel="noopener">Електричне поле в діелектриках</a>
                         <p class="lecture-annotation">Поляризація діелектриків, вектор поляризації та електричного зміщення, гранична умови на межі середовищ.</p>
@@ -292,7 +321,7 @@
             </li>
             <li class="lecture-card">
                 <div class="lecture-content">
-                    <div class="lecture-index">4</div>
+                    <div class="lecture-icon-wrap"><div class="lecture-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="7" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="17" y2="20"/><path d="M11 8l-2 4h3l-2 4" stroke-linejoin="round"/></svg></div><span class="lecture-index">4</span></div>
                     <div class="lecture-main">
                         <a href="./ElEnergy/ElEnergy.pdf" target="_blank" rel="noopener">Енергія електричного поля</a>
                         <p class="lecture-annotation">Енергія системи зарядів і зарядженого конденсатора, об'ємна густина енергії електричного поля.</p>
@@ -305,7 +334,7 @@
             </li>
             <li class="lecture-card">
                 <div class="lecture-content">
-                    <div class="lecture-index">5</div>
+                    <div class="lecture-icon-wrap"><div class="lecture-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h4l1.5 4 2-8 2 8 2-8 1.5 4H21"/><path d="M3 6v12h18V6"/></svg></div><span class="lecture-index">5</span></div>
                     <div class="lecture-main">
                         <a href="./SteadyCurrent/SteadyCurrent.pdf" target="_blank" rel="noopener">Постійний електричний струм</a>
                         <p class="lecture-annotation">Закони Ома та Кірхгофа, робота і потужність струму, правила розрахунку розгалужених кіл.</p>
@@ -318,7 +347,7 @@
             </li>
             <li class="lecture-card">
                 <div class="lecture-content">
-                    <div class="lecture-index">6</div>
+                    <div class="lecture-icon-wrap"><div class="lecture-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="12" y1="2" x2="12" y2="22"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="8"/></svg></div><span class="lecture-index">6</span></div>
                     <div class="lecture-main">
                         <a href="./MagFieldVacuum/MagFieldVacuum.pdf" target="_blank" rel="noopener">Магнітне поле у вакуумі</a>
                         <p class="lecture-annotation">Закон Біо—Савара—Лапласа, сила Ампера і сила Лоренца, магнітне поле прямого струму, кільця та соленоїда.</p>
@@ -331,7 +360,7 @@
             </li>
             <li class="lecture-card">
                 <div class="lecture-content">
-                    <div class="lecture-index">7</div>
+                    <div class="lecture-icon-wrap"><div class="lecture-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><rect x="4" y="8" width="4" height="8" rx="0.5"/><rect x="10" y="8" width="4" height="8" rx="0.5"/><rect x="16" y="8" width="4" height="8" rx="0.5"/><line x1="4" y1="12" x2="8" y2="12"/><line x1="10" y1="12" x2="14" y2="12"/><line x1="16" y1="12" x2="20" y2="12"/></svg></div><span class="lecture-index">7</span></div>
                     <div class="lecture-main">
                         <a href="./MagFieldMedia/MagFieldMedia.pdf" target="_blank" rel="noopener">Магнітне поле у речовині</a>
                         <p class="lecture-annotation">Намагніченість речовини, діа-, пара- та феромагнетики, вектор напруженості магнітного поля H та гранична умови.</p>
@@ -344,7 +373,7 @@
             </li>
             <li class="lecture-card">
                 <div class="lecture-content">
-                    <div class="lecture-index">8</div>
+                    <div class="lecture-icon-wrap"><div class="lecture-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 6c2 0 2 3 4 3s2-3 4-3 2 3 4 3 2-3 4-3"/><path d="M4 12c2 0 2 3 4 3s2-3 4-3 2 3 4 3 2-3 4-3"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="18" x2="12" y2="20"/><polyline points="9,17 12,20 15,17"/></svg></div><span class="lecture-index">8</span></div>
                     <div class="lecture-main">
                         <a href="./ElMagInduction/ElMagInduction.pdf" target="_blank" rel="noopener">Явище електромагнітної індукції</a>
                         <p class="lecture-annotation">Закон Фарадея та правило Ленца, самоіндукція і взаємоіндукція, енергія магнітного поля контуру зі струмом.</p>
@@ -357,7 +386,7 @@
             </li>
             <li class="lecture-card">
                 <div class="lecture-content">
-                    <div class="lecture-index">9</div>
+                    <div class="lecture-icon-wrap"><div class="lecture-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l8 16 8-16z"/><line x1="8.5" y1="12.5" x2="15.5" y2="12.5"/></svg></div><span class="lecture-index">9</span></div>
                     <div class="lecture-main">
                         <a href="./MaxwellEqns/MaxwellEqns.pdf" target="_blank" rel="noopener">Рівняння Максвелла</a>
                         <p class="lecture-annotation">Струм зміщення, повна система рівнянь Максвелла в інтегральній та диференціальній формах, матеріальні рівняння.</p>
@@ -370,7 +399,7 @@
             </li>
             <li class="lecture-card">
                 <div class="lecture-content">
-                    <div class="lecture-index">10</div>
+                    <div class="lecture-icon-wrap"><div class="lecture-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 12c1.5-4 3-4 4.5 0s3 4 4.5 0 3-4 4.5 0 3 4 4.5 0"/><path d="M2 12c1.5 4 3 4 4.5 0s3-4 4.5 0 3 4 4.5 0 3-4 4.5 0" opacity="0.45"/></svg></div><span class="lecture-index">10</span></div>
                     <div class="lecture-main">
                         <a href="./EMWaves/EMWaves.pdf" target="_blank" rel="noopener">Електромагнітні хвилі</a>
                         <p class="lecture-annotation">Хвильове рівняння, плоскі електромагнітні хвилі, вектор Пойнтінга, поширення хвиль у середовищах.</p>
@@ -383,7 +412,7 @@
             </li>
             <li class="lecture-card">
                 <div class="lecture-content">
-                    <div class="lecture-index">11</div>
+                    <div class="lecture-icon-wrap"><div class="lecture-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="2" y="7" width="7" height="10" rx="1"/><rect x="15" y="7" width="7" height="10" rx="1"/><line x1="10" y1="12" x2="14" y2="12"/><polyline points="12.5,10 14,12 12.5,14"/></svg></div><span class="lecture-index">11</span></div>
                     <div class="lecture-main">
                         <a href="./Relativity/Relativity.pdf" target="_blank" rel="noopener">Відносність електричних та магнітних полів</a>
                         <p class="lecture-annotation">Перетворення Лоренца для полів, залежність поділу поля на електричне і магнітне від системи відліку, інваріанти поля.</p>
@@ -396,7 +425,7 @@
             </li>
             <li class="lecture-card">
                 <div class="lecture-content">
-                    <div class="lecture-index">12</div>
+                    <div class="lecture-icon-wrap"><div class="lecture-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="12" y1="4" x2="12" y2="20"/><path d="M15 8a5 5 0 0 1 0 8"/><path d="M18 5a9 9 0 0 1 0 14"/><path d="M9 8a5 5 0 0 0 0 8"/><path d="M6 5a9 9 0 0 0 0 14"/></svg></div><span class="lecture-index">12</span></div>
                     <div class="lecture-main">
                         <a href="./Radiation/Radiation.pdf" target="_blank" rel="noopener">Випромінювання електромагнітних хвиль</a>
                         <p class="lecture-annotation">Випромінювання диполя, потужність випромінювання прискорено рухомого заряду, поширення енергії у хвильову зону.</p>
