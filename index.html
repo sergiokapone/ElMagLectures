@@ -16,13 +16,32 @@
         --border-radius: 10px;
         --shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
         --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.12);
-        --header-h: 96px;
+        --header-h: 150px;
         --footer-h: 44px;
+        --section-title-bg: #eaf1fb;
+        --section-title-shadow: rgba(41, 128, 185, 0.12);
+        --icon-bg: #eaf1fb;
+    }
+
+    html.dark {
+        --bg: #161b22;
+        --card-bg: #1e2530;
+        --ink: #e8edf3;
+        --muted: #9aa7b5;
+        --accent: #5aa9e6;
+        --accent-hover: #ef6f6c;
+        --shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+        --shadow-hover: 0 8px 22px rgba(0, 0, 0, 0.5);
+        --section-title-bg: #232b38;
+        --section-title-shadow: rgba(90, 169, 230, 0.25);
+        --icon-bg: #26374a;
     }
 
     * { box-sizing: border-box; }
 
     html, body { height: 100%; }
+
+    html { scroll-behavior: smooth; }
 
     body {
         font-family: 'Roboto', Arial, sans-serif;
@@ -30,7 +49,10 @@
         padding: 0;
         background-color: var(--bg);
         color: #333;
+        transition: background-color 0.3s ease;
     }
+
+    html.dark body { color: var(--ink); }
 
     h1 {
         margin: 0;
@@ -55,6 +77,162 @@
         text-align: center;
         padding: 14px 16px;
         z-index: 1000;
+        transition: background-color 0.3s ease;
+    }
+
+    .header-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        position: relative;
+    }
+
+    .theme-toggle {
+        position: absolute;
+        right: 0;
+        top: 0;
+        border: 1px solid rgba(127, 140, 141, 0.35);
+        background: transparent;
+        color: var(--ink);
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .theme-toggle:hover { background: var(--bg); transform: scale(1.08); }
+
+    .header-toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 10px 18px;
+        margin-top: 10px;
+    }
+
+    .quick-nav {
+        display: flex;
+        gap: 6px;
+    }
+
+    .quick-nav a {
+        text-decoration: none;
+        color: var(--accent);
+        font-size: 0.82rem;
+        font-weight: 500;
+        padding: 5px 10px;
+        border-radius: 14px;
+        background: var(--bg);
+        transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .quick-nav a:hover { background: var(--accent); color: #fff; }
+
+    .search-wrap {
+        position: relative;
+    }
+
+    #lecture-search {
+        font-family: inherit;
+        font-size: 0.85rem;
+        padding: 6px 12px 6px 30px;
+        border-radius: 16px;
+        border: 1px solid rgba(127, 140, 141, 0.35);
+        background: var(--bg) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237f8c8d' stroke-width='2'><circle cx='11' cy='11' r='7'/><line x1='21' y1='21' x2='16.65' y2='16.65'/></svg>") no-repeat 8px center;
+        background-size: 14px;
+        color: var(--ink);
+        width: 200px;
+        outline: none;
+        transition: border-color 0.2s ease, width 0.2s ease;
+    }
+
+    #lecture-search:focus { border-color: var(--accent); width: 230px; }
+
+    .viewed-counter {
+        font-size: 0.8rem;
+        color: var(--muted);
+        background: var(--bg);
+        padding: 5px 12px;
+        border-radius: 14px;
+        white-space: nowrap;
+    }
+
+    .no-results {
+        text-align: center;
+        color: var(--muted);
+        padding: 24px;
+        font-size: 0.95rem;
+        display: none;
+    }
+
+    .back-to-top {
+        position: fixed;
+        right: 20px;
+        bottom: calc(var(--footer-h) + 20px);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: none;
+        background: var(--accent);
+        color: #fff;
+        font-size: 1.2rem;
+        cursor: pointer;
+        box-shadow: var(--shadow);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(12px);
+        transition: opacity 0.25s ease, transform 0.25s ease, background 0.2s ease;
+        z-index: 999;
+    }
+
+    .back-to-top.visible {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .back-to-top:hover { background: var(--accent-hover); }
+
+    .lecture-copy {
+        margin-top: 10px;
+        margin-left: 8px;
+        align-self: flex-start;
+        border: 1px solid transparent;
+        background: transparent;
+        color: var(--muted);
+        font-family: inherit;
+        font-size: 0.78rem;
+        padding: 5px 10px;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .lecture-copy:hover { background: var(--bg); color: var(--accent); }
+
+    li.lecture-card {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    li.lecture-card.in-view {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    li.lecture-card:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+        border-radius: var(--border-radius);
     }
 
     footer {
@@ -83,15 +261,18 @@
     h2.section-title {
         margin: 40px 0 18px;
         padding: 10px 16px;
-        background-color: #eaf1fb;
+        background-color: var(--section-title-bg);
         color: var(--ink);
         border-radius: 8px;
         text-align: center;
         font-size: 1.05rem;
-        box-shadow: inset 0 0 0 1px rgba(41, 128, 185, 0.12);
+        box-shadow: inset 0 0 0 1px var(--section-title-shadow);
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
 
     section:first-of-type h2.section-title { margin-top: 0; }
+
+    section { scroll-margin-top: calc(var(--header-h) + 12px); }
 
     /* card list */
     ul.lecture-list {
@@ -108,7 +289,7 @@
         box-shadow: var(--shadow);
         border-radius: var(--border-radius);
         overflow: hidden;
-        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.5s ease;
     }
 
     li.lecture-card:hover {
@@ -133,11 +314,12 @@
         width: 52px;
         height: 52px;
         border-radius: 14px;
-        background: #eaf1fb;
+        background: var(--icon-bg);
         display: flex;
         align-items: center;
         justify-content: center;
         color: var(--accent);
+        transition: background-color 0.3s ease;
     }
 
     .lecture-icon svg {
@@ -223,7 +405,7 @@
 
     /* small screens: stack everything */
     @media (max-width: 768px) {
-        :root { --header-h: 84px; }
+        :root { --header-h: 190px; }
 
         .lecture-content {
             flex-direction: column;
@@ -236,38 +418,61 @@
         .lecture-preview iframe { height: 60vh; }
 
         main.container { width: 94%; }
+
+        #lecture-search, #lecture-search:focus { width: 150px; }
+
+        .header-toolbar { gap: 8px 10px; }
+
+        .lecture-copy { margin-left: 0; }
     }
 </style>
 </head>
 <body>
 <header>
-    <h1>Лекції з дисципліни «Електрика та магнетизм»</h1>
-    <p>Конспекти-презентації лекцій</p>
+    <div class="header-top">
+        <div>
+            <h1>Лекції з дисципліни «Електрика та магнетизм»</h1>
+            <p>Конспекти-презентації лекцій</p>
+        </div>
+        <button class="theme-toggle" id="theme-toggle" type="button" title="Перемкнути тему" aria-label="Перемкнути тему">🌙</button>
+    </div>
+    <div class="header-toolbar">
+        <nav class="quick-nav">
+            <a href="#doc-section">Документація</a>
+            <a href="#lectures-section">Лекції</a>
+        </nav>
+        <div class="search-wrap">
+            <input type="search" id="lecture-search" placeholder="Пошук лекції..." aria-label="Пошук лекції">
+        </div>
+        <span class="viewed-counter" id="viewed-counter">Переглянуто: 0 з 14</span>
+    </div>
 </header>
 
 <main class="container">
 
-    <section>
+    <section id="doc-section">
         <h2 class="section-title">Документація з дисципліни</h2>
         <ul class="lecture-list">
-            <li class="lecture-card">
+            <li class="lecture-card" id="lecture-1">
                 <div class="lecture-content">
                     <div class="lecture-icon-wrap"><div class="lecture-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l4 4v16H6z"/><path d="M15 2v4h4"/><line x1="8.5" y1="12" x2="15.5" y2="12"/><line x1="8.5" y1="15.5" x2="15.5" y2="15.5"/></svg></div></div>
                     <div class="lecture-main">
                         <a href="./Syllabus_ElMag/Syllabus_ElMag_2026.pdf" target="_blank" rel="noopener">Силабус дисципліни</a>
                         <button class="lecture-toggle" type="button">Переглянути PDF</button>
+                        <button class="lecture-copy" type="button" title="Скопіювати посилання на лекцію">🔗 Копіювати посилання</button>
                     </div>
                     <div class="lecture-preview">
                         <iframe data-src="./Syllabus_ElMag/Syllabus_ElMag_2026.pdf" loading="lazy" title="Силабус дисципліни"></iframe>
                     </div>
                 </div>
             </li>
-            <li class="lecture-card">
+            <li class="lecture-card" id="lecture-2">
                 <div class="lecture-content">
                     <div class="lecture-icon-wrap"><div class="lecture-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 2-2.5 2-2.5 4"/><line x1="12" y1="16.5" x2="12" y2="16.6"/></svg></div></div>
                     <div class="lecture-main">
                         <a href="./Syllabus_ElMag/Questions.pdf" target="_blank" rel="noopener">Перелік екзаменаційних питань</a>
                         <button class="lecture-toggle" type="button">Переглянути PDF</button>
+                        <button class="lecture-copy" type="button" title="Скопіювати посилання на лекцію">🔗 Копіювати посилання</button>
                     </div>
                     <div class="lecture-preview">
                         <iframe data-src="./Syllabus_ElMag/Questions.pdf" loading="lazy" title="Перелік екзаменаційних питань"></iframe>
@@ -277,159 +482,171 @@
         </ul>
     </section>
 
-    <section>
+    <section id="lectures-section">
         <h2 class="section-title">Лекції</h2>
         <ul class="lecture-list">
-            <li class="lecture-card">
+            <li class="lecture-card" id="lecture-3">
                 <div class="lecture-content">
                     <div class="lecture-icon-wrap"><div class="lecture-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="2.3" fill="currentColor" stroke="none"/><line x1="12" y1="12" x2="12" y2="2"/><line x1="12" y1="12" x2="20" y2="6"/><line x1="12" y1="12" x2="22" y2="14"/><line x1="12" y1="12" x2="17" y2="21"/><line x1="12" y1="12" x2="7" y2="21"/><line x1="12" y1="12" x2="2" y2="14"/><line x1="12" y1="12" x2="4" y2="6"/></svg></div><span class="lecture-index">1</span></div>
                     <div class="lecture-main">
                         <a href="./SteadyEfield/SteadyEfield.pdf" target="_blank" rel="noopener">Постійне електричне поле в вакуумі</a>
                         <p class="lecture-annotation">Закон Кулона, напруженість і потенціал поля точкових зарядів, теорема Гаусса та її застосування для типових конфігурацій заряду.</p>
                         <button class="lecture-toggle" type="button">Переглянути PDF</button>
+                        <button class="lecture-copy" type="button" title="Скопіювати посилання на лекцію">🔗 Копіювати посилання</button>
                     </div>
                     <div class="lecture-preview">
                         <iframe data-src="./SteadyEfield/SteadyEfield.pdf" loading="lazy" title="Постійне електричне поле в вакуумі"></iframe>
                     </div>
                 </div>
             </li>
-            <li class="lecture-card">
+            <li class="lecture-card" id="lecture-4">
                 <div class="lecture-content">
                     <div class="lecture-icon-wrap"><div class="lecture-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="4" y="7" width="16" height="10" rx="1.5"/><path d="M4 9h1M4 12h1M4 15h1M19 9h1M19 12h1M19 15h1M8 7v1M12 7v1M16 7v1M8 16v1M12 16v1M16 16v1"/></svg></div><span class="lecture-index">2</span></div>
                     <div class="lecture-main">
                         <a href="./FileldInMetall/FileldInMetall.pdf" target="_blank" rel="noopener">Електричне поле в металах</a>
                         <p class="lecture-annotation">Провідники в електростатичному полі, розподіл заряду по поверхні, електростатичний захист та ємність провідників.</p>
                         <button class="lecture-toggle" type="button">Переглянути PDF</button>
+                        <button class="lecture-copy" type="button" title="Скопіювати посилання на лекцію">🔗 Копіювати посилання</button>
                     </div>
                     <div class="lecture-preview">
                         <iframe data-src="./FileldInMetall/FileldInMetall.pdf" loading="lazy" title="Електричне поле в металах"></iframe>
                     </div>
                 </div>
             </li>
-            <li class="lecture-card">
+            <li class="lecture-card" id="lecture-5">
                 <div class="lecture-content">
                     <div class="lecture-icon-wrap"><div class="lecture-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="6" width="18" height="12" rx="1.5"/><line x1="7" y1="9" x2="7" y2="15"/><polyline points="5.5,10.5 7,9 8.5,10.5"/><line x1="12" y1="9" x2="12" y2="15"/><polyline points="10.5,10.5 12,9 13.5,10.5"/><line x1="17" y1="9" x2="17" y2="15"/><polyline points="15.5,10.5 17,9 18.5,10.5"/></svg></div><span class="lecture-index">3</span></div>
                     <div class="lecture-main">
                         <a href="./FileldInDielectrics/FileldInDielectrics.pdf" target="_blank" rel="noopener">Електричне поле в діелектриках</a>
                         <p class="lecture-annotation">Поляризація діелектриків, вектор поляризації та електричного зміщення, гранична умови на межі середовищ.</p>
                         <button class="lecture-toggle" type="button">Переглянути PDF</button>
+                        <button class="lecture-copy" type="button" title="Скопіювати посилання на лекцію">🔗 Копіювати посилання</button>
                     </div>
                     <div class="lecture-preview">
                         <iframe data-src="./FileldInDielectrics/FileldInDielectrics.pdf" loading="lazy" title="Електричне поле в діелектриках"></iframe>
                     </div>
                 </div>
             </li>
-            <li class="lecture-card">
+            <li class="lecture-card" id="lecture-6">
                 <div class="lecture-content">
                     <div class="lecture-icon-wrap"><div class="lecture-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="7" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="17" y2="20"/><path d="M11 8l-2 4h3l-2 4" stroke-linejoin="round"/></svg></div><span class="lecture-index">4</span></div>
                     <div class="lecture-main">
                         <a href="./ElEnergy/ElEnergy.pdf" target="_blank" rel="noopener">Енергія електричного поля</a>
                         <p class="lecture-annotation">Енергія системи зарядів і зарядженого конденсатора, об'ємна густина енергії електричного поля.</p>
                         <button class="lecture-toggle" type="button">Переглянути PDF</button>
+                        <button class="lecture-copy" type="button" title="Скопіювати посилання на лекцію">🔗 Копіювати посилання</button>
                     </div>
                     <div class="lecture-preview">
                         <iframe data-src="./ElEnergy/ElEnergy.pdf" loading="lazy" title="Енергія електричного поля"></iframe>
                     </div>
                 </div>
             </li>
-            <li class="lecture-card">
+            <li class="lecture-card" id="lecture-7">
                 <div class="lecture-content">
                     <div class="lecture-icon-wrap"><div class="lecture-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h4l1.5 4 2-8 2 8 2-8 1.5 4H21"/><path d="M3 6v12h18V6"/></svg></div><span class="lecture-index">5</span></div>
                     <div class="lecture-main">
                         <a href="./SteadyCurrent/SteadyCurrent.pdf" target="_blank" rel="noopener">Постійний електричний струм</a>
                         <p class="lecture-annotation">Закони Ома та Кірхгофа, робота і потужність струму, правила розрахунку розгалужених кіл.</p>
                         <button class="lecture-toggle" type="button">Переглянути PDF</button>
+                        <button class="lecture-copy" type="button" title="Скопіювати посилання на лекцію">🔗 Копіювати посилання</button>
                     </div>
                     <div class="lecture-preview">
                         <iframe data-src="./SteadyCurrent/SteadyCurrent.pdf" loading="lazy" title="Постійний електричний струм"></iframe>
                     </div>
                 </div>
             </li>
-            <li class="lecture-card">
+            <li class="lecture-card" id="lecture-8">
                 <div class="lecture-content">
                     <div class="lecture-icon-wrap"><div class="lecture-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="12" y1="2" x2="12" y2="22"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="8"/></svg></div><span class="lecture-index">6</span></div>
                     <div class="lecture-main">
                         <a href="./MagFieldVacuum/MagFieldVacuum.pdf" target="_blank" rel="noopener">Магнітне поле у вакуумі</a>
                         <p class="lecture-annotation">Закон Біо—Савара—Лапласа, сила Ампера і сила Лоренца, магнітне поле прямого струму, кільця та соленоїда.</p>
                         <button class="lecture-toggle" type="button">Переглянути PDF</button>
+                        <button class="lecture-copy" type="button" title="Скопіювати посилання на лекцію">🔗 Копіювати посилання</button>
                     </div>
                     <div class="lecture-preview">
                         <iframe data-src="./MagFieldVacuum/MagFieldVacuum.pdf" loading="lazy" title="Магнітне поле у вакуумі"></iframe>
                     </div>
                 </div>
             </li>
-            <li class="lecture-card">
+            <li class="lecture-card" id="lecture-9">
                 <div class="lecture-content">
                     <div class="lecture-icon-wrap"><div class="lecture-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><rect x="4" y="8" width="4" height="8" rx="0.5"/><rect x="10" y="8" width="4" height="8" rx="0.5"/><rect x="16" y="8" width="4" height="8" rx="0.5"/><line x1="4" y1="12" x2="8" y2="12"/><line x1="10" y1="12" x2="14" y2="12"/><line x1="16" y1="12" x2="20" y2="12"/></svg></div><span class="lecture-index">7</span></div>
                     <div class="lecture-main">
                         <a href="./MagFieldMedia/MagFieldMedia.pdf" target="_blank" rel="noopener">Магнітне поле у речовині</a>
                         <p class="lecture-annotation">Намагніченість речовини, діа-, пара- та феромагнетики, вектор напруженості магнітного поля H та гранична умови.</p>
                         <button class="lecture-toggle" type="button">Переглянути PDF</button>
+                        <button class="lecture-copy" type="button" title="Скопіювати посилання на лекцію">🔗 Копіювати посилання</button>
                     </div>
                     <div class="lecture-preview">
                         <iframe data-src="./MagFieldMedia/MagFieldMedia.pdf" loading="lazy" title="Магнітне поле у речовині"></iframe>
                     </div>
                 </div>
             </li>
-            <li class="lecture-card">
+            <li class="lecture-card" id="lecture-10">
                 <div class="lecture-content">
                     <div class="lecture-icon-wrap"><div class="lecture-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 6c2 0 2 3 4 3s2-3 4-3 2 3 4 3 2-3 4-3"/><path d="M4 12c2 0 2 3 4 3s2-3 4-3 2 3 4 3 2-3 4-3"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="18" x2="12" y2="20"/><polyline points="9,17 12,20 15,17"/></svg></div><span class="lecture-index">8</span></div>
                     <div class="lecture-main">
                         <a href="./ElMagInduction/ElMagInduction.pdf" target="_blank" rel="noopener">Явище електромагнітної індукції</a>
                         <p class="lecture-annotation">Закон Фарадея та правило Ленца, самоіндукція і взаємоіндукція, енергія магнітного поля контуру зі струмом.</p>
                         <button class="lecture-toggle" type="button">Переглянути PDF</button>
+                        <button class="lecture-copy" type="button" title="Скопіювати посилання на лекцію">🔗 Копіювати посилання</button>
                     </div>
                     <div class="lecture-preview">
                         <iframe data-src="./ElMagInduction/ElMagInduction.pdf" loading="lazy" title="Явище електромагнітної індукції"></iframe>
                     </div>
                 </div>
             </li>
-            <li class="lecture-card">
+            <li class="lecture-card" id="lecture-11">
                 <div class="lecture-content">
                     <div class="lecture-icon-wrap"><div class="lecture-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l8 16 8-16z"/><line x1="8.5" y1="12.5" x2="15.5" y2="12.5"/></svg></div><span class="lecture-index">9</span></div>
                     <div class="lecture-main">
                         <a href="./MaxwellEqns/MaxwellEqns.pdf" target="_blank" rel="noopener">Рівняння Максвелла</a>
                         <p class="lecture-annotation">Струм зміщення, повна система рівнянь Максвелла в інтегральній та диференціальній формах, матеріальні рівняння.</p>
                         <button class="lecture-toggle" type="button">Переглянути PDF</button>
+                        <button class="lecture-copy" type="button" title="Скопіювати посилання на лекцію">🔗 Копіювати посилання</button>
                     </div>
                     <div class="lecture-preview">
                         <iframe data-src="./MaxwellEqns/MaxwellEqns.pdf" loading="lazy" title="Рівняння Максвелла"></iframe>
                     </div>
                 </div>
             </li>
-            <li class="lecture-card">
+            <li class="lecture-card" id="lecture-12">
                 <div class="lecture-content">
                     <div class="lecture-icon-wrap"><div class="lecture-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 12c1.5-4 3-4 4.5 0s3 4 4.5 0 3-4 4.5 0 3 4 4.5 0"/><path d="M2 12c1.5 4 3 4 4.5 0s3-4 4.5 0 3 4 4.5 0 3-4 4.5 0" opacity="0.45"/></svg></div><span class="lecture-index">10</span></div>
                     <div class="lecture-main">
                         <a href="./EMWaves/EMWaves.pdf" target="_blank" rel="noopener">Електромагнітні хвилі</a>
                         <p class="lecture-annotation">Хвильове рівняння, плоскі електромагнітні хвилі, вектор Пойнтінга, поширення хвиль у середовищах.</p>
                         <button class="lecture-toggle" type="button">Переглянути PDF</button>
+                        <button class="lecture-copy" type="button" title="Скопіювати посилання на лекцію">🔗 Копіювати посилання</button>
                     </div>
                     <div class="lecture-preview">
                         <iframe data-src="./EMWaves/EMWaves.pdf" loading="lazy" title="Електромагнітні хвилі"></iframe>
                     </div>
                 </div>
             </li>
-            <li class="lecture-card">
+            <li class="lecture-card" id="lecture-13">
                 <div class="lecture-content">
                     <div class="lecture-icon-wrap"><div class="lecture-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="2" y="7" width="7" height="10" rx="1"/><rect x="15" y="7" width="7" height="10" rx="1"/><line x1="10" y1="12" x2="14" y2="12"/><polyline points="12.5,10 14,12 12.5,14"/></svg></div><span class="lecture-index">11</span></div>
                     <div class="lecture-main">
                         <a href="./Relativity/Relativity.pdf" target="_blank" rel="noopener">Відносність електричних та магнітних полів</a>
                         <p class="lecture-annotation">Перетворення Лоренца для полів, залежність поділу поля на електричне і магнітне від системи відліку, інваріанти поля.</p>
                         <button class="lecture-toggle" type="button">Переглянути PDF</button>
+                        <button class="lecture-copy" type="button" title="Скопіювати посилання на лекцію">🔗 Копіювати посилання</button>
                     </div>
                     <div class="lecture-preview">
                         <iframe data-src="./Relativity/Relativity.pdf" loading="lazy" title="Відносність електричних та магнітних полів"></iframe>
                     </div>
                 </div>
             </li>
-            <li class="lecture-card">
+            <li class="lecture-card" id="lecture-14">
                 <div class="lecture-content">
                     <div class="lecture-icon-wrap"><div class="lecture-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="12" y1="4" x2="12" y2="20"/><path d="M15 8a5 5 0 0 1 0 8"/><path d="M18 5a9 9 0 0 1 0 14"/><path d="M9 8a5 5 0 0 0 0 8"/><path d="M6 5a9 9 0 0 0 0 14"/></svg></div><span class="lecture-index">12</span></div>
                     <div class="lecture-main">
                         <a href="./Radiation/Radiation.pdf" target="_blank" rel="noopener">Випромінювання електромагнітних хвиль</a>
                         <p class="lecture-annotation">Випромінювання диполя, потужність випромінювання прискорено рухомого заряду, поширення енергії у хвильову зону.</p>
                         <button class="lecture-toggle" type="button">Переглянути PDF</button>
+                        <button class="lecture-copy" type="button" title="Скопіювати посилання на лекцію">🔗 Копіювати посилання</button>
                     </div>
                     <div class="lecture-preview">
                         <iframe data-src="./Radiation/Radiation.pdf" loading="lazy" title="Випромінювання електромагнітних хвиль"></iframe>
@@ -439,28 +656,200 @@
         </ul>
     </section>
 
+    <p class="no-results" id="no-results">Нічого не знайдено. Спробуйте інший запит.</p>
+
 </main>
+
+<button class="back-to-top" id="back-to-top" type="button" title="Нагору" aria-label="Прокрутити нагору">↑</button>
 
 <footer>
     &copy; Пономаренко Сергій Миколайович
 </footer>
 
 <script>
-    // Ліниве підвантаження PDF: iframe отримує src лише при першому відкритті,
-    // а не одразу для всіх 12+ лекцій — сторінка вантажиться миттєво.
+    var allCards = Array.prototype.slice.call(document.querySelectorAll('.lecture-card'));
+    var totalLectures = allCards.length;
+
+    /* ---------- Ліниве підвантаження PDF + лічильник переглядів ---------- */
+    var VIEWED_KEY = 'elmag-viewed-lectures';
+
+    function getViewedSet() {
+        try {
+            return new Set(JSON.parse(localStorage.getItem(VIEWED_KEY) || '[]'));
+        } catch (e) {
+            return new Set();
+        }
+    }
+
+    function saveViewedSet(set) {
+        try {
+            localStorage.setItem(VIEWED_KEY, JSON.stringify(Array.from(set)));
+        } catch (e) { /* сховище недоступне — тихо ігноруємо */ }
+    }
+
+    function updateViewedCounter() {
+        var counterEl = document.getElementById('viewed-counter');
+        var viewed = getViewedSet();
+        counterEl.textContent = 'Переглянуто: ' + viewed.size + ' з ' + totalLectures;
+    }
+
     document.querySelectorAll('.lecture-toggle').forEach(function (btn) {
         btn.addEventListener('click', function () {
+            var card = btn.closest('.lecture-card');
             var wrapper = btn.closest('.lecture-content').querySelector('.lecture-preview');
             var iframe = wrapper.querySelector('iframe');
             var isOpen = wrapper.classList.contains('open');
 
             if (!isOpen && !iframe.src) {
                 iframe.src = iframe.dataset.src;
+                var viewed = getViewedSet();
+                viewed.add(card.id);
+                saveViewedSet(viewed);
+                updateViewedCounter();
             }
 
             wrapper.classList.toggle('open');
             btn.textContent = wrapper.classList.contains('open') ? 'Сховати PDF' : 'Переглянути PDF';
         });
+    });
+
+    updateViewedCounter();
+
+    /* ---------- Копіювання посилання на лекцію ---------- */
+    document.querySelectorAll('.lecture-copy').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            var card = btn.closest('.lecture-card');
+            var url = window.location.origin + window.location.pathname + '#' + card.id;
+            var originalText = '🔗 Копіювати посилання';
+
+            function showCopied() {
+                btn.textContent = '✓ Скопійовано';
+                setTimeout(function () { btn.textContent = originalText; }, 1800);
+            }
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(showCopied).catch(function () {
+                    window.prompt('Скопіюйте посилання вручну:', url);
+                });
+            } else {
+                window.prompt('Скопіюйте посилання вручну:', url);
+            }
+        });
+    });
+
+    /* ---------- Пошук / фільтр лекцій ---------- */
+    var searchInput = document.getElementById('lecture-search');
+    var noResultsEl = document.getElementById('no-results');
+    var sections = document.querySelectorAll('main.container > section');
+
+    function normalize(str) {
+        return (str || '').toLowerCase().trim();
+    }
+
+    searchInput.addEventListener('input', function () {
+        var query = normalize(searchInput.value);
+        var anyVisible = false;
+
+        sections.forEach(function (section) {
+            var sectionHasMatch = false;
+
+            section.querySelectorAll('.lecture-card').forEach(function (card) {
+                var title = normalize(card.querySelector('.lecture-main a').textContent);
+                var annotation = normalize((card.querySelector('.lecture-annotation') || {}).textContent);
+                var matches = query === '' || title.indexOf(query) !== -1 || annotation.indexOf(query) !== -1;
+
+                card.style.display = matches ? '' : 'none';
+                if (matches) { sectionHasMatch = true; anyVisible = true; }
+            });
+
+            section.style.display = sectionHasMatch ? '' : 'none';
+        });
+
+        noResultsEl.style.display = anyVisible ? 'none' : 'block';
+    });
+
+    /* ---------- Перемикач теми ---------- */
+    var THEME_KEY = 'elmag-theme';
+    var themeToggle = document.getElementById('theme-toggle');
+
+    function applyTheme(theme) {
+        document.documentElement.classList.toggle('dark', theme === 'dark');
+        themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+
+    var savedTheme = null;
+    try { savedTheme = localStorage.getItem(THEME_KEY); } catch (e) { /* ignore */ }
+    if (!savedTheme && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        savedTheme = 'dark';
+    }
+    applyTheme(savedTheme === 'dark' ? 'dark' : 'light');
+
+    themeToggle.addEventListener('click', function () {
+        var next = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
+        applyTheme(next);
+        try { localStorage.setItem(THEME_KEY, next); } catch (e) { /* ignore */ }
+    });
+
+    /* ---------- Кнопка "нагору" ---------- */
+    var backToTop = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', function () {
+        backToTop.classList.toggle('visible', window.scrollY > 400);
+    });
+
+    backToTop.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    /* ---------- Анімація появи карток при скролі ---------- */
+    if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        allCards.forEach(function (card, i) {
+            card.style.transitionDelay = (Math.min(i % 6, 5) * 60) + 'ms';
+            observer.observe(card);
+        });
+    } else {
+        allCards.forEach(function (card) { card.classList.add('in-view'); });
+    }
+
+    /* ---------- Клавіатурна навігація: Esc закриває PDF, стрілки рухають фокус ---------- */
+    allCards.forEach(function (card) { card.setAttribute('tabindex', '0'); });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            var openPreview = document.querySelector('.lecture-preview.open');
+            if (openPreview) {
+                openPreview.classList.remove('open');
+                var toggleBtn = openPreview.closest('.lecture-content').querySelector('.lecture-toggle');
+                toggleBtn.textContent = 'Переглянути PDF';
+                toggleBtn.focus();
+            }
+            return;
+        }
+
+        if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+            var active = document.activeElement;
+            var currentCard = active ? active.closest('.lecture-card') : null;
+            if (!currentCard) return;
+
+            var visibleCards = allCards.filter(function (c) { return c.style.display !== 'none'; });
+            var idx = visibleCards.indexOf(currentCard);
+            if (idx === -1) return;
+
+            e.preventDefault();
+            var nextIdx = e.key === 'ArrowDown' ? idx + 1 : idx - 1;
+            nextIdx = Math.max(0, Math.min(visibleCards.length - 1, nextIdx));
+            visibleCards[nextIdx].focus();
+            visibleCards[nextIdx].scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
     });
 </script>
 </body>
