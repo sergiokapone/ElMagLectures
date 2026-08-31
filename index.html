@@ -1,253 +1,419 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Лекції з дисципліни "Електрика та магнетизм"</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* Основные стили для страницы */
-        html, body {
-            overflow: hidden;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Лекції з дисципліни "Електрика та магнетизм"</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --bg: #f4f4f9;
+        --card-bg: #ffffff;
+        --ink: #2c3e50;
+        --muted: #7f8c8d;
+        --accent: #2980b9;
+        --accent-hover: #e74c3c;
+        --border-radius: 10px;
+        --shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.12);
+        --header-h: 96px;
+        --footer-h: 44px;
+    }
 
-        h1 {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            color: #2c3e50;
-        }
+    * { box-sizing: border-box; }
 
-        p {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            color: #7f8c8d;
-        }
+    html, body { height: 100%; }
 
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: #ffffff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            padding: 10px 0;
-            z-index: 1000;
-        }
+    body {
+        font-family: 'Roboto', Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--bg);
+        color: #333;
+    }
 
-        footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background-color: #ffffff;
-            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            padding: 10px 0;
-            z-index: 1000;
-            font-size: 14px;
-            color: #7f8c8d;
-        }
+    h1 {
+        margin: 0;
+        font-size: clamp(1.1rem, 2.4vw, 1.6rem);
+        color: var(--ink);
+        font-weight: 700;
+    }
 
-        .container {
-            width: 80%;
-            margin: 100px auto 50px auto; /* Оставляем место для header и footer */
-            padding: 20px;
-            overflow-y: auto;
-            max-height: calc(100vh - 160px); /* Высота окна с учетом header и footer */
-            overflow-y: auto;
-        }
+    header p {
+        margin: 4px 0 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+    }
 
-        /* Стиль для списка лекций */
-        ol {
-            list-style-type: none;
-            padding: 0;
-        }
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: var(--card-bg);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        text-align: center;
+        padding: 14px 16px;
+        z-index: 1000;
+    }
 
-        li {
-            display: flex;
-            flex-direction: column;
-            margin: 20px 0;
-            background-color: #ffffff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: var(--card-bg);
+        box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.08);
+        text-align: center;
+        padding: 10px 0;
+        z-index: 1000;
+        font-size: 13px;
+        color: var(--muted);
+    }
 
-        li:hover {
-            transform: translateY(-10px);
-        }
+    main.container {
+        width: min(1000px, 92%);
+        margin: 0 auto;
+        padding-top: calc(var(--header-h) + 24px);
+        padding-bottom: calc(var(--footer-h) + 24px);
+        min-height: 100vh;
+    }
+
+    /* section headings */
+    h2.section-title {
+        margin: 40px 0 18px;
+        padding: 10px 16px;
+        background-color: #eaf1fb;
+        color: var(--ink);
+        border-radius: 8px;
+        text-align: center;
+        font-size: 1.05rem;
+        box-shadow: inset 0 0 0 1px rgba(41, 128, 185, 0.12);
+    }
+
+    section:first-of-type h2.section-title { margin-top: 0; }
+
+    /* card list */
+    ul.lecture-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    li.lecture-card {
+        background-color: var(--card-bg);
+        box-shadow: var(--shadow);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    li.lecture-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-hover);
+    }
+
+    .lecture-content {
+        display: flex;
+        align-items: stretch;
+        gap: 16px;
+        padding: 16px 20px;
+    }
+
+    .lecture-index {
+        flex: 0 0 auto;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: var(--accent);
+        color: #fff;
+        font-weight: 700;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: flex-start;
+        margin-top: 2px;
+    }
+
+    .lecture-main {
+        flex: 1 1 260px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-width: 180px;
+    }
+
+    .lecture-main a {
+        text-decoration: none;
+        color: var(--accent);
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 1.4;
+    }
+
+    .lecture-main a:hover { color: var(--accent-hover); }
+
+    .lecture-toggle {
+        margin-top: 10px;
+        align-self: flex-start;
+        border: 1px solid var(--accent);
+        background: transparent;
+        color: var(--accent);
+        font-family: inherit;
+        font-size: 0.82rem;
+        padding: 5px 12px;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .lecture-toggle:hover {
+        background: var(--accent);
+        color: #fff;
+    }
+
+    .lecture-preview {
+        flex: 1 1 55%;
+        min-width: 0;
+    }
+
+    .lecture-preview iframe {
+        display: none;
+        border: none;
+        width: 100%;
+        height: 480px;
+        border-radius: 6px;
+    }
+
+    .lecture-preview.open iframe { display: block; }
+
+    /* small screens: stack everything */
+    @media (max-width: 768px) {
+        :root { --header-h: 84px; }
 
         .lecture-content {
-            display: flex;
-            flex-wrap: wrap;
-            padding: 20px;
+            flex-direction: column;
         }
 
-        .lecture-content a {
-            flex: 1;
-            margin-right: 20px;
-            text-decoration: none;
-            color: #2980b9;
-            font-size: 16px;
-        }
+        .lecture-preview iframe { height: 60vh; }
 
-        .lecture-content iframe {
-            flex: 2;
-            border: none;
-        }
-
-        /* Стиль для ссылки */
-        a:hover {
-            color: #e74c3c;
-        }
-
-        /* Анимация для фреймов и ссылок */
-        a, iframe {
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-
-        a:hover {
-            transform: scale(1.05);
-            opacity: 0.8;
-        }
-
-        /* Стили для маленьких экранов */
-        @media (max-width: 768px) {
-            .lecture-content {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .lecture-content a {
-                margin-bottom: 10px;
-                text-align: center;
-            }
-
-            .lecture-content iframe {
-                width: 100%;
-                height: 400px;
-            }
-        }
-        h2 {
-            margin-top: 40px;
-            padding: 10px;
-            background-color: #eef;
-            color: #2c3e50;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-    </style>
+        main.container { width: 94%; }
+    }
+</style>
 </head>
 <body>
-    <header>
-        <h1>Лекції з дисципліни "Електрика та магнетизм"</h1>
-        <p>Конспекти-презентації лекцій</p>
-    </header>
+<header>
+    <h1>Лекції з дисципліни «Електрика та магнетизм»</h1>
+    <p>Конспекти-презентації лекцій</p>
+</header>
 
-    <div class="container">
-        <ol>
-        <h2>Документація з дисципліни</h2><!-- Силабус -->
-        <li>
-            <div class="lecture-content">
-                <a href="./Syllabus_ElMag/Syllabus_ElMag_2026.pdf" target="_blank">Силабус дисципліни</a>
-                <iframe src="./Syllabus_ElMag/Syllabus_ElMag_2026.pdf" width="50%" height="500px"></iframe>
-            </div>
-        </li>
-        <li>
-            <div class="lecture-content">
-                <a href="./Syllabus_ElMag/Questions.pdf" target="_blank">Перелік екзаменаційних питань</a>
-                <iframe src="./Syllabus_ElMag/Questions.pdf" width="50%" height="500px"></iframe>
-            </div>
-        </li>
-        </ol>
-        <h2>Лекції</h2> <!-- Заголовок для раздела лекций -->
-        <ol>
-            <li>
+<main class="container">
+
+    <section>
+        <h2 class="section-title">Документація з дисципліни</h2>
+        <ul class="lecture-list">
+            <li class="lecture-card">
                 <div class="lecture-content">
-                    <a href="./SteadyEfield/SteadyEfield.pdf" target="_blank">Постійне електричне поле в вакуумі</a>
-                    <iframe src="./SteadyEfield/SteadyEfield.pdf" width="50%" height="500px"></iframe>
+                    <div class="lecture-main">
+                        <a href="./Syllabus_ElMag/Syllabus_ElMag_2026.pdf" target="_blank" rel="noopener">Силабус дисципліни</a>
+                        <button class="lecture-toggle" type="button">Переглянути PDF</button>
+                    </div>
+                    <div class="lecture-preview">
+                        <iframe data-src="./Syllabus_ElMag/Syllabus_ElMag_2026.pdf" loading="lazy" title="Силабус дисципліни"></iframe>
+                    </div>
                 </div>
             </li>
-            <li>
+            <li class="lecture-card">
                 <div class="lecture-content">
-                    <a href="./FileldInMetall/FileldInMetall.pdf" target="_blank">Електричне поле в металах</a>
-                    <iframe src="./FileldInMetall/FileldInMetall.pdf" width="50%" height="500px"></iframe>
+                    <div class="lecture-main">
+                        <a href="./Syllabus_ElMag/Questions.pdf" target="_blank" rel="noopener">Перелік екзаменаційних питань</a>
+                        <button class="lecture-toggle" type="button">Переглянути PDF</button>
+                    </div>
+                    <div class="lecture-preview">
+                        <iframe data-src="./Syllabus_ElMag/Questions.pdf" loading="lazy" title="Перелік екзаменаційних питань"></iframe>
+                    </div>
                 </div>
             </li>
-            <li>
+        </ul>
+    </section>
+
+    <section>
+        <h2 class="section-title">Лекції</h2>
+        <ul class="lecture-list">
+            <li class="lecture-card">
                 <div class="lecture-content">
-                    <a href="./FileldInDielectrics/FileldInDielectrics.pdf" target="_blank">Електричне поле в діелектриках</a>
-                    <iframe src="./FileldInDielectrics/FileldInDielectrics.pdf" width="50%" height="500px"></iframe>
+                    <div class="lecture-index">1</div>
+                    <div class="lecture-main">
+                        <a href="./SteadyEfield/SteadyEfield.pdf" target="_blank" rel="noopener">Постійне електричне поле в вакуумі</a>
+                        <button class="lecture-toggle" type="button">Переглянути PDF</button>
+                    </div>
+                    <div class="lecture-preview">
+                        <iframe data-src="./SteadyEfield/SteadyEfield.pdf" loading="lazy" title="Постійне електричне поле в вакуумі"></iframe>
+                    </div>
                 </div>
             </li>
-            <li>
+            <li class="lecture-card">
                 <div class="lecture-content">
-                    <a href="./ElEnergy/ElEnergy.pdf" target="_blank">Енергія електричного поля</a>
-                    <iframe src="./ElEnergy/ElEnergy.pdf" width="50%" height="500px"></iframe>
+                    <div class="lecture-index">2</div>
+                    <div class="lecture-main">
+                        <a href="./FileldInMetall/FileldInMetall.pdf" target="_blank" rel="noopener">Електричне поле в металах</a>
+                        <button class="lecture-toggle" type="button">Переглянути PDF</button>
+                    </div>
+                    <div class="lecture-preview">
+                        <iframe data-src="./FileldInMetall/FileldInMetall.pdf" loading="lazy" title="Електричне поле в металах"></iframe>
+                    </div>
                 </div>
             </li>
-            <li>
+            <li class="lecture-card">
                 <div class="lecture-content">
-                    <a href="./SteadyCurrent/SteadyCurrent.pdf" target="_blank">Постійний електричний струм</a>
-                    <iframe src="./SteadyCurrent/SteadyCurrent.pdf" width="50%" height="500px"></iframe>
+                    <div class="lecture-index">3</div>
+                    <div class="lecture-main">
+                        <a href="./FileldInDielectrics/FileldInDielectrics.pdf" target="_blank" rel="noopener">Електричне поле в діелектриках</a>
+                        <button class="lecture-toggle" type="button">Переглянути PDF</button>
+                    </div>
+                    <div class="lecture-preview">
+                        <iframe data-src="./FileldInDielectrics/FileldInDielectrics.pdf" loading="lazy" title="Електричне поле в діелектриках"></iframe>
+                    </div>
                 </div>
             </li>
-            <li>
+            <li class="lecture-card">
                 <div class="lecture-content">
-                    <a href="./MagFieldVacuum/MagFieldVacuum.pdf" target="_blank">Магнітне поле у вакуумі</a>
-                    <iframe src="./MagFieldVacuum/MagFieldVacuum.pdf" width="50%" height="500px"></iframe>
+                    <div class="lecture-index">4</div>
+                    <div class="lecture-main">
+                        <a href="./ElEnergy/ElEnergy.pdf" target="_blank" rel="noopener">Енергія електричного поля</a>
+                        <button class="lecture-toggle" type="button">Переглянути PDF</button>
+                    </div>
+                    <div class="lecture-preview">
+                        <iframe data-src="./ElEnergy/ElEnergy.pdf" loading="lazy" title="Енергія електричного поля"></iframe>
+                    </div>
                 </div>
             </li>
-            <li>
+            <li class="lecture-card">
                 <div class="lecture-content">
-                    <a href="./MagFieldMedia/MagFieldMedia.pdf" target="_blank">Магнітне поле у речовині</a>
-                    <iframe src="./MagFieldMedia/MagFieldMedia.pdf" width="50%" height="500px"></iframe>
+                    <div class="lecture-index">5</div>
+                    <div class="lecture-main">
+                        <a href="./SteadyCurrent/SteadyCurrent.pdf" target="_blank" rel="noopener">Постійний електричний струм</a>
+                        <button class="lecture-toggle" type="button">Переглянути PDF</button>
+                    </div>
+                    <div class="lecture-preview">
+                        <iframe data-src="./SteadyCurrent/SteadyCurrent.pdf" loading="lazy" title="Постійний електричний струм"></iframe>
+                    </div>
                 </div>
             </li>
-            <li>
+            <li class="lecture-card">
                 <div class="lecture-content">
-                    <a href="./ElMagInduction/ElMagInduction.pdf" target="_blank">Явище електромагнітної індукції</a>
-                    <iframe src="./ElMagInduction/ElMagInduction.pdf" width="50%" height="500px"></iframe>
+                    <div class="lecture-index">6</div>
+                    <div class="lecture-main">
+                        <a href="./MagFieldVacuum/MagFieldVacuum.pdf" target="_blank" rel="noopener">Магнітне поле у вакуумі</a>
+                        <button class="lecture-toggle" type="button">Переглянути PDF</button>
+                    </div>
+                    <div class="lecture-preview">
+                        <iframe data-src="./MagFieldVacuum/MagFieldVacuum.pdf" loading="lazy" title="Магнітне поле у вакуумі"></iframe>
+                    </div>
                 </div>
             </li>
-            <li>
+            <li class="lecture-card">
                 <div class="lecture-content">
-                    <a href="./MaxwellEqns/MaxwellEqns.pdf" target="_blank">Рівняння Максвелла</a>
-                    <iframe src="./MaxwellEqns/MaxwellEqns.pdf" width="50%" height="500px"></iframe>
+                    <div class="lecture-index">7</div>
+                    <div class="lecture-main">
+                        <a href="./MagFieldMedia/MagFieldMedia.pdf" target="_blank" rel="noopener">Магнітне поле у речовині</a>
+                        <button class="lecture-toggle" type="button">Переглянути PDF</button>
+                    </div>
+                    <div class="lecture-preview">
+                        <iframe data-src="./MagFieldMedia/MagFieldMedia.pdf" loading="lazy" title="Магнітне поле у речовині"></iframe>
+                    </div>
                 </div>
             </li>
-            <li>
+            <li class="lecture-card">
                 <div class="lecture-content">
-                    <a href="./EMWaves/EMWaves.pdf" target="_blank">Електромагнітні хвилі</a>
-                    <iframe src="./EMWaves/EMWaves.pdf" width="50%" height="500px"></iframe>
+                    <div class="lecture-index">8</div>
+                    <div class="lecture-main">
+                        <a href="./ElMagInduction/ElMagInduction.pdf" target="_blank" rel="noopener">Явище електромагнітної індукції</a>
+                        <button class="lecture-toggle" type="button">Переглянути PDF</button>
+                    </div>
+                    <div class="lecture-preview">
+                        <iframe data-src="./ElMagInduction/ElMagInduction.pdf" loading="lazy" title="Явище електромагнітної індукції"></iframe>
+                    </div>
                 </div>
             </li>
-            <li>
+            <li class="lecture-card">
                 <div class="lecture-content">
-                    <a href="./Relativity/Relativity.pdf" target="_blank">Відносність електричних та магнітних полів</a>
-                    <iframe src="./Relativity/Relativity.pdf" width="50%" height="500px"></iframe>
+                    <div class="lecture-index">9</div>
+                    <div class="lecture-main">
+                        <a href="./MaxwellEqns/MaxwellEqns.pdf" target="_blank" rel="noopener">Рівняння Максвелла</a>
+                        <button class="lecture-toggle" type="button">Переглянути PDF</button>
+                    </div>
+                    <div class="lecture-preview">
+                        <iframe data-src="./MaxwellEqns/MaxwellEqns.pdf" loading="lazy" title="Рівняння Максвелла"></iframe>
+                    </div>
                 </div>
             </li>
-            <li>
+            <li class="lecture-card">
                 <div class="lecture-content">
-                    <a href="./Radiation/Radiation.pdf" target="_blank">Випромінювання електромагнітних хвиль</a>
-                    <iframe src="./Radiation/Radiation.pdf" width="50%" height="500px"></iframe>
+                    <div class="lecture-index">10</div>
+                    <div class="lecture-main">
+                        <a href="./EMWaves/EMWaves.pdf" target="_blank" rel="noopener">Електромагнітні хвилі</a>
+                        <button class="lecture-toggle" type="button">Переглянути PDF</button>
+                    </div>
+                    <div class="lecture-preview">
+                        <iframe data-src="./EMWaves/EMWaves.pdf" loading="lazy" title="Електромагнітні хвилі"></iframe>
+                    </div>
                 </div>
             </li>
-        </ol>
-    </div>
-    <footer>
-        &copy; Пономаренко Сергій Миколайович
-    </footer>
+            <li class="lecture-card">
+                <div class="lecture-content">
+                    <div class="lecture-index">11</div>
+                    <div class="lecture-main">
+                        <a href="./Relativity/Relativity.pdf" target="_blank" rel="noopener">Відносність електричних та магнітних полів</a>
+                        <button class="lecture-toggle" type="button">Переглянути PDF</button>
+                    </div>
+                    <div class="lecture-preview">
+                        <iframe data-src="./Relativity/Relativity.pdf" loading="lazy" title="Відносність електричних та магнітних полів"></iframe>
+                    </div>
+                </div>
+            </li>
+            <li class="lecture-card">
+                <div class="lecture-content">
+                    <div class="lecture-index">12</div>
+                    <div class="lecture-main">
+                        <a href="./Radiation/Radiation.pdf" target="_blank" rel="noopener">Випромінювання електромагнітних хвиль</a>
+                        <button class="lecture-toggle" type="button">Переглянути PDF</button>
+                    </div>
+                    <div class="lecture-preview">
+                        <iframe data-src="./Radiation/Radiation.pdf" loading="lazy" title="Випромінювання електромагнітних хвиль"></iframe>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+</main>
+
+<footer>
+    &copy; Пономаренко Сергій Миколайович
+</footer>
+
+<script>
+    // Ліниве підвантаження PDF: iframe отримує src лише при першому відкритті,
+    // а не одразу для всіх 12+ лекцій — сторінка вантажиться миттєво.
+    document.querySelectorAll('.lecture-toggle').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            var wrapper = btn.closest('.lecture-content').querySelector('.lecture-preview');
+            var iframe = wrapper.querySelector('iframe');
+            var isOpen = wrapper.classList.contains('open');
+
+            if (!isOpen && !iframe.src) {
+                iframe.src = iframe.dataset.src;
+            }
+
+            wrapper.classList.toggle('open');
+            btn.textContent = wrapper.classList.contains('open') ? 'Сховати PDF' : 'Переглянути PDF';
+        });
+    });
+</script>
 </body>
 </html>
-
