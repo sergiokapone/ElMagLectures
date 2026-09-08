@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Лекції з дисципліни "Електрика та магнетизм"</title>
+<title>Електрика та магнетизм — матеріали дисципліни</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
     :root {
@@ -153,15 +153,6 @@
     }
 
     #lecture-search:focus { border-color: var(--accent); width: 230px; }
-
-    .viewed-counter {
-        font-size: 0.8rem;
-        color: var(--muted);
-        background: var(--bg);
-        padding: 5px 12px;
-        border-radius: 14px;
-        white-space: nowrap;
-    }
 
     .no-results {
         text-align: center;
@@ -514,8 +505,8 @@
 <header>
     <div class="header-top">
         <div>
-            <h1>Лекції з дисципліни «Електрика та магнетизм»</h1>
-            <p>Конспекти-презентації лекцій</p>
+            <h1>Електрика та магнетизм</h1>
+            <p>Матеріали дисципліни: лекції, задачі, лабораторні</p>
         </div>
         <button class="theme-toggle" id="theme-toggle" type="button" title="Перемкнути тему" aria-label="Перемкнути тему">🌙</button>
     </div>
@@ -530,7 +521,6 @@
         <div class="search-wrap">
             <input type="search" id="lecture-search" placeholder="Пошук лекції..." aria-label="Пошук лекції">
         </div>
-        <span class="viewed-counter" id="viewed-counter">Переглянуто: 0 з 14</span>
     </div>
 </header>
 
@@ -563,6 +553,18 @@
                     <span class="online-go">Приєднатися →</span>
                 </a>
             </li>
+            <li class="online-card">
+                <a class="online-link" href="https://schedule.kpi.ua/lecturers?lecturerId=5f60288fa383ac8cbd2f3a3348f0d112f84e3ef3cd5182ef0379dfe515b2b13f" target="_blank" rel="noopener">
+                    <div class="online-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg>
+                    </div>
+                    <div class="online-main">
+                        <span class="online-title">Розклад занять</span>
+                        <p class="online-desc">Актуальний розклад пар на сайті КПІ</p>
+                    </div>
+                    <span class="online-go">Переглянути →</span>
+                </a>
+            </li>
         </ul>
     </section>
 
@@ -574,6 +576,7 @@
                     <div class="lecture-icon-wrap"><div class="lecture-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l4 4v16H6z"/><path d="M15 2v4h4"/><line x1="8.5" y1="12" x2="15.5" y2="12"/><line x1="8.5" y1="15.5" x2="15.5" y2="15.5"/></svg></div></div>
                     <div class="lecture-main">
                         <a href="./Syllabus_ElMag/Syllabus_ElMag_2026.pdf" target="_blank" rel="noopener">Силабус дисципліни</a>
+                        <p class="lecture-annotation">Програма курсу, критерії оцінювання та вимоги до звітності.</p>
                         <button class="lecture-toggle" type="button">Переглянути PDF</button>
                         <button class="lecture-copy" type="button" title="Завантажити файл">⬇ Завантажити файл</button>
                     </div>
@@ -587,6 +590,7 @@
                     <div class="lecture-icon-wrap"><div class="lecture-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 2-2.5 2-2.5 4"/><line x1="12" y1="16.5" x2="12" y2="16.6"/></svg></div></div>
                     <div class="lecture-main">
                         <a href="./Syllabus_ElMag/Questions.pdf" target="_blank" rel="noopener">Перелік екзаменаційних питань</a>
+                        <p class="lecture-annotation">Питання, що виносяться на семестровий контроль.</p>
                         <button class="lecture-toggle" type="button">Переглянути PDF</button>
                         <button class="lecture-copy" type="button" title="Завантажити файл">⬇ Завантажити файл</button>
                     </div>
@@ -780,6 +784,7 @@
                     <div class="lecture-icon-wrap"><div class="lecture-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></svg></div></div>
                     <div class="lecture-main">
                         <a href="https://cdn.jsdelivr.net/gh/sergiokapone/ElMagProblems@master/EMProblems_last_stable.pdf" target="_blank" rel="noopener">Збірник задач з електрики та магнетизму</a>
+                        <p class="lecture-annotation">Задачі для самостійної роботи та підготовки до контрольних заходів.</p>
                         <button class="lecture-toggle" type="button">Переглянути PDF</button>
                         <button class="lecture-copy" type="button" title="Завантажити файл">⬇ Завантажити файл</button>
                     </div>
@@ -799,6 +804,7 @@
                     <div class="lecture-icon-wrap"><div class="lecture-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6L4 19a2 2 0 0 0 2 3h12a2 2 0 0 0 2-3l-5-11V2"/><line x1="8.5" y1="2" x2="15.5" y2="2"/><line x1="6.5" y1="15" x2="17.5" y2="15"/></svg></div></div>
                     <div class="lecture-main">
                         <a href="https://cdn.jsdelivr.net/gh/sergiokapone/LabElMag@main/LabFields/LabWork_Part1.pdf" target="_blank" rel="noopener">Електричні та магнітні поля. Закони постійного струму</a>
+                        <p class="lecture-annotation">Лабораторна робота: дослідження електричних і магнітних полів, перевірка законів постійного струму.</p>
                         <button class="lecture-toggle" type="button">Переглянути PDF</button>
                         <button class="lecture-copy" type="button" title="Завантажити файл">⬇ Завантажити файл</button>
                     </div>
@@ -812,6 +818,7 @@
                     <div class="lecture-icon-wrap"><div class="lecture-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6L4 19a2 2 0 0 0 2 3h12a2 2 0 0 0 2-3l-5-11V2"/><line x1="8.5" y1="2" x2="15.5" y2="2"/><line x1="6.5" y1="15" x2="17.5" y2="15"/></svg></div></div>
                     <div class="lecture-main">
                         <a href="https://cdn.jsdelivr.net/gh/sergiokapone/LabElMag@main/LabAlternatingCurrent/LabWork.pdf" target="_blank" rel="noopener">Закони змінного струму</a>
+                        <p class="lecture-annotation">Лабораторна робота: дослідження кіл змінного струму та перевірка його законів.</p>
                         <button class="lecture-toggle" type="button">Переглянути PDF</button>
                         <button class="lecture-copy" type="button" title="Завантажити файл">⬇ Завантажити файл</button>
                     </div>
@@ -835,52 +842,22 @@
 
 <script>
     var allCards = Array.prototype.slice.call(document.querySelectorAll('.lecture-card'));
-    var totalLectures = allCards.length;
 
-    /* ---------- Ліниве підвантаження PDF + лічильник переглядів ---------- */
-    var VIEWED_KEY = 'elmag-viewed-lectures';
-
-    function getViewedSet() {
-        try {
-            return new Set(JSON.parse(localStorage.getItem(VIEWED_KEY) || '[]'));
-        } catch (e) {
-            return new Set();
-        }
-    }
-
-    function saveViewedSet(set) {
-        try {
-            localStorage.setItem(VIEWED_KEY, JSON.stringify(Array.from(set)));
-        } catch (e) { /* сховище недоступне — тихо ігноруємо */ }
-    }
-
-    function updateViewedCounter() {
-        var counterEl = document.getElementById('viewed-counter');
-        var viewed = getViewedSet();
-        counterEl.textContent = 'Переглянуто: ' + viewed.size + ' з ' + totalLectures;
-    }
-
+    /* ---------- Ліниве підвантаження PDF ---------- */
     document.querySelectorAll('.lecture-toggle').forEach(function (btn) {
         btn.addEventListener('click', function () {
-            var card = btn.closest('.lecture-card');
             var wrapper = btn.closest('.lecture-content').querySelector('.lecture-preview');
             var iframe = wrapper.querySelector('iframe');
             var isOpen = wrapper.classList.contains('open');
 
             if (!isOpen && !iframe.src) {
                 iframe.src = iframe.dataset.src;
-                var viewed = getViewedSet();
-                viewed.add(card.id);
-                saveViewedSet(viewed);
-                updateViewedCounter();
             }
 
             wrapper.classList.toggle('open');
             btn.textContent = wrapper.classList.contains('open') ? 'Сховати PDF' : 'Переглянути PDF';
         });
     });
-
-    updateViewedCounter();
 
     /* ---------- Завантаження PDF-файлу лекції ---------- */
     document.querySelectorAll('.lecture-copy').forEach(function (btn) {
