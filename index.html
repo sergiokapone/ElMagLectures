@@ -388,6 +388,89 @@
         color: #fff;
     }
 
+    /* online links (Classroom / Meet) */
+    ul.online-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    li.online-card {
+        background-color: var(--card-bg);
+        box-shadow: var(--shadow);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    li.online-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-hover);
+    }
+
+    .online-link {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 16px 20px;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .online-icon {
+        flex: 0 0 auto;
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        background: var(--icon-bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--accent);
+    }
+
+    .online-icon svg { width: 28px; height: 28px; }
+
+    .online-main {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-width: 0;
+    }
+
+    .online-main .online-title {
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--ink);
+    }
+
+    .online-main .online-desc {
+        margin: 4px 0 0;
+        font-size: 0.87rem;
+        color: var(--muted);
+    }
+
+    .online-go {
+        flex: 0 0 auto;
+        border: 1px solid var(--accent);
+        color: var(--accent);
+        font-size: 0.82rem;
+        font-weight: 500;
+        padding: 6px 14px;
+        border-radius: 20px;
+        white-space: nowrap;
+        transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .online-link:hover .online-go {
+        background: var(--accent);
+        color: #fff;
+    }
+
     .lecture-preview {
         flex: 1 1 55%;
         min-width: 0;
@@ -438,6 +521,7 @@
     </div>
     <div class="header-toolbar">
         <nav class="quick-nav">
+            <a href="#online-section">Онлайн</a>
             <a href="#doc-section">Документація</a>
             <a href="#lectures-section">Лекції</a>
             <a href="#problems-section">Задачі</a>
@@ -451,6 +535,36 @@
 </header>
 
 <main class="container">
+
+    <section id="online-section">
+        <h2 class="section-title">Онлайн-заняття</h2>
+        <ul class="online-list">
+            <li class="online-card">
+                <a class="online-link" href="https://classroom.google.com/c/NTQ1MzUzNjE5MDA3?cjc=su45h2j" target="_blank" rel="noopener">
+                    <div class="online-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/></svg>
+                    </div>
+                    <div class="online-main">
+                        <span class="online-title">Google Classroom</span>
+                        <p class="online-desc">Матеріали курсу, завдання та оголошення</p>
+                    </div>
+                    <span class="online-go">Перейти →</span>
+                </a>
+            </li>
+            <li class="online-card">
+                <a class="online-link" href="https://meet.google.com/sqk-wfzk-iyo" target="_blank" rel="noopener">
+                    <div class="online-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 10l6-4v12l-6-4"/></svg>
+                    </div>
+                    <div class="online-main">
+                        <span class="online-title">Google Meet</span>
+                        <p class="online-desc">Приєднатися до відеозустрічі заняття</p>
+                    </div>
+                    <span class="online-go">Приєднатися →</span>
+                </a>
+            </li>
+        </ul>
+    </section>
 
     <section id="doc-section">
         <h2 class="section-title">Документація з дисципліни</h2>
