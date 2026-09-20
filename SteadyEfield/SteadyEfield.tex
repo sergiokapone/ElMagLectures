@@ -1934,7 +1934,7 @@ F = \frac{q_1 q_2}{r^{2 + \epsilon}},
 			\begin{block}{}\justifying
 				Для скалярної функції однієї змінної справедливий наближений вираз:
 				\begin{equation*}
-					f(x + \epsilon) = f(x) + \frac{df}{dx}\epsilon, \quad \epsilon \to 0.
+					f(x + \epsilon) \approx f(x) + \frac{df}{dx}\epsilon, \quad \epsilon \to 0.
 				\end{equation*}
 			\end{block}
 		\end{column}
@@ -1946,7 +1946,7 @@ F = \frac{q_1 q_2}{r^{2 + \epsilon}},
 
 		Це співвідношення легко узагальнюється для випадку скалярної функції кількох просторових змінних:
 		\begin{multline*}
-			f(x + \epsilon_x, y + \epsilon_y, z + \epsilon_z) = \\
+			f(x + \epsilon_x, y + \epsilon_y, z + \epsilon_z) \approx \\
 			f(x, y, z) +
 			\frac{\partial f(x, y, z)}{\partial x} \epsilon_x +
 			\frac{\partial f(x, y, z)}{\partial y} \epsilon_y +
@@ -1960,7 +1960,7 @@ F = \frac{q_1 q_2}{r^{2 + \epsilon}},
 				\alert{Для скалярної функції} $f(\vect{r})$:
 				\begin{equation*}
 					\tcbhighmath{
-						f(\vect{r} + \vect{\epsilon}) = f(\vect{r}) +
+						f(\vect{r} + \vect{\epsilon}) \approx f(\vect{r}) +
 						\vect{\epsilon}\cdot\vect{\nabla}f(\vect{r}).
 					}
 				\end{equation*}
@@ -1970,7 +1970,7 @@ F = \frac{q_1 q_2}{r^{2 + \epsilon}},
 			\begin{block}{}
 				\alert{Для векторної функції} $\vect{f}(\vect{r})$:
 				\begin{equation*}\tcbhighmath{
-						\vect{f}(\vect{r} + \vect{\epsilon}) = \vect{f}(\vect{r}) +
+						\vect{f}(\vect{r} + \vect{\epsilon}) \approx \vect{f}(\vect{r}) +
 						(\vect{\epsilon}\cdot\vect{\nabla})\vect{f}(\vect{r}).
 					}
 				\end{equation*}
