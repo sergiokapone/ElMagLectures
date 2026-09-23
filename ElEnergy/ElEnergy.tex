@@ -449,44 +449,70 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Енергія електричного поля (загальне виведення)}{}\small
+\begin{frame}{Енергія електричного поля (загальне виведення)}{}\footnotesize
 	\begin{block}{}\justifying
-		Отримана формула для енергії електричного поля для окремого випадку, коли поле однорідне і
-		локалізоване в конденсаторі. Наведемо тепер більш загальний висновок.
+		Отримана раніше формула описує частковий випадок, коли поле є однорідним і
+		локалізованим у конденсаторі. Наведемо строге виведення
 	\end{block}
-	\begin{block}{}\small
-		При зміні заряду системи на $\delta\rho$, енергія змінюється на величину
+\begin{block}{}\scriptsize
+    	При зміні розподілу сторонніх зарядів системи на $\delta\rho$, енергія системи $W = \frac12\iiint\rho\phi\,dV$
+		змінюється на величину $\delta W$. Оскільки одночасно варіюються і $\rho$, і $\phi$ (бо потенціал $\phi$
+		зумовлений цим же розподілом $\rho$), а внески обох варіацій однакові через симетрію кулонівської
+		взаємодії, два доданки з коефіцієнтом $\tfrac12$ додаються й дають одиницю.
+\end{block}
+	\begin{block}{}
 		\begin{equation*}
-			\delta W = \frac12 \iiint\limits_V \delta\rho(\vect{r})\phi(\vect{r}) dV.
+			\delta W = \iiint\limits_V \phi(\vect{r})\,\delta\rho(\vect{r})\, dV.
 		\end{equation*}
-		З теореми Гаусса $\delta\rho = \frac1{4\pi}\Div\delta\Dfield$:
+		З теореми Гаусса в системі СГС маємо $\delta\rho = \frac1{4\pi}\Div\delta\Dfield$. Тоді:
 		\begin{equation*}
-			\delta W = \frac1{8\pi} \iiint\limits_V \frac1{4\pi}\Div\delta\Dfield \phi dV =
-			\frac1{8\pi} \iiint\limits_V \left( \Div(\delta\Dfield \phi) -
-			\delta\Dfield\cdot\vect{\nabla}\phi\right) .
+			\delta W = \frac1{4\pi} \iiint\limits_V \phi\,\Div\delta\Dfield\, dV =
+			\frac1{4\pi} \iiint\limits_V \left( \Div(\phi\,\delta\Dfield) -
+			\delta\Dfield\cdot\vect{\nabla}\phi\right)dV.
 		\end{equation*}
 	\end{block}
-	\begin{alertblock}{}\justifying\small
-		Інтегрування поширене на весь нескінченний простір. Але на великій відстані від системи зарядів
-		поле обертається в нуль. Тому,перший доданок у правій частині $\iiiint\limits_V \left(
-			\Div(\delta\Dfield \phi\right) dV = \oiint\limits_{S\to\infty} (\phi\delta\Dfield)\cdot
-			d\vect{S} =
-			0$
+	\begin{alertblock}{}\justifying\scriptsize
+		Інтегрування поширюється на весь нескінченний простір. На великій відстані від системи зарядів
+		потенціал спадає як $\phi \propto \frac{1}{r}$, а зміщення як $D \propto \frac{1}{r^2}$.
+		Тому перший доданок за теоремою Остроградського-Гаусса перетворюється на нуль: $\iiint\limits_V
+		\Div(\phi\,\delta\Dfield) \, dV = \oiint\limits_{S\to\infty} \phi\,\delta\Dfield\cdot d\vect{S} = 0$.
 	\end{alertblock}
 	\begin{block}{}
-		У другому доданку врахуємо зв'язок потенціалу та напруженості поля: $\Efield = -
-			\vect{\nabla}\phi$:
+		У другому доданку врахуємо зв'язок потенціалу та напруженості електростатичного поля ($\Efield = - \vect{\nabla}\phi$):
 		\begin{equation*}
-			\delta W =
-			\iiint\limits_V
-			\frac{\Efield\cdot \delta\Dfield}{{8\pi}} dV,\ \Rightarrow\ w = \frac{\Efield\cdot
-				\Dfield}{{8\pi}}.
+			\delta W = \iiint\limits_V \frac{\Efield\cdot \delta\Dfield}{4\pi} \, dV.
 		\end{equation*}
 	\end{block}
 \end{frame}
 % ===========================================================================
 
 
+% ============================== Слайд ## ===================================
+\begin{frame}{Енергія електричного поля (густина енергії)}{}\footnotesize
+	\begin{block}{}\justifying
+		Отриманий вираз --- це зміна енергії при малій зміні поля $\delta\Dfield$. Об'ємна плотність
+		варіації енергії в системі СГС має вигляд:
+		\begin{equation*}
+			\delta w = \frac1{4\pi} \Efield\cdot \delta\Dfield.
+		\end{equation*}
+	\end{block}
+	\begin{block}{}\justifying
+		Для лінійного та ізотропного середовища ($\Dfield = \varepsilon\Efield$, де $\varepsilon = \const$)
+		варіації полів пов'язані як $\delta\Dfield = \varepsilon\delta\Efield$. Це дозволяє згорнути підінтегральний вираз у повну варіацію:
+		\begin{equation*}
+			\Efield\cdot \delta \Dfield = \Efield\cdot \delta (\varepsilon \Efield) = \varepsilon \Efield\cdot \delta \Efield = \frac{\varepsilon }{2}\delta (E^{2}) = \frac{1}{2}\delta (\Efield\cdot \Dfield).
+		\end{equation*}
+		Інтегруючи цю варіацію від нульового поля до кінцевого стану, отримуємо повну густину енергії $w$, яка тепер не залежить від шляху інтегрування:
+		\begin{equation*}
+			w = \frac1{4\pi} \int_0^{\Dfield} \Efield\cdot dD' = \frac{1}{8\pi} \Efield\cdot\Dfield = \frac{\varepsilon E^2}{8\pi}.
+		\end{equation*}
+	\end{block}
+	\begin{alertblock}{}\justifying
+		Для нелінійних середовищ (наприклад, сегнетоелектриків) цей перехід неможливий, оскільки $\varepsilon \neq \const$.
+		Тоді густина енергії залежить від конкретного вигляду функції $\Dfield(\Efield)$ на всьому процесі поляризації.
+	\end{alertblock}
+\end{frame}
+% ===========================================================================
 
 
 
