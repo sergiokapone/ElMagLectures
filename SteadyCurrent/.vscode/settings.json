@@ -1,0 +1,27 @@
+{
+  "tssworkflow.mainFile": "SteadyCurrent.tex",
+  "tssworkflow.macroFiles": [
+    "d:\\Projects\\LaTeX\\MyPackages\\tex\\latex\\misc\\Electromagnetism\\Electromagnetism.sty",
+    "d:\\Projects\\LaTeX\\MyPackages\\tex\\latex\\misc\\Electromagnetism\\beamerthemeElectromagnetism.sty"
+  ],
+  "tssworkflow.pdfBeside": true,
+  "tssworkflow.forceRebuild": true,
+  "tssworkflow.normalizeLineBreaks": "wrap",
+  "tssworkflow.blankLinesParagraph": 1,
+  "tssworkflow.blankLinesHeading": 3,
+  "tssworkflow.normalizeFrames": false,
+  "tssworkflow.normalizeTables": false,
+  "tssworkflow.normalizeTypography": true,
+  "tssworkflow.displayMathToEquation": true,
+  "tssworkflow.normalizeBlankLines": true,
+  "tssworkflow.quoteStyle": "enquote",
+  "tssworkflow.singlePass": false,
+  "tssworkflow.logParser": "texlogsieve",
+   "tssworkflow.texlogsieveTerminal": "always",
+  "tssworkflow.frameRules": {
+    "headings": "%% --------------------------------------------------------",
+    "section": "%% --------------------------------------------------------",
+    "formulas": "% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+    "align": "% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+  }
+}
