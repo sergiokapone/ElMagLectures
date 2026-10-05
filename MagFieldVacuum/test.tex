@@ -1,126 +1,40 @@
+\documentclass[biblatex]{ConspectBook}
+% \let\enquote\emph
 
-\documentclass{beamer}
-\usetheme{Electromagnetism}
-\usepackage{Electromagnetism}
-\graphicspath{{pictures/}}
-\usetikzlibrary{spy}
-% -------------------------------------- Grid
-%-------------------------------------------------------
-\makeatletter
-\def\grd@save@target#1{%
-  \def\grd@target{#1}}
-\def\grd@save@start#1{%
-  \def\grd@start{#1}}
-\tikzset{
-  grid with coordinates/.style={
-    to path={%
-      \pgfextra{%
-        \edef\grd@@target{(\tikztotarget)}%
-        \tikz@scan@one@point\grd@save@target\grd@@target\relax
-        \edef\grd@@start{(\tikztostart)}%
-        \tikz@scan@one@point\grd@save@start\grd@@start\relax
-        \draw[minor help lines, gray!50] (\tikztostart) grid (\tikztotarget);
-        \draw[major help lines, gray!50] (\tikztostart) grid (\tikztotarget);
-        \grd@start
-        \pgfmathsetmacro{\grd@xa}{\the\pgf@x/1cm}
-        \pgfmathsetmacro{\grd@ya}{\the\pgf@y/1cm}
-        \grd@target
-        \pgfmathsetmacro{\grd@xb}{\the\pgf@x/1cm}
-        \pgfmathsetmacro{\grd@yb}{\the\pgf@y/1cm}
-        \pgfmathsetmacro{\grd@xc}{\grd@xa + \pgfkeysvalueof{/tikz/grid with coordinates/major step}}
-        \pgfmathsetmacro{\grd@yc}{\grd@ya + \pgfkeysvalueof{/tikz/grid with coordinates/major step}}
-        \foreach \x in {\grd@xa,\grd@xc,...,\grd@xb}
-        \node[anchor=north] at (\x,\grd@ya) {\pgfmathprintnumber{\x}};
-        \foreach \y in {\grd@ya,\grd@yc,...,\grd@yb}
-        \node[anchor=east] at (\grd@xa,\y) {\pgfmathprintnumber{\y}};
-      }
-    }
-  },
-  minor help lines/.style={
-    help lines,
-    step=\pgfkeysvalueof{/tikz/grid with coordinates/minor step}
-  },
-  major help lines/.style={
-    help lines,
-    line width= 0.5pt,
-    step=\pgfkeysvalueof{/tikz/grid with coordinates/major step}
-  },
-  grid with coordinates/.cd,
-  minor step/.initial=.2,
-  major step/.initial=1,
-  major line width/.initial=2pt,
-}
-\makeatother
+% \addbibresource{d:/Projects/LaTeX/MyPackages/bib/MyBase.bib}
+% \addbibresource{./bibliography/Articles.bib}
+
+%  1) Charges
+% 17) SteadyEfield
+%  2) ChargeSystem
+%  4) ElEnergy
+%  3) EBMotion
+%  5) ElMagInduction
+%  6) EMOscillations
+%  7) EMWaves
+%  8) FieldInDielectrics
+%  9) FieldInMetall
+% 10) MagEnergy
+% 11) MagFieldMedia
+% 12) MagFieldVacuum
+% 13) MaxwellEqns
+% 14) Radiation
+% 15) Relativity
+% 16) SteadyCurrent
+% 18) Telegraph
+% 19) Waveguides
+
+\newcommand{\includechapter}[1]{\input{#1/#1}}
+\newcommand{\includetikz}[1]{\input{/tikz/#1.tikz}}
 
 \begin{document}
 
-
-
-
-
-% ============================== Слайд ## ===================================
-\begin{frame}{Рух зарядженої частинки в магнітному полі}{}
-\framesubtitle{Циклотронна частота}
-	\begin{block}{}
-		На частинку діє сила Лоренца, так що рівняння руху має вигляд:
-		\begin{equation*}
-			m\dot{\vect{v}} = q\left[\frac{\vect{v}}{c}\times\Bfield\right].
-		\end{equation*}
-		Очевидно, що $\dot{\vect{v}}\perp\vect{v}$ і $\dot{\vect{v}}\perp\Bfield$. Розкладемо вектор швидкості на
-		складові паралельну і перпендикулярну полю:
-		\begin{equation*}
-			\vect{v} = \vect{v}_{\perp} + \vect{v}_{\parallel}
-		\end{equation*}
-		Для цих складових маємо рівняння:
-		\begin{equation*}
-			\begin{cases}
-				m\vect{v}_{\parallel} = 0, \\
-				\vect{v}_{\perp} = q\left[\dfrac{\vect{v}_{\perp}}{c}\times\Bfield\right].
-			\end{cases}
-		\end{equation*}
-		З першого рівняння випливає $\vect{v}_{\parallel} = \const$.
-Друге рівняння перепишемо у вигляді:
-\begin{equation*}
-    \vect{v}_{\perp} = \left[\vect{\omega}\times\dfrac{\vect{v}_{\perp}}{c}\right],\quad \tcbhighmath{\vect{\omega} = - \frac{q\Bfield}{mc}.}
-\end{equation*}
-Рівняння описує обертання навколо напрямку магнітного поля з кутовою швидкістю $\omega$, яка називається \alert{ циклотронною частотою}.
-	\end{block}
-\end{frame}
-% ===========================================================================
-
-% ============================== Слайд ## ===================================
-\begin{frame}{Робота магнітного поля}{}
-	Робота сили Лоренца:
-	\begin{columns}
-		\begin{column}{0.65\linewidth}
-			\begin{equation*}
-				\delta A = \vect{F}\cdot d\vect{r} = \vect{F}\cdot\vect{v}dt = \left[\frac{q \vect{v}}{c}\times\Bfield\right] \cdot\vect{v}dt.
-			\end{equation*}
-			\begin{block}{}
-				\begin{equation*}
-					\vect{A}\cdot\vecdot{\vect{B}}{\vect{C}} = \vect{C}\cdot\vecdot{\vect{A}}{\vect{B}}.
-				\end{equation*}
-			\end{block}
-			\begin{equation*}
-				\vect{v}\cdot\left[\vect{v}\times\Bfield\right] = \Bfield\cdot\left[\vect{v}\times\vect{v}\right] = 0.
-			\end{equation*}
-			\begin{equation*}
-				\delta A = 0.
-			\end{equation*}
-		\end{column}
-		\begin{column}{0.35\linewidth}\centering
-			\input{tikz/CycletronicTrajectory.tikz}
-		\end{column}
-	\end{columns}
-	\begin{block}{}
-		За теоремою про зміну кінетичної енергії $A = \Delta\left(\frac{mv^2}{2}\right) = 0$, кінетична енергія частинки не змінюється.
-	\end{block}
-	\begin{alertblock}{}\centering
-		Магнітне поле не виконує роботи над частинкою!
-	\end{alertblock}
-\end{frame}
-% ===========================================================================
-
+\ifdefined\TargetTikz
+  \includetikz{\TargetTikz}
+\else
+  \includechapter{\TargetChapter}
+\fi
 
 
 \end{document}
+

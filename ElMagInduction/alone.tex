@@ -1,0 +1,21 @@
+% !TeX program = lualatex
+% !TeX encoding = utf8
+% !TeX spellcheck = uk_UA
+
+\documentclass[onlytextwidth]{beamer}
+\usetheme{Electromagnetism}
+\usepackage{Electromagnetism}
+\usepackage[europeanresistors, americaninductors]{circuitikz}
+\usepackage{tikz-3dplot}
+
+
+\newcommand{\includetikz}[1]{\input{tikz/#1.tikz}}
+
+\begin{document}
+
+
+\includetikz{\TargetTikz}
+
+
+\end{document}
+
