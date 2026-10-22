@@ -60,11 +60,11 @@
 		1820 року Ерстедом --- є першим експериментальним доказом впливу електричного
 		струму на магніт (магнітну стрілку).
 	\end{block}
-	\begin{block}{}\justifying
+	\begin{block}{}\justifying%
 		\alert{Магнітним полем} називається силове поле, що \alert{діє на рухомі заряди} і
 		як наслідок --- на електричні струми і на тіла, які мають магнітний момент.
 	\end{block}
-	\begin{block}{}\justifying
+	\begin{block}{}\justifying%
 		Магнітне поле створюється рухомими зарядами (електричним струмом). Незмінні в часі
 		струми створюють постійні магнітні поля.
 	\end{block}
@@ -106,7 +106,7 @@
 	\end{block}
 	\begin{overprint}
 		\onslide<1>
-		\begin{block}{}\justifying
+		\begin{block}{}\justifying%
 			Величина вектора індукції чисельно дорівнює максимальному обертальному
 			моменту, що діє на одиничний магнітний момент вміщений у магнітне поле:
 			\begin{equation*}
@@ -114,7 +114,7 @@
 			\end{equation*}
 		\end{block}
 		\onslide<2>
-		\begin{alertblock}{}\justifying
+		\begin{alertblock}{}\justifying%
 			В гауссовій системі одиниць величину магнітного поля називають Гаусом (Гс). С
 			системі СІ Теслою (Тл):
 			\begin{equation*}
@@ -277,7 +277,7 @@
 % ============================== Слайд 8 ===================================
 \begin{frame}{Закон Біо-Савара-Лапласа}{}
 	\begin{block}{}\justifying
-		Закон Біо-Савара встановлено експериментально (1820 р.) шляхом аналізу
+		Закон Біо-Савара встановлено експериментально (1820~р.) шляхом аналізу
 		експериментальних даних і \alert{визначає магнітне поле, що створюється елементом
 			струму}.
 	\end{block}
@@ -343,126 +343,12 @@
 		струмом. Положення точки $P$ визначається кутами $\alpha_1$ та $\alpha_2$.
 	\end{exampleblock}
 	%=========================================================
-	\begin{exampleblock}{Задача 2}\label{prb:inf_wire}\justifying
+	\begin{exampleblock}{Задача 2}\justifying
 		Визначити магнітне поле на відстані $r$ від нескінченно довгого провідника зі
 		струмом $I$.
 	\end{exampleblock}
 	\begin{center}
-		% !TeX root = ../../test.tex
-
-		\begin{tikzpicture}[>=latex, scale=1]
-			% --- Параметри циліндра та геометрії ---
-			\pgfmathsetmacro\h{3.6}          % Висота суцільної частини циліндра
-			\pgfmathsetmacro\R{0.1}          % Радіус провідника
-			\pgfmathsetmacro\Ry{0.05}        % Стиснення еліпса основи
-			\pgfmathsetmacro\HL{-0.05}       % Межа відблиску
-			\pgfmathsetmacro\rDist{2.2}      % Відстань r до точки P
-			\pgfmathsetmacro\rContourY{0.45} % Стиснення контуру L у перспективі
-
-			\coordinate (O) at (0, 0); \coordinate (A) at (0, -\h/2); \coordinate (B)
-			at (0, \h/2); \coordinate (P) at (\rDist, 0); \coordinate (Dl) at (0,
-			-0.9);
-
-			% --- Задня частина контуру інтегрування L (позаду провідника) ---
-			\draw[blue!60!black, thick, dashed] (O) [partial ellipse=0:180:{\rDist}
-				and {\rContourY}];
-
-			% --- Тіло провідника (3D-циліндр з відблиском) ---
-			\begin{scope}
-				\clip (-\R, -\h/2) -- (-\R, \h/2) arc (180:360:{\R} and {\Ry}) -- (\R,
-				-\h/2) arc (0:-180:{\R} and {\Ry}); \shade[left color=gray!55, right
-					color=gray!12] (-\R-0.1, -\h/2-\Ry-0.1) rectangle (\HL, \h/2+0.1);
-				\shade[left color=gray!12, right color=gray!78] (\HL, -\h/2-\Ry-0.1)
-				rectangle (\R+0.1, \h/2+0.1);
-			\end{scope}
-
-			% Твірні (бічні контурні лінії)
-			\draw (-\R, -\h/2) -- (-\R, \h/2); \draw ( \R, -\h/2) -- ( \R, \h/2);
-
-			% Нижня основа (видима частина)
-			\draw (-\R, -\h/2) arc (180:360:{\R} and {\Ry});
-
-			% Верхня основа
-			\shade[ball color=gray!20] (0, \h/2) circle ({\R} and {\Ry}); \draw (0,
-			\h/2) circle ({\R} and {\Ry});
-
-			% Нескінченне продовження циліндра (пунктир зверху та знизу)
-			\draw[gray, densely dashed] (-\R, \h/2) -- (-\R, \h/2 + 0.6); \draw[gray,
-				densely dashed] ( \R, \h/2) -- ( \R, \h/2 + 0.6); \draw[gray, densely
-				dashed] (-\R, -\h/2) -- (-\R, -\h/2 - 0.6); \draw[gray, densely dashed] (
-			\R, -\h/2) -- ( \R, -\h/2 - 0.6);
-
-			% --- Червоний циліндричний елемент струму d\ell ---
-			\begin{scope}
-				\clip (-\R, -1.1) -- (-\R, -0.7) arc (180:360:{\R} and {\Ry}) -- (\R,
-				-1.1) arc (0:-180:{\R} and {\Ry}); \shade[left color=red!80!black,
-					right color=red!25] (-\R-0.05, -1.15) rectangle (\R+0.05, -0.65);
-			\end{scope}
-			\draw[red!70!black, thin] (-\R, -1.1) -- (-\R, -0.7) ( \R, -1.1) -- ( \R,
-			-0.7); \draw[red!70!black, thin] (-\R, -1.1) arc (180:360:{\R} and {\Ry});
-			\shade[ball color=red!40] (0, -0.7) circle ({\R} and {\Ry});
-			\draw[red!70!black, thin] (0, -0.7) circle ({\R} and {\Ry});
-
-			% Стрілка довжини елемента поруч
-			\draw[red!80!black, ->, thick] (-0.35, -1.1) -- (-0.35, -0.7) node[midway,
-				left] {$d\symbfscr{l}$};
-
-			% --- Передня частина контуру інтегрування L (перед провідником) ---
-			\draw[blue!60!black, thick, arrowpos={0.75}{0pt}{4pt}] (O) [partial
-				ellipse=180:360:{\rDist} and {\rContourY}] node[pos=0.85, below right]
-			{$L$};
-
-			% --- Точки кінців відрізка провідника A та B ---
-			\fill (A) circle (1pt) node[left=2pt] {$A$}; \fill (B) circle (1pt)
-				node[left=2pt] {$B$};
-
-			% --- Відрізки від кінців A і B до точки P ---
-			\draw[gray!80!black, thick] (A) -- (P); \draw[gray!80!black, thick] (B) --
-			(P);
-
-			% --- Кути \alpha_1 та \alpha_2 ---
-			% Кут \alpha_1 біля точки A (між напрямком струму вгору та вектором \mathcal{r}_1)
-			\pgfmathsetmacro\angA{atan(\rDist/(\h/2))} \draw[thin] (A) ++(0, 0.4) arc
-				(90:{90-\angA}:0.4) node[pos=0.6, above right=-2pt] {$\alpha_1$};
-
-			% Кут \alpha_2 біля точки B (між напрямком струму вгору та вектором \mathcal{r}_2)
-			\pgfmathsetmacro\angB{atan(\rDist/(\h/2))} \draw[thin] (B) ++(0, 0.5) arc
-				(90:{-90+\angB}:0.5) node[pos=0.5, right] {$\alpha_2$};
-
-			% --- Струм I ---
-			\draw[->, thick] (0, \h/2 + 0.2) -- ++(0, 0.6) node[above] {$I$};
-
-			% --- Геометрія та параметризація поточного елемента ---
-			% Перпендикуляр r від осі до точки P
-			\draw[dashed, gray!80!black] (O) -- (P) node[midway, above] {$r$};
-			\draw[gray!80!black] (0.15, 0) -- (0.15, 0.15) -- (0, 0.15); % Знак прямого кута
-
-			% Відрізок \ell вздовж провідника
-			\draw[<->, thin, gray!80!black] (-0.6, 0) -- (-0.6, -0.9) node[midway,
-				left] {$\ell$}; \draw[dotted, gray!80!black] (-0.7, 0) -- (0, 0);
-			\draw[dotted, gray!80!black] (-0.7, -0.9) -- (0, -0.9);
-
-			% Вектор \mathcal{r} від елемента d\ell до точки P
-			\draw[->, thick, blue] (Dl) -- (P) node[midway, below right=2pt]
-			{$\vect{\mathcal{r}}$};
-
-			% Точка спостереження P
-			\fill (P) circle (1.5pt) node[right=3pt] {$P$};
-
-			% --- Кут \alpha між елементом d\ell та вектором \mathcal{r} ---
-			% Вершина кута — точка Dl (елемент струму)
-			% Перший промінь — вертикально вгору (напрямок струму d\ell)
-			% Другий промінь — уздовж вектора \mathcal{r} до точки P
-			\pgfmathsetmacro\angAlpha{atan2(\rDist, 0.9)} % кут між вертикаллю та \mathcal{r}
-			\draw[->, thin, gray!70!black] (Dl) ++(90:0.5) arc
-			(90:{90-\angAlpha}:0.5); \path (Dl) ++({90-0.5*\angAlpha}:0.78) node
-				{$\alpha$};
-
-			% Вектор магнітної індукції dB (\otimes — у площину)
-			\draw[thick] (P) ++(0.35, 0.35) circle (3pt) node[right=4pt]
-				{$d\vect{B}$}; \draw[thick] (P) ++(0.35, 0.35) ++(-2pt,-2pt) --
-			++(4pt,4pt); \draw[thick] (P) ++(0.35, 0.35) ++(-2pt,2pt) -- ++(4pt,-4pt);
-		\end{tikzpicture}
+		\input{tikz/short-wire.tikz}
 	\end{center}
 \end{frame}
 % ===========================================================================
@@ -471,12 +357,12 @@
 % ============================== Слайд 11 ===================================
 \begin{frame}{Взаємодія струмів}{Досліди Ампера}
 	\begin{block}{}\justifying
-		У 1820 р. А. Ампером було встановлено закон, що визначає силу, яка діє на елемент
+		У 1820~р. А. Ампером було встановлено закон, що визначає силу, яка діє на елемент
 		струму в магнітному полі. Оскільки створити відокремлений елемент не можна, то
 		Ампер вивчав вплив паралельних дротів один на одного та поведінку дротяних
 		замкнутих контурів різної форми в магнітному полі.
 	\end{block}
-	\tikz[remember picture,overlay] \node[opacity=0.5,inner sep=0pt, anchor=north west] at
+	\tikz[remember picture, overlay] \node[opacity=0.5,inner sep=0pt, anchor=north west] at
 	(current page.north west){\includegraphics[width=2cm]{Ampere}};
 	\begin{columns}
 		\begin{column}{0.5\linewidth}\centering
@@ -701,13 +587,28 @@
 		\onslide<1>
 		\begin{center}\small
 			\begin{tblr}{colspec={c|c}}
-				\tikz[>=latex]{ \node [] (0) at (0, -1) {}; \node [] (1) at (0, +1) {}; \draw[line width=2pt, gray, arrowpos={0.7}{4pt}{7pt}] [in=-45, out=120, looseness=1.25] (0.center) to (1.center); \foreach \n in {1,...,4} { \draw[blue!40, arrowpos={0.2}{0pt}{2pt}] (0, 0) [partial ellipse=90:430:{0.3*\n} and {0.05*\n}] ; } \draw[thin, green!50!black, arrowpos={0.2}{0pt}{2pt}] (0,0) [partial ellipse=90:440:{0.3*5} and {0.05*5}] node[pos=0.2, above] {$L$}; }
-					& \tikz[>=latex]{ \node [] (0) at (0, -1) {}; \node [] (1) at (0, +1) {}; \draw[line width=2pt, gray, arrowpos={0.7}{4pt}{7pt}] [in=-45, out=120, looseness=1.25] (0.center) to (1.center); \foreach \n in {1,...,4} { \draw[blue!40, arrowpos={0.2}{0pt}{2pt}] (0, 0) [partial ellipse=90:430:{0.3*\n} and {0.05*\n}] ; } \draw[thin, green!50!black, arrowpos={0.2}{0pt}{2pt}] (-1,0) [partial ellipse=0:360:{0.3*2} and {0.05*2}] node[pos=0.2, above] {$L$}; } \\
+				\tikz[>=latex]{ 
+					\node [] (0) at (0, -1) {}; 
+					\node [] (1) at (0, +1) {}; 
+					\draw[line width=2pt, gray, arrowpos={0.7}{4pt}{7pt}] [in=-45, out=120, looseness=1.25] (0.center) to (1.center); 
+					\foreach \n in {1,...,4} { \draw[blue!40, arrowpos={0.2}{0pt}{2pt}] (0, 0) [partial ellipse=90:430:{0.3*\n} and {0.05*\n}] ; } 
+					\draw[thin, green!50!black, arrowpos={0.2}{0pt}{2pt}] (0,0) [partial ellipse=90:440:{0.3*5} and {0.05*5}] node[pos=0.2, above] {$L$}; }
+					& \tikz[>=latex]{ \node [] (0) at (0, -1) {}; \node [] (1) at (0, +1) {}; 
+					\draw[line width=2pt, gray, arrowpos={0.7}{4pt}{7pt}] [in=-45, out=120, looseness=1.25] (0.center) to (1.center); 
+					\foreach \n in {1,...,4} { \draw[blue!40, arrowpos={0.2}{0pt}{2pt}] (0, 0) [partial ellipse=90:430:{0.3*\n} and {0.05*\n}] ; } 
+					\draw[thin, green!50!black, arrowpos={0.2}{0pt}{2pt}] (-1,0) [partial ellipse=0:360:{0.3*2} and {0.05*2}] node[pos=0.2, above] {$L$}; } \\
 				$\oint\limits_L \Bfield\cdot d\vect{r} = \frac{4\pi}c I$
 					& $\oint\limits_L \Bfield\cdot d\vect{r} = 0$ \\
 				\hline
-				\tikz[>=latex]{ \node [] (0) at (0, -1) {}; \node [] (1) at (0, +1) {}; \draw[line width=2pt, gray, arrowpos={0.7}{4pt}{7pt}] [in=-45, out=120, looseness=1.25] (0.center) to (1.center); \draw[line width=2pt, gray, arrowpos={0.7}{4pt}{7pt}] [out=-45, in=120, looseness=1.25] ([xshift=0.5cm]1.center) to ([xshift=0.5cm]0.center); \draw[thin, green!50!black, arrowpos={0.4}{0pt}{2pt}] (-0.5,0) [partial ellipse=0:360:{0.3*3} and {0.05*3}] node[pos=0.4, above] {$L$}; }
-					& \tikz[>=latex]{ \node [] (0) at (0, -1) {}; \node [] (1) at (0, +1) {}; \draw[line width=2pt, gray, arrowpos={0.7}{4pt}{7pt}] [in=-45, out=120, looseness=1.25] (0.center) to (1.center); \draw[line width=2pt, gray, arrowpos={0.7}{4pt}{7pt}] [out=-45, in=120, looseness=1.25] ([xshift=0.5cm]1.center) to ([xshift=0.5cm]0.center); \draw[thin, green!50!black, arrowpos={0.4}{0pt}{2pt}] (-0.1,0) [partial ellipse=0:360:{0.3*3} and {0.05*3}] node[pos=0.4, above] {$L$}; } \\
+				\tikz[>=latex]{ \node [] (0) at (0, -1) {};
+				\node [] (1) at (0, +1) {}; 
+				\draw[line width=2pt, gray, arrowpos={0.7}{4pt}{7pt}] [in=-45, out=120, looseness=1.25] (0.center) to (1.center); 
+				\draw[line width=2pt, gray, arrowpos={0.7}{4pt}{7pt}] [out=-45, in=120, looseness=1.25] ([xshift=0.5cm]1.center) to ([xshift=0.5cm]0.center); 
+				\draw[thin, green!50!black, arrowpos={0.4}{0pt}{2pt}] (-0.5,0) [partial ellipse=0:360:{0.3*3} and {0.05*3}] node[pos=0.4, above] {$L$}; }
+					& \tikz[>=latex]{ \node [] (0) at (0, -1) {}; 
+					\node [] (1) at (0, +1) {}; 
+					\draw[line width=2pt, gray, arrowpos={0.7}{4pt}{7pt}] [in=-45, out=120, looseness=1.25] (0.center) to (1.center); 
+					\draw[line width=2pt, gray, arrowpos={0.7}{4pt}{7pt}] [out=-45, in=120, looseness=1.25] ([xshift=0.5cm]1.center) to ([xshift=0.5cm]0.center); \draw[thin, green!50!black, arrowpos={0.4}{0pt}{2pt}] (-0.1,0) [partial ellipse=0:360:{0.3*3} and {0.05*3}] node[pos=0.4, above] {$L$}; } \\
 				$\oint\limits_L \Bfield\cdot d\vect{r} = \frac{4\pi}c I$
 					& $\oint\limits_L \Bfield\cdot d\vect{r} = \frac{4\pi}c (I + (-I)) = 0$ \\
 			\end{tblr}
@@ -715,10 +616,15 @@
 		\onslide<2>
 		\begin{tblr}{colspec={Q[c,m, 0.3\linewidth]|X[c,m]}}
 			Поле нескінченного провідника
-				& \tikz[>=latex, baseline]{ \node [] (0) at (0, -1) {}; \node [] (1) at (0, +1) {}; \draw[line width=2pt, gray, arrowpos={0.7}{4pt}{7pt}] (0.center) to (1.center); \foreach \n in {1,...,4} { \draw[blue!40, arrowpos={0.2}{0pt}{2pt}] (0, 0) [partial ellipse=100:435:{0.3*\n} and {0.05*\n}] ; } \draw[thin, green!50!black, arrowpos={0.2}{0pt}{2pt}] (0,0) [partial ellipse=100:435:{0.3*4} and {0.05*4}] node[pos=0.2, above] {$L$}; } $ B = \dfrac{2I}{c r} $ \\
+				& \tikz[>=latex, baseline]{ \node [] (0) at (0, -1) {}; 
+				\node [] (1) at (0, +1) {}; \draw[line width=2pt, gray, arrowpos={0.7}{4pt}{7pt}] (0.center) to (1.center); 
+				\foreach \n in {1,...,4} { \draw[blue!40, arrowpos={0.2}{0pt}{2pt}] (0, 0) [partial ellipse=100:435:{0.3*\n} and {0.05*\n}] ; } 
+				\draw[thin, green!50!black, arrowpos={0.2}{0pt}{2pt}] (0,0) [partial ellipse=100:435:{0.3*4} and {0.05*4}] node[pos=0.2, above] {$L$}; } $ B = \dfrac{2I}{c r} $ \\
 			\hline
 			Поле нескінченного соленоїда
-				& \tikz[>=latex, baseline]{ \foreach \y in {-1,-0.85,...,1} { \draw[thin, gray, arrowpos={0.4}{0pt}{4pt}] (0,\y) [partial ellipse=100:450:{0.3*4} and {0.05*4}]; } \draw [thin, green!50!black, arrowpos={0.6}{0pt}{4pt}] (0,-0.5) rectangle (2,0.5) node[pos=0.6, right] {$L$}; } $ B = \frac{4\pi}c\frac{N}{l} I $
+				& \tikz[>=latex, baseline]{ 
+					\foreach \y in {-1,-0.85,...,1} { \draw[thin, gray, arrowpos={0.4}{0pt}{4pt}] (0,\y) [partial ellipse=100:450:{0.3*4} and {0.05*4}]; } 
+					\draw [thin, green!50!black, arrowpos={0.6}{0pt}{4pt}] (0,-0.5) rectangle (2,0.5) node[pos=0.6, right] {$L$}; } $ B = \frac{4\pi}c\frac{N}{l} I $
 		\end{tblr}
 	\end{overprint}
 \end{frame}
@@ -733,31 +639,30 @@
 		\vect{j}\cdot d\vect{S}
 	\end{equation*}
 	\begin{center}\small
-		\begin{tblr}%
-			{colspec={Q[c,m, 0.3\linewidth]|X[l,m]}} Поле всередині нескінченного
-			циліндричного провідника
-			 &
-			\tikz[>=latex, baseline]{ \draw[gray!50, line width=1cm] (0, -1) -- (0,1);
-				\draw[] (-0.5, -1) -- (-0.5,1) (+0.5, -1) -- (+0.5,1) ; \draw[fill=gray!50]
-				(0,1) circle (0.5 and 0.1); \draw[fill=gray!50] (0,-1) ++(-0.5,0) arc
-				(180:360:0.5 and 0.1); \draw[dotted] (0,-1) ++(+0.5,0) arc (0:180:0.5 and
-				0.1); \draw[thin, green!50!black, arrowpos={0.1}{0pt}{2pt}, fill=green] (0,0)
+		\begin{tblr}{colspec={Q[c,m, 0.3\linewidth]|X[l,m]}}
+			Поле всередині нескінченного циліндричного провідника
+				& \tikz[>=latex, baseline]{
+				\draw[gray!50, line width=1cm] (0, -1) -- (0,1);
+				\draw[] (-0.5, -1) -- (-0.5,1) (+0.5, -1) -- (+0.5,1) ;
+				\draw[fill=gray!50] 				(0,1) circle (0.5 and 0.1);
+				\draw[fill=gray!50] (0,-1) ++(-0.5,0) arc
+				(180:360:0.5 and 0.1); \draw[dotted] (0,-1) ++(+0.5,0) arc (0:180:0.5 and 0.1);
+				\draw[thin, green!50!black, arrowpos={0.1}{0pt}{2pt}, fill=green] (0,0)
 				[partial ellipse=0:360:{0.3*1} and {0.05*1}] node[pos=0.1, above] {$L$};
-				\draw[->] (0,-0.1) -- ++(0, 0.5) node[left] {$\vect{j}$}; \path (0,0) [partial
-					ellipse=0:360:{0.3*3} and {0.05*3}]; } $ B = \dfrac{2\pi}c jr $ \\\hline Поле
-			зовні нескінченного циліндричного провідника
-			 &
-			\tikz[>=latex, baseline]{ \draw[gray!50, line width=1cm] (0, -1) -- (0,1);
+				\draw[->] (0,-0.1) -- ++(0, 0.5) node[left] {$\vect{j}$};
+				\path (0,0) [partial ellipse=0:360:{0.3*3} and {0.05*3}]; } $ B = \dfrac{2\pi}c jr $ \\
+			\hline
+			Поле зовні нескінченного циліндричного провідника
+				& \tikz[>=latex, baseline]{ \draw[gray!50, line width=1cm] (0, -1) -- (0,1);
 				\draw[] (-0.5, -1) -- (-0.5,1) (+0.5, -1) -- (+0.5,1) ; \draw[fill=gray!50]
 				(0,1) circle (0.5 and 0.1); \draw[fill=gray!50] (0,-1) ++(-0.5,0) arc
 				(180:360:0.5 and 0.1); \draw[dotted] (0,-1) ++(+0.5,0) arc (0:180:0.5 and
 				0.1); \draw[thin, green!50!black, arrowpos={0.1}{0pt}{2pt}] (0,0) [partial
-					ellipse=0:360:{0.3*3} and {0.05*3}] node[pos=0.1, above] {$L$};
+				    ellipse=0:360:{0.3*3} and {0.05*3}] node[pos=0.1, above] {$L$};
 
 				\fill[green] (0,0) [partial ellipse=0:360:{0.5} and {0.05}];
 
-				\draw[->] (0,-0.1) -- ++(0, 0.5) node[left] {$\vect{j}$}; } $ B =
-				                                                             \dfrac{2}{cr} j\pi R^2 = \dfrac{2I}{cr} $
+				\draw[->] (0,-0.1) -- ++(0, 0.5) node[left] {$\vect{j}$}; } $ B = \dfrac{2}{cr} j\pi R^2 = \dfrac{2I}{cr} $
 		\end{tblr}
 	\end{center}
 
@@ -873,7 +778,15 @@
 	\begin{center}
 		\begin{tblr}{colspec={Q[c, m, mode=dmath]X[c,m]}}
 			\vect{p}_m = \frac{I}{2c}\oint\limits_{L} \vect{r}\times d\vect{\ell} = \frac1c I\pi R^2 \vect{n} =\frac1c I S \vect{n}
-				& \tikz[>=latex, baseline]{ \def\R{1.5} \draw[thick, red, arrowpos={0.7}{4pt}{5pt}] (0,0) [partial ellipse =0:360:\R] node[pos=0.7, above] {$I$}; \draw[->] (0,0) -- node[below] {$\vect{r}$} (0:\R) coordinate (P); \draw[->] (P) -- node[right] {$d\vect{\ell}$} ++(0, 0.5) coordinate (E); \fill[red!30, opacity=0.5] (0,0) -- (P) -- (E) -- cycle; \fill[blue] (0, 0) circle (2pt); \draw[blue] (0, 0) circle (4pt); \node[below, circle, inner sep=4pt, blue] at (0, 0) {$\vect{p}_m$}; }
+				& \tikz[>=latex, baseline]{
+					\def\R{1.5} \draw[thick, red, arrowpos={0.7}{4pt}{5pt}] (0,0) [partial ellipse =0:360:\R] node[pos=0.7, above] {$I$};
+					\draw[->] (0,0) -- node[below] {$\vect{r}$} (0:\R) coordinate (P);
+					\draw[->] (P) -- node[right] {$d\vect{\ell}$} ++(0, 0.5) coordinate (E);
+					\fill[red!30, opacity=0.5] (0,0) -- (P) -- (E) -- cycle;
+					\fill[blue] (0, 0) circle (2pt);
+					\draw[blue] (0, 0) circle (4pt);
+					\node[below, circle, inner sep=4pt, blue] at (0, 0) {$\vect{p}_m$};
+				}
 		\end{tblr}
 	\end{center}
 	\begin{tblr}{colspec={X[c,m]X[c,m]}}
@@ -890,7 +803,7 @@
 			\draw [thick, red, decoration={ markings, mark=at position 0.5 with
 							{\arrow{latex}}}, postaction={decorate}](0,0) [ partial ellipse =0:360:0.25
 				and 1]; \draw[blue, -latex, thick] (0, 0) -- +(1, 0) node[right, black]
-			{$\vec{p}_m$};
+			{$\vect{p}_m$};
 			%			\node[blue] at (0.5,1) {$N$};
 			%			\node[red] at (-0.5,1) {$S$};
 		\end{tikzpicture}
@@ -1174,7 +1087,7 @@
 \begin{frame}{Потенціальна енергія диполя в магнітному полі}{}
 	\begin{block}{}\justifying
 		Розглянемо виток площею $S$, у якому циркулює \alert{постійний} струм $I$.
-		Магнітний момент цього витка $\vect{p}_m = \frac1c IS\ \vec{n}$.
+		Магнітний момент цього витка $\vect{p}_m = \frac1c IS\ \vect{n}$.
 		%Вважаємо, що магнітний
 		%момент не змінюється за величиною, тільки може змінювати напрямок у просторі. Останнє припущення істотне, і воно передбачає, що в коло витка
 		%ввімкнене

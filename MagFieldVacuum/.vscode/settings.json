@@ -17,6 +17,7 @@
   "tssworkflow.normalizeBlankLines": true,
   "tssworkflow.quoteStyle": "enquote",
   "tssworkflow.singlePass": false,
+  "tssworkflow.passes": 3,
   "tssworkflow.logParser": "texlogsieve",
    "tssworkflow.texlogsieveTerminal": "always",
   "tssworkflow.frameRules": {

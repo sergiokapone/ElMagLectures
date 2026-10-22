@@ -2,7 +2,6 @@
 % !TeX program = lualatex
 % !TeX encoding = utf8
 % !TeX spellcheck = uk_UA
-% !BIB program = bibler
 
 \documentclass[onlytextwidth]{beamer}
 \usetheme{Electromagnetism}
@@ -188,12 +187,12 @@
 		Знайдемо магнітний момент такого циліндрика:
 		\begin{equation*}
 			\vect{p}_m = \vect{J}V = \frac1c I_mS\ \vect{n} \Rightarrow\ \vect{J}S\ell\cos\theta = \frac1c I_m S\ \vect{n}
-			\Rightarrow\ \vect{J}\cdot\vect{\tau} \ell\cos\theta  = \frac1c I_m \ \vect{n}\cdot\vect{\tau}
+			\Rightarrow\ \vect{J}\cdot\vect{\tau} \ell\cos\theta  = \frac1c I_m \ \vect{n}\cdot\vect{\tau},\ {\color{red}\vect{n}\cdot\vect{\tau} = \cos\theta}.
 		\end{equation*}
 		\begin{equation*}
-			{I_m}\ /\ {\ell} = i_m = c\vect{J}\cdot\vect{\tau},\ {\color{red}\vect{n}\cdot\vect{\tau} = \cos\theta}.
+			I_m = c \vect{J} \cdot \vect{\ell}, \quad {I_m}\ /\ {\ell} = i_m = c\vect{J}\cdot\vect{\tau}
 		\end{equation*}
-		\alert{Молекулярні струми перпендикулярні намагніченості: $\vect{i}_m \perp \vect{J}$.}
+		\alert{Молекулярні струми перпендикулярні намагніченості}
 	\end{block}
 \end{frame}
 % ===========================================================================
@@ -218,10 +217,10 @@
 			\end{column}
 			\begin{column}{0.5\linewidth}
 				\begin{block}{}\justifying\small
-					Виберемо тепер у речовині довільний замкнутий контур {\color{green!50!black}$L$}. На одиницю довжини контуру припадає струм
+					Виберемо тепер у речовині довільний замкнутий контур {\color{green!50!black}$L$}. На довжину контуру $d\ell$ припадає струм
 					намагнічування:
 					\begin{equation*}
-						i_m = c\vect{J}\cdot d\vect{\ell},
+						dI_m = i_m d\ell =  c\vect{J}\cdot d\vect{\ell},
 					\end{equation*}
 					таким чином,  контур перетинає повний струм:
 					\begin{equation*}
@@ -366,7 +365,7 @@
 	\begin{block}{}\justifying\small
 		Деякі речовини можуть зберігати намагніченість $\vect{J}$ за відсутності зовнішнього магнітного поля. Для них не виконується просте співвідношення
 		$\vect{J} = \chi_m\Hfield$ при всіх значеннях $\Hfield$. Такі речовини називаються \alert{феромагнетиками}. До їх числа належать, наприклад, \ce{Fe},
-		\ce{Co}, \ce{Ni}. В діапазоні, де таке співвідношення формально виконується, магнітна проникність феромагнетиків сягає значень порядку $\mu
+		\ce{Co}, \ce{Ni}. В діапазоні, де таке співвідношення формально виконується, магнітна проникність феромагнетиків сягає значень порядку\\ $\mu
 			\gg 1$.
 	\end{block}
 \end{frame}
@@ -376,7 +375,7 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Задачі}{}\small
+\begin{frame}[t]{Задачі}{}\small
 	\begin{onlyenv}<1>
 		\begin{exampleblock}{Задача 1}\justifying
 			Знайти індукцію магнітного поля в середині нескінченного  соленоїда з густиною намотки $n$, по виткам якого тече струм $I$. Об'єм в середині
@@ -415,6 +414,36 @@
 			\end{columns}
 		\end{exampleblock}
 	\end{onlyenv}
+	\begin{onlyenv}<3>
+		\begin{exampleblock}{Задача 3}\justifying
+			Циліндр довжиною $\ell$ та радіусом $R$ виготовлений з магнетика з замороженою намагніченістю $\vect{J} = \const$, що напрямлена вздовж його осі. Знайти магнітну індукцію і напруженість магнітного поля в центрі циліндра. Чому дорівнює об'ємна та поверхнева густина струмів намагнічування. Зобразити схематичну картину полів вектора $\Bfield$ та вектора $\Hfield$ в середині та зовні циліндра. Порівняйте з задчачею про заморожену поляризацію в електретах.
+
+			\vspace*{1ex}
+
+			Вказівка: Скористайтесь формулою для визнячення магнітного поля в центрі соленоїда $ B = \frac{2\pi}{c}{nI} \frac{\ell}{\sqrt{R^2 + \ell^2/4}}$. 
+		\end{exampleblock}
+	\end{onlyenv}
+	\begin{onlyenv}<4>
+		\begin{exampleblock}{Задача 4}\justifying
+			Знайдіть намагніченість довгого циліндра, вміщеного в зовнішнє однорідне магнітне поле індукцією $\Bfield_0$. Магнітна проникність матеріалу циліндра дорівнює $\mu$ (тут вже формулв $\vect{J} = \chi \Hfield$ працює!).
+		\end{exampleblock}
+
+		\begin{exampleblock}{Задача 5}\justifying
+			Знайдіть намагніченість короткого циліндра, вміщеного в зовнішнє однорідне магнітне поле індукцією $\Bfield_0$. Магнітна проникність матеріалу циліндра дорівнює $\mu$ (тут вже формулв $\vect{J} = \chi \Hfield$ працює!).
+		\end{exampleblock}
+		\begin{alertblock}{}\justifying
+	Задачі 4 та 5 показують, що та сама речовина намагнічується по-різному залежно від форми зразка: у довгого тонкого стрижня, орієнтованого вздовж поля, розмагнічувальне поле полюсів майже не заважає, тож \(J\approx\chi B_0\), тоді як короткий диск «гасить» власну намагніченість, і \(J\approx \chi/\mu B_0 \). Тому на практиці феромагнетик магнітять довгим стрижнем (або замкненим осердям), а не коротким товстим зразком.
+		\end{alertblock}
+
+		\begin{block}{}\scriptsize\color{blue}
+			Загальна формула для еліпсоїда обертання, намагніченого вздовж осі, має вигляд
+	\(
+	J=\frac{\chi}{1+4\pi N\chi}\,B_0,
+	\)
+	де \(N\) --- розмагнічувальний фактор форми; для довгого стрижня вздовж осі \(N\to0\) і \(J\to\chi B_0\), для тонкого диска \(N\to1\), а для кулі \(N=\tfrac13\). Оскільки намагніченість тим більша, чим менше \(N\), краще за все намагнічується витягнутий еліпсоїд (довгий стрижень), орієнтований уздовж поля; куля з \(N=\tfrac13\) намагнічується гірше за нього, але краще за сплюснутий еліпсоїд чи короткий циліндр, тож саме витягнутий уздовж поля зразок, а не кулю, слід обирати для максимальної намагніченості.
+		\end{block}
+	\end{onlyenv}
+
 \end{frame}
 % ===========================================================================
 
@@ -497,12 +526,23 @@
 			}
 			\)
 		\end{block}
-		\begin{block}{}\justifying\small
-			Останню умову можна можна записати у векторному вигляді: Оскільки $ \vect{\tau} = \vect{b}\times\vect{n} $. То $(\Hfield_2 - \Hfield_1)\vect{\tau} =
-				\frac{4\pi}c i_b $, або $(\Hfield_2 - \Hfield_1)[\vect{b}\times\vect{n}] = \frac{4\pi}c i_b $. Зробивши циклічний зсув співмножників у змішаному
-			добутку векторів, отримаємо:
+		\begin{block}{}\justifying\scriptsize
+			Останню умову можна записати у векторному вигляді. Оскільки
+			$\vect{\tau}=\vect{b}\times\vect{n}$, то
+			$(\Hfield_2-\Hfield_1)\vect{\tau}=\dfrac{4\pi}{c}i_b$, або
+			$(\Hfield_2-\Hfield_1)[\vect{b}\times\vect{n}]=\dfrac{4\pi}{c}i_b$.
+			Зробивши циклічний зсув співмножників у змішаному добутку векторів,
+			отримаємо:
+			\[
+				\vect{b}\cdot\bigl(\vect{n}\times(\Hfield_2-\Hfield_1)\bigr)
+				=\frac{4\pi}{c}i_b .
+			\]
+			Враховуючи, що вектор $\vect{n}\times(\Hfield_2-\Hfield_1)$ лежить
+			у дотичній площині та паралельний $\vect{b}$ (отже, й $\vect{i}$),
+			а $|\vect{b}|=1$ і $\vect{i}=i_b\vect{b}$, дістанемо векторну
+			форму граничної умови:
 			\(
-            	\vect{n}\times (\Hfield_2 - \Hfield_1) = \frac{4\pi}c \vect{i}.
+			\vect{n}\times(\Hfield_2-\Hfield_1)=\frac{4\pi}{c}\vect{i}.
 			\)
 		\end{block}
 		\begin{alertblock}{}\centering
@@ -526,7 +566,7 @@
 		\begin{column}{0.55\linewidth}\centering
 			\input{tikz/refraction.tikz}
 		\end{column}
-        \
+		\
 		\begin{column}{0.45\linewidth}\small
 			Граничні умови для вектора $\Hfield$
 			\begin{equation*}
@@ -684,17 +724,17 @@
 % ============================== Слайд ## ===================================
 \begin{frame}{Підсумки}{}
 	\begin{tblr}{
-		colspec={X[c,l]Q[mode=dmath]}
+			colspec={X[c,l]Q[mode=dmath]}
 		}
-		Вектор намагнічення                           & \vect{J} = \frac1V\sum \vect{p}_i                                            \\
-		Теорема про циркуляцію для вектора $\vect{J}$ & c \oint\limits_L \vect{P}d\vect{\ell} = I_m                                  \\
-		в диференціальній формі                       & c\Rot\vect{J} = \vect{j}_m                                                   \\
-		Вектор напруженості                           & \Hfield = \Bfield  - 4\pi\vect{J}                                            \\
-		Для лінійних магнетиків                       & \vect{J} = \chi_m \Hfield                                                    \\
-		{Зв'язок проникності і сприйнятливості                                                                                       \\ (для лінійних магнетиків)} & \mu = 1+ 4\pi\chi_m \\
-		Для лінійних магнетиків                       & \Bfield = \mu\Hfield                                                         \\
-		Теорема про циркуляцію в магнетиках           & \oint\limits_L \Hfield d\vect{\ell} = \frac{4\pi}c \iint\limits_S\vect{j} dS \\
-		в диференціальній формі                       & \Rot\Hfield = \frac{4\pi}c \vect{j}
+		Вектор намагнічення                                                                                                                                        & \vect{J} = \frac1V\sum \vect{p}_i                                            \\
+		Теорема про циркуляцію для вектора $\vect{J}$                                                                                                              & c \oint\limits_L \vect{J}d\vect{\ell} = I_m                                  \\
+		в диференціальній формі                                                                                                                                    & c\Rot\vect{J} = \vect{j}_m                                                   \\
+		Вектор напруженості                                                                                                                                        & \Hfield = \Bfield  - 4\pi\vect{J}                                            \\
+		Для лінійних магнетиків                                                                                                                                    & \vect{J} = \chi_m \Hfield                                                    \\
+		{Зв'язок проникності і сприйнятливості                                                                                       \\ (для лінійних магнетиків)} & \mu = 1+ 4\pi\chi_m                                                          \\
+		Для лінійних магнетиків                                                                                                                                    & \Bfield = \mu\Hfield                                                         \\
+		Теорема про циркуляцію в магнетиках                                                                                                                        & \oint\limits_L \Hfield d\vect{\ell} = \frac{4\pi}c \iint\limits_S\vect{j} dS \\
+		в диференціальній формі                                                                                                                                    & \Rot\Hfield = \frac{4\pi}c \vect{j}
 	\end{tblr}
 \end{frame}
 % ===========================================================================
