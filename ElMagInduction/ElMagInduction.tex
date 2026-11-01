@@ -17,6 +17,13 @@
 \date{}
 %============================================================================
 \graphicspath{{pictures/}}
+
+% Рамка <<олівцем>> для цитат
+\tikzset{pencildraw/.style={decorate, decoration={random steps,segment length=2pt,amplitude=1pt}}}
+\newcommand{\pencilquote}[1]{%
+	\tikz{\node[align=justify, preaction={fill=black,opacity=.5}, pencildraw, draw, fill=white,
+			text width=\dimexpr\linewidth-5mm\relax, inner sep=2mm, drop shadow] {#1};}}
+
 \begin{document}
 
 \begin{frame}[plain]
@@ -42,37 +49,27 @@
 	\tikz[remember picture,overlay] \node[opacity=0.75,inner sep=0pt,
 		anchor=south west] at (current page.south west){\includegraphics[width=2cm]{Faraday}};
 	\begin{block}{}\justifying
-		Фарадей зробив фундаментальне відкриття в електродинаміці --- \alert{явище електромагнітної індукції}. Воно
-		полягає в тому, що в замкненому провідному контурі при зміні магнітного потоку, охопленого цим контуром, виникає електричний струм (який
-		називається \alert{індукційним}).
+		Фарадей зробив фундаментальне відкриття в електродинаміці --- \alert{явище електромагнітної індукції}. Воно полягає в тому, що в замкненому
+		провідному контурі при зміні магнітного потоку, охопленого цим контуром, виникає електричний струм (який називається \alert{індукційним}).
 	\end{block}
-	\begin{overprint}
-		\onslide<1>
+	\begin{onlyenv}<1>
 		\begin{center}
-			\begin{block}{}\centering\itshape\small
-				\tikz[pencildraw/.style={ %
-							decorate,
-							decoration={random steps,segment length=2pt,amplitude=1pt}
-						} %
-				]{
-					\node[align=center,
-						preaction={fill=black,opacity=.5},
-						pencildraw,draw,fill=white,text width = \linewidth,inner sep=2mm, drop shadow]
-					{Восени 1831 року Майкл Фарадей виконав завдання, яке ще в 1822 року записав собі в пам'ятній книжці,
-						\alert{<<перетворити магнетизм на електрику>>}.
-					}
-				}
-			\end{block}
-			\includegraphics[width=0.7\linewidth]{Faraday_in_lab}
+			{\centering\itshape\small
+				\pencilquote{\centering Восени 1831 року Майкл Фарадей виконав завдання, яке ще в 1822 році записав собі в пам'ятній книжці:
+					\alert{<<перетворити магнетизм на електрику>>}.}\par}
+			\medskip
+			\includegraphics[height=0.4\textheight]{Faraday_in_lab}
 		\end{center}
-		\onslide<2>
+	\end{onlyenv}
+	\begin{onlyenv}<2>
 		\begin{center}
 			\begin{pict}
-				\includegraphics[width=0.6\linewidth]{Faraday_experiments}
+				\includegraphics[height=0.52\textheight]{Faraday_experiments}
 			\end{pict}
+
 			\href{https://youtu.be/GrBYG8NIUoU}{\color{blue}\small Досліди Фарадея}
 		\end{center}
-	\end{overprint}
+	\end{onlyenv}
 \end{frame}
 % ===========================================================================
 
@@ -80,21 +77,22 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Закон електромагнітної індукції}{}
-	\begin{block}{}
-		На основі дослідів Фарадея було сформульовано заон електромагнітної індукції
-	\end{block}
-	\begin{block}{Закон Електромагнітної індукції}\justifying
-		Електрорушійна сила (ЕРС), що виникає в контурі пропорційна швидкості зміни магнітного потоку, що пронизує площу, охоплену даним контуром:
+	\begin{block}{Закон електромагнітної індукції (Фарадей)}\justifying
+		ЕРС, що виникає в замкненому контурі, пропорційна швидкості зміни магнітного потоку крізь поверхню, обмежену цим контуром:
 		\begin{equation*}
-			\tcbhighmath{\mathcal{E}_\text{ind} =  -\frac1c \frac{d\Phi}{dt}} = -\frac1c \frac{d}{dt} \iint\limits_S \Bfield\cdot d\vect{S}.
+			\tcbhighmath{\EMF_\text{інд} = -\frac1c \frac{d\Phi}{dt}}, \qquad \Phi = \iint\limits_S \Bfield\cdot d\vect{S}.
 		\end{equation*}
 	\end{block}
-	\begin{block}{}
-		Магнітний потік може змінюватись  у двох випадках:
+	\begin{block}{}\justifying
+		Магнітний потік може змінюватися:
 		\begin{itemize}
-			\item При зміні площі самого контура, що пронизується магнітним полем.
-			\item При зміні величини магнітного поля, що пронизує контур;
+			\item через \alert{рух або деформацію контуру} в постійному полі (зміна площі, поворот рамки);
+			\item через \alert{зміну магнітного поля} в часі, коли контур нерухомий.
 		\end{itemize}
+		Фізичні причини ЕРС у цих двох випадках --- різні, хоча закон записується однаково.
+	\end{block}
+	\begin{block}{}\justifying\small
+		Знак <<$-$>> виражає \alert{правило Ленца}. Для котушки з $N$ однакових витків під знаком похідної стоїть \alert{потокозчеплення} $\Psi = N\Phi$.
 	\end{block}
 \end{frame}
 % ===========================================================================
@@ -107,40 +105,50 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Виникнення ЕРС за рахунок зміни площі контура}{}\small
-	\begin{block}{}\justifying
-		Електрорушійна сила (ЕРС), що виникає в контурі пропорційна швидкості зміни магнітного потоку, що пронизує площу, охоплену даним контуром:
-		\begin{equation*}
-			\mathcal{E}_\text{ind} =  -\frac1c \frac{d\Phi}{dt} = -\frac1c \Bfield\cdot \frac{d}{dt} \iint\limits_S \vect{S} = -\frac1c \Bfield\cdot
-			\frac{dS}{dt}.
-		\end{equation*}
-	\end{block}
-	\begin{columns}
+	\begin{columns}[T]
 		\begin{column}{0.4\linewidth}\centering
 			\begin{pict}
 				\includegraphics[width=0.85\linewidth]{Area_change}
 			\end{pict}
 		\end{column}
 		\begin{column}{0.6\linewidth}
-			\begin{block}{}\justifying
-				Зміна площі контура при русі перемички $bc$ довжиною $\ell$:
-				\begin{equation*}
-					\frac{dS}{dt} = -\ell v.
-				\end{equation*}
-				ЕРС індукції:
-				\begin{equation*}
-					\mathcal{E}_\text{ind} = Bl\frac{v}{c}.
-				\end{equation*}
-			\end{block}
+			\begin{overprint}
+				\onslide<1>
+				\begin{block}{За законом Фарадея}\justifying
+					Поле $\Bfield$ однорідне й перпендикулярне до площини контуру. Перемичка $bc$ довжиною $\ell$ рухається зі швидкістю $v$, площа
+					контуру змінюється як
+					\begin{equation*}
+						\frac{dS}{dt} = -\ell v,
+						\qquad
+						\EMF_\text{інд} = -\frac{B}{c}\frac{dS}{dt} = \frac{B\ell v}{c}.
+					\end{equation*}
+				\end{block}
+				\onslide<2>
+				\begin{block}{Через силу Лоренца}\justifying
+					На електрони в рухомій перемичці діє сила $\vect{F} = -\frac{e}{c}\left[\vect{v}\times\Bfield\right]$. Її робота з перенесення
+					одиничного заряду вздовж перемички і є ЕРС:
+					\begin{equation*}
+						\EMF_\text{інд} = \frac1c\int\limits_b^c \left[\vect{v}\times\Bfield\right]\cdot d\vect{\ell} = \frac{B\ell v}{c}.
+					\end{equation*}
+				\end{block}
+			\end{overprint}
 		\end{column}
 	\end{columns}
-	\begin{block}{}\justifying
-		Якщо зовнішня сила рухає перемичку зі швидкістю $v$, то на рухомі електрони в перемичці діє сила Лоренца з боку магнітного поля:
-		\(
-		\vect{F} = -e\frac1c\left[\vect{v}\times\Bfield\right],
-		\)
-		тобто, ЕРС індукції в рухомих провідниках зумовлена сумісною дією на носії струму магнітного поля та зовнішніх сил, які підтримують рух. При
-		цьому саме зовнішні сили надають необхідну для цього енергію.
-	\end{block}
+	\begin{overprint}
+		\onslide<1>
+		\begin{alertblock}{}\justifying
+			Але ж магнітна сила роботи не виконує! Звідки береться енергія індукційного струму?
+		\end{alertblock}
+		\onslide<2>
+		\begin{block}{Енергетичний баланс}\justifying
+			Коли тече струм $I$, на перемичку діє сила Ампера $F_A = \frac1c I\ell B$, спрямована проти руху. Щоб рух був рівномірним, зовнішня сила
+			має її зрівноважувати, розвиваючи потужність
+			\begin{equation*}
+				P = F_A v = \frac{I\ell B v}{c} = \EMF_\text{інд} I.
+			\end{equation*}
+			\alert{Магнітне поле лише <<перенаправляє>> роботу зовнішніх сил}, які й постачають енергію індукційного струму.
+		\end{block}
+	\end{overprint}
 \end{frame}
 % ===========================================================================
 
@@ -149,8 +157,8 @@
 % ============================== Слайд ## ===================================
 \begin{frame}{Принцип роботи генераторів змінного струму}{}
 	\begin{block}{}\justifying
-		Явище електромагнітної індукції використовують у механічних джерелах електричного струму (генераторах електричної енергії), без яких неможливо
-		уявити сучасну електроенергетику. У таких генераторах механічна енергія перетворюється на електричну.
+		Явище електромагнітної індукції використовують у генераторах електричної енергії, без яких неможливо уявити сучасну електроенергетику. У
+		генераторі механічна енергія перетворюється на електричну.
 	\end{block}
 	\begin{columns}
 		\begin{column}{0.4\linewidth}\centering
@@ -160,24 +168,24 @@
 		\end{column}
 		\begin{column}{0.6\linewidth}
 			\begin{block}{}\justifying
-				Простий генератор складається з рамки, яка  кінцями рамка кріпиться до кілець, що обертаються разом з нею. До кілець також щільно
-				прилягають щітки, які виконують роль контактів. Якщо обертати рамку в магнітному полі, то швидкість зміни потоку, що пронизує рамку:
+				Найпростіший генератор --- рамка площею $S$, що обертається з кутовою швидкістю $\omega$ в однорідному полі $\Bfield$. Кінці рамки
+				приєднані до кілець, до яких притиснуті щітки --- ковзні контакти. Потік крізь рамку
 				\begin{equation*}
-					\frac{d\Phi}{dt} = \frac{d}{dt}\left( BS\cos(\omega t)\right)  = -BS\sin(\omega t).
+					\Phi = BS\cos\omega t,
+					\qquad
+					\frac{d\Phi}{dt} = -\omega BS\sin\omega t.
 				\end{equation*}
 			\end{block}
 		\end{column}
 	\end{columns}
 	\begin{block}{}\justifying
-		В результаті виникне ЕРС індукції:
-		\(
-		\EMF_\text{інд} = \frac1c BS\sin(\omega t).
-		\)
-		І якщо на щітки  подати навантаження, то в рамці виникає змінний індукційний струм:
-		\(
-		I = \frac{\EMF_\text{інд}}{R} = \frac1c \frac{BS}{R}\sin(\omega t).
-		\)
-		Цей струм змінюється за законом синуса з частотою $\omega$, тобто з частотою обертання рамки.
+		У рамці виникає змінна ЕРС, а при підключенні навантаження $R$ --- змінний струм:
+		\begin{equation*}
+			\EMF_\text{інд} = \frac{\omega BS}{c}\sin\omega t,
+			\qquad
+			I = \frac{\EMF_\text{інд}}{R} = \frac{\omega BS}{cR}\sin\omega t.
+		\end{equation*}
+		Частота струму дорівнює частоті обертання рамки, а амплітуда ЕРС пропорційна $\omega$.
 	\end{block}
 \end{frame}
 % ===========================================================================
@@ -191,9 +199,9 @@
 % ============================== Слайд ## ===================================
 \begin{frame}{Виникнення ЕРС за рахунок зміни магнітного поля}{}
 	\begin{block}{}\justifying
-		Електрорушійна сила (ЕРС), що виникає в контурі пропорційна швидкості зміни магнітного потоку, що пронизує площу, охоплену даним контуром:
+		Контур нерухомий, змінюється лише поле. Для однорідного поля
 		\begin{equation*}
-			\mathcal{E}_\text{ind} =  -\frac1c \frac{d\Phi}{dt} = -\frac1c \parttime{\Bfield} \cdot \vect{S}.
+			\EMF_\text{інд} = -\frac1c \frac{d\Phi}{dt} = -\frac1c \parttime{\Bfield} \cdot \vect{S}.
 		\end{equation*}
 	\end{block}
 	\begin{center}
@@ -201,21 +209,19 @@
 			\includegraphics[width=0.5\linewidth]{Field_change}
 		\end{pict}
 	\end{center}
-	\begin{alertblock}{}
-		Яка причина виникнення ЕРС? Адже магнітне поле не діє на нерухомі заряди, то за рахунок чого вони прискорюються?
+	\begin{alertblock}{}\justifying
+		Яка причина виникнення ЕРС? Магнітне поле не діє на нерухомі заряди, то що ж їх прискорює?
 	\end{alertblock}
 \end{frame}
 % ===========================================================================
 
 
 
-
-
 % ============================== Слайд ## ===================================
 \begin{frame}{Правило Ленца}{}
 	\begin{block}{Правило Ленца}\justifying
-		\textcolor{red}{Індукційний струм} має такий напрямок, щоб за допомогою \textcolor{cyan}{створюваного ним магнітного поля} перешкоджати зміні
-		\textcolor{blue}{магнітного потоку}, тобто щоб послабити причину, яка збуджує цей струм.
+		\textcolor{red}{Індукційний струм} має такий напрямок, щоб \textcolor{cyan}{створюваним ним магнітним полем} перешкоджати зміні
+		\textcolor{blue}{магнітного потоку}, тобто послабити причину, яка збуджує цей струм.
 	\end{block}
 	\begin{columns}
 		\begin{column}{0.5\linewidth}\centering
@@ -266,8 +272,8 @@
 		\end{column}
 	\end{columns}
 	\begin{block}{}\justifying\small
-		Правило Ленца диктується законом збереження енергії і є одним із проявів загального принципу Ле Шательє-Брауна, за яким \alert{усякий зовнішній
-			вплив, що намагається вивести систему із стійкої рівноваги, продукує в ній компенсаційні процеси, спрямовані на нівелювання цього впливу}.
+		Правило Ленца є наслідком закону збереження енергії і одним із проявів загального принципу Ле Шательє--Брауна: \alert{зовнішній вплив, що
+			виводить систему зі стійкої рівноваги, збуджує в ній процеси, які цей вплив послаблюють}.
 	\end{block}
 \end{frame}
 % ===========================================================================
@@ -275,20 +281,32 @@
 % ============================== Слайд ## ===================================
 \begin{frame}{Струми Фуко}{}
 	\begin{block}{}\justifying
-		Струми Фуко --- вихрові індукційні струми, які виникають у провіднику під час зміни магнітного потоку через поверхню провідника.
+		Струми Фуко --- вихрові індукційні струми, що виникають у масивних провідниках при зміні магнітного потоку крізь них. Як і струми в
+		лінійних провідниках, вони підпорядковуються правилу Ленца.
 	\end{block}
-	\begin{center}
-		\begin{pict}
-			\includegraphics[width=.5\linewidth]{Fuko_currents}
-		\end{pict}
-	\end{center}
-	\begin{block}{}\justifying
-		Струми Фуко, як і індукційні струми в лінійних провідниках, підпорядковані правилу Ленца: їх магнітне поле направлене так, щоб протидіяти змінам
-		магнітного потоку, що індукували ці струми.
-	\end{block}
-	\begin{block}{}
-		\href{https://youtu.be/MglUIiBy2lQ}{\color{blue}Відео-демонстрація струмів Фуко}
-	\end{block}
+	\begin{columns}
+		\begin{column}{0.48\linewidth}\centering
+			\begin{pict}
+				\includegraphics[width=0.95\linewidth]{Fuko_currents}
+			\end{pict}
+
+			\medskip
+			\href{https://youtu.be/MglUIiBy2lQ}{\color{blue}\small Відео-демонстрація струмів Фуко}
+		\end{column}
+		\begin{column}{0.5\linewidth}
+			\begin{block}{Шкідливі}\justifying\small
+				Нагрівають осердя трансформаторів і двигунів. Тому осердя набирають з тонких ізольованих пластин або виготовляють з
+				фериту.
+			\end{block}
+			\begin{block}{Корисні}\small
+				\begin{itemize}
+					\item індукційні печі та плити;
+					\item магнітне гальмування, демпфери стрілок приладів;
+					\item вихрострумова дефектоскопія.
+				\end{itemize}
+			\end{block}
+		\end{column}
+	\end{columns}
 \end{frame}
 % ===========================================================================
 
@@ -296,7 +314,7 @@
 % ============================== Слайд ## ===================================
 \begin{frame}{Закон збереження магнітного потоку}{}\small
 	\begin{block}{}
-		Нехай замкнутий виток з опором $R$ перебуває в зовнішньому магнітному полі.
+		Нехай замкнений виток з опором $R$ перебуває в зовнішньому магнітному полі.
 	\end{block}
 	\begin{columns}
 		\begin{column}{0.2\linewidth}\centering
@@ -324,26 +342,22 @@
 		\end{column}
 		\begin{column}{0.8\linewidth}
 			\begin{block}{}\justifying
-				За будь-якої зміни магнітного поля у витку збуджується ЕРС
-				індукції. Струм, що виникає у витку:
+				Будь-яка зміна магнітного поля збуджує у витку ЕРС індукції, а отже, струм
 				\begin{equation*}
-					I = \frac{\mathcal{E}_i}{R} = - \frac{1}{cR} \frac{d\Phi}{dt}.
+					I = \frac{\EMF_\text{інд}}{R} = - \frac{1}{cR} \frac{d\Phi}{dt}.
 				\end{equation*}
-				Якщо опір контуру $R = 0$ (для надпровідника), то:
+				Якщо опір контуру $R \to 0$ (надпровідник), то
 				\begin{equation*}
-					\frac{d\Phi}{dt} = 0,\ \Rightarrow\ \Phi = \const
+					\frac{d\Phi}{dt} = -cRI \to 0\ \Rightarrow\ \Phi = \const,
 				\end{equation*}
-				інакше навіть малі зміни $\Phi$ викликали б нескінченні струми. Тобто, \alert{магнітний потік через контур з малим опором зберігається}.
-
+				інакше навіть малі зміни $\Phi$ викликали б нескінченні струми. Отже, \alert{магнітний потік крізь контур з дуже малим опором
+					зберігається}. Тут $\Phi$ --- повний потік, разом із потоком поля самого індукційного струму.
 			\end{block}
 		\end{column}
 	\end{columns}
 	\begin{block}{}\justifying
-		Це означає, що \alert{число силових ліній, що пронизують виток незмінне}.
-
-		\smallskip
-
-		Силові лінії ніби <<вморожені>> в провідний контур, при зміщенні контура він захоплює силові лінії магнітного поля.
+		Число силових ліній, що пронизують виток, незмінне: силові лінії ніби <<вморожені>> в провідний контур і при його зміщенні рухаються разом
+		із ним. Те саме відбувається в добре провідній плазмі (<<вморожене>> поле в астрофізиці).
 	\end{block}
 \end{frame}
 % ===========================================================================
@@ -359,25 +373,20 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Вихрове електричне поле}{}
-	%	\tikz[remember picture,overlay] \node[opacity=1,inner sep=0pt,
-	%		anchor=east] at ([yshift=1.5cm]current page.east){\includegraphics[width=2cm]{Maxwell}};
 	\begin{onlyenv}<1>
 		\begin{block}{}\justifying
-			Оскільки магнітний потік дорівнює $\Phi = \iint\limits_S \Bfield\cdot d\vect{S}$, а ЕРС індукції $\mathcal{E} = \oint\limits_L \vect{E}\cdot
-				d\vect{\ell}$,
-			то із закону індукції  випливає:
+			Оскільки $\Phi = \iint\limits_S \Bfield\cdot d\vect{S}$, а ЕРС --- це циркуляція сторонньої сили на одиничний заряд, $\EMF =
+				\oint\limits_L \Efield\cdot d\vect{\ell}$, то для нерухомого контуру із закону індукції випливає:
 			\begin{equation*}
-				\tcbhighmath{\oint\limits_L \Efield\cdot d\vect{\ell} = - \frac1{c} \iint\limits_S  \frac{\partial \Bfield}{\partial t}\cdot d\vect{S}.}
+				\tcbhighmath{\oint\limits_L \Efield\cdot d\vect{\ell} = - \frac1{c} \iint\limits_S \frac{\partial \Bfield}{\partial t}\cdot d\vect{S}.}
 			\end{equation*}
 		\end{block}
-		\begin{block}{Теорема про циркуляцію}\justifying
-			Циркуляція напруженості вихрового електричного поля по довільному контуру дорівнює взятому з протилежним знаком потокові швидкості зміни
-			індукції магнітного поля через довільну поверхню обмежену цим контуром.
+		\begin{block}{Теорема про циркуляцію $\Efield$}\justifying
+			Циркуляція напруженості електричного поля по довільному контуру дорівнює взятому з протилежним знаком потоку швидкості зміни
+			магнітної індукції крізь довільну поверхню, обмежену цим контуром.
 		\end{block}
-	\end{onlyenv}
-	\begin{onlyenv}<1-2>
 		\begin{block}{}\justifying
-			\only<1>{Скориставшись теоремою Стокса, останнє інтегральне рівняння можна переписати у диференціальній формі:}
+			За теоремою Стокса це рівняння можна переписати в диференціальній формі:
 			\begin{equation*}
 				\tcbhighmath{\Rot\Efield = - \frac1c \frac{\partial\Bfield}{\partial t}.}
 			\end{equation*}
@@ -404,16 +413,19 @@
 				\end{pict}
 			\end{column}
 			\begin{column}{0.6\linewidth}
-				\begin{block}{}\justifying\small
-					Згідно  Максвелла \alert{явище електромагнітної індукції} полягає в тому, що будь-яке змінне магнітне поле збуджує в просторі
-					електричне поле; провідники для цього не потрібні. Індукційні ж струми збуджуються в провідниках індукованим електричним полем.
+				\begin{block}{}\justifying
+					\begin{equation*}
+						\tcbhighmath{\Rot\Efield = - \frac1c \frac{\partial\Bfield}{\partial t}}
+					\end{equation*}
+					За Максвеллом \alert{явище електромагнітної індукції} полягає в тому, що змінне магнітне поле збуджує в просторі електричне поле;
+					провідники для цього не потрібні. Індукційні струми в провідниках --- лише наслідок дії цього поля на заряди.
 				\end{block}
 			\end{column}
 		\end{columns}
-		\begin{block}{}\justifying\small
-			На відміну від електростатики, де $\Rot\Efield = 0$, у випадку змінного в чаі магнітного поля $ \Rot\Efield \neq 0$. Це означає, що
-			індуковане
-			електричне поле, індукується (виникає) за рахунок зміни магнітного поля і не є потенційним, а вихровим.
+		\begin{block}{}\justifying
+			В електростатиці $\Rot\Efield = 0$, а в змінному в часі магнітному полі $\Rot\Efield \neq 0$. Індуковане електричне поле
+			\alert{не є потенціальним}: його силові лінії замкнені, це \alert{вихрове} поле. Робота такого поля по замкненому контуру не дорівнює
+			нулю, тому для нього не можна ввести потенціал.
 		\end{block}
 	\end{onlyenv}
 \end{frame}
@@ -424,31 +436,98 @@
 \begin{frame}[t]{Чому вихрове поле --- електричне?}{}
 	\tikz[remember picture,overlay] \node[opacity=0.75,inner sep=0pt,
 		anchor=south west] at (current page.south west){\includegraphics[width=2cm]{Grigorev}};
-	\begin{block}{}\centering\itshape\small
-		\tikz[pencildraw/.style={ %
-					decorate,
-					decoration={random steps,segment length=2pt,amplitude=1pt}
-				} %
-		]{
-			\node[align=justify,
-				preaction={fill=black,opacity=.5},
-				pencildraw,draw,fill=white,text width = \linewidth,inner sep=2mm, drop shadow]
-			{
-				\alert{Електричне поле, що виникає при зміні магнітного поля, має зовсім іншу структуру, ніж електростатичне}. Воно не пов'язане безпосередньо з
-				електричними зарядами, і його силові лінії не можуть на них починатися і закінчуватися. Вони взагалі ніде не починаються і ніде не закінчуються, являючи
-				собою замкнуті лінії, подібні до силових ліній магнітного поля. Це так зване вихрове поле.
+	\vspace*{2mm}
+	{\itshape\small
+		\pencilquote{%
+			\alert{Електричне поле, що виникає при зміні магнітного поля, має зовсім іншу структуру, ніж електростатичне}. Воно не пов'язане
+			безпосередньо з електричними зарядами, і його силові лінії не можуть на них починатися і закінчуватися. Вони взагалі ніде не починаються
+			і ніде не закінчуються, являючи собою замкнені лінії, подібні до силових ліній магнітного поля. Це так зване вихрове поле.
 
-				\bigskip
+			\medskip
 
-				При зміні поля сильного електромагніту з'являються потужні вихори електричного поля, які можна використовувати для прискорення електронів до швидкостей,
-				близьких до швидкості світла. На цьому принципі ґрунтується пристрій прискорювача електронів --- бетатрона. Електричний струм у бетатроні виникає
-				безпосередньо у вакуумній камері без введення будь-яких металевих провідників. Може виникнути запитання: \alert{а чому, власне, це поле називається
-					електричним}? Адже воно має інше походження та іншу конфігурацію, ніж статичне електричне поле. Відповідь проста: \alert{вихрове
-					поле діє на заряд точно так само, як і електростатичне, а це ми вважали і вважаємо головною властивістю поля}.
-			}
-		}
+			При зміні поля сильного електромагніту з'являються потужні вихори електричного поля, які можна використовувати для прискорення
+			електронів до швидкостей, близьких до швидкості світла. На цьому принципі ґрунтується прискорювач електронів --- бетатрон.
+			Електричний струм у бетатроні виникає безпосередньо у вакуумній камері без будь-яких металевих провідників. Може виникнути
+			запитання: \alert{а чому, власне, це поле називається електричним}? Адже воно має інше походження та іншу конфігурацію, ніж статичне
+			електричне поле. Відповідь проста: \alert{вихрове поле діє на заряд точно так само, як і електростатичне, а це ми вважали і вважаємо
+				головною властивістю поля}.
+		}\par}
+\end{frame}
+% ===========================================================================
+
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Бетатрон}{Індукційний прискорювач електронів}\small
+	\begin{columns}
+		\begin{column}{0.36\linewidth}\centering
+			\begin{tikzpicture}[>=latex, scale=0.85]
+				\fill[blue!8] (0,0) circle (1.9);
+				\foreach \r in {0.4,0.9,1.65} \foreach \a in {0,45,...,315}
+					{\fill[blue!60] (\a+\r*20:\r) circle (1.2pt);}
+				\draw[red, thick, arrowpos={0.12}{2pt}{6pt}, arrowpos={0.62}{2pt}{6pt}] (0,0) circle (1.3);
+				\fill[black] (90:1.3) circle (2pt) node[above left] {$e^-$};
+				\draw[->, thick] (90:1.3) -- ++(-0.7,0) node[left] {$\vect{v}$};
+				\node[red] at (-30:1.55) {$\Efield$};
+				\draw[<->] (0,0) -- (220:1.3) node[midway, above left=-2pt] {$R$};
+				\node[blue, anchor=north] at (0,-1.95) {$\Bfield$ на нас, $\dfrac{\partial B}{\partial t} > 0$};
+			\end{tikzpicture}
+		\end{column}
+		\begin{column}{0.63\linewidth}
+			\begin{block}{}\justifying
+				Електрон рухається колом радіуса $R$ у полі електромагніту. Наростаючий потік $\Phi$ крізь орбіту створює вихрове поле
+				\begin{equation*}
+					2\pi R\,E = \frac1c\frac{d\Phi}{dt}
+					\ \Rightarrow\
+					\frac{dp}{dt} = eE = \frac{e}{2\pi R c}\frac{d\Phi}{dt}.
+				\end{equation*}
+				Звідси $p = \dfrac{e\Phi}{2\pi R c}$. Утримує електрон на орбіті поле $B_\text{орб}$:
+				\begin{equation*}
+					p = \frac{e}{c} R B_\text{орб}.
+				\end{equation*}
+			\end{block}
+		\end{column}
+	\end{columns}
+	\begin{block}{Умова Відерое (<<умова $1:2$>>)}\justifying
+		Радіус орбіти не змінюється при прискоренні, якщо
+		\begin{equation*}
+			\tcbhighmath{B_\text{орб} = \frac12 \langle B\rangle},
+			\qquad
+			\langle B\rangle = \frac{\Phi}{\pi R^2},
+		\end{equation*}
+		тобто поле на орбіті має бути вдвічі меншим за середнє поле всередині неї. Бетатрони прискорюють електрони до десятків МеВ.
 	\end{block}
 \end{frame}
+% ===========================================================================
+
+
+
+% ============================== Слайд ## ===================================
+%\begin{frame}{Правило потоку та його межі}{}\small
+%	\begin{block}{Два механізми --- один закон}\justifying
+%		Для контуру, що рухається (елементи $d\vect{\ell}$ мають швидкість $\vect{v}$), зміна потоку складається з двох частин (враховано
+%		$\Div\Bfield = 0$):
+%		\begin{equation*}
+%			\frac{d\Phi}{dt} = \iint\limits_S \parttime{\Bfield}\cdot d\vect{S} - \oint\limits_L \left[\vect{v}\times\Bfield\right]\cdot d\vect{\ell}.
+%		\end{equation*}
+%		Тому ЕРС --- робота повної сили Лоренца на одиничний заряд --- дорівнює
+%		\begin{equation*}
+%			\EMF = \oint\limits_L \left(\Efield + \frac1c\left[\vect{v}\times\Bfield\right]\right)\cdot d\vect{\ell}
+%			= \underbrace{-\frac1c\iint\limits_S \parttime{\Bfield}\cdot d\vect{S}}_\text{вихрове поле $\Efield$}
+%			+ \underbrace{\frac1c\oint\limits_L \left[\vect{v}\times\Bfield\right]\cdot d\vect{\ell}}_\text{магнітна сила}
+%			= -\frac1c\frac{d\Phi}{dt}.
+%		\end{equation*}
+%	\end{block}
+%	\begin{alertblock}{Обережно: униполярний генератор (диск Фарадея)}\justifying
+%		Металевий диск радіуса $a$ обертається з кутовою швидкістю $\omega$ в постійному полі $\Bfield \parallel \vect{\omega}$, ковзні контакти
+%		на осі й на ободі. Потік крізь коло не змінюється, проте ЕРС є:
+%		\begin{equation*}
+%			\EMF = \frac1c\int_0^a \omega r B\,dr = \frac{\omega B a^2}{2c}.
+%		\end{equation*}
+%		Правило потоку застосовне, лише коли контур весь час складається з тих самих частинок речовини. \alert{Сила Лоренца працює
+%			завжди.}
+%	\end{alertblock}
+%\end{frame}
 % ===========================================================================
 
 
@@ -462,16 +541,16 @@
 % ============================== Слайд ## ===================================
 \begin{frame}{Явище самоіндукції}{}
 	\begin{block}{}\justifying
-		Зміна струму в контурі викликає зміну магнітного поля, що створює змінний магнітний потік через цей же контур і, як наслідок, ЕРС індукції. Це
+		Зміна струму в контурі змінює його власне магнітне поле, а отже, і потік крізь цей самий контур. У контурі виникає ЕРС індукції. Це
 		явище називають \alert{самоіндукцією}.
 	\end{block}
 	\begin{columns}
 		\begin{column}{0.35\linewidth}\centering
 			\begin{pict}
-				\begin{tikzpicture}[rotate=90, scale=0.9, >=latex, midarrow/.style={%
+				\begin{tikzpicture}[rotate=90, scale=0.8, >=latex, midarrow/.style={%
 								postaction={ decorate,
 										decoration={ markings, mark=at position .7 with {\arrow{latex}}}}}]
-					\begin{scope}%[rotate around={45:(0,1)}]
+					\begin{scope}
 						\draw[arrowpos={0.5}{2pt}{7pt}, red!40, ultra thick] (1.1,0) [partial ellipse=0:360:0.3 and 1] node[pos=0.5, below] {$I$};
 					\end{scope}
 					\foreach \y in {-3,...,3}{
@@ -482,27 +561,24 @@
 		\end{column}
 		\begin{column}{0.64\linewidth}
 			\begin{block}{}\justifying
-				Якщо в просторі, де розташований контур зі
-				струмом $I$, немає феромагнетиків, поле $\Bfield$, а отже, і повний
-				магнітний потік $\Phi$ через контур будуть пропорційні силі
-				струму~$I$:
+				Якщо поблизу контуру немає феромагнетиків, поле $\Bfield$, а отже, і повний магнітний потік $\Phi$ крізь контур пропорційні силі
+				струму $I$:
 				\begin{equation*}
-					\Phi = \frac1c L I
+					\Phi = \frac1c L I,
 				\end{equation*}
-				$L$ --- називається \alert{індуктивністю контуру}.
+				$L$ --- \alert{індуктивність контуру}; вона залежить лише від форми, розмірів контуру та від $\mu$ середовища.
 			\end{block}
 		\end{column}
 	\end{columns}
 	\begin{block}{}\justifying
-		При зміні сили струму в контурі згідно закону Фарадея виникає ЕРС самоіндукції:
+		При зміні сили струму за законом Фарадея виникає ЕРС самоіндукції:
 		\begin{equation*}
-			\mathcal{E}_\text{si} = - L\frac{dI}{dt}
+			\tcbhighmath{\EMF_\text{si} = -\frac1c\frac{d\Phi}{dt} = - \frac{L}{c^2}\frac{dI}{dt}.}
 		\end{equation*}
 	\end{block}
 	\begin{alertblock}{}\justifying\scriptsize
-		Знак мінус показує, що $\mathcal{E}$ завжди спрямована так, щоб перешкоджати зміні сили струму відповідно до
-		правила Ленца. Ця ЕРС прагне зберегти струм незмінним: вона протидіє струму, коли він збільшується, і підтримує струм, коли він
-		зменшується.
+		Знак мінус --- правило Ленца: ЕРС самоіндукції протидіє струму, коли він зростає, і підтримує його, коли він спадає. Індуктивність --- міра
+		<<інертності>> кола щодо зміни струму, подібно до маси в механіці.
 	\end{alertblock}
 \end{frame}
 % ===========================================================================
@@ -510,26 +586,26 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Приклади розрахунку індуктивності}{}
-	\begin{tblr}{colspec={Q[c,m, 0.15\linewidth]|Q[c,m]|X[j,m, font=\small]}}
+	\begin{tblr}{colspec={Q[c,m, 0.13\linewidth]|Q[c,m]|X[l,m, font=\small]}}
 		Соленоїд
 		 &
 		\raisebox{-0.5\totalheight}{\includegraphics[width=2cm]{Solenoid}}
 		 &
-		Магнітне поле в середині соленоїда $B = \dfrac{4\pi\mu NI}{c l}$. Магнітний потік через всі витки
-		$\Phi = NBS =  N \frac{4\pi\mu}c\frac{N}{l} I S$. Порівнюючи з формулою $\Phi = \frac1c LI$, індуктивність соленоїда дорівнює: $L =
-			\frac{4\pi\mu
-				N^2 S}{l}$
+		Поле всередині довгого соленоїда $B = \dfrac{4\pi\mu NI}{cl}$. Повний потік крізь усі $N$ витків $\Phi = NBS = \dfrac{4\pi\mu}{c}\dfrac{N^2 S}{l}
+			I$. Порівнюючи з $\Phi = \frac1c LI$, отримуємо
+		\fbox{$\displaystyle L = \frac{4\pi\mu N^2 S}{l} = 4\pi\mu n^2 V$}
 		\\\hline
 		Тороїд
 		 &
 		\raisebox{-0.5\totalheight}{\includegraphics[width=2cm]{toroid}}
 		 &
-		Нехай тороїд має прямокутний переріз шириною $b-a$ і висоту $d$.
-
-		$L = 2N^2d\ln\left( \frac{b}{a}\right) $.
+		Тороїд прямокутного перерізу: внутрішній радіус $a$, зовнішній $b$, висота $d$. Поле $B = \dfrac{2\mu NI}{cr}$ при $a<r<b$, повний потік
+		$\Phi = N\!\int_a^b B\,d\,dr$, отже
+		\fbox{$\displaystyle L = 2\mu N^2 d\ln\frac{b}{a}$}
 	\end{tblr}
 	\begin{block}{}\justifying
-		Одиницею індуктивності в системі СГС є сантиметр: $[L] = \text{см}$. Це означає, що індуктивність є \alert{геометричною} характеристикою.
+		Одиниця індуктивності в СГС --- сантиметр: $[L] = \text{см}$, тобто індуктивність є \alert{геометричною} характеристикою контуру. В СІ: $1~\text{Гн} =
+			10^9~\text{см}$.
 	\end{block}
 \end{frame}
 % ===========================================================================
@@ -544,54 +620,54 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Перехідні процеси в колі з індуктивністю}{}\small
-	\framesubtitle<1>{Встановлення струму в $LR$-контурі}
+	\framesubtitle<1>{Встановлення струму в $LR$-колі}
+	\framesubtitle<2>{Екстраструм розмикання}
 	\begin{onlyenv}<1>
 		\begin{columns}
 			\begin{column}{0.3\linewidth}\centering
 				\begin{circuitikz}[
 						scale=0.7, transform shape]
 					\draw
-					(0,0) to[L, l=$L$] ++(0,2) to[battery2, l=$\mathcal{E}$] ++(2.5, 0) to[R, l=$R$] ++(0, -2)
+					(0,0) to[L, l=$L$] ++(0,2) to[battery2, l=$\EMF$] ++(2.5, 0) to[R, l=$R$] ++(0, -2)
 					to[closing switch, l=$S$, mirror] ++(-2.5, 0) -- cycle
 					;
 				\end{circuitikz}
 				\begin{tikzpicture}[>=latex]
 					\draw[->] (0,0) -- ++(2,0) node[below] {$t$};
 					\draw[->] (0,0) -- ++(0,2) node[left] {$I$};
-					\node[left] at (0, 1.6) {$\frac{\mathcal{E}}{R}$};
+					\node[left] at (0, 1.6) {$\frac{\EMF}{R}$};
 					\draw[dashed] (0, 1.6) -- ++(2,0);
 					\draw[domain=0:1.8, red, thick] plot (\x, {1.6*(1-exp(-2*\x))});
+					\draw[dotted] (0.5,0) node[below] {$\tau$} -- (0.5, {1.6*(1-exp(-1))});
 				\end{tikzpicture}
 			\end{column}
 			\begin{column}{0.7\linewidth}
-				\begin{block}{}
-					Закон Ома для кола $\mathcal{E} + \mathcal{E}_\text{si} = IR$. Враховуючи що $\mathcal{E}_\text{si} = -L dI/dt$, закон набуде вигляду
+				\begin{block}{}\justifying
+					Закон Ома для кола: $\EMF + \EMF_\text{si} = IR$. З урахуванням $\EMF_\text{si} = -\frac{L}{c^2}\frac{dI}{dt}$:
 					\begin{equation*}
-						L\frac{dI}{dt}  + IR = \mathcal{E}.
+						\frac{L}{c^2}\frac{dI}{dt} + IR = \EMF.
 					\end{equation*}
-					Після інтегрування ми отримаємо:
+					Розв'язок з початковою умовою $I(0) = 0$:
 					\begin{equation*}
-						I(t) = \frac{\mathcal{E}}{R}\left(1 - e^{-\frac{R}{L}t} \right) ,
+						\tcbhighmath{I(t) = \frac{\EMF}{R}\left(1 - e^{-t/\tau} \right),\qquad \tau = \frac{L}{c^2R}}
 					\end{equation*}
-					де $\tau = \frac{L}{R}$ --- називають \alert{часом релаксації}.
+					$\tau$ --- \alert{час релаксації} (стала часу) кола. За час $\tau$ струм досягає $1 - e^{-1} \approx 63\%$ від усталеного значення.
 				\end{block}
 			\end{column}
 		\end{columns}
+		\begin{block}{}\justifying
+			Струм у колі з індуктивністю не може змінитися стрибком: це означало б нескінченну ЕРС самоіндукції.
+		\end{block}
 	\end{onlyenv}
-	\framesubtitle<2>{Екстраструми при розмиканні}
 	\begin{onlyenv}<2>
 		\begin{columns}
-			\begin{column}{0.25\linewidth}\centering
+			\begin{column}{0.27\linewidth}\centering
 				\begin{circuitikz}[
 						resistor = european,
 						scale=0.7, transform shape]
 					\draw (0,0) -- (0,1) coordinate (A) -- (0, 2) to[R, l=$R$] (3, 2) -- (3,1) coordinate (A') -- (3, 0);
-					\draw (3, 0) to[battery2, l=$\mathcal{E}$] (1.5, 0) to[opening switch, l=$S$, mirror]  (0, 0);
+					\draw (3, 0) to[battery2, l=$\EMF$] (1.5, 0) to[opening switch, l=$S$, mirror]  (0, 0);
 					\draw (A) to[L, l={$L$, $r$}] (A');
-					%					\draw
-					%					(0,0) to[battery2, l=$\mathcal{E}$] ++(0,2)  to[R, l=$R$] ++(2.5, 0) to[L, l=$L$] ++(0, -2)
-					%					to[opening switch, l=$S$, mirror] ++(-2.5, 0) -- cycle
-					%					;
 				\end{circuitikz}
 				\begin{tikzpicture}[>=latex]
 					\draw[->] (0,0) -- ++(2,0) node[below] {$t$};
@@ -600,28 +676,25 @@
 					\draw[domain=0:1.8, red, thick] plot (\x, {1.6*exp(-1.5*\x)});
 				\end{tikzpicture}
 			\end{column}
-			\begin{column}{0.75\linewidth}
+			\begin{column}{0.73\linewidth}
 				\begin{block}{}\justifying
-					Спочатку ключ $S$ замкнутий. Тоді через опір $R$ і через котушку індуктивності $L$ тече струм:
+					Поки ключ $S$ замкнений, через котушку (опір обмотки $r$) тече струм $I_0 = \EMF/r$, через резистор --- $\EMF/R$.
+					Після розмикання ключа струм котушки не зникає миттєво, а замикається через $R$. Це \alert{екстраструм розмикання}:
 					\begin{equation*}
-						I_0 = \mathcal{E} / r.
+						I(R+r) = -\frac{L}{c^2}\frac{dI}{dt}
+						\ \Rightarrow\
+						I(t) = I_0\, e^{-t/\tau'},\quad \tau' = \frac{L}{c^2(R+r)}.
 					\end{equation*}
-					Після розмикання ключа (відключення ЕРС) магнітне поле почне убувати. Це збудить електрорушійну $\mathcal{E}_\text{si}$ силу та
-					індукційний струм $I$ у контурі. Такий струм називається \alert{екстраструмом розмикання}. По закону Ома:
-					\begin{equation*}
-						I(R+r) = -L\frac{dI}{dt}.
-					\end{equation*}
-					Після інтегрування ми отримаємо:
-					\(
-					I(t) = I_0e^{-\frac{R + r}{L}t}.
-					\)
 				\end{block}
 			\end{column}
 		\end{columns}
-		\begin{block}{}\justifying\small
-			Якщо $R \gg r$, то $\mathcal{E}_\text{si} = \frac{R}{r}\mathcal{E}e^{-\frac{R}{L}t}$.  При розмиканні ця величина може
-			значно перевершити ЕРС батареї, тобто може статись пробій, що спостерігається під час вимкнення струму в колах з великими
-			індуктивностями.
+		\begin{block}{}\justifying
+			ЕРС самоіндукції в момент розмикання:
+			\begin{equation*}
+				\EMF_\text{si}(0) = I_0(R+r) = \EMF\,\frac{R+r}{r} \approx \frac{R}{r}\,\EMF \quad (R \gg r).
+			\end{equation*}
+			Вона може в багато разів перевищити ЕРС батареї: при вимиканні кіл з великою індуктивністю виникає іскра або пробій. На цьому
+			ґрунтується, наприклад, система запалювання двигуна.
 		\end{block}
 	\end{onlyenv}
 \end{frame}
@@ -645,28 +718,27 @@
 			\begin{overprint}
 				\onslide<1>
 				\begin{block}{}\justifying
-					Нехай два нерухомих контури $1$ і $2$ розташовані близько один до одного. Якщо в контурі $1$ тече струм $I_1$, він створює через контур
-					$2$ магнітний потік $\Phi_2$, пропорційний струму $I_1$:
+					Нехай два нерухомі контури $1$ і $2$ розташовані поблизу один одного. Струм $I_1$ у контурі $1$ створює крізь контур $2$ потік,
+					пропорційний $I_1$:
 					\begin{equation*}
-						\Phi_{21} = \frac1c L_{21}I_1
+						\Phi_{21} = \frac1c L_{21}I_1.
 					\end{equation*}
-					Аналогічно, якщо в контурі $2$ тече струм $I_2$, то він створює через контур $1$ магнітний потік:
+					Аналогічно, струм $I_2$ створює крізь контур $1$ потік
 					\begin{equation*}
 						\Phi_{12} = \frac1c L_{12}I_2.
 					\end{equation*}
 				\end{block}
 				\onslide<2>
 				\begin{block}{}\justifying
-					Закони Ома для контурів:
+					Закони Ома для контурів ($L_{11} \equiv L_1$, $L_{22} \equiv L_2$):
 					\begin{equation*}
 						\begin{cases}
-							I_1R_1 = \mathcal{E}_1 - \dfrac1{c^2}\dfrac{d}{dt}\left( L_{11} I_1\right) - \dfrac1{c^2}\dfrac{d}{dt}\left( L_{12} I_2\right),
-							\\[1,5ex]
-							I_2R_2 = \mathcal{E}_2 - \dfrac1{c^2}\dfrac{d}{dt}\left( L_{21} I_1\right) - \dfrac1{c^2}\dfrac{d}{dt}\left( L_{22} I_2\right).
+							I_1R_1 = \EMF_1 - \dfrac{L_{11}}{c^2}\dfrac{dI_1}{dt} - \dfrac{L_{12}}{c^2}\dfrac{dI_2}{dt},
+							\\[1.5ex]
+							I_2R_2 = \EMF_2 - \dfrac{L_{21}}{c^2}\dfrac{dI_1}{dt} - \dfrac{L_{22}}{c^2}\dfrac{dI_2}{dt}.
 						\end{cases}
 					\end{equation*}
-					Наявність магнітного зв'язку між контурами проявляється в тому, що за будь-якої зміни струму в одному з контурів в іншому контурі виникає
-					ЕРС індукції. е явище називають \alert{взаємною індукцією}.
+					Будь-яка зміна струму в одному контурі збуджує ЕРС в іншому. Це явище називають \alert{взаємною індукцією}.
 				\end{block}
 			\end{overprint}
 		\end{column}
@@ -674,11 +746,13 @@
 	\begin{overprint}
 		\onslide<1>
 		\begin{block}{}\justifying
-			Коефіцієнти пропорційності $L_{12}$ і $L_{21}$ називають \alert{коефіцієнтами взаємної індуктивністю} контурів.
+			Коефіцієнти $L_{12}$ і $L_{21}$ називають \alert{коефіцієнтами взаємної індуктивності} контурів. Вони залежать від форми, розмірів,
+			взаємного розташування контурів і від $\mu$ середовища.
 		\end{block}
 		\onslide<2>
 		\begin{block}{}\justifying
-			$L_{12}$ --- алгебраїчна величина, яка може мати різний знак, а також дорівнювати нулю.
+			$L_{12}$ --- алгебраїчна величина: її знак залежить від вибору додатних напрямків обходу контурів, а для ортогонально розташованих
+			контурів вона може дорівнювати нулю.
 		\end{block}
 	\end{overprint}
 \end{frame}
@@ -690,42 +764,39 @@
 % ============================== Слайд ## ===================================
 \begin{frame}{Розрахунок коефіцієнтів взаємної індуктивності}{}\small
 	\begin{exampleblock}{Приклад}\justifying
-		Довгий парамагнітний циліндр об'ємом $V$ має дві обмотки (одна на іншій). Одна обмотка містить $n_1$ витків на одиницю довжини, інша ---
-		$n_2$. Знайдемо їхню взаємну індуктивність, нехтуючи крайовими ефектами.
+		Довгий парамагнітний циліндр довжиною $l$ і перерізом $S$ ($V = lS$) має дві обмотки, одна поверх іншої: $n_1$ і $n_2$ витків на
+		одиницю довжини ($N_i = n_i l$). Знайдіть взаємну індуктивність, нехтуючи крайовими ефектами.
 	\end{exampleblock}
 
 	\begin{overprint}
 		\onslide<1>
 		\begin{block}{Розв'язок}\justifying
-			Оскільки $L_{21} = \Phi_2 / I_1$. Це означає, що ми повинні створити струм $I_1$ в обмотці $1$ і обчислити повний магнітний потік через всі витки
-			обмотки $2$. Якщо в обмотці $2$ міститься $N_2$ витків, то
-			\[
-				\Phi_2 = N_2 B_1 S,
-			\]
-			де $S$ --- площа поперечного перерізу циліндра. Оскільки $N_2 = n_2 l$, $l$ --- довжина циліндра, $B_1 = \frac{4\pi}{c} \mu n_1 I_1$, то
-			\[
-				\Phi_2 =  \frac{4\pi}{c} \mu N_2 n_1 I_1 S.
-			\]
-			Отже
-			\[
-				L_{21} = 4\pi \mu \frac{N_2 N_1}{l} S.
-			\]
-			Аналогічно знаходимо і $L_{12}$:
-			\[
-				L_{12} = 4\pi \mu \frac{N_1 N_2}{l} S.
-			\]
+			За означенням $L_{21} = c\,\Phi_{21}/I_1$: пропускаємо струм $I_1$ в обмотці $1$ і знаходимо повний потік крізь усі витки обмотки
+			$2$. Поле обмотки $1$ і потік:
+			\begin{equation*}
+				B_1 = \frac{4\pi}{c}\,\mu n_1 I_1,
+				\qquad
+				\Phi_{21} = N_2 B_1 S = \frac{4\pi}{c}\,\mu N_2 n_1 S\, I_1.
+			\end{equation*}
+			Отже,
+			\begin{equation*}
+				L_{21} = 4\pi\mu\,\frac{N_1 N_2}{l}\,S = 4\pi\mu\, n_1 n_2 V.
+			\end{equation*}
+			Так само, пропускаючи струм в обмотці $2$, знаходимо $L_{12} = 4\pi\mu\, n_1 n_2 V = L_{21}$.
 		\end{block}
 		\onslide<2>
 		\begin{block}{Зауваження}\justifying
-			В розглянутому прикладі коефіцієнти індуктивності задовольняють співвідношенням:
+			Порівнюючи з індуктивністю соленоїда $L_i = 4\pi\mu n_i^2 V$, бачимо, що тут
 			\begin{equation*}
-				L_{21} = L_{12} = \sqrt{L_1L_2}
+				L_{21} = L_{12} = \sqrt{L_1L_2}.
 			\end{equation*}
-			Їх справедливість пов'язана, по-перше, з тим, що ми знехтували розсіюванням магнітного потоку, а по-друге, з тим, що магнітна проникність осердя не
-			залежить від величини магнітного поля. Співвідношення $L_{21} = L_{12}$ не буде виконуватись для феромагнетика, для якого  $\mu = \mu(H)$ і за умови що
-			$N_1 \neq N_2$. Тоді обмотки при однакових струмах створюють в осерді різні магнітні поля, так що вирази для $L_{21}$ і $L_{12}$ міститимуть різні
-			коефіцієнти $\mu$, що й
-			призводить до нерівності.
+			Це співвідношення виконується тому, що ми знехтували розсіюванням потоку (весь потік однієї обмотки пронизує витки іншої) і що $\mu$
+			осердя не залежить від поля.
+
+			\smallskip
+
+			Для феромагнітного осердя $\mu = \mu(H)$: при $N_1 \neq N_2$ однакові струми створюють різні поля, і вирази для $L_{21}$ та $L_{12}$
+			містять різні $\mu$, тож $L_{21} \neq L_{12}$. Власне, для нелінійного середовища коефіцієнти індуктивності втрачають сенс сталих.
 		\end{block}
 	\end{overprint}
 \end{frame}
@@ -736,23 +807,27 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Теорема взаємності}{}
-    \begin{block}{Теорема взаємності}\justifying
-        ЕРС, що наводиться в контурі $1$, коли струм в контурі $2$ змінюється з певною швидкістю, дорівнює ЕРС, яка наводилася б в контурі $2$, якби той самий змінний струм протікав в контурі $1$:
-            \[\mathcal{E}_1  = -L_{12}\frac{d{\color{red}I}}{dt} {\color{red}=}  \mathcal{E}_2  = -L_{21}\frac{d{\color{red}I}}{dt}\]
-    \end{block}
+	\begin{block}{Теорема взаємності}\justifying
+		ЕРС, що наводиться в контурі $1$, коли струм у контурі $2$ змінюється з певною швидкістю, дорівнює ЕРС, яка наводилася б у контурі $2$,
+		якби той самий змінний струм протікав у контурі $1$:
+		\begin{equation*}
+			\EMF_1 = -\frac{L_{12}}{c^2}\frac{d{\color{red}I}}{dt} \;{\color{red}=}\; \EMF_2 = -\frac{L_{21}}{c^2}\frac{d{\color{red}I}}{dt}.
+		\end{equation*}
+	\end{block}
 	\begin{block}{Наслідок}\justifying
-		Коефіцієнтами взаємної індуктивності контурів однакові:
+		Коефіцієнти взаємної індуктивності контурів однакові (у середовищі без феромагнетиків):
 		\begin{equation*}
 			\tcbhighmath{L_{12} = L_{21}.}
 		\end{equation*}
-		Завдяки цій теоремі можна не робити різниці між $L_{12}$ і $L_{21}$ і просто говорити про взаємну індуктивність двох контурів.
+		Тому можна просто говорити про взаємну індуктивність двох контурів. Доведення --- з формули Неймана:
+		\(
+		L_{12} = \mu\oint_1\oint_2 \frac{d\vect{\ell}_1\cdot d\vect{\ell}_2}{r_{12}},
+		\)
+		симетричної щодо $1 \leftrightarrow 2$.
 	\end{block}
-	\begin{block}{Практичне застосування}\justifying
-	Якщо по контурам течуть однакові струми $I$, то
-		\begin{equation*}
-			\Phi_1 = \Phi_2
-		\end{equation*}
-		{\scriptsize Це дає змогу спрощувати задачі.}
+	\begin{block}{Практичне застосування}\justifying\small
+		Потік крізь контур $1$ від струму $I$ у контурі $2$ дорівнює потоку крізь контур $2$ від такого самого струму в контурі $1$:
+		$\Phi_{12} = \Phi_{21}$. Можна рахувати той потік, який рахувати простіше.
 	\end{block}
 \end{frame}
 % ===========================================================================
@@ -762,13 +837,13 @@
 % ============================== Слайд ## ===================================
 \begin{frame}{Задачі на застосування теореми взаємності}{}\small
 	\begin{exampleblock}{Задача 1}\justifying
-		Два тонкі колові провідники, осі яких співпадають, лежать в одній площині. Радіус зовнішнього провідника $R_1$ внутрішнього $R_2$ ($R_2 \ll
-			R_1$). Знайдіть магнітний потік, що пронизує площу зовнішнього провідника, якщо по внутрішньому провіднику тече струм~$I$.
+		Два тонкі колові провідники лежать в одній площині й мають спільний центр. Радіус зовнішнього $R_1$, внутрішнього $R_2$ ($R_2 \ll R_1$).
+		Знайдіть магнітний потік крізь площу зовнішнього провідника, якщо по внутрішньому тече струм~$I$.
 	\end{exampleblock}
 	\begin{exampleblock}{Задача 2}\justifying
-		Магнітний диполь з моментом $p_m$ обертається з частотою $\omega$ навколо осі, яка проходить через його центр і перпендикулярна магнітному моменту
-		(див. рис.). Знайти струм в плоскому нерухомому кільці радіусом $a$ з опором $R$, яке знаходиться на відстані $l \gg a$ від
-		диполя. Нормаль $\vect{n}$ до площини кільця перпендикулярна осі обертання диполя. Самоіндукцією рамки знехтувати.
+		Магнітний диполь з моментом $p_m$ обертається з частотою $\omega$ навколо осі, що проходить через його центр перпендикулярно до
+		моменту (див. рис.). Знайдіть струм у плоскому нерухомому кільці радіусом $a$ з опором $R$ на відстані $l \gg a$ від диполя. Нормаль
+		$\vect{n}$ до площини кільця перпендикулярна до осі обертання. Самоіндукцією кільця знехтувати.
 	\end{exampleblock}
 	%---------------------------------------------------------
 	\begin{columns}
@@ -803,6 +878,31 @@
 % ===========================================================================
 
 
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Задачі на застосування теореми взаємності}{Розв'язки}\small
+	\begin{block}{Задача 1}\justifying
+		Потік крізь велике кільце від малого рахувати важко: поле малого кільця складне. Обмінюємо ролі: пустимо струм $I$ по
+		\alert{великому} кільцю. Його поле в центрі $B = \dfrac{2\pi I}{cR_1}$ майже однорідне в межах малого кільця, тож
+		\begin{equation*}
+			\Phi = \pi R_2^2 \cdot \frac{2\pi I}{cR_1} = \frac{2\pi^2 R_2^2}{cR_1}\, I.
+		\end{equation*}
+		За теоремою взаємності шуканий потік крізь велике кільце такий самий.
+	\end{block}
+	\begin{block}{Задача 2}\justifying
+		Кільце лежить у площині обертання диполя, на прямій, вздовж якої напрямлена нормаль $\vect{n}$. Якщо $\theta = \omega t$ --- кут між
+		$\vect{p}_m$ і $\vect{n}$, то нормальна компонента поля диполя біля кільця $B_n = \dfrac{2p_m\cos\omega t}{l^3}$, і
+		\begin{equation*}
+			\Phi = \pi a^2\,\frac{2p_m\cos\omega t}{l^3},
+			\qquad
+			I = -\frac{1}{cR}\frac{d\Phi}{dt} = \frac{2\pi a^2 p_m\,\omega}{cRl^3}\,\sin\omega t.
+		\end{equation*}
+		Те саме дає теорема взаємності: поле кільця зі струмом на його осі на відстані $l$ дорівнює $\dfrac{2\pi a^2 I}{cl^3}$.
+	\end{block}
+\end{frame}
+% ===========================================================================
+
+
 %% --------------------------------------------------------
 \subsection{Принцип роботи трансформаторів}
 %% --------------------------------------------------------
@@ -813,8 +913,8 @@
 	\framesubtitle<1>{Принцип роботи}
 	\framesubtitle<2>{Теорія}
 	\begin{onlyenv}<1>
-		\begin{block}{}
-			Принцип дії трансформаторів --- пристроїв, що застосовуються для підвищення або зниження напруги змінного струму, заснований на явищі взаємної індукції.
+		\begin{block}{}\justifying
+			Трансформатор --- пристрій для підвищення або зниження змінної напруги. Його дія ґрунтується на явищі взаємної індукції.
 		\end{block}
 		\begin{columns}
 			\begin{column}{0.4\linewidth}\centering
@@ -822,36 +922,36 @@
 			\end{column}
 			\begin{column}{0.6\linewidth}
 				\begin{block}{}\justifying
-					Первинна і вторинна обмотки з $N_1$ і $N_2$ витками укріплені на замкнутому залізному осерді. Змінна напруга $\mathcal{E}_1$ у первинній
-					обмотці створює струм $I_1$ і змінний магнітний потік $\Phi$, локалізований в осерді. Потік пронизує витки вторинної обмотки, викликаючи ЕРС
-					взаємної індукції, а в первинній --- ЕРС самоіндукції.
+					Первинна і вторинна обмотки з $N_1$ і $N_2$ витками намотані на замкнене залізне осердя. Змінна ЕРС $\EMF_1$ у первинній
+					обмотці створює струм $I_1$ і змінний магнітний потік $\Phi$, зосереджений в осерді. Цей потік пронизує витки вторинної обмотки
+					і збуджує в ній ЕРС взаємної індукції, а в первинній --- ЕРС самоіндукції.
 				\end{block}
 			\end{column}
 		\end{columns}
 	\end{onlyenv}
 	\begin{onlyenv}<2>
 		\begin{block}{}\justifying
-			Струм $I_1$ у первинній обмотці визначається за законом Ома:
+			Закон Ома для первинної обмотки ($\Phi$ --- потік крізь один виток):
 			\begin{equation*}
-				\mathcal{E}_1 - \frac{d}{dt}(N_1\Phi) = I_1R_1.
+				\EMF_1 - \frac{N_1}{c}\frac{d\Phi}{dt} = I_1R_1.
 			\end{equation*}
-			При швидкозмінних полях $I_1R_1 \ll \mathcal{E}_1, \frac{d}{dt}(N_1\Phi)$:
-			\begin{equation*}
-				\mathcal{E}_1 \approx N_1 \frac{d\Phi}{dt}.
-			\end{equation*}
-
+			Опір обмотки малий: $I_1R_1 \ll \EMF_1$, тому
+			\(
+			\EMF_1 \approx \frac{N_1}{c}\frac{d\Phi}{dt}.
+			\)
 			ЕРС у вторинній обмотці:
 			\begin{equation*}
-				\mathcal{E}_2 = -N_2 \frac{d\Phi}{dt} = -\frac{N_2}{N_1} \mathcal{E}_1,\quad \text{\scriptsize знак «$-$» вказує на протилежність фаз.}
+				\EMF_2 = -\frac{N_2}{c}\frac{d\Phi}{dt} = -\frac{N_2}{N_1}\, \EMF_1,\qquad \text{\scriptsize знак <<$-$>> --- протилежність фаз.}
 			\end{equation*}
-			Відношення $\eta = \frac{N_2}{N_1}$ називається \alert{коефіцієнтом трансформації}.
+			Відношення $k = \dfrac{N_2}{N_1}$ називається \alert{коефіцієнтом трансформації}.
 		\end{block}
 		\begin{block}{}\justifying\small
-			Якщо $\eta > 1$, то це підвищувальний трансформатор, що збільшує ЕРС і зменшує струм.
-
-			\smallskip
-
-			Якщо $\eta < 1$, то це знижувальний трансформатор, що зменшує ЕРС і збільшує струм.
+			Без втрат потужність зберігається: $\EMF_1 I_1 \approx \EMF_2 I_2$.
+			\begin{itemize}
+				\item $k > 1$ --- підвищувальний трансформатор: збільшує напругу й зменшує струм;
+				\item $k < 1$ --- знижувальний трансформатор: зменшує напругу й збільшує струм.
+			\end{itemize}
+			Саме тому лінії електропередачі працюють за високої напруги: втрати $I^2R$ у проводах зменшуються в $k^2$ разів.
 		\end{block}
 	\end{onlyenv}
 \end{frame}
@@ -869,41 +969,39 @@
 \begin{frame}{Енергія магнітного поля}{}
 	\begin{onlyenv}<1>
 		\begin{block}{}\justifying
-			Провідник зі струмом створює магнітне поле, яке з'являється та зникає разом зі струмом. \alert{Магнітне поле є носієм енергії}, що дорівнює
-			роботі струму на його створення.
+			Провідник зі струмом створює магнітне поле, яке з'являється та зникає разом зі струмом. \alert{Магнітне поле є носієм енергії}, що
+			дорівнює роботі джерела на створення струму.
 		\end{block}
 		\begin{columns}
 			\begin{column}{0.3\linewidth}\centering
 				\begin{circuitikz}[
 						scale=0.7, transform shape]
 					\draw
-					(0,0) to[L, l=$L$] ++(0,2) to[battery2, l=$\mathcal{E}$] ++(2.5, 0) to[R, l=$R$] ++(0, -2)
+					(0,0) to[L, l=$L$] ++(0,2) to[battery2, l=$\EMF$] ++(2.5, 0) to[R, l=$R$] ++(0, -2)
 					to[closing switch, l=$S$, mirror] ++(-2.5, 0) -- cycle
 					;
 				\end{circuitikz}
 			\end{column}
 			\begin{column}{0.7\linewidth}
 				\begin{block}{}\justifying
-					Розглянемо роботу, яку виконує джерело при замиканні ключа в колі по переміщенню заряду\\ $dq = Idt$:
-					\begin{multline*}
-						\delta A = \mathcal{E} dq = I^2Rdt - \mathcal{E}_\text{si}Idt = \\
-						= \underbrace{I^2Rdt}_\text{Теплота} +
-						\underbrace{\frac1{c^2}LIdI}_\text{\parbox{2.2cm}{\centering\scriptsize\strut\ignorespaces Енергія\\ магнітного\\
-								поля}}.
-					\end{multline*}
+					Робота джерела при перенесенні заряду $dq = I\,dt$ після замикання ключа:
+					\begin{equation*}
+						\delta A = \EMF\, dq = I^2R\,dt - \EMF_\text{si}I\,dt
+						= \underbrace{I^2R\,dt}_\text{теплота} + \underbrace{\frac{L}{c^2}I\,dI}_\text{енергія поля}.
+					\end{equation*}
 				\end{block}
 			\end{column}
 		\end{columns}
 		\begin{block}{}\justifying
-			Енергія магнітного поля:
+			Енергія магнітного поля струму:
 			\begin{equation*}
-				W = \frac1{c^2}\int\limits_0^I LIdI = \frac1{c^2}\frac{LI^2}{2} = \frac1c \frac{I\Phi}2 = \frac{\Phi^2}{2L}.
+				\tcbhighmath{W = \frac{L}{c^2}\int\limits_0^I I\,dI = \frac{LI^2}{2c^2}} = \frac{I\Phi}{2c} = \frac{\Phi^2}{2L}.
 			\end{equation*}
 		\end{block}
 	\end{onlyenv}
 	\begin{onlyenv}<2-3>
 		\begin{block}{}
-			Енергію магнітного поля визначається через характеристики поля.
+			Виразимо енергію через характеристики самого поля.
 		\end{block}
 		\begin{columns}
 			\begin{column}{0.25\linewidth}\centering
@@ -911,38 +1009,73 @@
 			\end{column}
 			\begin{column}{0.75\linewidth}
 				\begin{block}{}
-					Розглянемо однорідне магнітне поле всередині довгого соленоїда.\\[1ex]
-
-					Індуктивність соленоїда:
+					Розглянемо однорідне поле всередині довгого соленоїда об'ємом $V = Sl$:
 					\begin{equation*}
-						L= \frac{4\pi\mu N^2 S}{l}.
-					\end{equation*}
-					Магнітне поле в середині соленоїда:
-					\begin{equation*}
-						B = \dfrac{4\pi\mu NI}{c l}
+						L = \frac{4\pi\mu N^2 S}{l},
+						\qquad
+						B = \frac{4\pi\mu NI}{c l}.
 					\end{equation*}
 				\end{block}
 			\end{column}
 		\end{columns}
-	\end{onlyenv}
 	\begin{overprint}
 		\onslide<2>
 		\begin{block}{}\justifying
 			Енергія магнітного поля:
 			\begin{equation*}
-				W =  \frac1{c^2}\frac{LI^2}{2} = \frac1{c^2}\frac{(4\pi\mu N I)^2 S l }{ 8\pi\mu l^2} = \frac{B^2}{8\pi\mu} V = \frac{BH}{8\pi}
-				V.
+				W = \frac{LI^2}{2c^2} = \frac{(4\pi\mu N I)^2\, S l}{8\pi\mu\, c^2 l^2} = \frac{B^2}{8\pi\mu}\, V = \frac{BH}{8\pi}\, V.
 			\end{equation*}
 		\end{block}
 		\onslide<3>
 		\begin{block}{}\justifying
-			Густина енергії магнітного поля:
-			\(
-			\tcbhighmath{w =  \frac{BH}{8\pi}.}
-			\)\\[1ex]
-			\alert{Магнітна енергія зосереджена в об'ємі соленоїда --- в тій області простору, де присутнє магнітне поле}.
+			Густина енергії магнітного поля (лінійне ізотропне середовище):
+			\begin{equation*}
+				\tcbhighmath{w = \frac{BH}{8\pi} = \frac{\mu H^2}{8\pi} = \frac{B^2}{8\pi\mu}.}
+			\end{equation*}
+			\alert{Магнітна енергія зосереджена там, де є поле}, --- в об'ємі соленоїда. Для довільного поля $W = \dfrac{1}{8\pi}\displaystyle\iiint
+				\Bfield\cdot\Hfield\, dV$.
 		\end{block}
 	\end{overprint}
+	\end{onlyenv}
+\end{frame}
+% ===========================================================================
+
+
+
+% ============================== Слайд ## ===================================
+\begin{frame}{Енергія системи струмів}{}\small
+	\begin{block}{}\justifying
+		Для двох контурів робота джерел проти ЕРС індукції (самоіндукції і взаємної) при наростанні струмів від нуля дає
+		\begin{equation*}
+			\tcbhighmath{W = \frac{1}{c^2}\left(\frac{L_1I_1^2}{2} + L_{12}I_1I_2 + \frac{L_2I_2^2}{2}\right)}
+		\end{equation*}
+		У загальному випадку $N$ контурів: $W = \dfrac{1}{2c^2}\displaystyle\sum_{i,k} L_{ik}I_iI_k = \dfrac{1}{2c}\sum_i I_i\Phi_i$, де $\Phi_i$ ---
+		повний потік крізь $i$-й контур.
+	\end{block}
+	\begin{columns}[T]
+		\begin{column}{0.48\linewidth}
+			\begin{block}{Енергія взаємодії}\justifying
+				Доданок $W_{12} = \frac{1}{c^2}L_{12}I_1I_2$ може бути від'ємним. Саме він визначає сили взаємодії контурів при сталих
+				струмах:
+				\begin{equation*}
+					\vect{F} = \grad W_{12}.
+				\end{equation*}
+			\end{block}
+		\end{column}
+		\begin{column}{0.48\linewidth}
+			\begin{block}{Коефіцієнт зв'язку}\justifying
+				Енергія поля додатна за будь-яких $I_1$, $I_2$, тому квадратична форма додатно визначена:
+				\begin{equation*}
+					L_{12}^2 \le L_1L_2,
+					\quad
+					\varkappa = \frac{|L_{12}|}{\sqrt{L_1L_2}} \le 1.
+				\end{equation*}
+			\end{block}
+		\end{column}
+	\end{columns}
+	\begin{alertblock}{}\justifying
+		Для котушок на спільному осерді без розсіювання (приклад вище) $\varkappa = 1$: це ідеальний трансформатор.
+	\end{alertblock}
 \end{frame}
 % ===========================================================================
 
@@ -1010,108 +1143,111 @@
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Пондеромоторні сили в магнітному полі}{}
+\begin{frame}{Пондеромоторні сили в магнітному полі}{}\small
 	\framesubtitle<1>{Закон збереження енергії}
+	\framesubtitle<2>{Випадок $I = \const$}
+	\framesubtitle<3>{Випадок $\Phi = \const$}
 	\begin{center}
 		\begin{pict}
-			\begin{tikzpicture}[]
-				\node[anchor=center, opacity=0.75, ] at (0, 0) {\includegraphics[width=6cm]{pull_in_solenoid}};
-			\end{tikzpicture}
+			\includegraphics[height=0.26\textheight]{pull_in_solenoid}
 		\end{pict}
 	\end{center}
 	\begin{overprint}
 		\onslide<1>
 		\begin{block}{}\justifying
-			По \alert{закону збереження енергії} \alert{робота, яку виконують джерела струму}, йде на теплоту, на збільшення магнітної енергії і на
-			механічну роботу:
+			Залізне осердя втягується в котушку. За \alert{законом збереження енергії} робота джерела струму йде на теплоту, на зміну
+			магнітної енергії і на механічну роботу:
 			\begin{equation*}
 				\delta A_\text{дж} = \delta Q + dW + \delta A_\text{мех}.
 			\end{equation*}
-			З іншого боку, та ж робота визначається як (закон Ома):
+			З іншого боку, за законом Ома $\delta A_\text{дж} = \EMF I\,dt = \delta Q - \EMF_\text{si} I\,dt$. Звідси
 			\begin{equation*}
-				\delta A_\text{дж} = \delta Q - \mathcal{E}_,\text{si} I dt,
-			\end{equation*}
-			Звідки
-			\begin{equation*}
-				- \mathcal{E}_\text{si} I dt = dW + \delta A_\text{мех}
+				\tcbhighmath{- \EMF_\text{si} I\,dt = \frac{I\,d\Phi}{c} = dW + \delta A_\text{мех}.}
 			\end{equation*}
 		\end{block}
-		\framesubtitle<2>{Випадок $I = \const$}
 		\onslide<2>
-		\begin{equation*}
-			-\mathcal{E}_\text{si} I dt = dW + \delta A_\text{мех}
-		\end{equation*}
-		Розглянемо умову, коли в колі підтримується постійним струм.
-		\begin{equation*}
-			- \mathcal{E}_\text{si} I dt = + \frac{I^2}{c^2} dL.
-		\end{equation*}
-		При цьому, зміна магнітної енергії $dW = \frac{I^2}{2c^2} dL$. Отже, $\delta A_\text{мех} = + dW$, а сила втягування:
-		\begin{equation*}
-			\tcbhighmath{F_x = + \left( \frac{d W}{dx} \right)_{I}}
-		\end{equation*}
-		\framesubtitle<3>{Випадок $\Phi = \const$}
+		\begin{block}{}\justifying
+			Нехай джерело підтримує в колі сталий струм. Тоді $d\Phi = \frac1c I\,dL$ і
+			\begin{equation*}
+				-\EMF_\text{si} I\,dt = \frac{I^2}{c^2}\, dL,
+				\qquad
+				dW = \frac{I^2}{2c^2}\, dL.
+			\end{equation*}
+			Половина роботи джерела йде на збільшення енергії поля, половина --- на механічну роботу: $\delta A_\text{мех} = + dW$. Сила
+			втягування:
+			\begin{equation*}
+				\tcbhighmath{F_x = + \left( \frac{\partial W}{\partial x} \right)_{I}}
+			\end{equation*}
+		\end{block}
 		\onslide<3>
-		\begin{equation*}
-			-\mathcal{E}_\text{si} I dt = dW + \delta A_\text{мех}
-		\end{equation*}
-		Розглянемо умову, коли в колі підтримується потік, що пронизує котушку (наприклад якщо котушка із надпровідника).
-		\begin{equation*}
-			- \mathcal{E}_\text{si} I dt = 0.
-		\end{equation*}
-		Отже, $\delta A_\text{мех} = - dW$, а сила втягування:
-		\begin{equation*}
-			\tcbhighmath{F_x = - \left( \frac{dW}{dx} \right)_{\Phi}}
-		\end{equation*}
+		\begin{block}{}\justifying
+			Нехай незмінним залишається потік крізь котушку (наприклад, надпровідна котушка без джерела). Тоді
+			\begin{equation*}
+				- \EMF_\text{si} I\,dt = \frac{I\,d\Phi}{c} = 0
+				\ \Rightarrow\
+				\delta A_\text{мех} = - dW,
+				\qquad
+				\tcbhighmath{F_x = - \left( \frac{\partial W}{\partial x} \right)_{\Phi}}
+			\end{equation*}
+			Механічна робота виконується за рахунок енергії поля. Обидві формули дають \alert{ту саму силу}: вона визначається станом системи, а
+			не тим, що відбувається з джерелом.
+		\end{block}
 	\end{overprint}
 \end{frame}
 % ===========================================================================
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Приклади}{Поведінка різних тіл в магнітному полі}
+\begin{frame}{Приклади}{Поведінка різних тіл у магнітному полі}
 	\begin{tblr}{
 		colspec = {X[c,m, font=\small]X[c,m, font=\small]}
 		}
-		\begin{pict}\includegraphics[width=0.5\linewidth]{amplula_FeCl}\end{pict} &
-		\begin{pict}\includegraphics[width=0.5\linewidth]{probirka_FeCl}\end{pict}                                                       \\
+		\begin{pict}\includegraphics[height=0.14\textheight]{amplula_FeCl}\end{pict} &
+		\begin{pict}\includegraphics[height=0.14\textheight]{probirka_FeCl}\end{pict}                                                       \\
 		Ампула з парамагнітним розчином хлористого заліза в магнітному полі       & Втягування розчину хлористого заліза в магнітне поле \\
-		\begin{pict}\includegraphics[width=0.5\linewidth]{palochka_Bi}\end{pict}  &
-		\begin{pict}\includegraphics[width=0.5\linewidth]{Flame_diamagnet}\end{pict}                                                     \\
-		Діамагнітна паличка вісмута в магнітному полі                             & Діамагнетизм полум'я
+		\begin{pict}\includegraphics[height=0.14\textheight]{palochka_Bi}\end{pict}  &
+		\begin{pict}\includegraphics[height=0.14\textheight]{Flame_diamagnet}\end{pict}                                                     \\
+		Діамагнітна паличка вісмуту в магнітному полі                             & Діамагнетизм полум'я
 	\end{tblr}
+	\begin{block}{}\justifying\small
+		Внесення слабомагнітного тіла ($|\mu-1|\ll 1$) при сталих струмах змінює енергію поля на $\Delta W \approx \frac{\mu-1}{8\pi}\int
+			H^2dV$, а $F = +(\partial W/\partial x)_I$. Тому \alert{парамагнетики} ($\mu > 1$) втягуються в область сильнішого поля,
+		\alert{діамагнетики} ($\mu < 1$) виштовхуються з неї.
+	\end{block}
 \end{frame}
 % ===========================================================================
 
 
 
 % ============================== Слайд ## ===================================
-\begin{frame}{Підйомна сила електромагніта}{}
+\begin{frame}{Підйомна сила електромагніта}{}\small
 	\begin{columns}
 		\begin{column}{0.3\linewidth}
-%			\includegraphics[width=\linewidth]{electromagnet_force}
-            \input{tikz/electromagnet.tikz}
+			\input{tikz/electromagnet.tikz}
 		\end{column}
 		\begin{column}{0.69\linewidth}
 			\begin{block}{}\justifying
-				За теоремою про циркуляцію для $\Hfield$:
+				Теорема про циркуляцію $\Hfield$ (у залізі $H = B/\mu$, у двох зазорах ширини $x$ --- $H = B$):
 				\begin{equation*}
-					\frac{B}{\mu} l + B\ 2x = \frac{4\pi}{c} IN, \Rightarrow B = \frac{4\pi\mu}{c} \frac{NI}{l + 2\mu x},
+					\frac{B}{\mu}\, l + B\cdot 2x = \frac{4\pi}{c}\, NI
+					\ \Rightarrow\
+					B = \frac{4\pi\mu}{c}\, \frac{NI}{l + 2\mu x},
 				\end{equation*}
-				де $l$ --- довжина контура в середині магніту.
-				Потік магнітного поля через площу перерізу $S$ магніту:
+				де $l$ --- довжина силової лінії в залізі. Повний потік крізь $N$ витків (переріз магніту $S$):
 				\begin{equation*}
-					\Phi = NBS = \frac{4\pi\mu}{c} \frac{N^2I}{l + 2\mu x} S.
+					\Phi = NBS = \frac{4\pi\mu}{c}\, \frac{N^2I}{l + 2\mu x}\, S.
 				\end{equation*}
 			\end{block}
 		\end{column}
 	\end{columns}
 	\begin{block}{}\justifying
-		За умови, що струм постійний, зміна енергії магнітного поля при віртуальній зміні $x$ дорівнює $dW = \frac{I d\Phi}{2c}$,
-		і силу можна знайти як:
+		При сталому струмі $dW = \frac{I\,d\Phi}{2c}$, тому
 		\begin{equation*}
-			F_x =  \left( \frac{d W}{dx} \right)_{I} = \frac{I}{2c} \left( \frac{d \Phi}{dx} \right)_{I} = -\frac{4\pi\mu^2}{c^2}\frac{N^2I^2}{(l + 2\mu
-				x)^2} S = -\frac{B^2}{8\pi} 2S.
-		\end{equation*}Сила $F_x <0 $ означає, що це сила притягання.
+			F_x = \left( \frac{\partial W}{\partial x} \right)_{I} = \frac{I}{2c} \frac{\partial \Phi}{\partial x} = -\frac{4\pi\mu^2}{c^2}\frac{N^2I^2}{(l + 2\mu
+				x)^2}\, S = -\frac{B^2}{8\pi}\, 2S.
+		\end{equation*}
+		$F_x < 0$ --- це сила притягання. Магнітний <<тиск>> $B^2/8\pi$ діє на кожен з двох полюсів. Оскільки $\mu \gg 1$, навіть дуже вузький
+		зазор $2x = l/\mu$ удвічі зменшує поле, а силу --- вчетверо.
 	\end{block}
 \end{frame}
 % ===========================================================================
