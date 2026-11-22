@@ -6,6 +6,11 @@
 \documentclass[onlytextwidth]{beamer}
 \usetheme{Electromagnetism}
 \usepackage{Electromagnetism}
+% посилання на онлайн-симуляцію (аплет) у правому нижньому куті слайда
+\newcommand{\simlink}[2]{\begin{tikzpicture}[remember picture,overlay]
+		\node[anchor=south east,font=\scriptsize,inner sep=2pt] at ([xshift=-3mm,yshift=2mm]current page.south east)
+		{\href{https://sergiokapone.github.io/ElMagConspect/applets/#1.html}{\color{blue}$\blacktriangleright$\ #2}};
+	\end{tikzpicture}}
 \addbibresource{d:/Projects/LaTeX/MyPackage/MyBase.bib}
 
 %============================================================================
@@ -210,6 +215,7 @@
 	\end{block}
 
 
+\simlink{ew-wave-equation}{Симуляція: $u = f(x - vt) + g(x + vt)$}
 \end{frame}
 % ===========================================================================
 
@@ -302,6 +308,7 @@
 		спрощує диференціювання та інтегрування (замінюючи операції на множення), дає змогу зручно працювати з фазою і розв'язувати диференціальні рівняння,
 		при цьому фізична хвиля залишається дійсною як її реальна частина.
 	\end{alertblock}
+\simlink{ew-plane-wave}{Симуляція плоскої хвилі}
 \end{frame}
 % ===========================================================================
 
@@ -338,6 +345,7 @@
                 }
 		\end{equation*}
 	\end{block}
+\simlink{ew-plane-wave}{Симуляція: $k$, $\lambda$, $\omega$, $v$}
 \end{frame}
 % ===========================================================================
 
@@ -494,6 +502,7 @@
 			\end{equation*}
 		\end{block}
 	\end{onlyenv}
+\simlink{ew-em-wave}{Симуляція: $\vect{E}\perp\vect{B}\perp\vect{k}$}
 \end{frame}
 % ============================== Слайд ## ===================================
 
@@ -552,6 +561,7 @@
 	\begin{center}
 		\input{tikz/emwave.tikz}
 	\end{center}
+\simlink{ew-em-wave}{Симуляція: E, B, Пойнтінг, поляризація}
 \end{frame}
 % ===========================================================================
 
@@ -604,6 +614,7 @@
 			де $ \rho = 0 \ldots 1$ --- коефіцієнт відбивання.
 		\end{overprint}
 	\end{block}
+\simlink{ew-light-pressure}{Симуляція: тиск світла}
 \end{frame}
 % ===========================================================================
 
@@ -633,6 +644,7 @@
 		Світло практично повністю відбивалося від дзеркальної поверхні та його тиск на дзеркальне крильце було вдвічі більше, ніж на зачорнене. Внаслідок цього створювався момент сил, що повертає коромисло. Вимірюючи кут повороту коромисла, можна було виміряти силу, що діяла на крильця, а отже, визначити світловий тиск.
 	\end{block}
 	{\tiny \url{https://youtu.be/Dr07pTIoue8}}
+\simlink{ew-light-pressure}{Симуляція досліду Лебедєва}
 \end{frame}
 % ===========================================================================
 
@@ -833,13 +845,14 @@
 			\end{block}
 		\end{column}
 	\end{columns}
-	\begin{block}{}\justifying
+	\begin{block}{}\justifying\footnotesize
 		При вимиканні магнітного поля момент імпульсу поля перейде в обертання самого циліндра $ \vect{L} = mR^2\vec\omega
 		$, а тому кутова швидкість:
 		\(
 		\displaystyle	\vec{\omega} = -\frac{q}{2mc}\vect{B}.
 		\)
 	\end{block}
+\simlink{ew-field-angular-momentum}{Симуляція: момент імпульсу поля}
 \end{frame}
 % ===========================================================================
 
@@ -1033,6 +1046,7 @@
 			}
 		\end{column}
 	\end{columns}
+\simlink{ew-fresnel}{Симуляція відбивання та заломлення}
 \end{frame}
 
 
@@ -1082,6 +1096,7 @@
 			\tcbhighmath{E''_{\perp} = \frac{2\sin r \cos i}{\sin(i + r)} E_{\perp}}
 		\end{equation*}
 	}
+\simlink{ew-fresnel}{Симуляція: формули Френеля}
 \end{frame}
 
 
@@ -1158,6 +1173,7 @@
 			}
 		\end{column}
 	\end{columns}
+\simlink{ew-fresnel}{Симуляція: формули Френеля}
 \end{frame}
 
 
@@ -1230,6 +1246,7 @@
 	%
 	%		\href{https://www.feynmanlectures.caltech.edu/II_33.html}{The Feynman Lectures on Physics, Volume II, 33 Reflection from Surfaces}
 	%	}
+\simlink{ew-fresnel}{Симуляція: повне внутрішнє відбивання}
 \end{frame}
 
 
