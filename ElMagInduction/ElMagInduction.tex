@@ -573,7 +573,7 @@
 	\begin{block}{}\justifying
 		При зміні сили струму за законом Фарадея виникає ЕРС самоіндукції:
 		\begin{equation*}
-			\tcbhighmath{\EMF_\text{si} = -\frac1c\frac{d\Phi}{dt} = - \frac{L}{c^2}\frac{dI}{dt}.}
+			\tcbhighmath{\EMF_\text{сі} = -\frac1c\frac{d\Phi}{dt} = - \frac{L}{c^2}\frac{dI}{dt}.}
 		\end{equation*}
 	\end{block}
 	\begin{alertblock}{}\justifying\scriptsize
@@ -643,7 +643,7 @@
 			\end{column}
 			\begin{column}{0.7\linewidth}
 				\begin{block}{}\justifying
-					Закон Ома для кола: $\EMF + \EMF_\text{si} = IR$. З урахуванням $\EMF_\text{si} = -\frac{L}{c^2}\frac{dI}{dt}$:
+					Закон Ома для кола: $\EMF + \EMF_\text{сі} = IR$. З урахуванням $\EMF_\text{сі} = -\frac{L}{c^2}\frac{dI}{dt}$:
 					\begin{equation*}
 						\frac{L}{c^2}\frac{dI}{dt} + IR = \EMF.
 					\end{equation*}
@@ -691,7 +691,7 @@
 		\begin{block}{}\justifying
 			ЕРС самоіндукції в момент розмикання:
 			\begin{equation*}
-				\EMF_\text{si}(0) = I_0(R+r) = \EMF\,\frac{R+r}{r} \approx \frac{R}{r}\,\EMF \quad (R \gg r).
+				\EMF_\text{сі}(0) = I_0(R+r) = \EMF\,\frac{R+r}{r} \approx \frac{R}{r}\,\EMF \quad (R \gg r).
 			\end{equation*}
 			Вона може в багато разів перевищити ЕРС батареї: при вимиканні кіл з великою індуктивністю виникає іскра або пробій. На цьому
 			ґрунтується, наприклад, система запалювання двигуна.
@@ -943,15 +943,15 @@
 			\begin{equation*}
 				\EMF_2 = -\frac{N_2}{c}\frac{d\Phi}{dt} = -\frac{N_2}{N_1}\, \EMF_1,\qquad \text{\scriptsize знак <<$-$>> --- протилежність фаз.}
 			\end{equation*}
-			Відношення $k = \dfrac{N_2}{N_1}$ називається \alert{коефіцієнтом трансформації}.
+			Відношення $\eta = \dfrac{N_2}{N_1}$ називається \alert{коефіцієнтом трансформації}.
 		\end{block}
 		\begin{block}{}\justifying\small
 			Без втрат потужність зберігається: $\EMF_1 I_1 \approx \EMF_2 I_2$.
 			\begin{itemize}
-				\item $k > 1$ --- підвищувальний трансформатор: збільшує напругу й зменшує струм;
-				\item $k < 1$ --- знижувальний трансформатор: зменшує напругу й збільшує струм.
+				\item $\eta > 1$ --- підвищувальний трансформатор: збільшує напругу й зменшує струм;
+				\item $\eta < 1$ --- знижувальний трансформатор: зменшує напругу й збільшує струм.
 			\end{itemize}
-			Саме тому лінії електропередачі працюють за високої напруги: втрати $I^2R$ у проводах зменшуються в $k^2$ разів.
+			Саме тому лінії електропередачі працюють за високої напруги: втрати $I^2R$ у проводах зменшуються в $\eta^2$ разів.
 		\end{block}
 	\end{onlyenv}
 \end{frame}
@@ -986,7 +986,7 @@
 				\begin{block}{}\justifying
 					Робота джерела при перенесенні заряду $dq = I\,dt$ після замикання ключа:
 					\begin{equation*}
-						\delta A = \EMF\, dq = I^2R\,dt - \EMF_\text{si}I\,dt
+						\delta A = \EMF\, dq = I^2R\,dt - \EMF_\text{сі}I\,dt
 						= \underbrace{I^2R\,dt}_\text{теплота} + \underbrace{\frac{L}{c^2}I\,dI}_\text{енергія поля}.
 					\end{equation*}
 				\end{block}
@@ -1114,8 +1114,9 @@
 
 % ============================== Слайд ## ===================================
 \begin{frame}{Енергія системи струмів}{}\small
-	\framesubtitle<2>{Парадокс?}
-	\framesubtitle<3>{Розв'язання парадоксу}
+	\framesubtitle<2>{Енергія через поле}
+	\framesubtitle<3>{Парадокс?}
+	\framesubtitle<4>{Розв'язання парадоксу}
 	\begin{onlyenv}<1>
 	\begin{block}{}\justifying
 		Для двох контурів робота джерел проти ЕРС індукції (самоіндукції і взаємної) при наростанні струмів від нуля дає
@@ -1145,20 +1146,39 @@
 				\begin{equation*}
 					L_{12}^2 \le L_1L_2,
 					\quad
-					\varkappa = \frac{|L_{12}|}{\sqrt{L_1L_2}} \le 1.
+					k = \frac{L_{12}}{\sqrt{L_1L_2}},\quad |k| \le 1.
 				\end{equation*}
-				$\varkappa$ показує, яка частка потоку одного контуру пронизує інший.
+				Коефіцієнт зв'язку $k$ показує, яка частка потоку одного контуру пронизує інший.
 			\end{block}
 		\end{column}
 	\end{columns}
 	\end{onlyenv}
 	\begin{onlyenv}<2>
-	\begin{block}{Ідеальний зв'язок ($\varkappa = 1$): курйоз}\justifying
+	\begin{block}{Той самий результат через поле}\justifying
+		Поле двох контурів $\Bfield = \Bfield_1 + \Bfield_2$, тому
+		\begin{equation*}
+			W = \iiint\limits_V \frac{B^2}{8\pi\mu}\,dV
+			= \underbrace{\iiint\limits_V \frac{B_1^2}{8\pi\mu}\,dV}_{L_1I_1^2/2c^2}
+			+ \underbrace{\iiint\limits_V \frac{B_2^2}{8\pi\mu}\,dV}_{L_2I_2^2/2c^2}
+			+ \underbrace{\iiint\limits_V \frac{\Bfield_1\cdot\Bfield_2}{4\pi\mu}\,dV}_{L_{12}I_1I_2/c^2}.
+		\end{equation*}
+		Перші два доданки --- власні енергії контурів, третій, \alert{перехресний}, --- енергія взаємодії.
+	\end{block}
+	\begin{block}{Що це дає}\justifying
+		\begin{itemize}
+			\item $W \ge 0$ за будь-яких струмів, бо під інтегралом $B^2/8\pi\mu \ge 0$ у кожній точці ($\mu>0$) --- звідси $L_{12}^2 \le L_1L_2$. Знак може мати лише перехресний доданок, але повна $W$ завжди додатна.
+			\item $W$ \alert{не адитивна}: вона не дорівнює сумі енергій окремих контурів, а лише перехресний доданок може мати довільний знак.
+			\item Енергія локалізована в полі, а не в контурах.
+		\end{itemize}
+	\end{block}
+	\end{onlyenv}
+	\begin{onlyenv}<3>
+	\begin{block}{Ідеальний зв'язок ($|k| = 1$): курйоз}\justifying
 		Спільне осердя без розсіювання: $L_i = \Lambda N_i^2$, $L_{12} = \Lambda N_1N_2$, і
 		\begin{equation*}
 			W = \frac{1}{2c^2}\left(\sqrt{L_1}\,I_1 + \sqrt{L_2}\,I_2\right)^2 = \frac{\Lambda}{2c^2}\,(N_1I_1 + N_2I_2)^2 .
 		\end{equation*}
-		Візьмемо струми з $N_1I_1 = -N_2I_2$ (так працює навантажений трансформатор). Тоді
+		Візьмемо струми з $N_1I_1 = -N_2I_2$ (так працює навантажений трансформатор; знак <<$-$>>: поля обмоток в осерді напрямлені протилежно, вторинна протидіє первинній за правилом Ленца). Тоді
 		\begin{equation*}
 			\tcbhighmath{W = 0 .}
 		\end{equation*}
@@ -1168,19 +1188,19 @@
 		Магнітного поля в осерді вже немає? Тоді як енергія передається від первинної обмотки до вторинної?
 	\end{alertblock}
 	\end{onlyenv}
-	\begin{onlyenv}<3>
+	\begin{onlyenv}<4>
 	\begin{block}{Розв'язання: нуль --- лише в межі}\justifying
 		\begin{itemize}
 			\item $W = 0$ означає, що \alert{сумарні ампер-витки} $N_1I_1 + N_2I_2 \to 0$. Але в трансформаторі й $\Lambda \propto \mu \to \infty$,
 			тому потік $\Phi_0 = \frac{\Lambda}{c}(N_1I_1 + N_2I_2)$ має вигляд $\infty\cdot 0$ --- він \alert{скінченний і ненульовий}.
 			\item Його задає напруга первинної обмотки: $\EMF_1 = \frac{N_1}{c}\,\dot\Phi_0$. Тобто поле в осерді є й \alert{змінюється}.
 			\item Змінний $\Phi_0$ наводить $\EMF_2 = -\frac{N_2}{c}\,\dot\Phi_0$, яка виконує роботу над навантаженням. Енергія
-			\alert{не накопичується в полі, а проходить крізь нього} (потік вектора Умова--Пойнтінга): запасена енергія намагнічування $W_\mu$
-			від навантаження не залежить.
+			\alert{не накопичується в полі, а проходить крізь нього}: з первинного кола у вторинне. Потік $\Phi_0$ задає лише напруга первинної
+			обмотки, тому й енергія, запасена в полі, від навантаження не залежить.
 		\end{itemize}
 	\end{block}
 	\begin{block}{Аналогія}\justifying
-		Труба з водою: витрата велика, а об'єм води в трубі сталий. При $\varkappa < 1$ частина потоку замикається повз другу котушку
+		Труба з водою: витрата велика, а об'єм води в трубі сталий. При $|k| < 1$ частина потоку замикається повз другу котушку
 		(потоки розсіювання), і $W = 0$ вже недосяжне.
 	\end{block}
 	\end{onlyenv}
@@ -1268,16 +1288,16 @@
 			\begin{equation*}
 				\delta A_\text{дж} = \delta Q + dW + \delta A_\text{мех}.
 			\end{equation*}
-			З іншого боку, за законом Ома $\delta A_\text{дж} = \EMF I\,dt = \delta Q - \EMF_\text{si} I\,dt$. Звідси
+			З іншого боку, за законом Ома $\delta A_\text{дж} = \EMF I\,dt = \delta Q - \EMF_\text{сі} I\,dt$. Звідси
 			\begin{equation*}
-				\tcbhighmath{- \EMF_\text{si} I\,dt = \frac{I\,d\Phi}{c} = dW + \delta A_\text{мех}.}
+				\tcbhighmath{- \EMF_\text{сі} I\,dt = \frac{I\,d\Phi}{c} = dW + \delta A_\text{мех}.}
 			\end{equation*}
 		\end{block}
 		\onslide<2>
 		\begin{block}{}\justifying
 			Нехай джерело підтримує в колі сталий струм. Тоді $d\Phi = \frac1c I\,dL$ і
 			\begin{equation*}
-				-\EMF_\text{si} I\,dt = \frac{I^2}{c^2}\, dL,
+				-\EMF_\text{сі} I\,dt = \frac{I^2}{c^2}\, dL,
 				\qquad
 				dW = \frac{I^2}{2c^2}\, dL.
 			\end{equation*}
@@ -1293,7 +1313,7 @@
 		\begin{block}{}\justifying
 			Нехай незмінним залишається потік крізь котушку (наприклад, надпровідна котушка без джерела). Тоді
 			\begin{equation*}
-				- \EMF_\text{si} I\,dt = \frac{I\,d\Phi}{c} = 0
+				- \EMF_\text{сі} I\,dt = \frac{I\,d\Phi}{c} = 0
 				\ \Rightarrow\
 				\delta A_\text{мех} = - dW,
 				\qquad
